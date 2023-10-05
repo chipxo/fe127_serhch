@@ -1,3 +1,6 @@
+html {
+	scroll-behavior: smooth;
+}
 body {
 	margin: 0px;
 	padding: 0px;
@@ -61,12 +64,12 @@ main {
 	align-self: flex-start;
 }
 /*aboutme*/
-.aboutme {
+#aboutme {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.aboutme h1 {
+#aboutme h1 {
 	 color: #070707;
 	 text-align: center;
 	 font-family: Open Sans;
@@ -75,7 +78,7 @@ main {
 	 font-weight: 700;
 	 line-height: normal;
  }
-.aboutme .text{
+#aboutme .text{
 	display: flex;
 	flex-direction: column;
 	align-items:center;
@@ -88,13 +91,13 @@ main {
 	line-height: normal;
 }
 /*skills*/
-.skills {
+#skills {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.skills h1 {
+#skills h1 {
 	color: #070707;
 	text-align: center;
 	font-family: Open Sans;
@@ -103,7 +106,7 @@ main {
 	font-weight: 700;
 	line-height: normal;
 }
-.skills p {
+#skills p {
 	color: #070707;
 	text-align: center;
 	font-family: Open Sans;
@@ -112,7 +115,7 @@ main {
 	font-weight: 400;
 	line-height: normal;
 }
-.skills h1, p,{
+#skills h1, p,{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -163,7 +166,7 @@ main {
 	flex-shrink: 0;
 }
 /*portfolio*/
-.portfolio {
+#portfolio {
 	display: flex;
 	justify-content: center;
 	align-items: center;
