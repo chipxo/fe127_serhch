@@ -1,0 +1,274 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+/*headermenu*/
+header ul {
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	list-style: none;
+	text-indent: none;
+}
+header a {
+	text-decoration: none;
+	color: #828282;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0,36px;
+}
+.home {
+	color: #070707;
+}
+hr {
+	width: 970px;
+	height: 1px;
+}
+/*main*/
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.firstscreen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 21rem;
+	margin-right: 21rem;
+}
+.firstscreen h1 {
+	display: flex;
+	align-self: flex-start;
+	color: #070707;
+	font-family: Open Sans;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+.firstscreen img {
+	width: 61rem;
+	flex-shrink: 0;
+}
+.h1 {
+	display: flex;
+	justify-content: center;
+	align-self: flex-start;
+}
+/*aboutme*/
+#aboutme {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#aboutme h1 {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+#aboutme .text{
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+/*skills*/
+#skills {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#skills h1 {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+#skills p {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+#skills h1, p,{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.productlist {
+	margin-top: 1rem;
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 6.5rem;
+}
+.ps, .ai, .af, .figma {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.ps p, .ai p, .af p, .figma p {
+	color: #828282;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.28px;
+}
+.applications {
+	width: 80px;
+	height: 80px;
+	flex-shrink: 0;
+}
+.figma {
+	width: 80px;
+	height: 90px;
+	flex-shrink: 0;
+	margin-top: 1rem;
+}
+.rating {
+	display: flex;
+	width: 170px;
+	height: 26px;
+	align-items: flex-start;
+	gap: 10px;
+	flex-shrink: 0;
+}
+.stars {
+	width: 26px;
+	height: 26px;
+	flex-shrink: 0;
+}
+/*portfolio*/
+#portfolio {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10rem;
+	background: #F6F6F6;
+}
+.fashionstore a, .reebookstore a, .braunlandpage a {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration-line: underline;
+}
+/*footer*/
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+footer h1 {
+	display: flex;
+	align-items: center;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+footer h1 + p {
+	width: 18rem;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-bottom: 3rem;
+}
+.footerlinks {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 2rem;
+}
+.footerlinks button {
+	display: flex;
+	width: 3rempx;
+	height: 44px;
+	padding: 0px 16px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 22px;
+	background: #070707;
+	color: #F6F6F6;
+	margin-bottom: 3rem;
+	margin-left: 2rem;
+	color: #FFF;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 1.8px;
+}
+.social {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 310px;
+	height: 40px;
+	align-items: flex-start;
+	gap: 6rem;
+	margin-bottom: 6rem;
+}
+.social a {
+	width: 40px;
+	height: 40px;
+}
+#linkedinin {
+	position: absolute;
+	margin-right: 22.5rem;
+	margin-top: 1rem;
+}
+footer p {
+	width: 200px;
+	height: 60px;
+	flex-shrink: 0;
+	color: #828282;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
