@@ -1,0 +1,73 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Arial";
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.box {
+	padding-top: 1rem;
+	width: 30rem;
+	height: 44rem;
+	background: #F6F6F6;
+	border-radius: 2rem;
+	border: 0.3rem solid;
+}
+.box form {
+	inset: 4px;
+	padding: 1rem 2rem;
+	border-radius: 1rem;
+}
+label {
+	display: flex;
+	padding-top: 2rem;
+}
+label h3 {
+	width: 50%;
+	cursor: pointer;
+}
+label p {
+	margin-left: 1rem;
+
+}
+#checkbox {
+	width: 2rem;
+	cursor: pointer;
+}
+.sexhead h3 {
+	display: flex;
+	align-items: center;
+}
+#male, #female, #other {
+	margin-top: 0.5rem;
+	cursor: pointer;
+}
+#course {
+	width: 10.9rem;
+}
+textarea {
+	resize: none;
+}
+.btn {
+	display: flex;
+	justify-content: space-evenly;
+}
+button {
+	margin-top: 1rem;
+	border-radius: 1.5rem;
+	font-weight: bold;
+	padding: 0.5rem;
+	background-color: aliceblue;
+	transition: 0.5s;
+}
+button:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	transform: translateY(-0.5rem);
+}

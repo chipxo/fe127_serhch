@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="box">
+    <form action="" class="register">
+      <label for="fullname">
+        <h3>Повне ім'я</h3>
+        <input type="text" id="fullname" name="fullname">
+      </label>
+      <label for="email">
+        <h3>Email</h3>
+        <input type="email" id="email" name="email">
+      </label>
+      <label for="password">
+        <h3>Пароль</h3>
+        <input type="password" id="password" name="password">
+      </label>
+      <label for="passwordagain">
+        <h3>Пароль ще раз</h3>
+        <input type="passwordagain" id="passwordagain" name="passwordagain">
+      </label>
+      <label for="sex" class="sexhead">
+        <h3>Стать</h3>
+        <div id="sex">
+          <input type="radio" id="male" name="sex"> Чоловік <br />
+          <input type="radio" id="female" name="sex"> Жінка <br />
+          <input type="radio" id="other" name="sex"> Інше <br />
+        </div>
+      </label>
+      <label for="age">
+        <h3>Вік</h3>
+        <input type="number" id="age" name="age">
+      </label>
+      <label for="course">
+        <h3>Курс</h3>
+        <select id="course">
+          <option value="choose">Вибрати</option>
+          <option value="front-end">Front-End</option>
+          <option value="back-end">Back-End</option>
+          <option value="projman">Project Management</option>
+          <option value="qa">QA Manual</option>
+        </select>
+      </label>
+      <label for="fulladress">
+        <h3>Повна адреса</h3>
+        <textarea id="fulladress" name="textarea" rows="3" cols="23"></textarea>
+      </label>
+      <label for="checkbox">
+        <input type="checkbox" id="checkbox" name="checkbox">
+        <p>Я погоджуюсь з обробкою персональних даних</p>
+      </label> <br />
+      <div class="btn">
+        <button type="reset" value="Reset">Очистити форму</button>
+        <button type="submit" value="Submit">Зареєструватися</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
