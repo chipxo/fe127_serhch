@@ -1,6 +1,17 @@
 * {
 	transition: all .1s ease-in;
 }
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+body{
+	border: 1rem solid white;
+	box-shadow: 10px 10px 10px black;
+}
 header {
 	padding: 1rem;
 	display: flex;
