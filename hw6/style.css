@@ -1,0 +1,239 @@
+*{
+	transition: all .1s ease-in;
+}
+html {
+	scroll-behavior: smooth;
+	font-family: "Open Sans";
+}
+/*header*/
+header {
+	display: flex;
+	justify-content: center;
+	margin: 1rem auto 0 auto;
+	border-bottom: #828282 solid 2px;
+	padding-bottom: 0.5rem;
+}
+nav {
+	/*border-bottom: black solid 1px;*/
+}
+header nav ul {
+	display: flex;
+	gap: 2rem;
+}
+a {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.36px;
+	text-decoration: none;
+	color: #828282;
+}
+a:visited {
+	color: black;
+}
+a:hover{
+	font-weight: bold;
+}
+/*firstscreen*/
+.firstscreen {
+	margin-top: 1rem;
+}
+.firstscreen h1 {
+	color: #070707;
+	font-family: Open Sans;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+.firstscreen img{
+	width: 100%;
+	max-width: 970px;
+}
+/*aboutme*/
+#aboutme {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	background: lightgray;
+	padding: 3rem 0 6rem 0;
+}
+#aboutme h1 {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+#aboutme .bme {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+}
+#aboutme .bme p {
+	padding-top: 2rem;
+	text-align: center;
+}
+#aboutme .bme p:nth-child(2) {
+	width: 480px;
+	height: 50px;
+}
+#aboutme .bme p:nth-child(3) {
+	width: 406px;
+	height: 50px;
+}
+#aboutme .bme p:nth-child(4) {
+	width: 321px;
+	height: 50px;
+}
+/*skills*/
+#skills {
+	padding: 5rem 0 5rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#skills h1 {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+#skills p {
+	margin-top: 1rem;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+.productlist {
+	margin: 2.5rem auto;
+	width: 100%;
+	display: flex;
+	gap: 3rem;
+	justify-content: center;
+}
+/*portfolio*/
+#portfolio {
+	background: lightgray;
+}
+#portfolio img {
+	 width: 100%;
+	 max-width: 970px;
+}
+.fashionstore, .reebookstore, .braunlandpage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.fashionstore a, .reebookstore a,.braunlandpage a {
+	padding: 3rem;
+	width: 200px;
+	height: 50px;
+	flex-shrink: 0;
+	text-align: center;
+	color: black;
+	text-decoration: underline #828282;
+}
+#portfolio:last-child {
+	padding-bottom: 3rem;
+}
+/*footer*/
+footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 6rem;
+}
+footer h1 {
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+footer h1 + p {
+	margin: 1.5rem 0 3rem 0;
+	width: 280px;
+	height: 46px;
+	flex-shrink: 0;
+	color: #070707;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+button {
+	display: flex;
+	width: 200px;
+	height: 44px;
+	padding: 0 16px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3rem;
+	background: black;
+	color: #FFF;
+	text-align: center;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 1.8px;
+}
+button:hover {
+	transform: translateY(-1rem);
+}
+.footerlinks {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.footerlinks nav ul li a img:hover {
+	opacity: 0.5;
+	transform: translateY(-1rem);
+}
+.social ul {
+	margin-top: 3rem;
+	display: flex;
+	gap: 3rem;
+	justify-content: center;
+	align-items: center;
+}
+#linkedinlogo img {
+	width: 80px;
+	height: 80px;
+}
+footer p {
+	margin-top: 2rem;
+	width: 180px;
+	height: 60px;
+	flex-shrink: 0;
+	color: #828282;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
