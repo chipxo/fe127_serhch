@@ -91,17 +91,8 @@ h2 {
   margin: 120px 0;
   text-transform: uppercase;
 }
-/*section 1*/
-.sec-1 {
-  display: grid;
-  gap: 30px;
-  grid-template-rows: repeat(3, 370px);
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "s1-it1 s1-it2 s1-it2"
-                       "s1-it3 s1-it3 s1-it4"
-                       "s1-it5 s1-it6 s1-it6";
-}
-/*sections*/
+
+/*general*/
 section {
   display: flex;
   flex-direction: column;
@@ -132,7 +123,6 @@ div img {
   height: 100%;
   object-fit: cover;
 }
-/*sections*/
 .content {
   display: grid;
   width: 100%;
@@ -178,6 +168,17 @@ div img {
   color: white;
   padding: 0 20px 20px 20px;
   opacity: 0;
+}
+/*general*/
+/*section 1*/
+.sec-1 {
+  display: grid;
+  gap: 30px;
+  grid-template-rows: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "s1-it1 s1-it2 s1-it2"
+                       "s1-it3 s1-it3 s1-it4"
+                       "s1-it5 s1-it6 s1-it6";
 }
 .s1-it1 {
   grid-area: s1-it1;
