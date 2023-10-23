@@ -111,6 +111,11 @@ section {
   max-width: 1140px;
   margin: 0 auto;
 }
+.sec-1 div:hover, .sec-2 div:hover, .sec-3 div:hover {
+  .content > * {
+    opacity: 1;
+  }
+}
 section:last-child {
   margin-bottom: 5rem;
 }
@@ -118,11 +123,6 @@ section:last-child {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-}
-.sec-1 div:hover, .sec-2 div:hover, .sec-3 div:hover {
-  .content > * {
-    opacity: 1;
-  }
 }
 div img {
   position: absolute;
