@@ -91,6 +91,17 @@ h2 {
   margin: 120px 0;
   text-transform: uppercase;
 }
+/*section 1*/
+.sec-1 {
+  display: grid;
+  gap: 30px;
+  grid-template-rows: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "s1-it1 s1-it2 s1-it2"
+                       "s1-it3 s1-it3 s1-it4"
+                       "s1-it5 s1-it6 s1-it6";
+}
+/*sections*/
 section {
   display: flex;
   flex-direction: column;
@@ -103,28 +114,17 @@ section {
 section:last-child {
   margin-bottom: 5rem;
 }
-/*section 1*/
-.sec-1 {
-  display: grid;
-  gap: 30px;
-  grid-template-rows: repeat(3, 370px);
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "s1-it1 s1-it2 s1-it2"
-                       "s1-it3 s1-it3 s1-it4"
-                       "s1-it5 s1-it6 s1-it6";
-}
-/*sections*/
 .sec-1 div, .sec-2 div, .sec-3 div {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
 }
 .sec-1 div:hover, .sec-2 div:hover, .sec-3 div:hover {
-  .author, .date, .logo1, .logo2 {
+  .content > * {
     opacity: 1;
   }
 }
-.sec-1 div img, .sec-2 div img, .sec-3 div img {
+div img {
   position: absolute;
   top: 0;
   left: 0;
