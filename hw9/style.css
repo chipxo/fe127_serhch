@@ -108,7 +108,7 @@ section:last-child {
   display: grid;
   gap: 30px;
   grid-template-rows: repeat(3, 370px);
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "s1-it1 s1-it2 s1-it2"
                        "s1-it3 s1-it3 s1-it4"
                        "s1-it5 s1-it6 s1-it6";
