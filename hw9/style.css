@@ -1,0 +1,269 @@
+/*roboto*/
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Black.ttf") format("ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-BlackItalic.ttf") format("ttf");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-BoldItalic.ttf") format("ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Italic.ttf") format("ttf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Light.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-LightItalic.ttf") format("ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-MediumItalic.ttf") format("ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-Thin.ttf") format("ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/Roboto-ThinItalic.ttf") format("ttf");
+  font-weight: 100;
+  font-style: italic;
+}
+/*delius*/
+@font-face {
+  font-family: "Delius Unicase";
+  src: url("fonts/delius/DeliusUnicase-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Delius Unicase";
+  src: url("fonts/delius/DeliusUnicase-Bold.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+h2 {
+  font-family: "Delius Unicase", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  margin: 120px 0;
+  text-transform: uppercase;
+}
+/*general*/
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.sec-1 div:hover, .sec-2 div:hover, .sec-3 div:hover {
+  .content > * {
+    opacity: 1;
+  }
+}
+section:last-child {
+  margin-bottom: 5rem;
+}
+.sec-1 div, .sec-2 div, .sec-3 div {
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas: "logo1 logo2"
+                       "author date";
+}
+.content:hover {
+  background-image: url("img/blur.png");
+  background-size: cover;
+}
+.logo1 {
+  grid-area: logo1;
+}
+.logo2 {
+  grid-area: logo2;
+  display: flex;
+  justify-content: flex-end;
+}
+.author {
+  grid-area: author;
+  display: flex;
+  align-items: flex-end;
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.date {
+  grid-area: date;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.logo1, .logo2 {
+  padding: 20px;
+  color: white;
+  opacity: 0;
+}
+.author, .date {
+  color: white;
+  padding: 0 20px 20px 20px;
+  opacity: 0;
+}
+/*section 1*/
+.sec-1 {
+  display: grid;
+  gap: 30px;
+  grid-template-rows: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "s1-it1 s1-it2 s1-it2"
+                       "s1-it3 s1-it3 s1-it4"
+                       "s1-it5 s1-it6 s1-it6";
+}
+.s1-it1 {
+  grid-area: s1-it1;
+}
+.s1-it2{
+  grid-area: s1-it2;
+}
+.s1-it3 {
+  grid-area: s1-it3;
+}
+.s1-it4 {
+  grid-area: s1-it4;
+}
+.s1-it5 {
+  grid-area: s1-it5;
+}
+.s1-it6 {
+  grid-area: s1-it6;
+}
+/*section 2*/
+.sec-2 {
+  display: grid;
+  gap: 30px;
+  grid-template-rows: repeat(4, 370px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "s2-it1 s2-it2 s2-it2"
+                       "s2-it3 s2-it3 s2-it4"
+                       "s2-it3 s2-it3 s2-it4"
+                       "s2-it5 s2-it5 s2-it6";
+}
+.s2-it1 {
+  grid-area: s2-it1;
+}
+.s2-it2 {
+  grid-area: s2-it2;
+}
+.s2-it3 {
+  grid-area: s2-it3;
+}
+.s2-it4 {
+  grid-area: s2-it4;
+}
+.s2-it5 {
+  grid-area: s2-it5;
+}
+.s2-it6 {
+  grid-area: s2-it6;
+}
+/*section 3*/
+.sec-3 {
+  display: grid;
+  gap: 30px;
+  grid-template-rows: repeat(5, 370px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "s3-it1 s3-it2 s3-it3"
+                       "s3-it4 s3-it2 s3-it5"
+                       "s3-it6 s3-it7 s3-it5"
+                       "s3-it6 s3-it8 s3-it8"
+                       "s3-it9 s3-it9 s3-it10";
+}
+.s3-it1 {
+  grid-area: s3-it1;
+}
+.s3-it2 {
+  grid-area: s3-it2;
+}
+.s3-it3 {
+  grid-area: s3-it3;
+}
+.s3-it4 {
+  grid-area: s3-it4;
+}
+.s3-it5 {
+  grid-area: s3-it5;
+}
+.s3-it6 {
+  grid-area: s3-it6;
+}
+.s3-it7 {
+  grid-area: s3-it7;
+}
+.s3-it8 {
+  grid-area: s3-it8;
+}
+.s3-it9 {
+  grid-area: s3-it9;
+}
+.s3-it10 {
+  grid-area: s3-it10;
+}
