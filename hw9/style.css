@@ -91,7 +91,6 @@ h2 {
   margin: 120px 0;
   text-transform: uppercase;
 }
-
 /*general*/
 section {
   display: flex;
@@ -169,7 +168,6 @@ div img {
   padding: 0 20px 20px 20px;
   opacity: 0;
 }
-/*general*/
 /*section 1*/
 .sec-1 {
   display: grid;
