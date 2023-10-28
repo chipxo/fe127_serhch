@@ -172,6 +172,7 @@ code {
   aspect-ratio: 16/9;
 }
 .clients div i {
+  font-size: 2rem;
   background: #E6E6E6;
   color: black;
   width: 100%;
@@ -182,6 +183,15 @@ code {
   text-decoration: none;
   transition: .5s ease-in-out;
   border-radius: 8px;
+}
+.clients .it-6 i {
+  font-size: 3.5rem;
+}
+.clients .it-7 i {
+  font-size: 4rem;
+}
+.clients .it-8 i {
+  font-size: 3rem;
 }
 .clients div i:hover {
   background: black;
