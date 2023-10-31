@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@400;500&display=swap');
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c5c5c5;
+}
+/*main*/
+main {
+  padding: 36px;
+  width: 570px;
+  height: 590px;
+  background: #fff;
+  border-radius: 8px;
+}
+h1 {
+  color: #1C1C1C;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+section label {
+  margin: 0 20px 0 30px;
+  position: relative;
+}
+section label input[type='text'] {
+  width: 138px;
+  height: 30px;
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+}
+section button {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8f8f8f;
+  color: #fff;
+  border-radius: 8px;
+}
+section label, section button {
+  margin-top: 11px;
+  background: #fff;
+}
+section label img {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+}
+section label .inp-name {
+  margin-top: 9px;
+  color: #969696;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+/*form*/
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 260px);
+  row-gap: 20px;
+  column-gap: 10px;
+}
+form label input[type='text'], form label input[type='email'], form label input[type='number'] {
+  display: flex;
+  width: 245px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+  padding-left: 10px;
+}
+form label .inp-name {
+  color: #383737;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+  padding-bottom: 7px;
+}
+/*location-wrap*/
+.country-select {
+  display: flex;
+  gap: 12px;
+}
+.country-select label .country-wrap {
+  position: relative;
+}
+.country-select label .country-wrap img {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+/*button*/
+.btn button {
+  display: flex;
+  width: 150px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+  color: #fff;
+  background: #007BFF;
+}

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@400;500&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c5c5c5;
+}
+/*form*/
+form {
+  padding: 36px;
+  width: 570px;
+  background: #fff;
+  border-radius: 8px;
+}
+form > *:not(h1) {
+  margin-bottom: 20px;
+}
+form label input[type='text'] {
+  padding: 10px;
+  display: flex;
+  width: 245px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+}
+form label input[type='email'] {
+  display: flex;
+  width: 500px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+  margin-bottom: 7px;
+}
+form label input[type='radio'] {
+  width: 20px;
+  height: 20px;
+}
+form label input[type='text']:focus, form label input[type='email']:focus {
+  border: 1px solid #007BFF;
+}
+h1 {
+  color: #1C1C1C;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+.inp-name, p, .suggestions{
+  color: #383737;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+  padding-bottom: 7px;
+}
+p, .suggestions {
+  color: #969696;
+}
+a {
+  text-decoration: none;
+  color: #007BFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+/*name-wrap*/
+.name-wrap {
+  display: flex;
+  gap: 12px;
+}
+/*sex-wrap*/
+.sex-wrap {
+  display: flex;
+  gap: 21px;
+  margin-left: 10px;
+}
+.sex-wrap label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sex-wrap label .inp-name {
+  margin-left: 8px;
+  padding-bottom: 0;
+}
+.sex-wrap label .wrapper-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sex-wrap label .wrapper-radio > * {
+  position: absolute;
+}
+.sex-wrap label .wrapper-radio img {
+  opacity: 0;
+}
+.sex-wrap label .wrapper-radio input[type='radio']:checked + img {
+  opacity: 1;
+  z-index: 1;
+}
+/*location-wrap*/
+.location-wrap {
+  display: flex;
+  gap: 12px;
+}
+.location-wrap .country-select label .country-wrap{
+  position: relative;
+}
+.location-wrap .country-select label .country-wrap img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/*button*/
+.btn button {
+  display: flex;
+  width: 500px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  background: #007BFF;
+  color: #fff;
+  border: 1px solid #545454;
+  border-radius: 8px;
+}
+/*other*/
+.other {
+  border-bottom: 1px solid #E4E4E4;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.other p {
+  width: 410px;
+  height: 36px;
+  text-align: center;
+}
+/*have-acc*/
+.have-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.have-account p {
+  margin-right: 20px;
+  padding-bottom: 0;
+  color: #545454;
+  text-align: right;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+}
+.have-account a {
+  color: #007BFF;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.1px;
+}
