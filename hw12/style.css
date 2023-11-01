@@ -17,7 +17,7 @@ form {
   background: #fff;
   border-radius: 8px;
 }
-form > *:not(h1) {
+form > * {
   margin-bottom: 20px;
 }
 form label input[type='text'] {
@@ -54,7 +54,6 @@ h1 {
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
-  margin-bottom: 20px;
 }
 .inp-name, p, .suggestions{
   color: #383737;
