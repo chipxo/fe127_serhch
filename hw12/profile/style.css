@@ -24,6 +24,10 @@ h1 {
   line-height: 32px;
   margin-bottom: 20px;
 }
+form label input:focus, section label input[type='text']:focus {
+  border: 1px solid #007BFF;
+}
+/*section*/
 section {
   display: flex;
   align-items: flex-start;
@@ -75,7 +79,7 @@ form {
   row-gap: 20px;
   column-gap: 10px;
 }
-form label input[type='text'], form label input[type='email'], form label input[type='number'] {
+form label input {
   display: flex;
   width: 245px;
   height: 30px;
