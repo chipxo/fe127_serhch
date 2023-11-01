@@ -114,7 +114,6 @@ a {
 }
 .sex-wrap label .wrapper-radio input[type='radio']:checked + img {
   opacity: 1;
-  z-index: 1;
 }
 /*location-wrap*/
 .location-wrap {
