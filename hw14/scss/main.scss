@@ -32,9 +32,6 @@ main {
           transform: rotate(180deg);
         }
       }
-      .dev-ph {
-        @include rect(400px, 400px, unset);
-      }
     }
   }
   .content {
