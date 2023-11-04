@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="icon.css">
+  <title>Profile</title>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Profile</h1>
+    </header>
+    <section>
+      <img src="../media/profile-picture.svg" alt="profile picture">
+      <label for="photo">
+        <input type="text" name="photo" id="photo">
+        <img src="../media/camera-icon.svg">
+        <div class="inp-name">Up to 1 MB (300x300 px)</div>
+      </label>
+      <button><i class="icon-trash"></i></button>
+    </section>
+    <form action="get" name="profile_form">
+      <div class="name">
+        <label for="name">
+          <div class="inp-name">Name</div>
+          <input type="text" name="name" id="name" />
+        </label>
+      </div>
+      <div class="email-wrap">
+        <label for="email">
+          <div class="inp-name">E-mail</div>
+          <input type="email" name="email" id="email" />
+        </label>
+      </div>
+      <div class="country-select">
+        <label for="country">
+          <div class="inp-name">Country</div>
+          <div class="country-wrap">
+            <input type="text" name="country" id="country" placeholder="Select"/>
+            <img src="../media/arrows.svg">
+          </div>
+        </label>
+      </div>
+      <div class="city-type">
+        <label for="city">
+          <div class="inp-name">City</div>
+          <input type="text" name="city" id="city" />
+        </label>
+      </div>
+      <div class="zip-code">
+        <label for="zip">
+          <div class="inp-name">Zip Code</div>
+          <input type="number" name="zip" id="zip" />
+        </label>
+      </div>
+      <div class="phone-number">
+        <label for="phone">
+          <div class="inp-name">Phone Number</div>
+          <input type="number" name="phone" id="phone" />
+        </label>
+      </div>
+      <div class="btn">
+        <button type="submit">Update</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
