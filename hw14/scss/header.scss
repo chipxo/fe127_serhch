@@ -1,0 +1,22 @@
+header {
+  @extend %flex-column;
+  margin-bottom: 90px;
+  .heading {
+    @extend %flex-column;
+    gap: 15px;
+    @include rect(450px, 157px, unset);
+    position: relative;
+    border-bottom: $border;
+    h4 {
+      @include text($font-sub, 18px, $weight-mid, 24px, $sub-text, uppercase);
+    }
+    h1 {
+      @include text($font-main, 60px, $weight-mid, 66px, $gold, uppercase);
+    }
+    img {
+      position: absolute;
+      bottom: -10px;
+      background: $white;
+    }
+  }
+}

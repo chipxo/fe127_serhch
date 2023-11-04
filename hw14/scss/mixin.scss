@@ -1,0 +1,21 @@
+@mixin text(
+  $font-family,
+  $font-size,
+  $font-weight,
+  $line-height,
+  $color,
+  $text-transform
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+  color: $color;
+  @extend %text-set;
+}
+@mixin rect($width, $height, $bc) {
+  width: $width;
+  height: $height;
+  background: $bc;
+}

@@ -1,0 +1,10 @@
+@import "reset";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Raleway:wght@400;500&family=Roboto:wght@900&display=swap");
+@import "var";
+@import "mixin";
+@import "extend";
+* {
+  box-sizing: border-box;
+}
+@import "header";
+@import "main";
