@@ -36,7 +36,7 @@ main {
   }
   .content {
     @extend %flex-column;
-    padding: 0 0 0 100px;
+    padding-left: 100px;
     h2 {
       @include text($font-main, 36px, $weight-max, normal, $mid-gray, capitalize);
     }
