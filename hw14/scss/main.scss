@@ -1,7 +1,6 @@
 main {
   max-width: 1030px;
   width: 100%;
-  height: 600px;
   margin: 0 auto;
   .sc-1 {
     border-right: $border;
@@ -53,7 +52,8 @@ main {
     }
     p {
       @include text($font-sub, 14px, $weight-mid, 24px, $dark-gray, none);
-      @include rect(430px, 116px, unset);
+      max-width: 430px;
+      @include rect(100%, 116px, unset);
     }
     .rectangle-wrap {
       gap: 5px;
