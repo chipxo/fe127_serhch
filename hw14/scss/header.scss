@@ -1,8 +1,6 @@
 header {
-  @extend %flex-column;
   margin-bottom: 90px;
   .heading {
-    @extend %flex-column;
     gap: 15px;
     @include rect(450px, 157px, unset);
     position: relative;
