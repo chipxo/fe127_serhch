@@ -3,6 +3,10 @@ footer {
   .contacts {
     .cont-it1 {
       align-items: flex-start;
+      a {
+        @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
+        margin-bottom: 5px;
+      }
       > * {
         @include set(570px, 100%, auto, 0 auto);
       }
