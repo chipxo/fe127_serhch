@@ -1,0 +1,37 @@
+footer {
+  margin-bottom: 30px;
+  .contacts {
+    .cont-it1 {
+      align-items: flex-start;
+      > * {
+        @include set(570px, 100%, auto, 0 auto);
+      }
+    }
+    .cont-it2 {
+      gap: 23px;
+      justify-content: flex-end;
+      @include set(570px, 100%, auto, 0 auto);
+      i {
+        @include set(24px, 24px, 24px, 0);
+        @extend %fl-center;
+        padding: 10px;
+        border: 1px solid $cl-gray-700;
+        color: $cl-gray-700;
+        background-color: $base-cl-white;
+        &:hover {
+          color: $base-cl-white;
+          background: $cl-gray-700;
+        }
+      }
+    }
+  }
+  .copr {
+    @extend %fl-center;
+    p {
+      &::before {
+        content: "©";
+        margin-right: 5px;
+      }
+    }
+  }
+}

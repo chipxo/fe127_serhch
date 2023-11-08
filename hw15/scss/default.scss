@@ -1,0 +1,82 @@
+h1 {
+  @include text-set($main-font, 48px, normal, $mid-weight, 64px, 2px, $base-cl-black);
+}
+h2 {
+  @include text-set($main-font, 48px, normal, $light-weight, 64px, 2px, $base-cl-black);
+  margin-bottom: 50px;
+}
+h3 {
+  @include text-set($main-font, 28px, normal, $mid-weight, 166%, 3px, $base-cl-black);
+  margin-bottom: 50px;
+}
+h4 {
+  @include text-set($main-font, 24px, normal, $regular-weight, 166%, 2px, $base-cl-black);
+  margin-bottom: 15px;
+}
+h5 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 30px;
+}
+.date-1 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 50px;
+}
+.date-2 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin: 25px 0;
+  display: inline;
+}
+p {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
+}
+.fl-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fl-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid-2 {
+  @include grid-col(2, 1fr);
+}
+.grid-3 {
+  @include grid-col(3, 1fr);
+}
+button {
+  @include set(180px, 100%, auto, 0);
+  @include text-set($common-font, 16px, normal, $bold-weight, 166%, 2px, $base-cl-white);
+  background-color: $cl-gray;
+  @extend %fl-center;
+  margin-top: 50px;
+  aspect-ratio: 16/5;
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: $base-cl-black;
+}
+.bd-bot {
+  position: absolute;
+  bottom: -6px;
+  opacity: 0;
+  width: 40px;
+  height: 1px;
+  background-color: black;
+}
+section,
+footer {
+  margin: 0 auto 90px auto;
+  padding: 0 130px;
+}
+.sub-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.view {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 50px;
+}

@@ -1,0 +1,37 @@
+.latest-posts {
+  .latest-posts-item {
+    grid-template-areas:
+      "wrapper-lp wrapper-lp wrapper-lp"
+      "it-1 it-2 it-3";
+    .wrapper-lp {
+      grid-area: wrapper-lp;
+      gap: 30px;
+      > * {
+        @include set(370px, 100%, auto, 0 auto);
+      }
+      p {
+        opacity: 0;
+      }
+      a {
+        text-align: end;
+      }
+    }
+  }
+  .posts-it-1 {
+    grid-area: it-1;
+  }
+  .posts-it-2 {
+    grid-area: it-2;
+  }
+  .posts-it-3 {
+    grid-area: it-3;
+  }
+  .posts-it-1,
+  .posts-it-2,
+  .posts-it-3 {
+    @include set(370px, 100%, auto, 0 auto);
+    img {
+      @include set(370px, 100%, auto, 0);
+    }
+  }
+}

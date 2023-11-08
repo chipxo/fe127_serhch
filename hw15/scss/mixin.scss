@@ -1,0 +1,24 @@
+@mixin text-set($f-family, $f-size, $f-style, $f-weight, $line-height, $letter-spacing, $color) {
+  font-family: $f-family;
+  font-size: $f-size;
+  font-style: $f-style;
+  font-weight: $f-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}
+@mixin grid($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+@mixin grid-col($repeat, $size) {
+  display: grid;
+  grid-template-columns: repeat($repeat, $size);
+  gap: 30px;
+}
+@mixin set($max-width, $width, $height, $margin) {
+  max-width: $max-width;
+  width: $width;
+  height: $height;
+  margin: $margin;
+}

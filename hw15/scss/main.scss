@@ -1,0 +1,21 @@
+@import "reset";
+@import "var";
+@import "font-face";
+@import "mixin";
+@import "extend";
+@import "default";
+// * {
+//   transition: 0.3s ease-in-out;
+// }
+@import "header";
+@import "f-screen";
+@import "blog";
+@import "lat-post";
+@import "mostpop";
+@import "info";
+@import "footer";
+// @media (max-width: 820px) {
+//   header {
+//     padding: 20px 100px;
+//   }
+// }

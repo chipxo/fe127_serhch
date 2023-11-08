@@ -1,0 +1,20 @@
+.most-popular {
+  .wrapper-2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .mp-item {
+    row-gap: 0;
+    > * {
+      @include set(570px, 100%, auto, 0 auto);
+    }
+  }
+  .mp-it-1,
+  .mp-it-2 {
+    @include set(570px, 100%, auto, 0 auto);
+    img {
+      @include set(570px, 100%, auto, 0);
+    }
+  }
+}
