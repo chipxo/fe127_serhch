@@ -22,3 +22,24 @@
   height: $height;
   margin: $margin;
 }
+@mixin t-al($value) {
+  text-align: $value;
+}
+@mixin pos($value) {
+  position: $value;
+}
+@mixin flex($position) {
+  display: flex;
+  justify-content: $position;
+}
+@mixin fl-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin fl-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

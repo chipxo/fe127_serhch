@@ -1,7 +1,6 @@
 .most-popular {
   .wrapper-2 {
-    display: flex;
-    justify-content: flex-end;
+    @include flex(flex-end);
     align-items: center;
   }
   .mp-item {

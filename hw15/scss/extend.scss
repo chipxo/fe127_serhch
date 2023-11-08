@@ -3,11 +3,18 @@
   justify-content: center;
   align-items: center;
 }
+%fl-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+%text-center {
+  text-align: center;
+}
 %in-margin {
   margin: 0 auto;
 }
-// %fl-sp- {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
+%p-abs {
+  position: absolute;
+}

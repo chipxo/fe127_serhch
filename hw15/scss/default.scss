@@ -1,5 +1,6 @@
 h1 {
   @include text-set($main-font, 48px, normal, $mid-weight, 64px, 2px, $base-cl-black);
+  @include set(770px, 100%, auto, 0);
 }
 h2 {
   @include text-set($main-font, 48px, normal, $light-weight, 64px, 2px, $base-cl-black);
@@ -30,15 +31,10 @@ p {
   @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
 }
 .fl-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include fl-center;
 }
 .fl-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include fl-col;
 }
 .grid-2 {
   @include grid-col(2, 1fr);
@@ -49,8 +45,8 @@ p {
 button {
   @include set(180px, 100%, auto, 0);
   @include text-set($common-font, 16px, normal, $bold-weight, 166%, 2px, $base-cl-white);
-  background-color: $cl-gray;
-  @extend %fl-center;
+  @include fl-center;
+  background-color: $cl-gray-700;
   margin-top: 50px;
   aspect-ratio: 16/5;
   border: none;
@@ -60,12 +56,12 @@ a {
   color: $base-cl-black;
 }
 .bd-bot {
-  position: absolute;
+  @extend %p-abs;
   bottom: -6px;
   opacity: 0;
   width: 40px;
   height: 1px;
-  background-color: black;
+  background-color: $base-cl-black;
 }
 section,
 footer {

@@ -1,0 +1,132 @@
+@media (max-width: 320px) {
+  // Default
+  h1 {
+    @include text-set($main-font, 30px, normal, $mid-weight, 50px, 1px, $base-cl-black);
+    @include set(300px, 100%, auto, 0);
+  }
+  h3 {
+    @include text-set($main-font, 28px, normal, $mid-weight, 36px, 1px, $base-cl-black);
+    margin-bottom: 50px;
+  }
+  section,
+  footer {
+    margin: 0 auto 70px auto;
+    padding: 0 34px;
+  }
+
+  //   Sections
+
+  header {
+    padding: 23px 10px;
+  }
+
+  .fs_screen {
+    @include set(unset, 100%, auto, 0 0 70px 0);
+    min-height: 500px;
+    padding: 70px 10px 0 10px;
+    background-image: url(media/bg-image.jpg);
+    background-size: 100% 100%;
+  }
+
+  .blog {
+    @include fl-col;
+    .wrapper-blog {
+      h2 {
+        @include t-al(center);
+      }
+      p {
+        @include pos(absolute);
+      }
+    }
+    .blog-item-1,
+    .blog-item-2 {
+      @include fl-col;
+      > *,
+      img {
+        @include set(300px, 100%, auto, 0 auto);
+      }
+    }
+  }
+
+  .latest-posts {
+    @include fl-col;
+    .latest-posts-item {
+      > * {
+        @include fl-col;
+        @include set(300px, 100%, unset, 0);
+      }
+      @include fl-col;
+      .wrapper-lp {
+        p {
+          @include pos(absolute);
+        }
+        h3,
+        a {
+          @include t-al(start);
+        }
+      }
+    }
+  }
+
+  .most-popular {
+    @include fl-col;
+    .mp-item {
+      @include fl-col;
+      .wrapper-1 {
+        h3 {
+          @include t-al(start);
+        }
+      }
+      .wrapper-2 {
+        @include flex(flex-start);
+        a {
+          @include t-al(start);
+        }
+      }
+      > * {
+        @include set(300px, 100%, auto, 0 auto);
+      }
+    }
+    .mp-it-1,
+    .mp-it-2 {
+      @include set(300px, 100%, auto, 0 auto);
+      img {
+        @include set(300px, 100%, auto, 0);
+      }
+    }
+  }
+
+  .info {
+    @include fl-col;
+    .info-it1 {
+      margin: 0;
+      @include t-al(start);
+    }
+    .info-it2 {
+      p {
+        @include set(fit-content, 100%, auto, 0);
+        @include t-al(start);
+      }
+    }
+  }
+
+  footer {
+    margin-bottom: 50px;
+    .contacts {
+      @include fl-col;
+      .cont-it1 {
+        h2 {
+          @include t-al(center);
+        }
+      }
+      .cont-it2 {
+        gap: 15px;
+      }
+    }
+    .copr {
+      p {
+        @include t-al(center);
+      }
+    }
+  }
+}

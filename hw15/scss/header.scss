@@ -17,12 +17,12 @@ header {
     @include set(500px, 100%, auto, 0 84px 0 auto);
     box-sizing: border-box;
     ul {
+      @include flex(space-around);
       display: flex;
       justify-content: space-around;
       li {
-        display: flex;
-        justify-content: center;
-        position: relative;
+        @include flex(center);
+        @include pos(relative);
         &:hover {
           .bd-bot {
             opacity: 1;

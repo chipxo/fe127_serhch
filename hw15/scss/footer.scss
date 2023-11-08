@@ -12,9 +12,9 @@ footer {
       }
     }
     .cont-it2 {
+      @include set(570px, 100%, auto, 0 auto);
       gap: 23px;
       justify-content: flex-end;
-      @include set(570px, 100%, auto, 0 auto);
       i {
         @include set(24px, 24px, 24px, 0);
         @extend %fl-center;
