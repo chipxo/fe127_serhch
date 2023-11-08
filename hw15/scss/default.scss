@@ -69,8 +69,7 @@ footer {
   padding: 0 130px;
 }
 .sub-heading {
-  display: flex;
-  justify-content: space-between;
+  @include flex(space-between);
 }
 .view {
   @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);

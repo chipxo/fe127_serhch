@@ -1,11 +1,11 @@
 .blog {
   grid-template-areas:
-    "wrapper-h2   wrapper-h2"
+    "wrapper-blog   wrapper-blog"
     "blog-item-1  blog-item-1"
     "blog-item-2  blog-item-2";
   .wrapper-blog {
     gap: 30px;
-    grid-area: wrapper-h2;
+    grid-area: wrapper-blog;
     h2 {
       @include set(570px, 100%, auto, 0 auto);
     }

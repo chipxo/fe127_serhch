@@ -662,8 +662,6 @@ header nav {
 header nav ul {
   display: flex;
   justify-content: space-around;
-  display: flex;
-  justify-content: space-around;
 }
 header nav ul li {
   display: flex;
@@ -692,11 +690,11 @@ header nav ul li a {
 }
 
 .blog {
-  grid-template-areas: "wrapper-h2   wrapper-h2" "blog-item-1  blog-item-1" "blog-item-2  blog-item-2";
+  grid-template-areas: "wrapper-blog   wrapper-blog" "blog-item-1  blog-item-1" "blog-item-2  blog-item-2";
 }
 .blog .wrapper-blog {
   gap: 30px;
-  grid-area: wrapper-h2;
+  grid-area: wrapper-blog;
 }
 .blog .wrapper-blog h2 {
   max-width: 570px;

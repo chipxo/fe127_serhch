@@ -18,8 +18,6 @@ header {
     box-sizing: border-box;
     ul {
       @include flex(space-around);
-      display: flex;
-      justify-content: space-around;
       li {
         @include flex(center);
         @include pos(relative);
