@@ -1,6 +1,7 @@
 .fs_screen {
-  min-height: 600px;
-  padding: 100px 0 0 135px;
+  padding: 100px 135px 380px 135px;
   background-image: url(media/bg-image.jpg);
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -1,31 +1,12 @@
 .blog {
-  grid-template-areas:
-    "wrapper-blog   wrapper-blog"
-    "blog-item-1  blog-item-1"
-    "blog-item-2  blog-item-2";
-  .wrapper-blog {
-    gap: 30px;
-    grid-area: wrapper-blog;
-    h2 {
+  .blog-item {
+    @include grid(repeat(2, 1fr), 30px, 50px);
+    > * {
       @include set(570px, 100%, auto, 0 auto);
+      img {
+        @include set(570px, 100%, 470px, 0 auto);
+        object-fit: cover;
+      }
     }
-    p {
-      @include set(570px, 100%, auto, 0 auto);
-      opacity: 0;
-    }
-  }
-  .blog-item-1,
-  .blog-item-2 {
-    > *,
-    img {
-      @include set(570px, 100%, auto, 0 auto);
-    }
-  }
-  .blog-item-1 {
-    margin-bottom: 50px;
-    grid-area: blog-item-1;
-  }
-  .blog-item-2 {
-    grid-area: blog-item-2;
   }
 }

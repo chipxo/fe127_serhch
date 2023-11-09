@@ -8,125 +8,158 @@
     @include text-set($main-font, 28px, normal, $mid-weight, 36px, 1px, $base-cl-black);
     margin-bottom: 50px;
   }
-  section,
-  footer {
+  section {
     margin: 0 auto 70px auto;
-    padding: 0 34px;
+    padding: 0 10px;
   }
 
   //   Sections
 
   header {
     padding: 23px 10px;
+    nav {
+      display: none;
+    }
   }
 
   .fs_screen {
-    @include set(unset, 100%, auto, 0 0 70px 0);
-    min-height: 500px;
-    padding: 70px 10px 0 10px;
+    padding: 70px 10px 230px 10px;
     background-image: url(media/bg-image.jpg);
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .blog {
-    @include fl-col;
-    .wrapper-blog {
-      h2 {
-        @include t-al(center);
+    .blog-item {
+      @include grid(1fr, 0, 50px);
+      grid-template-areas:
+        "wrapper-blog"
+        "blog-text-1"
+        "blog-img-1"
+        "blog-text-2"
+        "blog-img-2";
+      .wrapper-blog {
+        grid-area: wrapper-blog;
       }
-      p {
-        @include pos(absolute);
+      .blog-img-1 {
+        grid-area: blog-img-1;
       }
-    }
-    .blog-item-1,
-    .blog-item-2 {
-      @include fl-col;
-      > *,
-      img {
+      .blog-img-2 {
+        grid-area: blog-img-2;
+      }
+      .blog-text-1 {
+        grid-area: blog-text-1;
+      }
+      .blog-text-2 {
+        grid-area: blog-text-2;
+      }
+      .filler-blog {
+        display: none;
+      }
+      > * {
         @include set(300px, 100%, auto, 0 auto);
+        img {
+          @include set(300px, 100%, 250px, 0 auto);
+        }
       }
     }
   }
 
   .latest-posts {
-    @include fl-col;
     .latest-posts-item {
-      > * {
-        @include fl-col;
-        @include set(300px, 100%, unset, 0);
-      }
       @include fl-col;
-      .wrapper-lp {
-        p {
-          @include pos(absolute);
+      .filler-lp {
+        display: none;
+      }
+      .wrapper-lp-1 {
+        h3 {
+          margin: 0;
         }
-        h3,
+      }
+      .wrapper-lp-2 {
+        @include flex(flex-start, center);
+
         a {
-          @include t-al(start);
+          @include pos(relative);
+          margin: 0;
+          img {
+            @include pos(absolute);
+            top: 7px;
+            right: -25px;
+          }
+        }
+      }
+      > * {
+        @include set(300px, 100%, auto, 0 auto);
+        img {
+          &:not(a img) {
+            @include set(300px, 100%, 210px, 0 auto);
+          }
         }
       }
     }
   }
 
   .most-popular {
-    @include fl-col;
     .mp-item {
       @include fl-col;
-      .wrapper-1 {
+      .wrapper-mp-1 {
         h3 {
-          @include t-al(start);
+          margin: 0;
         }
       }
-      .wrapper-2 {
-        @include flex(flex-start);
+      .wrapper-mp-2 {
+        @include flex(flex-start, center);
         a {
-          @include t-al(start);
+          margin: 0;
         }
       }
       > * {
-        @include set(300px, 100%, auto, 0 auto);
-      }
-    }
-    .mp-it-1,
-    .mp-it-2 {
-      @include set(300px, 100%, auto, 0 auto);
-      img {
-        @include set(300px, 100%, auto, 0);
+        @include set(340px, 100%, 160, 0 auto);
+        img {
+          &:not(a img) {
+            @include set(340px, 100%, 160px, 0 auto);
+            object-fit: cover;
+          }
+        }
       }
     }
   }
 
   .info {
-    @include fl-col;
-    .info-it1 {
-      margin: 0;
-      @include t-al(start);
-    }
-    .info-it2 {
-      p {
-        @include set(fit-content, 100%, auto, 0);
+    .wrapper-info {
+      .info-it1 {
+        h4 {
+          @include set(300px, 100%, auto, 0 auto);
+          margin-bottom: 30px;
+        }
+      }
+      .info-it2 {
         @include t-al(start);
+        p {
+          @include set(300px, 100%, auto, 0 auto);
+        }
       }
     }
   }
 
   footer {
-    margin-bottom: 50px;
+    @include fl-col;
     .contacts {
       @include fl-col;
+      gap: 20px;
+      > * {
+        @include set(300px, 100%, auto, 0 auto);
+      }
       .cont-it1 {
         h2 {
           @include t-al(center);
         }
       }
-      .cont-it2 {
-        gap: 15px;
-      }
     }
     .copr {
-      p {
-        @include t-al(center);
-      }
+      @include t-al(center);
     }
   }
 }

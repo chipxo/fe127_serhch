@@ -1,8 +1,8 @@
 header {
-  @include grid(142px 1fr 20px);
+  @include grid(142px 1fr 20px, 0, 0);
   height: 100px;
   padding: 20px 135px;
-  align-items: center;
+  place-items: center;
   button {
     @extend %fl-center;
     @include set(100px, 100%, 100px, 0);
@@ -17,9 +17,9 @@ header {
     @include set(500px, 100%, auto, 0 84px 0 auto);
     box-sizing: border-box;
     ul {
-      @include flex(space-around);
+      @include flex(space-around, center);
       li {
-        @include flex(center);
+        @extend %fl-center;
         @include pos(relative);
         &:hover {
           .bd-bot {

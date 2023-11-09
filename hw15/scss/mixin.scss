@@ -7,14 +7,11 @@
   letter-spacing: $letter-spacing;
   color: $color;
 }
-@mixin grid($columns) {
+@mixin grid($columns, $col-gap, $row-gap) {
   display: grid;
   grid-template-columns: $columns;
-}
-@mixin grid-col($repeat, $size) {
-  display: grid;
-  grid-template-columns: repeat($repeat, $size);
-  gap: 30px;
+  column-gap: $col-gap;
+  row-gap: $row-gap;
 }
 @mixin set($max-width, $width, $height, $margin) {
   max-width: $max-width;
@@ -28,9 +25,16 @@
 @mixin pos($value) {
   position: $value;
 }
-@mixin flex($position) {
+@mixin flex($justify, $align) {
   display: flex;
-  justify-content: $position;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-col($justify, $align) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
 }
 @mixin fl-col {
   display: flex;

@@ -12,8 +12,7 @@
   p {
     @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
   }
-  section,
-  footer {
+  section {
     margin: 0 auto 70px auto;
     padding: 0 34px;
   }
@@ -23,136 +22,117 @@
   header {
     padding: 23px 34px;
     nav {
-      @include pos(absolute);
-      opacity: 0;
+      display: none;
     }
   }
 
   .fs_screen {
-    min-height: 320px;
-    padding: 30px 0 0 34px;
+    padding: 30px 34px 190px 34px;
     background-image: url(media/bg-image.jpg);
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     @include set(unset, 100%, auto, 0 0 70px 0);
   }
 
   .blog {
-    .wrapper-blog {
-      gap: 20px;
-      h2 {
+    .blog-item {
+      column-gap: 20px;
+      > * {
         @include set(340px, 100%, auto, 0 auto);
-      }
-      p {
-        @include set(340px, 100%, auto, 0 auto);
-        opacity: 0;
-      }
-    }
-    .blog-item-1,
-    .blog-item-2 {
-      > *,
-      img {
-        @include set(340px, 100%, auto, 0 auto);
+        img {
+          @include set(340px, 100%, 280px, 0 auto);
+        }
       }
     }
   }
 
   .latest-posts {
     .latest-posts-item {
-      @include grid(1fr 1fr);
+      @include grid(repeat(2, 1fr), 20px, 30px);
       grid-template-areas:
-        "wrapper-lp wrapper-lp"
-        "it-1 it-1"
-        "it-2 it-2"
-        "it-3 it-3";
-    }
-    .wrapper-lp {
-      grid-area: wrapper-lp;
-    }
-    .posts-it-1 {
-      img {
-        grid-column: 1/2;
+        "wrapper-lp-1 wrapper-lp-2"
+        "lp-img-1 wrapper-media-lp-1"
+        "lp-img-2 wrapper-media-lp-2"
+        "lp-img-3 wrapper-media-lp-3";
+      .filler {
+        display: none;
       }
-      grid-area: it-1;
-    }
-    .posts-it-2 {
-      grid-area: it-2;
-    }
-    .posts-it-3 {
-      grid-area: it-3;
-    }
-    .posts-it-1,
-    .posts-it-2,
-    .posts-it-3 {
-      @include set(fit-content, 100%, unset, 0);
-      display: flex;
-      gap: 20px;
-      .wrapper-media-lp {
-        .sub-heading {
-          @include flex(space-between);
-          .date-2 {
-            width: fit-content;
+      > * {
+        @include set(340px, 100%, auto, 0 auto);
+        img {
+          &:not(a img) {
+            @include set(340px, 100%, 240px, 0 auto);
           }
         }
-        .sub-heading p,
-        h4,
-        p {
-          @include set(340px, 100%, unset, 0);
-        }
       }
-      img {
-        @include set(340px, 100%, unset, 0);
+      .date-2 {
+        margin: 0 0 25px 0;
       }
     }
   }
 
   .most-popular {
     .mp-item {
+      column-gap: 20px;
       > * {
-        @include set(340px, 100%, auto, 0 auto);
-      }
-    }
-    .mp-it-1,
-    .mp-it-2 {
-      @include set(340px, 100%, auto, 0 auto);
-      img {
-        @include set(3400px, 100%, auto, 0);
+        @include set(340px, 100%, 160, 0 auto);
+        img {
+          &:not(a img) {
+            @include set(340px, 100%, 160px, 0 auto);
+          }
+        }
       }
     }
   }
 
   .info {
-    @include fl-col;
-    .info-it1 {
-      @include t-al(start);
-    }
-    .info-it2 {
-      p {
-        @include set(fit-content, 100%, auto, 0);
+    .wrapper-info {
+      @include fl-col;
+      .info-it1 {
+        @include t-al(start);
+        h4 {
+          @include set(700px, 100%, auto, 0 auto);
+        }
+      }
+      .info-it2 {
         @include t-al(end);
+        p {
+          @include set(700px, 100%, auto, 0 auto);
+          &:first-child {
+            margin-bottom: 20px;
+          }
+        }
       }
     }
   }
 
   footer {
-    margin-bottom: 50px;
+    @include fl-col;
+    gap: 40px;
+    margin: 0;
+    padding: 50px 0;
     .contacts {
       @include fl-col;
+      gap: 40px;
+      > * {
+        @include set(372px, 100%, auto, 0 auto);
+      }
       .cont-it1 {
+        @include fl-col;
+        gap: 20px;
         h2 {
-          @include t-al(center);
-          margin-bottom: 20px;
+          margin-bottom: 0;
         }
         a {
-          @include t-al(center);
+          &:nth-of-type(1) {
+            margin-bottom: 0;
+          }
         }
       }
       .cont-it2 {
         @include fl-center;
-        margin-bottom: 40px;
       }
-    }
-    .copr {
-      @include t-al(center);
     }
   }
 }

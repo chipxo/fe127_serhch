@@ -30,18 +30,6 @@ h5 {
 p {
   @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
 }
-.fl-row {
-  @include fl-center;
-}
-.fl-col {
-  @include fl-col;
-}
-.grid-2 {
-  @include grid-col(2, 1fr);
-}
-.grid-3 {
-  @include grid-col(3, 1fr);
-}
 button {
   @include set(180px, 100%, auto, 0);
   @include text-set($common-font, 16px, normal, $bold-weight, 166%, 2px, $base-cl-white);
@@ -50,6 +38,10 @@ button {
   margin-top: 50px;
   aspect-ratio: 16/5;
   border: none;
+
+  &:hover {
+    background-color: $cl-dark-gray;
+  }
 }
 a {
   text-decoration: none;
@@ -69,7 +61,7 @@ footer {
   padding: 0 130px;
 }
 .sub-heading {
-  @include flex(space-between);
+  @include flex(space-between, center);
 }
 .view {
   @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
