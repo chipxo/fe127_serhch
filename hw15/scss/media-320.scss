@@ -36,7 +36,6 @@
     background-position: center;
     background-repeat: no-repeat;
     .wrapper-fs {
-      @include set(300px, 100%, auto, 0 auto);
       padding: 70px 10px 230px 10px;
     }
   }
