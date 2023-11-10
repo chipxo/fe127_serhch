@@ -1,7 +1,11 @@
 .fs_screen {
-  padding: 100px 135px 380px 135px;
+  margin-bottom: 70px;
   background-image: url(media/bg-image.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: center;
+  .wrapper-fs {
+    padding: 100px 135px 380px 135px;
+  }
 }

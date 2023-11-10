@@ -54,9 +54,11 @@ a {
   height: 1px;
   background-color: $base-cl-black;
 }
-section,
+section:not(section.fs_screen) {
+  margin-bottom: 70px;
+  padding: 0 130px;
+}
 footer {
-  margin: 0 auto 90px auto;
   padding: 0 130px;
 }
 .sub-heading {

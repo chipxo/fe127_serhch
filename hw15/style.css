@@ -582,9 +582,12 @@ a {
   background-color: #000000;
 }
 
-section,
+section:not(section.fs_screen) {
+  margin-bottom: 70px;
+  padding: 0 130px;
+}
+
 footer {
-  margin: 0 auto 90px auto;
   padding: 0 130px;
 }
 
@@ -668,11 +671,15 @@ header nav ul li a {
 }
 
 .fs_screen {
-  padding: 100px 135px 380px 135px;
+  margin-bottom: 70px;
   background-image: url(media/bg-image.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: center;
+}
+.fs_screen .wrapper-fs {
+  padding: 100px 135px 380px 135px;
 }
 
 .blog .blog-item {
@@ -916,7 +923,7 @@ footer .copr p::before {
     letter-spacing: 1px;
     color: #565656;
   }
-  section {
+  section:not(section.fs_screen) {
     margin: 0 auto 70px auto;
     padding: 0 34px;
   }
@@ -976,11 +983,15 @@ footer .copr p::before {
     scale: 1.2;
   }
   .fs_screen {
+    margin-bottom: 70px;
     padding: 30px 34px 190px 34px;
     background-image: url(media/bg-image.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  .fs_screen .wrapper-fs {
+    padding: 30px 34px 190px 34px;
   }
   .blog .blog-item {
     column-gap: 20px;
@@ -1129,7 +1140,7 @@ footer .copr p::before {
     color: #000000;
     margin-bottom: 50px;
   }
-  section {
+  section:not(section.fs_screen) {
     margin: 0 auto 70px auto;
     padding: 0 10px;
   }
@@ -1148,6 +1159,13 @@ footer .copr p::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  .fs_screen .wrapper-fs {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 70px 10px 230px 10px;
   }
   .blog .blog-item {
     display: grid;

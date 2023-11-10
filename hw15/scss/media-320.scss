@@ -8,7 +8,7 @@
     @include text-set($main-font, 28px, normal, $mid-weight, 36px, 1px, $base-cl-black);
     margin-bottom: 50px;
   }
-  section {
+  section:not(section.fs_screen) {
     margin: 0 auto 70px auto;
     padding: 0 10px;
   }
@@ -35,6 +35,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    .wrapper-fs {
+      @include set(300px, 100%, auto, 0 auto);
+      padding: 70px 10px 230px 10px;
+    }
   }
 
   .blog {
