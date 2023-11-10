@@ -38,7 +38,6 @@ button {
   margin-top: 50px;
   aspect-ratio: 16/5;
   border: none;
-
   &:hover {
     background-color: $cl-dark-gray;
   }
@@ -48,7 +47,7 @@ a {
   color: $base-cl-black;
 }
 .bd-bot {
-  @extend %p-abs;
+  @include pos(absolute);
   bottom: -6px;
   opacity: 0;
   width: 40px;

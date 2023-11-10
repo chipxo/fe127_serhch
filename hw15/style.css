@@ -453,10 +453,6 @@ footer .copr, footer .contacts .cont-it2 i, .most-popular .mp-item .btn, header 
   align-items: center;
 }
 
-.bd-bot {
-  position: absolute;
-}
-
 h1 {
   font-family: "Red Hat Display", sans-serif;
   font-size: 48px;
@@ -578,6 +574,7 @@ a {
 }
 
 .bd-bot {
+  position: absolute;
   bottom: -6px;
   opacity: 0;
   width: 40px;
@@ -703,7 +700,6 @@ header nav ul li a {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
   row-gap: 25px;
-  row-gap: 0;
   grid-template-areas: "wrapper-lp-1 filler wrapper-lp-2" "lp-img-1 lp-img-2 lp-img-3" "wrapper-media-lp-1 wrapper-media-lp-2 wrapper-media-lp-3";
 }
 .latest-posts .latest-posts-item .wrapper-lp-1 {
@@ -973,7 +969,7 @@ footer .copr p::before {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    padding: 5px 45px 10px 34px;
+    padding: 5px 53px 10px 34px;
   }
   .header.active .burger.active span {
     background-color: #7b7b7b;

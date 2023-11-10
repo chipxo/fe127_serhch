@@ -1,7 +1,6 @@
 .latest-posts {
   .latest-posts-item {
     @include grid(repeat(3, 1fr), 30px, 25px);
-    row-gap: 0;
     grid-template-areas:
       "wrapper-lp-1 filler wrapper-lp-2"
       "lp-img-1 lp-img-2 lp-img-3"
