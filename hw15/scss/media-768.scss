@@ -20,9 +20,50 @@
   //   Sections
 
   header {
+    @include grid(142px 1fr 45px, 0, 0);
+    @include pos(relative);
+    justify-items: end;
     padding: 23px 34px;
     nav {
       display: none;
+    }
+    .burger {
+      @include fl-col;
+      gap: 8px;
+    }
+  }
+  .header.active {
+    @keyframes growDown {
+      0% {
+        transform: scaleY(0);
+      }
+      80% {
+        transform: scaleY(1.1);
+      }
+      100% {
+        transform: scaleY(1);
+      }
+    }
+    nav {
+      @include set(unset, fit-content, 100vh, 0);
+      display: block;
+      position: absolute;
+      top: 9.1rem;
+      left: 0;
+      z-index: 0;
+      background: $base-cl-white;
+      animation: growDown 300ms ease-in-out;
+      ul {
+        @include flex-col(center, flex-start);
+        gap: 20px;
+        padding: 5px 45px 10px 34px;
+      }
+    }
+    .burger {
+      &.active span {
+        background-color: $cl-gray-500;
+        scale: 1.2;
+      }
     }
   }
 
@@ -32,7 +73,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    @include set(unset, 100%, auto, 0 0 70px 0);
   }
 
   .blog {

@@ -21,6 +21,13 @@
       display: none;
     }
   }
+  .header.active {
+    nav {
+      ul {
+        padding: 5px 10px;
+      }
+    }
+  }
 
   .fs_screen {
     padding: 70px 10px 230px 10px;
