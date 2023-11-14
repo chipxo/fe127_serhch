@@ -1,0 +1,213 @@
+@import "extensions/_reset";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display+SC:ital@0;1&display=swap");
+// @import "extensions/_font-face";
+@import "extensions/_var";
+@import "extensions/_mixin";
+@import "extensions/_extend";
+@import "extensions/_default";
+* {
+  box-sizing: border-box;
+}
+@import "sections/header";
+@import "sections/f-screen";
+@import "sections/info";
+@import "sections/benefits";
+@import "sections/quote";
+@import "sections/video";
+@import "sections/promises";
+@import "sections/features";
+@import "sections/reviews";
+@import "sections/footer";
+@import "media-q/media-768";
+@import "media-q/media-1240";
+body {
+  .bg-img {
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    width: 100%;
+    height: 1028px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url("../media/img/f-screen/f-screen-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 882px) {
+  header {
+    padding: 24px 50px;
+    nav {
+      ul {
+        gap: 20px;
+      }
+    }
+  }
+
+  .f-screen {
+    .wrapper-screen {
+      padding: 0 50px;
+      box-sizing: border-box;
+    }
+  }
+
+  .info {
+    background: $primary-white;
+    margin-right: 0;
+    margin-top: 10rem;
+    .info-bg-img {
+      display: none;
+    }
+    .info-container {
+      @include set(unset, 100%, auto, 0);
+      @include grid(1fr 1fr, 56px, 0);
+      padding: 50px;
+      position: static;
+      column-gap: 20px;
+      .wrapper-info {
+        text-align: center;
+        @include set(300px, 100%, auto, 0);
+      }
+      .info-description {
+        @include flex(column, flex-start, flex-start, 50px);
+        @include set(300px, 100%, auto, 0);
+        p {
+          @include set(300px, 100%, auto, 0);
+        }
+      }
+    }
+  }
+
+  .benefits {
+    .benefits-container {
+      padding: 0;
+      .wrapper-benefits {
+        @include flex(column, center, center, 20px);
+        .benefits-content {
+          padding: 40px 50px 20px 50px;
+        }
+      }
+    }
+  }
+  .quote {
+    padding: 50px 200px 50px 50px;
+    img {
+      top: 20px;
+      left: 20px;
+    }
+  }
+  .features {
+    .features-bg-img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  header {
+    padding: 24px 24px;
+    nav {
+      ul {
+        gap: 15px;
+      }
+    }
+  }
+
+  .f-screen {
+    .wrapper-screen {
+      padding: 0 24px;
+    }
+  }
+
+  .info {
+    .info-container {
+      padding: 24px;
+    }
+  }
+
+  .quote {
+    padding: 24px 100px 40px 24px;
+    overflow: hidden;
+    img {
+      top: -20px;
+      left: 10px;
+    }
+  }
+
+  .video {
+    @include set(1170px, 100%, auto, 0 auto);
+    padding: 50px;
+    .video-screen {
+      @include set(970px, 100%, auto, 0 auto 50px auto);
+      padding: 30px 31px 70px 31px;
+      img:not(.tablet) {
+        position: absolute;
+        &:nth-of-type(2) {
+          @include set(100px, 100%, auto, 0 auto);
+          inset: 50%;
+          translate: -50% -50%;
+        }
+        &:nth-of-type(3) {
+          top: unset;
+          bottom: 14px;
+          right: 46%;
+        }
+        &:nth-of-type(4) {
+          top: 8px;
+          left: 47.5%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  p {
+    font-size: 16px;
+  }
+  header {
+    padding: 12px;
+    nav {
+      display: none;
+    }
+    .burger {
+      @include flex(column, center, center, 5px);
+    }
+  }
+
+  .f-screen {
+    .wrapper-screen {
+      padding: 0 12px;
+    }
+  }
+
+  .info {
+    .info-container {
+      @include flex(column, center, center, 20px);
+      padding: 25px 12px;
+      .wrapper-info {
+        .info-numbers {
+          @include flex(column, center, center, 10px);
+          .divider {
+            margin: 10px;
+          }
+        }
+      }
+      .info-description {
+        @include flex(column, center, center, 10px);
+        text-align: center;
+      }
+    }
+  }
+
+  .benefits {
+    .benefits-container {
+      .wrapper-benefits {
+        @include flex(column, center, center, 20px);
+        .benefits-content {
+          padding: 30px 12px;
+        }
+      }
+    }
+  }
+}
