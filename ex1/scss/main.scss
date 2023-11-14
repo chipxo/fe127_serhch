@@ -53,17 +53,15 @@ body {
 
   .info {
     background: $primary-white;
-    margin-right: 0;
     margin-top: 10rem;
     .info-bg-img {
       display: none;
     }
     .info-container {
       @include set(unset, 100%, auto, 0);
-      @include grid(1fr 1fr, 56px, 0);
+      @include grid(repeat(2, 1fr), 20px, 0);
       padding: 50px;
       position: static;
-      column-gap: 20px;
       .wrapper-info {
         text-align: center;
         @include set(300px, 100%, auto, 0);
@@ -89,16 +87,46 @@ body {
       }
     }
   }
+
   .quote {
-    padding: 50px 200px 50px 50px;
+    padding: 50px;
     img {
       top: 20px;
       left: 20px;
     }
   }
+
   .features {
+    margin-top: -10rem;
     .features-bg-img {
       display: none;
+    }
+    .features-container {
+      padding: 55px 50px;
+    }
+    .features-btn {
+      border: none;
+      button {
+        padding: 0;
+      }
+      .btn-shadow {
+        @include pos(absolute);
+        @include set(unset, 112px, 13px, 0);
+        bottom: -1px;
+        left: 10px;
+      }
+    }
+  }
+
+  .reviews {
+    margin-top: 5rem;
+    padding: 0 50px;
+  }
+
+  footer {
+    padding: 0 50px;
+    .footer-wrapper {
+      @include grid(repeat(auto-fit, minmax(150px, 1fr)), 20px, 20px);
     }
   }
 }
@@ -126,7 +154,7 @@ body {
   }
 
   .quote {
-    padding: 24px 100px 40px 24px;
+    padding: 24px 50px 40px 50px;
     overflow: hidden;
     img {
       top: -20px;
@@ -149,12 +177,12 @@ body {
         }
         &:nth-of-type(3) {
           top: unset;
-          bottom: 14px;
-          right: 46%;
+          bottom: 0;
+          right: 43.6%;
         }
         &:nth-of-type(4) {
-          top: 8px;
-          left: 47.5%;
+          top: 12px;
+          left: 49.5%;
         }
       }
     }
@@ -208,6 +236,50 @@ body {
           padding: 30px 12px;
         }
       }
+    }
+  }
+
+  .quote {
+    padding: 24px 12px 40px 12px;
+  }
+
+  .video {
+    padding: 12px;
+  }
+
+  .features {
+    margin-top: -2rem;
+    .features-container {
+      padding: 20px 12px;
+    }
+  }
+
+  .reviews {
+    padding: 0 12px;
+    .reviews-container {
+      .reviews-item {
+        @include set(560px, 100%, auto, 0);
+        p {
+          // @include set(560px, 100%, auto, 0);
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: 0 12px;
+    .footer-container {
+      @include flex(column, center, center, 40px);
+      padding: 30px;
+      .footer-form {
+        form {
+          @include flex(column, center, center, 20px);
+        }
+      }
+    }
+    .footer-wrapper {
+      @include grid(repeat(auto-fit, minmax(200px, 1fr)), 20px, 20px);
+      text-align: center;
     }
   }
 }

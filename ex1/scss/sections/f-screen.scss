@@ -15,11 +15,11 @@
     }
   }
   .screen-btn {
-    @include pos(relative);
+    position: relative;
     margin-top: 10px;
     .btn-shadow {
-      @include pos(absolute);
       @include set(unset, 112px, 13px, 0);
+      position: absolute;
       bottom: 0;
       left: 10px;
       opacity: 0.3;
