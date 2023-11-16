@@ -18,10 +18,12 @@
 @import "sections/features";
 @import "sections/reviews";
 @import "sections/footer";
+@import "media-q/media-1014";
 @import "media-q/media-882";
 @import "media-q/media-670";
 @import "media-q/media-590";
 body {
+  background: $primary-blue-deep;
   .bg-img {
     position: absolute;
     top: 0;

@@ -5,8 +5,7 @@
     @include set(1170px, 100%, auto, 0 auto);
     @include pos(relative);
     .info-bg-img {
-      @include pos(absolute);
-      // left: 135px;
+      position: absolute;
       z-index: -1;
     }
     .info-container {
@@ -39,17 +38,18 @@
     }
 
     .info-btn {
-      @include pos(relative);
+      position: relative;
       margin-top: 10px;
       .btn-shadow {
-        @include pos(absolute);
         @include set(188px, 100%, 13px, 0);
+        position: absolute;
         opacity: 0.3;
         bottom: 0;
         left: 10px;
         background-color: $secondary-coral;
       }
-      &:hover {
+      &:hover,
+      &:focus {
         button {
           color: $secondary-red;
         }

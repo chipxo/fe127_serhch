@@ -2,11 +2,9 @@
   @include set(1170px, 100%, auto, 0 auto);
   padding: 50px;
   .video-screen {
-    @include set(970px, 100%, auto, 0 auto 50px auto);
+    @include set(970px, fit-content, auto, 0 auto 50px auto);
     padding: 31px 70px 31px 30px;
     position: relative;
-    margin: 0 auto 50px auto;
-    width: fit-content;
     border: $common-border;
     border-radius: 32px;
     .tablet {
@@ -18,6 +16,10 @@
         @include set(120px, 100%, auto, 0);
         inset: 50%;
         translate: -50% -50%;
+        &:hover,
+        &:focus {
+          cursor: pointer;
+        }
       }
       &:nth-of-type(3) {
         top: 50%;

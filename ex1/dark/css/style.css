@@ -425,7 +425,7 @@ textarea {
 }
 
 h1 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(32px, 4vw + 1rem, 44px);
   font-style: normal;
   font-weight: 400;
@@ -433,7 +433,7 @@ h1 {
   color: #ffffff;
 }
 h1 span {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(32px, 4vw + 1rem, 44px);
   font-style: italic;
   font-weight: 400;
@@ -442,7 +442,7 @@ h1 span {
 }
 
 h2 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(30px, 4vw + 1rem, 40px);
   font-style: normal;
   font-weight: 400;
@@ -450,7 +450,7 @@ h2 {
   color: #ffffff;
 }
 h2 span {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(30px, 4vw + 1rem, 40px);
   font-style: italic;
   font-weight: 400;
@@ -459,7 +459,7 @@ h2 span {
 }
 
 h3 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(50px, 4vw + 1rem, 68px);
   font-style: normal;
   font-weight: 400;
@@ -468,10 +468,11 @@ h3 {
 }
 h3:not(:nth-of-type(3))::before {
   content: "$";
+  margin-right: 10px;
 }
 
 h4 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: clamp(18px, 4vw + 1rem, 24px);
   font-style: normal;
   font-weight: 400;
@@ -493,6 +494,10 @@ a {
   text-decoration: none;
 }
 
+div:has(button) {
+  width: fit-content;
+}
+
 button {
   font-family: "Lato", sans-serif;
   font-size: 20px;
@@ -508,6 +513,11 @@ button {
   padding: 0;
 }
 
+button:hover,
+.btn-shadow:hover {
+  cursor: pointer;
+}
+
 .divider {
   max-width: unset;
   width: 100px;
@@ -517,7 +527,7 @@ button {
 }
 
 .author {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: 20px;
   font-style: italic;
   font-weight: 400;
@@ -533,14 +543,16 @@ header .burger {
   width: 42px;
 }
 header .burger span {
-  display: block;
+  max-width: unset;
   width: 100%;
   height: 3px;
+  margin: 0;
+  display: block;
   background-color: #ffffff;
 }
 
 footer h2 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -548,7 +560,7 @@ footer h2 {
   color: #ffffff;
 }
 footer h2 span {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", sans-serif;
   font-size: 40px;
   font-style: italic;
   font-weight: 400;
@@ -591,9 +603,6 @@ header .header-wrapper nav ul {
   align-items: center;
   gap: 30px;
 }
-header .header-wrapper nav ul li {
-  border-bottom: 3px solid transparent;
-}
 header .header-wrapper nav ul li a {
   font-family: "Lato", sans-serif;
   font-size: 14px;
@@ -602,9 +611,19 @@ header .header-wrapper nav ul li a {
   line-height: 24px;
   color: #ffffff;
   letter-spacing: 1px;
+  border-bottom: 3px solid transparent;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  padding-bottom: 5px;
 }
 header .header-wrapper nav ul li a:hover {
-  border-bottom: 3px solid rgba(255, 99, 71, 0.3);
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(90deg, rgba(83, 243, 206, 0.4941176471), #114238);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
 }
 
 .f-screen {
@@ -632,7 +651,7 @@ header .header-wrapper nav ul li a:hover {
 }
 .f-screen .screen-btn {
   position: relative;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 .f-screen .screen-btn .btn-shadow {
   max-width: unset;
@@ -640,15 +659,15 @@ header .header-wrapper nav ul li a:hover {
   height: 13px;
   margin: 0;
   position: absolute;
-  bottom: 0;
+  bottom: s;
   left: 10px;
   opacity: 0.3;
   background: #53f3cd;
 }
-.f-screen .screen-btn:hover button {
+.f-screen .screen-btn:hover button, .f-screen .screen-btn:focus button {
   color: #02e0ab;
 }
-.f-screen .screen-btn:hover .btn-shadow {
+.f-screen .screen-btn:hover .btn-shadow, .f-screen .screen-btn:focus .btn-shadow {
   background-color: #02e0ab;
 }
 
@@ -679,7 +698,7 @@ header .header-wrapper nav ul li a:hover {
   position: relative;
   top: 45px;
   left: calc(20vw - 20%);
-  background-color: #ffffff;
+  background-color: #161926;
   opacity: 0.9;
   padding: 35px;
 }
@@ -730,13 +749,13 @@ header .header-wrapper nav ul li a:hover {
   margin-top: 10px;
 }
 .info .info-block .info-btn .btn-shadow {
-  position: absolute;
   max-width: 188px;
   width: 100%;
   height: 13px;
   margin: 0;
+  position: absolute;
   opacity: 0.3;
-  bottom: 0;
+  bottom: -1px;
   left: 10px;
   background-color: #53f3cd;
 }
@@ -832,13 +851,11 @@ header .header-wrapper nav ul li a:hover {
 }
 .video .video-screen {
   max-width: 970px;
-  width: 100%;
+  width: fit-content;
   height: auto;
   margin: 0 auto 50px auto;
   padding: 31px 70px 31px 30px;
   position: relative;
-  margin: 0 auto 50px auto;
-  width: fit-content;
   border: 1px solid #515773;
   border-radius: 32px;
 }
@@ -858,6 +875,9 @@ header .header-wrapper nav ul li a:hover {
   margin: 0;
   inset: 50%;
   translate: -50% -50%;
+}
+.video .video-screen img:not(.tablet):nth-of-type(2):hover, .video .video-screen img:not(.tablet):nth-of-type(2):focus {
+  cursor: pointer;
 }
 .video .video-screen img:not(.tablet):nth-of-type(3) {
   top: 50%;
@@ -913,7 +933,7 @@ header .header-wrapper nav ul li a:hover {
   position: relative;
   top: 60px;
   left: calc(20vw - 20%);
-  background-color: #ffffff;
+  background-color: #161926;
   opacity: 0.9;
 }
 .features .features-container > * {
@@ -931,23 +951,23 @@ header .header-wrapper nav ul li a:hover {
   padding: 30px 75px;
 }
 .features .features-btn .btn-shadow {
-  position: absolute;
   max-width: unset;
   width: 112px;
   height: 13px;
   margin: 0;
+  position: absolute;
   bottom: 1.8rem;
   left: 5.3rem;
   opacity: 0.3;
   background: #53f3cd;
 }
-.features .features-btn:hover {
+.features .features-btn:hover, .features .features-btn:focus {
   border: 1px solid #02e0ab;
 }
-.features .features-btn:hover button {
+.features .features-btn:hover button, .features .features-btn:focus button {
   color: #02e0ab;
 }
-.features .features-btn:hover .btn-shadow {
+.features .features-btn:hover .btn-shadow, .features .features-btn:focus .btn-shadow {
   background-color: #02e0ab;
 }
 
@@ -1047,6 +1067,10 @@ footer .footer-container .footer-contact p {
   margin: 0;
 }
 footer .footer-container .footer-form {
+  max-width: 470px;
+  width: 100%;
+  height: auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1056,6 +1080,10 @@ footer .footer-container .footer-form {
   align-self: start;
 }
 footer .footer-container .footer-form form {
+  max-width: 470px;
+  width: 100%;
+  height: auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1069,7 +1097,11 @@ footer .footer-container .footer-form form label {
   margin: 0;
 }
 footer .footer-container .footer-form form label input {
-  font-family: "Playfair Display";
+  max-width: 470px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  font-family: "Playfair Display", sans-serif;
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
@@ -1086,20 +1118,20 @@ footer .footer-container .footer-form .footer-btn {
   position: relative;
 }
 footer .footer-container .footer-form .footer-btn .btn-shadow {
-  position: absolute;
   max-width: unset;
   width: 163px;
   height: 13px;
   margin: 0;
+  position: absolute;
   bottom: -1px;
   left: 10px;
   opacity: 0.3;
   background: #53f3cd;
 }
-footer .footer-container .footer-form .footer-btn:hover button {
+footer .footer-container .footer-form .footer-btn:hover button, footer .footer-container .footer-form .footer-btn:focus button {
   color: #02e0ab;
 }
-footer .footer-container .footer-form .footer-btn:hover .btn-shadow {
+footer .footer-container .footer-form .footer-btn:hover .btn-shadow, footer .footer-container .footer-form .footer-btn:focus .btn-shadow {
   background-color: #02e0ab;
 }
 footer .footer-wrapper {
@@ -1123,6 +1155,9 @@ footer .footer-wrapper > * a {
   color: #ffffff;
   letter-spacing: 1px;
 }
+footer .footer-wrapper > * p {
+  font-size: 14px;
+}
 footer .footer-wrapper .footer-item-1 p::before {
   content: "©";
   margin-right: 5px;
@@ -1142,6 +1177,16 @@ footer .footer-wrapper .footer-item-3 {
   gap: 32px;
 }
 
+@media (max-width: 1014px) {
+  footer .footer-wrapper .footer-item-2,
+  footer .footer-wrapper .footer-item-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+}
 @media (max-width: 882px) {
   header {
     padding: 24px 40px;
@@ -1153,7 +1198,6 @@ footer .footer-wrapper .footer-item-3 {
     padding: 40px;
   }
   .info {
-    background: #ffffff;
     margin: 6rem;
     padding: 0;
   }
@@ -1170,6 +1214,7 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
+    background: transparent;
     text-align: center;
     padding: 40px;
     position: static;
@@ -1187,7 +1232,6 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    width: 100%;
     max-width: 300px;
     width: 100%;
     height: auto;
@@ -1408,7 +1452,7 @@ footer .footer-wrapper .footer-item-3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
     padding: 30px;
   }
@@ -1420,12 +1464,31 @@ footer .footer-wrapper .footer-item-3 {
     gap: 20px;
   }
   footer .footer-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     text-align: center;
   }
+  footer .footer-wrapper .footer-item-1 {
+    order: 1;
+  }
+  footer .footer-wrapper .footer-item-2,
+  footer .footer-wrapper .footer-item-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: unset;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+body {
+  background: #161926;
 }
 body .bg-img {
   position: absolute;

@@ -15,7 +15,6 @@
   }
 
   .info {
-    background: $primary-white;
     margin: 6rem;
     padding: 0;
     .info-block {
@@ -25,6 +24,7 @@
       .info-container {
         @include set(unset, 100%, auto, 0);
         @include flex(column, flex-start, center, 50px);
+        background: transparent;
         text-align: center;
         padding: 40px;
         position: static;
@@ -34,8 +34,6 @@
         }
         .info-description {
           @include flex(column, flex-start, center, 50px);
-          // @include grid(1fr 1fr, 20px, 20px);
-          width: 100%;
           @include set(300px, 100%, auto, 0);
           p {
             @include set(300px, 100%, auto, 0);

@@ -12,12 +12,21 @@ header {
       ul {
         @include flex(row, center, center, 30px);
         li {
-          border-bottom: 3px solid transparent;
           a {
             @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-white);
             letter-spacing: 1px;
+            border-bottom: 3px solid transparent;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+            padding-bottom: 5px;
             &:hover {
-              border-bottom: 3px solid rgba(255, 99, 71, 0.3);
+              border-image-slice: 1;
+              border-width: 3px;
+              border-image-source: linear-gradient(90deg, #53f3ce7e, #114238);
+              border-left: 0;
+              border-right: 0;
+              border-top: 0;
             }
           }
         }

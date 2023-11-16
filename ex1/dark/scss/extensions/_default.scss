@@ -14,6 +14,7 @@ h3 {
   @include text-set($main-font, clamp(50px, 4vw + 1rem, 68px), normal, $mid-weight, 72px, $primary-white);
   &:not(:nth-of-type(3))::before {
     content: "$";
+    margin-right: 10px;
   }
 }
 h4 {
@@ -26,14 +27,23 @@ p {
 a {
   text-decoration: none;
 }
+div:has(button) {
+  width: fit-content;
+}
 button {
   @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-neon-green);
-  @include pos(relative);
+  position: relative;
   background: none;
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 0;
+}
+button,
+.btn-shadow {
+  &:hover {
+    cursor: pointer;
+  }
 }
 .divider {
   @include set(unset, 100px, 1px, 0);
@@ -50,9 +60,8 @@ header {
     display: none;
     width: 42px;
     span {
+      @include set(unset, 100%, 3px, 0);
       display: block;
-      width: 100%;
-      height: 3px;
       background-color: $primary-white;
     }
   }

@@ -13,16 +13,17 @@
   }
   .screen-btn {
     position: relative;
-    margin-top: 10px;
+    margin-top: 50px;
     .btn-shadow {
       @include set(unset, 112px, 13px, 0);
       position: absolute;
-      bottom: 0;
+      bottom: s;
       left: 10px;
       opacity: 0.3;
       background: $secondary-neon-green;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       button {
         color: $secondary-neon-green-dark;
       }

@@ -15,14 +15,17 @@ footer {
       }
     }
     .footer-form {
+      @include set(470px, 100%, auto, 0);
       @include flex(column, flex-start, flex-start, 40px);
       justify-self: end;
       align-self: start;
       form {
+        @include set(470px, 100%, auto, 0);
         @include flex(column, flex-start, flex-end, 40px);
         label {
           @include set(470px, 100%, auto, 0);
           input {
+            @include set(470px, 100%, auto, 0);
             @include text-set($main-font, 18px, italic, $mid-weight, 20px, $primary-white);
             letter-spacing: 1px;
             opacity: 0.5;
@@ -36,14 +39,15 @@ footer {
       .footer-btn {
         position: relative;
         .btn-shadow {
-          @include pos(absolute);
           @include set(unset, 163px, 13px, 0);
+          position: absolute;
           bottom: -1px;
           left: 10px;
           opacity: 0.3;
           background: $secondary-neon-green;
         }
-        &:hover {
+        &:hover,
+        &:focus {
           button {
             color: $secondary-neon-green-dark;
           }
@@ -61,6 +65,9 @@ footer {
     > * a {
       @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-white);
       letter-spacing: 1px;
+    }
+    > * p {
+      font-size: 14px;
     }
     .footer-item-1 {
       p::before {

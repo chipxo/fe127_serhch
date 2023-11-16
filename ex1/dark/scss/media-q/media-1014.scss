@@ -1,0 +1,10 @@
+@media (max-width: 1014px) {
+  footer {
+    .footer-wrapper {
+      .footer-item-2,
+      .footer-item-3 {
+        @include flex(column, center, center, 0);
+      }
+    }
+  }
+}

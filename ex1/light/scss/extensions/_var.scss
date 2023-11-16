@@ -1,5 +1,5 @@
 // Fonts
-$main-font: "Playfair Display";
+$main-font: "Playfair Display", sans-serif;
 $common-font: "Lato", sans-serif;
 
 // Font-weights
@@ -16,5 +16,6 @@ $secondary-coral: #f1897b;
 $secondary-spring: #85bbb1;
 $secondary-red: #e54f3a;
 
+// Borders
 $common-border: 1px solid $primary-grey;
 $red-border: 1px solid $secondary-red;

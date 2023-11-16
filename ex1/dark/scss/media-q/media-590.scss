@@ -80,7 +80,7 @@
   footer {
     padding: 0 12px;
     .footer-container {
-      @include flex(column, center, center, 40px);
+      @include flex(column, center, flex-start, 40px);
       padding: 30px;
       .footer-form {
         form {
@@ -89,7 +89,15 @@
       }
     }
     .footer-wrapper {
-      @include grid(repeat(auto-fit, minmax(200px, 1fr)), 20px, 20px);
+      @include flex(column, center, center, 20px);
+      .footer-item-1 {
+        order: 1;
+      }
+      .footer-item-2,
+      .footer-item-3 {
+        @include flex(row, center, center, 10px);
+        @include set(unset, 100%, auto, 0);
+      }
       text-align: center;
     }
   }

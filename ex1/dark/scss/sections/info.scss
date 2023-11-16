@@ -3,9 +3,9 @@
   padding: 0 135px;
   .info-block {
     @include set(1170px, 100%, auto, 0 auto);
-    @include pos(relative);
+    position: relative;
     .info-bg-img {
-      @include pos(absolute);
+      position: absolute;
       z-index: -1;
     }
     .info-container {
@@ -14,7 +14,7 @@
       @include pos(relative);
       top: 45px;
       left: calc(20vw - 20%);
-      background-color: $primary-white;
+      background-color: $primary-blue-deep;
       opacity: 0.9;
       padding: 35px;
       .wrapper-info {
@@ -38,13 +38,13 @@
     }
 
     .info-btn {
-      @include pos(relative);
+      position: relative;
       margin-top: 10px;
       .btn-shadow {
-        @include pos(absolute);
         @include set(188px, 100%, 13px, 0);
+        position: absolute;
         opacity: 0.3;
-        bottom: 0;
+        bottom: -1px;
         left: 10px;
         background-color: $secondary-neon-green;
       }
