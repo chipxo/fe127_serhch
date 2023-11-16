@@ -577,9 +577,9 @@ img {
 }
 
 header {
+  margin-top: 30px;
   backdrop-filter: blur(8px);
   padding: 24px 135px;
-  margin-top: 30px;
 }
 header .header-wrapper {
   max-width: 1170px;
@@ -659,7 +659,7 @@ header .header-wrapper nav ul li a:hover {
   height: 13px;
   margin: 0;
   position: absolute;
-  bottom: s;
+  bottom: -1px;
   left: 10px;
   opacity: 0.3;
   background: #53f3cd;
@@ -814,15 +814,13 @@ header .header-wrapper nav ul li a:hover {
   max-width: 1170px;
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 120px auto 5rem auto;
   position: relative;
   padding: 100px 160px 100px 160px;
-  margin-top: 120px;
   background-image: url("../media/img/quote/quote-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-bottom: 5rem;
 }
 .quote p:not(.author) {
   font-family: "Lato", sans-serif;
@@ -905,9 +903,8 @@ header .header-wrapper nav ul li a:hover {
   max-width: 1170px;
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 165px auto 0 auto;
   position: relative;
-  margin-top: 165px;
 }
 .features .features-bg-img {
   position: absolute;
@@ -1177,6 +1174,20 @@ footer .footer-wrapper .footer-item-3 {
   gap: 32px;
 }
 
+@media (max-width: 1440px) {
+  .benefits .benefits-container .wrapper-benefits .benefits-content {
+    max-width: unset;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+}
 @media (max-width: 1014px) {
   footer .footer-wrapper .footer-item-2,
   footer .footer-wrapper .footer-item-3 {
@@ -1232,19 +1243,19 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    max-width: 300px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     margin: 0;
   }
   .info .info-block .info-container .info-description p {
-    max-width: 300px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     margin: 0;
   }
   .benefits .benefits-container {
-    padding: 0;
+    padding: 0 40px;
   }
   .benefits .benefits-container .wrapper-benefits {
     display: flex;
@@ -1254,7 +1265,7 @@ footer .footer-wrapper .footer-item-3 {
     gap: 20px;
   }
   .benefits .benefits-container .wrapper-benefits .benefits-content {
-    padding: 40px 40px 20px 40px;
+    padding: 40px 0 20px 0;
   }
   .quote {
     padding: 40px;
@@ -1417,6 +1428,9 @@ footer .footer-wrapper .footer-item-3 {
     gap: 10px;
     text-align: center;
   }
+  .benefits .benefits-container {
+    padding: 0 12px;
+  }
   .benefits .benefits-container .wrapper-benefits {
     display: flex;
     flex-direction: column;
@@ -1425,7 +1439,7 @@ footer .footer-wrapper .footer-item-3 {
     gap: 20px;
   }
   .benefits .benefits-container .wrapper-benefits .benefits-content {
-    padding: 30px 12px;
+    padding: 30px 0;
   }
   .quote {
     padding: 24px 12px 40px 12px;

@@ -1,7 +1,6 @@
 .features {
-  @include set(1170px, 100%, auto, 0 auto);
+  @include set(1170px, 100%, auto, 165px auto 0 auto);
   position: relative;
-  margin-top: 165px;
   .features-bg-img {
     position: absolute;
     left: 135px;

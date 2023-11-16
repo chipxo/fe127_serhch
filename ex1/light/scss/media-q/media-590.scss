@@ -42,10 +42,11 @@
 
   .benefits {
     .benefits-container {
+      padding: 0 12px;
       .wrapper-benefits {
         @include flex(column, center, center, 20px);
         .benefits-content {
-          padding: 30px 12px;
+          padding: 30px 0;
         }
       }
     }

@@ -17,7 +17,7 @@
     .btn-shadow {
       @include set(unset, 112px, 13px, 0);
       position: absolute;
-      bottom: s;
+      bottom: -1px;
       left: 10px;
       opacity: 0.3;
       background: $secondary-neon-green;

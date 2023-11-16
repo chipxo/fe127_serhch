@@ -1,9 +1,7 @@
 @import "extensions/_reset";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display+SC:ital@0;1&display=swap");
-// @import "extensions/_font-face";
 @import "extensions/_var";
 @import "extensions/_mixin";
-@import "extensions/_extend";
 @import "extensions/_default";
 * {
   box-sizing: border-box;
@@ -14,10 +12,10 @@
 @import "sections/benefits";
 @import "sections/quote";
 @import "sections/video";
-@import "sections/promises";
 @import "sections/features";
 @import "sections/reviews";
 @import "sections/footer";
+@import "media-q/media-1440";
 @import "media-q/media-1014";
 @import "media-q/media-882";
 @import "media-q/media-670";

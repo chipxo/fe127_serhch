@@ -1,7 +1,7 @@
 header {
+  margin-top: 30px;
   backdrop-filter: blur(8px);
   padding: 24px 135px;
-  margin-top: 30px;
   .header-wrapper {
     @include set(1170px, 100%, auto, 0 auto);
     @include grid(107px 1fr, 10px, 0);

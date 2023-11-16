@@ -34,9 +34,9 @@
         }
         .info-description {
           @include flex(column, flex-start, center, 50px);
-          @include set(300px, 100%, auto, 0);
+          @include set(600px, 100%, auto, 0);
           p {
-            @include set(300px, 100%, auto, 0);
+            @include set(600px, 100%, auto, 0);
           }
         }
       }
@@ -45,11 +45,11 @@
 
   .benefits {
     .benefits-container {
-      padding: 0;
+      padding: 0 40px;
       .wrapper-benefits {
         @include flex(column, center, center, 20px);
         .benefits-content {
-          padding: 40px 40px 20px 40px;
+          padding: 40px 0 20px 0;
         }
       }
     }
