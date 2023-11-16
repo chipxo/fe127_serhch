@@ -10,7 +10,7 @@
       .benefits-content {
         @include flex(column, flex-start, flex-start, 30px);
         @include set(570px, 100%, auto, 0);
-        border-top: 1px solid $primary-grey;
+        border-top: $common-border;
         padding: 50px 30px 20px 30px;
         > * {
           @include set(570px, 100%, auto, 0);

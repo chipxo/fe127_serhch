@@ -36,15 +36,15 @@
       bottom: 1.8rem;
       left: 5.3rem;
       opacity: 0.3;
-      background: $secondary-coral;
+      background: $secondary-neon-green;
     }
     &:hover {
-      border: $red-border;
+      border: $neon-border;
       button {
-        color: $secondary-red;
+        color: $secondary-neon-green-dark;
       }
       .btn-shadow {
-        background-color: $secondary-red;
+        background-color: $secondary-neon-green-dark;
       }
     }
   }

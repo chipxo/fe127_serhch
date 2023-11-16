@@ -6,7 +6,6 @@
     @include pos(relative);
     .info-bg-img {
       @include pos(absolute);
-      // left: 135px;
       z-index: -1;
     }
     .info-container {
@@ -47,14 +46,14 @@
         opacity: 0.3;
         bottom: 0;
         left: 10px;
-        background-color: $secondary-coral;
+        background-color: $secondary-neon-green;
       }
       &:hover {
         button {
-          color: $secondary-red;
+          color: $secondary-neon-green-dark;
         }
         .btn-shadow {
-          background-color: $secondary-red;
+          background-color: $secondary-neon-green-dark;
         }
       }
     }

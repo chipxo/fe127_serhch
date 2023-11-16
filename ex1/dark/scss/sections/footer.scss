@@ -23,7 +23,7 @@ footer {
         label {
           @include set(470px, 100%, auto, 0);
           input {
-            @include text-set($main-font, 18px, italic, $mid-weight, 20px, $primary-dark-blue);
+            @include text-set($main-font, 18px, italic, $mid-weight, 20px, $primary-white);
             letter-spacing: 1px;
             opacity: 0.5;
             border: none;
@@ -41,14 +41,14 @@ footer {
           bottom: -1px;
           left: 10px;
           opacity: 0.3;
-          background: $secondary-coral;
+          background: $secondary-neon-green;
         }
         &:hover {
           button {
-            color: $secondary-red;
+            color: $secondary-neon-green-dark;
           }
           .btn-shadow {
-            background-color: $secondary-red;
+            background-color: $secondary-neon-green-dark;
           }
         }
       }
@@ -59,7 +59,7 @@ footer {
     @include flex(row, space-between, center, 10px);
     padding: 20px 0;
     > * a {
-      @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-dark-blue);
+      @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-white);
       letter-spacing: 1px;
     }
     .footer-item-1 {

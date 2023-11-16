@@ -20,14 +20,14 @@
       bottom: 0;
       left: 10px;
       opacity: 0.3;
-      background: $secondary-coral;
+      background: $secondary-neon-green;
     }
     &:hover {
       button {
-        color: $secondary-red;
+        color: $secondary-neon-green-dark;
       }
       .btn-shadow {
-        background-color: $secondary-red;
+        background-color: $secondary-neon-green-dark;
       }
     }
   }

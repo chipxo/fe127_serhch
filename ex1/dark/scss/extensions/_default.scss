@@ -37,7 +37,7 @@ button {
 }
 .divider {
   @include set(unset, 100px, 1px, 0);
-  background-color: $secondary-spring;
+  background-color: $secondary-blue;
 }
 .author {
   @include text-set($main-font, 20px, italic, $mid-weight, 20px, $primary-white);
