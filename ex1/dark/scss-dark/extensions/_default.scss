@@ -1,0 +1,70 @@
+h1 {
+  @include text-set($main-font, clamp(32px, 4vw + 1rem, 44px), normal, $mid-weight, clamp(44px, 4vw + 1rem, 52px), $primary-white);
+  span {
+    @include text-set($main-font, clamp(32px, 4vw + 1rem, 44px), italic, $mid-weight, clamp(44px, 4vw + 1rem, 52px), $secondary-blue);
+  }
+}
+h2 {
+  @include text-set($main-font, clamp(30px, 4vw + 1rem, 40px), normal, $mid-weight, clamp(40px, 4vw + 1rem, 48px), $primary-white);
+  span {
+    @include text-set($main-font, clamp(30px, 4vw + 1rem, 40px), italic, $mid-weight, clamp(40px, 4vw + 1rem, 48px), $secondary-blue);
+  }
+}
+h3 {
+  @include text-set($main-font, clamp(50px, 4vw + 1rem, 68px), normal, $mid-weight, 72px, $primary-white);
+  &:not(:nth-of-type(3))::before {
+    content: "$";
+  }
+}
+h4 {
+  @include text-set($main-font, clamp(18px, 4vw + 1rem, 24px), normal, $mid-weight, 48px, $primary-white);
+}
+p {
+  @include text-set($common-font, 18px, normal, $light-weight, 26px, $primary-white);
+  opacity: 0.8;
+}
+a {
+  text-decoration: none;
+}
+button {
+  @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-neon-green);
+  @include pos(relative);
+  background: none;
+  border: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0;
+}
+.divider {
+  @include set(unset, 100px, 1px, 0);
+  background-color: $secondary-spring;
+}
+.author {
+  @include text-set($main-font, 20px, italic, $mid-weight, 20px, $primary-white);
+  opacity: 1;
+  letter-spacing: 2px;
+  text-align: start;
+}
+header {
+  .burger {
+    display: none;
+    width: 42px;
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $primary-white;
+    }
+  }
+}
+footer {
+  h2 {
+    @include text-set($main-font, 40px, normal, $mid-weight, 39px, $primary-white);
+    span {
+      @include text-set($main-font, 40px, italic, $mid-weight, 39px, $secondary-blue);
+    }
+  }
+}
+img {
+  object-fit: cover;
+}

@@ -1,0 +1,96 @@
+@media (max-width: 590px) {
+  p {
+    font-size: 16px;
+  }
+  header {
+    padding: 12px;
+    .header-wrapper {
+      nav {
+        display: none;
+      }
+      .burger {
+        @include flex(column, center, center, 5px);
+      }
+    }
+  }
+
+  .f-screen {
+    .wrapper-screen {
+      padding: 0 12px;
+    }
+  }
+
+  .info {
+    margin: 4rem 0 0 0;
+    .info-container {
+      @include flex(column, center, center, 20px);
+      padding: 25px 12px;
+      .wrapper-info {
+        .info-numbers {
+          @include flex(column, center, center, 10px);
+          .divider {
+            margin: 10px;
+          }
+        }
+      }
+      .info-description {
+        @include flex(column, center, center, 10px);
+        text-align: center;
+      }
+    }
+  }
+
+  .benefits {
+    .benefits-container {
+      .wrapper-benefits {
+        @include flex(column, center, center, 20px);
+        .benefits-content {
+          padding: 30px 12px;
+        }
+      }
+    }
+  }
+
+  .quote {
+    padding: 24px 12px 40px 12px;
+  }
+
+  .video {
+    padding: 12px 12px 0 12px;
+  }
+
+  .features {
+    .features-container {
+      padding: 20px 12px;
+    }
+  }
+
+  .reviews {
+    padding: 0 12px;
+    .reviews-container {
+      .reviews-wrapper {
+        gap: 20px;
+        .reviews-item {
+          padding: 25px 20px;
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: 0 12px;
+    .footer-container {
+      @include flex(column, center, center, 40px);
+      padding: 30px;
+      .footer-form {
+        form {
+          @include flex(column, center, center, 20px);
+        }
+      }
+    }
+    .footer-wrapper {
+      @include grid(repeat(auto-fit, minmax(200px, 1fr)), 20px, 20px);
+      text-align: center;
+    }
+  }
+}
