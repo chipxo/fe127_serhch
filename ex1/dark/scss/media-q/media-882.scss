@@ -80,8 +80,8 @@
         padding: 0;
       }
       .btn-shadow {
-        @include pos(absolute);
         @include set(unset, 112px, 13px, 0);
+        position: absolute;
         bottom: -1px;
         left: 10px;
       }

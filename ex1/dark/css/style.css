@@ -1300,11 +1300,11 @@ footer .footer-wrapper .footer-item-3 {
     padding: 0;
   }
   .features .features-btn .btn-shadow {
-    position: absolute;
     max-width: unset;
     width: 112px;
     height: 13px;
     margin: 0;
+    position: absolute;
     bottom: -1px;
     left: 10px;
   }

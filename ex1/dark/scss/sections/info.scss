@@ -11,7 +11,7 @@
     .info-container {
       @include set(770px, 100%, auto, 0 auto);
       @include grid(repeat(2, 1fr), 56px, 0);
-      @include pos(relative);
+      position: relative;
       top: 45px;
       left: calc(20vw - 20%);
       background-color: $primary-blue-deep;
