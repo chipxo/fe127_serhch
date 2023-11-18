@@ -1219,7 +1219,7 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    background: transparent;
+    background: none;
     text-align: center;
     padding: 40px;
     position: static;
@@ -1390,11 +1390,17 @@ footer .footer-wrapper .footer-item-3 {
     align-items: center;
     gap: 5px;
   }
+  .f-screen {
+    position: relative;
+    z-index: -1;
+  }
   .f-screen .wrapper-screen {
     padding: 0 12px;
   }
   .info {
     margin: 4rem 0 0 0;
+    position: relative;
+    z-index: -1;
   }
   .info .info-container {
     display: flex;
@@ -1494,6 +1500,40 @@ footer .footer-wrapper .footer-item-3 {
     height: auto;
     margin: 0;
   }
+  @keyframes growDown {
+    0% {
+      transform: scaleY(0);
+    }
+    80% {
+      transform: scaleY(1.1);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  .header.active .header-wrapper nav {
+    max-width: unset;
+    width: fit-content;
+    height: 100dvh;
+    margin: 0;
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: #161926;
+    animation: growDown 300ms ease-in-out;
+  }
+  .header.active .header-wrapper nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px 53px 10px 34px;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
 }
 body .bg-img {
   position: absolute;
@@ -1567,9 +1607,6 @@ body .bg-img {
   .f-screen .screen-btn:hover .btn-shadow, .f-screen .screen-btn:focus .btn-shadow {
     background-color: #02e0ab;
   }
-  .info .info-block .info-container {
-    background-color: #161926;
-  }
   .info .info-block .info-btn .btn-shadow {
     background-color: #53f3cd;
   }
@@ -1621,31 +1658,6 @@ body .bg-img {
     line-height: 24px;
     color: #ffffff;
   }
-}
-.header.active .header-wrapper nav {
-  max-width: unset;
-  width: fit-content;
-  height: 100vh;
-  margin: 0;
-  display: block !important;
-  position: absolute;
-  top: 9.1rem;
-  left: 0;
-  z-index: 0;
-  background: transparent;
-  animation: growDown 300ms ease-in-out;
-}
-.header.active .header-wrapper nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 5px 53px 10px 34px;
-}
-.header.active .header-wrapper .burger.active span {
-  background-color: #ffffff;
-  scale: 1.2;
 }
 
 /*# sourceMappingURL=style.css.map */

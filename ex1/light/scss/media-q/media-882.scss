@@ -24,7 +24,7 @@
       .info-container {
         @include set(unset, 100%, auto, 0);
         @include flex(column, flex-start, center, 50px);
-        background: transparent;
+        background: none;
         text-align: center;
         padding: 40px;
         position: static;
