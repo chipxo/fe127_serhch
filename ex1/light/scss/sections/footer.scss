@@ -5,8 +5,8 @@ footer {
     @include set(1170px, 100%, auto, 0 auto);
     @include grid(repeat(2, 1fr), 20px, 30px);
     padding: 60px 0 104px 0;
-    border-top: $common-border;
-    border-bottom: $common-border;
+    border-top: $common-border-pr-grey;
+    border-bottom: $common-border-pr-grey;
     .footer-contact {
       @include flex(column, flex-start, flex-start, 29px);
       margin-top: 21px;
@@ -32,7 +32,7 @@ footer {
             border: none;
             background: none;
             padding-bottom: 12px;
-            border-bottom: $common-border;
+            border-bottom: $common-border-pr-grey;
           }
         }
       }

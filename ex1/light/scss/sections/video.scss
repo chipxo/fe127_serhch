@@ -5,7 +5,7 @@
     @include set(970px, fit-content, auto, 0 auto 50px auto);
     padding: 31px 70px 31px 30px;
     position: relative;
-    border: $common-border;
+    border: $common-border-pr-grey;
     border-radius: 32px;
     .tablet {
       @include set(970px, 100%, 539px, 0);
