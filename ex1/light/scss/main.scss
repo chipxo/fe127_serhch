@@ -34,3 +34,38 @@ body {
   }
 }
 @import "dark";
+.header.active {
+  // @keyframes growDown {
+  //   0% {
+  //     transform: scaleY(0);
+  //   }
+  //   80% {
+  //     transform: scaleY(1.1);
+  //   }
+  //   100% {
+  //     transform: scaleY(1);
+  //   }
+  // }
+  .header-wrapper {
+    nav {
+      @include set(unset, fit-content, 100vh, 0);
+      display: block !important;
+      position: absolute;
+      top: 9.1rem;
+      left: 0;
+      z-index: 0;
+      background: transparent;
+      animation: growDown 300ms ease-in-out;
+      ul {
+        @include flex(column, center, flex-start, 20px);
+        padding: 5px 53px 10px 34px;
+      }
+    }
+    .burger {
+      &.active span {
+        background-color: $primary-white;
+        scale: 1.2;
+      }
+    }
+  }
+}

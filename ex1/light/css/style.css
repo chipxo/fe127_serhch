@@ -1622,5 +1622,30 @@ body .bg-img {
     color: #ffffff;
   }
 }
+.header.active .header-wrapper nav {
+  max-width: unset;
+  width: fit-content;
+  height: 100vh;
+  margin: 0;
+  display: block !important;
+  position: absolute;
+  top: 9.1rem;
+  left: 0;
+  z-index: 0;
+  background: transparent;
+  animation: growDown 300ms ease-in-out;
+}
+.header.active .header-wrapper nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 5px 53px 10px 34px;
+}
+.header.active .header-wrapper .burger.active span {
+  background-color: #ffffff;
+  scale: 1.2;
+}
 
 /*# sourceMappingURL=style.css.map */
