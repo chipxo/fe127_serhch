@@ -1,4 +1,5 @@
 @media (max-width: 670px) {
+  // Default
   header {
     padding: 24px 24px;
     .header-wrapper {
@@ -10,10 +11,10 @@
     }
   }
 
+  // Sections
   .f-screen {
     padding: 0 24px;
   }
-
   .info {
     .info-block {
       .info-container {
@@ -21,7 +22,6 @@
       }
     }
   }
-
   .quote {
     padding: 24px 50px 40px 50px;
     overflow: hidden;
@@ -30,7 +30,6 @@
       left: 10px;
     }
   }
-
   .video {
     @include set(1170px, 100%, auto, 0 auto);
     padding: 24px 24px;
@@ -57,7 +56,6 @@
       }
     }
   }
-
   .features {
     margin-top: -5rem;
   }

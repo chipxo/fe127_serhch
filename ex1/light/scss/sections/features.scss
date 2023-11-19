@@ -4,7 +4,6 @@
   .features-bg-img {
     position: absolute;
     left: 135px;
-    z-index: -1;
     img {
       @include set(600px, 100%, 540px, 0);
     }
@@ -33,7 +32,7 @@
       left: 5.3rem;
     }
     &:hover {
-      border: $neon-border;
+      border: $red-border;
     }
   }
 }

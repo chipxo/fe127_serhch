@@ -18,21 +18,15 @@
         }
         &:nth-child(1) {
           background: url("../media/img/reviews/rev-img-1.png"), rgba(25, 28, 41, 0.6);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
+          @include bg;
         }
         &:nth-child(2) {
           background: url("../media/img/reviews/rev-img-2.png"), rgba(25, 28, 41, 0.6);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
+          @include bg;
         }
         &:nth-child(3) {
           background: url("../media/img/reviews/rev-img-3.png"), rgba(25, 28, 41, 0.6);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
+          @include bg;
         }
       }
     }
