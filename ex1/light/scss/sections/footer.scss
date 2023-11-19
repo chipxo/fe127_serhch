@@ -36,24 +36,9 @@ footer {
           }
         }
       }
-      .footer-btn {
-        position: relative;
+      .btn {
         .btn-shadow {
           @include set(unset, 163px, 13px, 0);
-          position: absolute;
-          bottom: -1px;
-          left: 10px;
-          opacity: 0.3;
-          background: $secondary-coral;
-        }
-        &:hover,
-        &:focus {
-          button {
-            color: $secondary-red;
-          }
-          .btn-shadow {
-            background-color: $secondary-red;
-          }
         }
       }
     }

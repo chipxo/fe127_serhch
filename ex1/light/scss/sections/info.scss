@@ -37,25 +37,10 @@
       }
     }
 
-    .info-btn {
-      position: relative;
+    .btn {
       margin-top: 10px;
       .btn-shadow {
         @include set(188px, 100%, 13px, 0);
-        position: absolute;
-        opacity: 0.3;
-        bottom: 0;
-        left: 10px;
-        background-color: $secondary-coral;
-      }
-      &:hover,
-      &:focus {
-        button {
-          color: $secondary-red;
-        }
-        .btn-shadow {
-          background-color: $secondary-red;
-        }
       }
     }
   }

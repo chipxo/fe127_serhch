@@ -32,6 +32,7 @@
       .wrapper-info {
         .info-numbers {
           @include flex(column, center, center, 10px);
+
           .divider {
             margin: 10px;
           }

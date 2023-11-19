@@ -11,25 +11,7 @@
       }
     }
   }
-  .screen-btn {
-    position: relative;
+  .btn {
     margin-top: 50px;
-    .btn-shadow {
-      @include set(unset, 112px, 13px, 0);
-      position: absolute;
-      bottom: -1px;
-      left: 10px;
-      opacity: 0.3;
-      background: $secondary-coral;
-    }
-    &:hover,
-    &:focus {
-      button {
-        color: $secondary-red;
-      }
-      .btn-shadow {
-        background-color: $secondary-red;
-      }
-    }
   }
 }

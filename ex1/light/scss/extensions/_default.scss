@@ -28,23 +28,41 @@ p {
 a {
   text-decoration: none;
 }
-div:has(button) {
+.btn {
   width: fit-content;
-}
-button {
-  @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-coral);
   position: relative;
-  background: none;
-  border: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 0;
-}
-button,
-.btn-shadow {
+  button {
+    @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-coral);
+    position: relative;
+    background: none;
+    border: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+  .btn-shadow {
+    @include set(unset, 112px, 13px, 0);
+    position: absolute;
+    bottom: -1px;
+    left: 10px;
+    opacity: 0.3;
+    background: $secondary-coral;
+  }
+  button,
+  .btn-shadow {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
   &:hover,
   &:focus {
-    cursor: pointer;
+    button {
+      color: $secondary-red;
+    }
+    .btn-shadow {
+      background-color: $secondary-red;
+    }
   }
 }
 .divider {

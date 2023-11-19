@@ -25,6 +25,3 @@
   align-items: $align;
   gap: $gap;
 }
-@mixin pos($position) {
-  position: $position;
-}

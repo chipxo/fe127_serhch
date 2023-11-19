@@ -57,10 +57,14 @@
 
   .quote {
     padding: 40px;
-    img {
+    img.img {
       top: 20px;
       left: 20px;
     }
+  }
+
+  .video {
+    padding: 40px;
   }
 
   .features {
@@ -75,15 +79,14 @@
       padding: 0 40px 55px 40px;
     }
     .features-btn {
-      border: none;
       button {
-        padding: 0;
+        // padding: 0;
       }
       .btn-shadow {
-        @include set(unset, 112px, 13px, 0);
-        position: absolute;
-        bottom: -1px;
-        left: 10px;
+        // @include set(unset, 112px, 13px, 0);
+        // position: absolute;
+        // bottom: -1px;
+        // left: 10px;
       }
     }
   }

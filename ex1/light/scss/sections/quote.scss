@@ -13,9 +13,14 @@
     margin-bottom: 40px;
   }
   img {
-    position: absolute;
-    top: 70px;
-    left: 100px;
-    z-index: 1;
+    &.img {
+      position: absolute;
+      top: 70px;
+      left: 100px;
+      z-index: 1;
+    }
+    &.dark {
+      display: none;
+    }
   }
 }

@@ -10,6 +10,7 @@
     .tablet {
       @include set(970px, 100%, 539px, 0);
     }
+
     img:not(.tablet) {
       position: absolute;
       &:nth-of-type(2) {
@@ -32,9 +33,13 @@
         translate: -50% -50%;
       }
     }
+    .dark {
+      display: none;
+    }
   }
   .video-content {
     @include set(970px, 100%, auto, 0 auto 50px auto);
     @include flex(column, flex-start, flex-start, 20px);
   }
 }
+
