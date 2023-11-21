@@ -9,15 +9,8 @@
       align-items: start;
       .benefits-content {
         @include flex(column, flex-start, flex-start, 30px);
-        @include set(570px, 100%, auto, 0);
         border-top: $common-border-sc-grey;
         padding: 50px 30px 20px 30px;
-        > * {
-          @include set(570px, 100%, auto, 0);
-          span {
-            @include set(570px, 100%, auto, 0);
-          }
-        }
       }
     }
   }

@@ -652,13 +652,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
   height: auto;
   margin: 0;
 }
-.f-screen .screen-container .screen-content h1,
-.f-screen .screen-container .screen-content p {
-  max-width: 530px;
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
 .f-screen .btn {
   margin-top: 50px;
 }
@@ -769,24 +762,8 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
   justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
-  max-width: 570px;
-  width: 100%;
-  height: auto;
-  margin: 0;
   border-top: 1px solid #515773;
   padding: 50px 30px 20px 30px;
-}
-.benefits .benefits-container .benefits-wrapper .benefits-content > * {
-  max-width: 570px;
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
-.benefits .benefits-container .benefits-wrapper .benefits-content > * span {
-  max-width: 570px;
-  width: 100%;
-  height: auto;
-  margin: 0;
 }
 
 .quote {
@@ -1025,12 +1002,6 @@ footer .footer-container .footer-contact {
   align-items: flex-start;
   gap: 29px;
   margin-top: 21px;
-}
-footer .footer-container .footer-contact p {
-  max-width: 470px;
-  width: 100%;
-  height: auto;
-  margin: 0;
 }
 footer .footer-container .footer-form {
   max-width: 470px;

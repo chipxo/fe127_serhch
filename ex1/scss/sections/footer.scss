@@ -10,9 +10,6 @@ footer {
     .footer-contact {
       @include flex(column, flex-start, flex-start, 29px);
       margin-top: 21px;
-      p {
-        @include set(470px, 100%, auto, 0);
-      }
     }
     .footer-form {
       @include set(470px, 100%, auto, 0);

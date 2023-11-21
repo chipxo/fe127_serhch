@@ -4,9 +4,7 @@
     background: $primary-blue-deep;
     .bg-img {
       background: linear-gradient(to top, rgba(22, 25, 38, 1), rgba(255, 255, 255, 0)), url("../media/img/f-screen/f-screen-bg-dark.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      @include bg;
     }
   }
   h1,
