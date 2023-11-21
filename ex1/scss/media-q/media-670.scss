@@ -2,7 +2,7 @@
   // Default
   header {
     padding: 24px 24px;
-    .header-wrapper {
+    .header-container {
       nav {
         ul {
           gap: 15px;
@@ -16,8 +16,8 @@
     padding: 0 24px;
   }
   .info {
-    .info-block {
-      .info-container {
+    .info-container {
+      .info-wrapper {
         padding: 24px;
       }
     }

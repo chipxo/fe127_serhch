@@ -2,7 +2,7 @@
   margin-top: 165px;
   .benefits-container {
     padding: 0 135px;
-    .wrapper-benefits {
+    .benefits-wrapper {
       @include set(1170px, 100%, auto, 0 auto);
       @include grid(repeat(auto-fit, minmax(570px, 1fr)), 30px, 60px);
       justify-items: center;

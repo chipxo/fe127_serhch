@@ -1,13 +1,13 @@
 .info {
   margin-top: 199px;
   padding: 0 135px;
-  .info-block {
+  .info-container {
     @include set(1170px, 100%, auto, 0 auto);
     position: relative;
     .info-bg-img {
       position: absolute;
     }
-    .info-container {
+    .info-wrapper {
       @include set(770px, 100%, auto, 0 auto);
       @include grid(repeat(2, 1fr), 56px, 0);
       position: relative;
@@ -16,7 +16,7 @@
       background-color: $primary-white;
       opacity: 0.9;
       padding: 35px;
-      .wrapper-info {
+      .info-block {
         @include flex(column, center, center, 0);
         @include set(400px, 100%, auto, 0);
         .info-numbers {

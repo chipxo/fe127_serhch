@@ -41,7 +41,7 @@
     }
   }
   header {
-    .header-wrapper {
+    .header-container {
       nav {
         ul {
           li {
@@ -74,8 +74,8 @@
 
   // Sections
   .info {
-    .info-block {
-      .info-container {
+    .info-container {
+      .info-wrapper {
         background-color: $primary-blue-deep;
       }
       .info-btn {
@@ -183,8 +183,8 @@
 
 @media (max-width: 882px) {
   .info {
-    .info-block {
-      .info-container {
+    .info-container {
+      .info-wrapper {
         background: transparent;
       }
     }
@@ -218,7 +218,8 @@
 
 @media (max-width: 590px) {
   .header.active {
-    .header-wrapper {
+    background: $primary-blue-deep;
+    .header-container {
       nav {
         background: $primary-blue-deep;
       }
