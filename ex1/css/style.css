@@ -692,16 +692,8 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
   justify-content: center;
   align-items: center;
   gap: 0;
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  margin: 0;
 }
 .info .info-container .info-wrapper .info-block .info-numbers {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -717,16 +709,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
   justify-content: flex-start;
   align-items: flex-start;
   gap: 50px;
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
-.info .info-container .info-wrapper .info-description p {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  margin: 0;
 }
 .info .info-container .btn {
   margin-top: 10px;
