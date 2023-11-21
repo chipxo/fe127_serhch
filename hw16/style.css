@@ -486,8 +486,6 @@ main .card-deck .card .front img:nth-last-of-type(3) {
   width: 20px;
 }
 main .card-deck .card .back {
-  display: grid;
-  place-items: center;
   width: 100%;
   height: 100%;
   top: 0;
