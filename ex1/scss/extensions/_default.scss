@@ -10,6 +10,14 @@ h2 {
     @include text-set($main-font, clamp(30px, 4vw + 1rem, 40px), italic, $mid-weight, clamp(40px, 4vw + 1rem, 48px), $secondary-spring);
   }
 }
+footer {
+  h2 {
+    @include text-set($main-font, 40px, normal, $mid-weight, 39px, $primary-dark-blue);
+    span {
+      @include text-set($main-font, 40px, italic, $mid-weight, 39px, $secondary-spring);
+    }
+  }
+}
 h3 {
   @include text-set($main-font, clamp(50px, 4vw + 1rem, 68px), normal, $mid-weight, 72px, $primary-dark-blue);
   &:not(:nth-of-type(3))::before {
@@ -86,13 +94,9 @@ header {
     }
   }
 }
+section:not(.header, .video, .quote, .features),
 footer {
-  h2 {
-    @include text-set($main-font, 40px, normal, $mid-weight, 39px, $primary-dark-blue);
-    span {
-      @include text-set($main-font, 40px, italic, $mid-weight, 39px, $secondary-spring);
-    }
-  }
+  padding: 0 135px;
 }
 img {
   object-fit: cover;

@@ -33,23 +33,20 @@
   section {
     position: relative;
     z-index: -1;
+    &:not(.header, .quote, .features) {
+      padding: 0 12px;
+    }
   }
 
   // Sections
-  .f-screen {
-    padding: 0 12px;
-  }
   .info {
-    margin: 4rem 0 0 0;
     position: relative;
     z-index: -1;
     .info-container {
       @include flex(column, center, center, 20px);
-      padding: 25px 12px;
       .info-block {
         .info-numbers {
           @include flex(column, center, center, 10px);
-
           .divider {
             margin: 10px;
           }
@@ -63,7 +60,6 @@
   }
   .benefits {
     .benefits-container {
-      padding: 0 12px;
       .benefits-wrapper {
         @include flex(column, center, center, 20px);
         .benefits-content {
@@ -75,16 +71,24 @@
   .quote {
     padding: 24px 12px 40px 12px;
   }
-  .video {
-    padding: 12px 12px 0 12px;
-  }
   .features {
+    margin-top: 0;
     .features-container {
-      padding: 20px 12px;
+      .features-content {
+        .btn {
+          border: none;
+          button {
+            padding: 0;
+          }
+          .btn-shadow {
+            bottom: -1px;
+            left: 10px;
+          }
+        }
+      }
     }
   }
   .reviews {
-    padding: 0 12px;
     .reviews-container {
       .reviews-wrapper {
         gap: 20px;
@@ -98,7 +102,6 @@
     padding: 0 12px;
     .footer-container {
       @include flex(column, center, flex-start, 40px);
-      padding: 30px;
       .footer-form {
         form {
           @include flex(column, center, center, 20px);

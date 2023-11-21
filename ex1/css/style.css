@@ -458,6 +458,23 @@ h2 span {
   color: #85bbb1;
 }
 
+footer h2 {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39px;
+  color: #262a3f;
+}
+footer h2 span {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 39px;
+  color: #85bbb1;
+}
+
 h3 {
   font-family: "Playfair Display", sans-serif;
   font-size: clamp(50px, 4vw + 1rem, 68px);
@@ -569,21 +586,9 @@ header .burger span {
   background-color: #262a3f;
 }
 
-footer h2 {
-  font-family: "Playfair Display", sans-serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 39px;
-  color: #262a3f;
-}
-footer h2 span {
-  font-family: "Playfair Display", sans-serif;
-  font-size: 40px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 39px;
-  color: #85bbb1;
+section:not(.header, .video, .quote, .features),
+footer {
+  padding: 0 135px;
 }
 
 img {
@@ -637,7 +642,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
 }
 
 .f-screen {
-  padding: 135px;
   margin-top: 150px;
 }
 .f-screen .screen-container {
@@ -658,7 +662,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
 
 .info {
   margin-top: 199px;
-  padding: 0 135px;
 }
 .info .info-container {
   max-width: 1170px;
@@ -722,9 +725,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
 
 .benefits {
   margin-top: 165px;
-}
-.benefits .benefits-container {
-  padding: 0 135px;
 }
 .benefits .benefits-container .benefits-wrapper {
   max-width: 1170px;
@@ -898,7 +898,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
 
 .reviews {
   margin-top: 165px;
-  padding: 0 135px;
 }
 .reviews .reviews-container {
   max-width: 1170px;
@@ -962,7 +961,6 @@ header .header-container nav ul li a:hover, header .header-container nav ul li a
 
 footer {
   margin-top: 100px;
-  padding: 0 135px;
 }
 footer .footer-container {
   max-width: 1170px;
@@ -1113,12 +1111,12 @@ footer .footer-wrapper .footer-item-3 {
   header .header-container nav ul {
     gap: 11px;
   }
-  .f-screen {
-    padding: 40px;
+  section:not(.header, .quote, .features),
+  footer {
+    padding: 0 40px;
   }
   .info {
-    margin: 6rem;
-    padding: 0;
+    margin: 6rem 0 0 0;
   }
   .info .info-container .info-bg-img {
     display: none;
@@ -1135,7 +1133,7 @@ footer .footer-wrapper .footer-item-3 {
     gap: 50px;
     background: none;
     text-align: center;
-    padding: 40px;
+    padding: 0;
     position: static;
   }
   .info .info-container .info-wrapper .info-block {
@@ -1162,9 +1160,6 @@ footer .footer-wrapper .footer-item-3 {
     height: auto;
     margin: 0;
   }
-  .benefits .benefits-container {
-    padding: 0 40px;
-  }
   .benefits .benefits-container .benefits-wrapper {
     display: flex;
     flex-direction: column;
@@ -1182,11 +1177,8 @@ footer .footer-wrapper .footer-item-3 {
     top: 20px;
     left: 20px;
   }
-  .video {
-    padding: 40px;
-  }
   .features {
-    margin-top: -3rem;
+    margin-top: -2rem;
   }
   .features .features-bg-img {
     display: none;
@@ -1206,10 +1198,6 @@ footer .footer-wrapper .footer-item-3 {
   }
   .reviews {
     margin-top: 5rem;
-    padding: 0 40px;
-  }
-  footer {
-    padding: 0 40px;
   }
   footer .footer-wrapper {
     display: grid;
@@ -1225,11 +1213,9 @@ footer .footer-wrapper .footer-item-3 {
   header .header-container nav ul {
     gap: 15px;
   }
-  .f-screen {
+  section:not(.header, .quote, .features),
+  footer {
     padding: 0 24px;
-  }
-  .info .info-container .info-wrapper {
-    padding: 24px;
   }
   .quote {
     padding: 24px 50px 40px 50px;
@@ -1244,7 +1230,6 @@ footer .footer-wrapper .footer-item-3 {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    padding: 24px 24px;
   }
   .video .video-screen {
     max-width: 970px;
@@ -1319,11 +1304,10 @@ footer .footer-wrapper .footer-item-3 {
     position: relative;
     z-index: -1;
   }
-  .f-screen {
+  section:not(.header, .quote, .features) {
     padding: 0 12px;
   }
   .info {
-    margin: 4rem 0 0 0;
     position: relative;
     z-index: -1;
   }
@@ -1333,7 +1317,6 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 25px 12px;
   }
   .info .info-container .info-block .info-numbers {
     display: flex;
@@ -1353,9 +1336,6 @@ footer .footer-wrapper .footer-item-3 {
     gap: 10px;
     text-align: center;
   }
-  .benefits .benefits-container {
-    padding: 0 12px;
-  }
   .benefits .benefits-container .benefits-wrapper {
     display: flex;
     flex-direction: column;
@@ -1369,14 +1349,18 @@ footer .footer-wrapper .footer-item-3 {
   .quote {
     padding: 24px 12px 40px 12px;
   }
-  .video {
-    padding: 12px 12px 0 12px;
+  .features {
+    margin-top: 0;
   }
-  .features .features-container {
-    padding: 20px 12px;
+  .features .features-container .features-content .btn {
+    border: none;
   }
-  .reviews {
-    padding: 0 12px;
+  .features .features-container .features-content .btn button {
+    padding: 0;
+  }
+  .features .features-container .features-content .btn .btn-shadow {
+    bottom: -1px;
+    left: 10px;
   }
   .reviews .reviews-container .reviews-wrapper {
     gap: 20px;
@@ -1393,7 +1377,6 @@ footer .footer-wrapper .footer-item-3 {
     justify-content: center;
     align-items: flex-start;
     gap: 40px;
-    padding: 30px;
   }
   footer .footer-container .footer-form form {
     display: flex;

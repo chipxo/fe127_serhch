@@ -10,18 +10,12 @@
       }
     }
   }
-
-  // Sections
-  .f-screen {
+  section:not(.header, .quote, .features),
+  footer {
     padding: 0 24px;
   }
-  .info {
-    .info-container {
-      .info-wrapper {
-        padding: 24px;
-      }
-    }
-  }
+
+  // Sections
   .quote {
     padding: 24px 50px 40px 50px;
     overflow: hidden;
@@ -32,7 +26,6 @@
   }
   .video {
     @include set(1170px, 100%, auto, 0 auto);
-    padding: 24px 24px;
     .video-screen {
       @include set(970px, 100%, auto, 0 auto 50px auto);
       padding: 30px 31px 70px 31px;

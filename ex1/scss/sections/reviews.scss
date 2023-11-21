@@ -1,6 +1,5 @@
 .reviews {
   margin-top: 165px;
-  padding: 0 135px;
   .reviews-container {
     @include set(1170px, 100%, auto, 0 auto);
     @include flex(column, flex-start, flex-start, 50px);

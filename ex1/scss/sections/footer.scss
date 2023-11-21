@@ -1,6 +1,5 @@
 footer {
   margin-top: 100px;
-  padding: 0 135px;
   .footer-container {
     @include set(1170px, 100%, auto, 0 auto);
     @include grid(repeat(2, 1fr), 20px, 30px);
