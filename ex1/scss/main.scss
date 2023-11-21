@@ -5,6 +5,8 @@
 @import "extensions/_default";
 * {
   box-sizing: border-box;
+  scroll-margin-top: 6rem;
+  scroll-behavior: smooth;
 }
 @import "sections/header";
 @import "sections/f-screen";
@@ -31,4 +33,35 @@ body {
     @include bg;
   }
 }
-@import "dark";
+@import "media-q/media-dark";
+body.hidden {
+  header.active {
+    backdrop-filter: blur(8px);
+    background: none;
+    .header-container {
+      nav {
+        @include set(unset, fit-content, 100vh, 0);
+        position: absolute;
+        top: 0;
+        left: -294px;
+        background: $primary-white;
+        transition: 0.3s ease-in-out;
+        ul {
+          @include flex(column, center, flex-start, 20px);
+          padding: 40px 53px 10px 34px;
+          position: sticky;
+          top: 0;
+        }
+      }
+      .burger {
+        @include flex(column, center, center, 5px);
+      }
+    }
+  }
+  main,
+  footer {
+    &.blur {
+      filter: none;
+    }
+  }
+}

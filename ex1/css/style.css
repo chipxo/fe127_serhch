@@ -597,12 +597,17 @@ img {
 
 * {
   box-sizing: border-box;
+  scroll-margin-top: 6rem;
+  scroll-behavior: smooth;
 }
 
 header {
   margin-top: 30px;
   backdrop-filter: blur(8px);
   padding: 24px 135px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 header .header-container {
   max-width: 1170px;
@@ -637,7 +642,7 @@ header .header-container nav ul li a {
   border-bottom: 3px solid transparent;
   padding-bottom: 5px;
 }
-header .header-container nav ul li a:hover, header .header-container nav ul li a:focus {
+header .header-container nav ul li a:hover {
   border-bottom: 3px solid rgba(255, 99, 71, 0.3);
 }
 
@@ -1267,9 +1272,6 @@ footer .footer-wrapper .footer-item-3 {
   header {
     margin-top: 0;
     padding: 12px;
-    position: sticky;
-    top: 0;
-    z-index: 2;
     transition: 0.3s ease;
   }
   header .header-container nav {
@@ -1581,12 +1583,12 @@ body .bg-img {
     color: #ffffff;
   }
 }
-@media (max-width: 882px) {
+@media (prefers-color-scheme: dark) and (max-width: 882px) {
   .info .info-container .info-wrapper {
     background: transparent;
   }
 }
-@media (max-width: 670px) {
+@media (prefers-color-scheme: dark) and (max-width: 670px) {
   .video .video-screen img:not(.tablet) {
     position: absolute;
   }
@@ -1606,13 +1608,49 @@ body .bg-img {
     translate: -50% 50%;
   }
 }
-@media (max-width: 590px) {
+@media (prefers-color-scheme: dark) and (max-width: 590px) {
   .header.active {
     background: #161926;
   }
   .header.active .header-container nav {
     background: #161926;
   }
+}
+body.hidden header.active {
+  backdrop-filter: blur(8px);
+  background: none;
+}
+body.hidden header.active .header-container nav {
+  max-width: unset;
+  width: fit-content;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: -294px;
+  background: #ffffff;
+  transition: 0.3s ease-in-out;
+}
+body.hidden header.active .header-container nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px 53px 10px 34px;
+  position: sticky;
+  top: 0;
+}
+body.hidden header.active .header-container .burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+body.hidden main.blur,
+body.hidden footer.blur {
+  filter: none;
 }
 
 /*# sourceMappingURL=style.css.map */

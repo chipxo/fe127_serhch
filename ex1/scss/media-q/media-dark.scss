@@ -177,49 +177,48 @@
       }
     }
   }
-}
-
-@media (max-width: 882px) {
-  .info {
-    .info-container {
-      .info-wrapper {
-        background: transparent;
-      }
-    }
-  }
-}
-
-@media (max-width: 670px) {
-  .video {
-    .video-screen {
-      img:not(.tablet) {
-        position: absolute;
-        &:nth-of-type(6) {
-          inset: 50%;
-          translate: -50% -50%;
-        }
-        &:nth-of-type(7) {
-          top: unset;
-          bottom: 0;
-          right: 50%;
-          translate: 50% -50%;
-        }
-        &:nth-of-type(8) {
-          top: 0;
-          left: 50%;
-          translate: -50% 50%;
+  @media (max-width: 882px) {
+    .info {
+      .info-container {
+        .info-wrapper {
+          background: transparent;
         }
       }
     }
   }
-}
 
-@media (max-width: 590px) {
-  .header.active {
-    background: $primary-blue-deep;
-    .header-container {
-      nav {
-        background: $primary-blue-deep;
+  @media (max-width: 670px) {
+    .video {
+      .video-screen {
+        img:not(.tablet) {
+          position: absolute;
+          &:nth-of-type(6) {
+            inset: 50%;
+            translate: -50% -50%;
+          }
+          &:nth-of-type(7) {
+            top: unset;
+            bottom: 0;
+            right: 50%;
+            translate: 50% -50%;
+          }
+          &:nth-of-type(8) {
+            top: 0;
+            left: 50%;
+            translate: -50% 50%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 590px) {
+    .header.active {
+      background: $primary-blue-deep;
+      .header-container {
+        nav {
+          background: $primary-blue-deep;
+        }
       }
     }
   }
