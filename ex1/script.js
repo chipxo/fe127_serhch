@@ -25,4 +25,4 @@ setInterval(() => {
   for (const anchor of anchors) {
     anchor.classList.remove("hide");
   }
-}, 1000);
+}, 500);

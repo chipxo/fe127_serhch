@@ -621,9 +621,6 @@ header .header-container {
   justify-items: end;
   align-items: center;
 }
-header .header-container nav {
-  padding-top: 5px;
-}
 header .header-container nav ul {
   display: flex;
   flex-direction: row;
