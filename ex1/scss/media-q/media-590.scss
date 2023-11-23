@@ -6,9 +6,6 @@
   header {
     margin-top: 0;
     padding: 12px;
-    // position: sticky;
-    // top: 0;
-    // z-index: 2;
     transition: 0.3s ease;
     .header-container {
       nav {
@@ -37,11 +34,13 @@
       padding: 0 12px;
     }
   }
+  main,
+  footer {
+    transition: 0.3s ease-in-out;
+  }
 
   // Sections
   .info {
-    position: relative;
-    z-index: -1;
     .info-container {
       @include flex(column, center, center, 20px);
       .info-block {
@@ -104,7 +103,7 @@
       @include flex(column, center, flex-start, 40px);
       .footer-form {
         form {
-          @include flex(column, center, center, 20px);
+          @include flex(column, center, flex-start, 20px);
         }
       }
     }

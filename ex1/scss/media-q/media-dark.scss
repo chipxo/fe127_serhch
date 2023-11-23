@@ -213,13 +213,15 @@
   }
 
   @media (max-width: 590px) {
-    .header.active {
-      background: $primary-blue-deep;
+    header {
       .header-container {
         nav {
           background: $primary-blue-deep;
         }
       }
+    }
+    .header.active {
+      background: $primary-blue-deep;
     }
   }
 }

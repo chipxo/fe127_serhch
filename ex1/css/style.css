@@ -1009,7 +1009,7 @@ footer .footer-container .footer-form form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 40px;
 }
 footer .footer-container .footer-form form label {
@@ -1028,13 +1028,18 @@ footer .footer-container .footer-form form label input {
   font-style: italic;
   font-weight: 400;
   line-height: 20px;
-  color: #262a3f;
+  color: #e4e4e4;
   letter-spacing: 1px;
   opacity: 0.5;
   border: none;
   background: none;
   padding-bottom: 12px;
   border-bottom: 1px solid #e4e4e4;
+}
+footer .footer-container .footer-form form label input:focus, footer .footer-container .footer-form form label input:active {
+  color: #ffffff;
+  background: none;
+  opacity: 1;
 }
 footer .footer-container .footer-form .btn .btn-shadow {
   max-width: unset;
@@ -1309,9 +1314,9 @@ footer .footer-wrapper .footer-item-3 {
   section:not(.header, .quote, .features) {
     padding: 0 12px;
   }
-  .info {
-    position: relative;
-    z-index: -1;
+  main,
+  footer {
+    transition: 0.3s ease-in-out;
   }
   .info .info-container {
     display: flex;
@@ -1384,7 +1389,7 @@ footer .footer-wrapper .footer-item-3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
   }
   footer .footer-wrapper {
@@ -1645,10 +1650,10 @@ body .bg-img {
   }
 }
 @media (prefers-color-scheme: dark) and (max-width: 590px) {
-  .header.active {
+  header .header-container nav {
     background: #161926;
   }
-  .header.active .header-container nav {
+  .header.active {
     background: #161926;
   }
 }
