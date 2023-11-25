@@ -170,7 +170,7 @@ fieldset {
   padding: 0.2em 0;
 }
 
-main .content button, main .content p, main .content h3, main .content h2, header .heading h1, header .heading h4 {
+main button, main p, main h3, main .content, header .heading h4, header .heading h1 {
   text-align: center;
   font-style: normal;
 }
@@ -193,23 +193,17 @@ main .content button, main .content p, main .content h3, main .content h2, heade
 }
 
 header {
-  margin-bottom: 90px;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto 8rem auto;
 }
 header .heading {
-  gap: 15px;
   width: 450px;
   height: 157px;
   background: unset;
+  gap: 15px;
   position: relative;
   border-bottom: 1px solid #ffcc00;
-}
-header .heading h4 {
-  font-family: "Raleway", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: #898f8f;
 }
 header .heading h1 {
   font-family: "Roboto", sans-serif;
@@ -219,25 +213,38 @@ header .heading h1 {
   text-transform: uppercase;
   color: #ffcc00;
 }
+header .heading h4 {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #898f8f;
+}
 header .heading img {
   position: absolute;
   bottom: -10px;
   background: #ffffff;
+  object-fit: cover;
+  padding: 0 20px;
 }
 
 main {
-  max-width: 1030px;
+  max-width: 1170px;
   width: 100%;
-  height: 600px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
 }
 main .sc-1 {
   border-right: 1px solid #ffcc00;
-  padding: 80px 130px 0 0;
-  height: 600px;
+  padding: 4rem 5.8rem;
+  width: fit-content;
 }
 main .sc-1 .photo {
   position: relative;
+  width: fit-content;
 }
 main .sc-1 .photo .angle {
   position: absolute;
@@ -261,10 +268,16 @@ main .sc-1 .photo .angle:nth-child(4) {
   left: -1rem;
   transform: rotate(180deg);
 }
-main .content {
-  padding-left: 100px;
+main .sc-1 .photo img.dev-ph {
+  max-width: fit-content;
+  width: 100%;
+  margin: 0;
+  height: 400px;
+  object-fit: cover;
 }
-main .content h2 {
+main .content {
+  box-sizing: border-box;
+  padding: 0 5.8rem;
   font-family: "Roboto", sans-serif;
   font-size: 36px;
   font-weight: 900;
@@ -272,13 +285,13 @@ main .content h2 {
   text-transform: capitalize;
   color: #666666;
 }
-main .content .divider {
+main .divider {
   width: 100px;
   height: 1px;
   background: #ffcc00;
   margin: 30px 0;
 }
-main .content h3 {
+main h3 {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -286,38 +299,35 @@ main .content h3 {
   text-transform: capitalize;
   color: #666666;
 }
-main .content nav {
+main nav {
   margin: 30px 0 49px 0;
 }
-main .content nav ul {
+main nav ul {
   gap: 5px;
 }
-main .content p {
+main p {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   text-transform: none;
   color: #333333;
-  width: 430px;
-  height: 116px;
-  background: unset;
 }
-main .content .rectangle-wrap {
+main .rectangle-wrap {
   gap: 5px;
   margin: 20px 0 25px 0;
 }
-main .content .rectangle-wrap .rectangle {
+main .rectangle-wrap .rectangle {
   width: 10px;
   height: 4px;
   background: #ffcc00;
 }
-main .content .rectangle-wrap .rectangle-big {
+main .rectangle-wrap .rectangle-big {
   width: 20px;
   height: 4px;
   background: #ffcc00;
 }
-main .content button {
+main button {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 700;

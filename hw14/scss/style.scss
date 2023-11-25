@@ -1,11 +1,11 @@
-@import "reset";
+@import "_extensions/_reset";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Raleway:wght@400;500&family=Roboto:wght@900&display=swap");
-@import "var";
-@import "mixin";
-@import "extend";
-@import "default";
+@import "_extensions/_var";
+@import "_extensions/_mixin";
+@import "_extensions/_extend";
+@import "_extensions/_default";
 * {
   box-sizing: border-box;
 }
-@import "header";
-@import "main";
+@import "sections/header";
+@import "sections/main";

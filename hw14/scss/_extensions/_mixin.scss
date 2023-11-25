@@ -12,3 +12,13 @@
   height: $height;
   background: $bc;
 }
+@mixin set($max-w, $w, $margin) {
+  max-width: $max-w;
+  width: $w;
+  margin: $margin;
+}
+@mixin grid($col, $gap) {
+  display: grid;
+  grid-template-columns: $col;
+  gap: $gap;
+}
