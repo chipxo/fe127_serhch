@@ -104,6 +104,9 @@
       .footer-form {
         form {
           @include flex(column, center, flex-start, 20px);
+          .btn {
+            margin-top: 1rem;
+          }
         }
       }
     }

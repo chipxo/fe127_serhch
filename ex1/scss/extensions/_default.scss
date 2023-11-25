@@ -37,7 +37,6 @@ a {
   text-decoration: none;
 }
 .btn {
-  width: fit-content;
   position: relative;
   button {
     @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-coral);
