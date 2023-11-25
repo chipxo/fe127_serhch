@@ -4,14 +4,14 @@ const header = document.querySelector(".header");
 const main = document.querySelector(".main");
 const footer = document.querySelector(".footer");
 const anchors = document.querySelectorAll(".anchor");
-burger.addEventListener("click", function () {
+burger.addEventListener("click", () => {
   burger.classList.toggle("active");
   header.classList.toggle("active");
   main.classList.toggle("blur");
   footer.classList.toggle("blur");
 });
 for (const anchor of anchors) {
-  anchor.addEventListener("click", function () {
+  anchor.addEventListener("click", () => {
     anchor.classList.toggle("hide");
     body.classList.toggle("hidden");
     header.classList.remove("active");
