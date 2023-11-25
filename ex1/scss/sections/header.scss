@@ -1,0 +1,30 @@
+header {
+  margin-top: 30px;
+  backdrop-filter: blur(8px);
+  padding: 24px 135px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  .header-container {
+    @include set(1170px, 100%, auto, 0 auto);
+    @include grid(107px 1fr, 10px, 0);
+    justify-items: end;
+    align-items: center;
+    nav {
+      ul {
+        @include flex(row, center, center, 30px);
+        li {
+          a {
+            @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-dark-blue);
+            letter-spacing: 1px;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 5px;
+            &:hover {
+              border-bottom: 3px solid rgba(255, 99, 71, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+}

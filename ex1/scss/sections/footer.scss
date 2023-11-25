@@ -1,0 +1,72 @@
+footer {
+  margin-top: 100px;
+  .footer-container {
+    @include set(1170px, 100%, auto, 0 auto);
+    @include grid(repeat(2, 1fr), 20px, 30px);
+    padding: 60px 0 104px 0;
+    border-top: $common-border-pr-grey;
+    border-bottom: $common-border-pr-grey;
+    .footer-contact {
+      @include flex(column, flex-start, flex-start, 29px);
+      margin-top: 21px;
+    }
+    .footer-form {
+      @include set(470px, 100%, auto, 0);
+      @include flex(column, flex-start, flex-start, 40px);
+      justify-self: end;
+      align-self: start;
+      form {
+        @include set(470px, 100%, auto, 0);
+        @include flex(column, flex-start, flex-start, 40px);
+        label {
+          @include set(470px, 100%, auto, 0);
+          input {
+            @include set(470px, 100%, auto, 0);
+            @include text-set($main-font, 18px, italic, $mid-weight, 20px, $primary-grey);
+            letter-spacing: 1px;
+            opacity: 0.5;
+            border: none;
+            background: none;
+            padding-bottom: 12px;
+            border-bottom: $common-border-pr-grey;
+            &:focus,
+            &:active {
+              color: $primary-white;
+              background: none;
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .btn {
+        .btn-shadow {
+          @include set(unset, 163px, 13px, 0);
+        }
+      }
+    }
+  }
+  .footer-wrapper {
+    @include set(1170px, 100%, auto, 0 auto);
+    @include flex(row, space-between, center, 10px);
+    padding: 20px 0;
+    > * a {
+      @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-dark-blue);
+      letter-spacing: 1px;
+    }
+    > * p {
+      font-size: 14px;
+    }
+    .footer-item-1 {
+      p::before {
+        content: "©";
+        margin-right: 5px;
+      }
+    }
+    .footer-item-2 {
+      @include flex(row, space-between, center, 12px);
+    }
+    .footer-item-3 {
+      @include flex(row, space-between, center, 32px);
+    }
+  }
+}

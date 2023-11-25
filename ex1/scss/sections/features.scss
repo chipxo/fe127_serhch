@@ -1,0 +1,38 @@
+.features {
+  @include set(1170px, 100%, auto, 165px auto 0 auto);
+  position: relative;
+  .features-bg-img {
+    position: absolute;
+    left: 135px;
+    img {
+      @include set(600px, 100%, 540px, 0);
+    }
+  }
+  .features-container {
+    @include set(900px, 100%, auto, 0 auto);
+    @include grid(repeat(auto-fit, minmax(300px, 1fr)), 100px, 70px);
+    padding: 75px 70px;
+    position: relative;
+    top: 60px;
+    left: calc(20vw - 20%);
+    background-color: $primary-white;
+    opacity: 0.9;
+    > * {
+      @include set(unset, fit-content, auto, 0);
+    }
+  }
+  .btn {
+    border: $common-border-pr-grey;
+    margin-top: 10px;
+    button {
+      padding: 30px 75px;
+    }
+    .btn-shadow {
+      bottom: 1.8rem;
+      left: 5.3rem;
+    }
+    &:hover {
+      border: $red-border;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.info {
+  margin-top: 199px;
+  .info-container {
+    @include set(1170px, 100%, auto, 0 auto);
+    position: relative;
+    .info-bg-img {
+      position: absolute;
+    }
+    .info-wrapper {
+      @include set(770px, 100%, auto, 0 auto);
+      @include grid(repeat(2, 1fr), 56px, 0);
+      position: relative;
+      top: 45px;
+      left: calc(20vw - 20%);
+      background-color: $primary-white;
+      opacity: 0.9;
+      padding: 35px;
+      .info-block {
+        @include flex(column, center, center, 0);
+        .info-numbers {
+          @include flex(column, center, center, 20px);
+          .divider {
+            margin: 20px;
+          }
+        }
+      }
+      .info-description {
+        @include flex(column, flex-start, flex-start, 50px);
+      }
+    }
+    .btn {
+      margin-top: 10px;
+      .btn-shadow {
+        @include set(188px, 100%, 13px, 0);
+      }
+    }
+  }
+}

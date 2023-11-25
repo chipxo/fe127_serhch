@@ -1,0 +1,12 @@
+.f-screen {
+  margin-top: 150px;
+  .screen-container {
+    @include set(1170px, 100%, auto, 0 auto);
+    .screen-content {
+      @include set(530px, 100%, auto, 0);
+    }
+  }
+  .btn {
+    margin-top: 50px;
+  }
+}

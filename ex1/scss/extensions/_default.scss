@@ -1,0 +1,102 @@
+h1 {
+  @include text-set($main-font, clamp(32px, 4vw + 1rem, 44px), normal, $mid-weight, clamp(44px, 4vw + 1rem, 52px), $primary-dark-blue);
+  span {
+    @include text-set($main-font, clamp(32px, 4vw + 1rem, 44px), italic, $mid-weight, clamp(44px, 4vw + 1rem, 52px), $secondary-spring);
+  }
+}
+h2 {
+  @include text-set($main-font, clamp(30px, 4vw + 1rem, 40px), normal, $mid-weight, clamp(40px, 4vw + 1rem, 48px), $primary-dark-blue);
+  span {
+    @include text-set($main-font, clamp(30px, 4vw + 1rem, 40px), italic, $mid-weight, clamp(40px, 4vw + 1rem, 48px), $secondary-spring);
+  }
+}
+footer {
+  h2 {
+    @include text-set($main-font, 40px, normal, $mid-weight, 39px, $primary-dark-blue);
+    span {
+      @include text-set($main-font, 40px, italic, $mid-weight, 39px, $secondary-spring);
+    }
+  }
+}
+h3 {
+  @include text-set($main-font, clamp(50px, 4vw + 1rem, 68px), normal, $mid-weight, 72px, $primary-dark-blue);
+  &:not(:nth-of-type(3))::before {
+    content: "$";
+    margin-right: 10px;
+    color: $primary-grey;
+  }
+}
+h4 {
+  @include text-set($main-font, clamp(18px, 4vw + 1rem, 24px), normal, $mid-weight, 48px, $primary-dark-blue);
+}
+p {
+  @include text-set($common-font, 18px, normal, $light-weight, 26px, $primary-dark-blue);
+  opacity: 0.8;
+}
+a {
+  text-decoration: none;
+}
+.btn {
+  position: relative;
+  button {
+    @include text-set($common-font, 20px, normal, $bold-weight, 22px, $secondary-coral);
+    position: relative;
+    background: none;
+    border: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+  .btn-shadow {
+    @include set(unset, 112px, 13px, 0);
+    position: absolute;
+    bottom: -1px;
+    left: 10px;
+    opacity: 0.3;
+    background: $secondary-coral;
+  }
+  button,
+  .btn-shadow {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+  &:hover,
+  &:focus {
+    button {
+      color: $secondary-red;
+    }
+    .btn-shadow {
+      background-color: $secondary-red;
+    }
+  }
+}
+.divider {
+  @include set(unset, 100px, 1px, 0);
+  background-color: $secondary-spring;
+}
+.author {
+  @include text-set($main-font, 20px, italic, $mid-weight, 20px, $primary-white);
+  opacity: 1;
+  letter-spacing: 2px;
+  text-align: start;
+}
+header {
+  .burger {
+    display: none;
+    width: 42px;
+    span {
+      @include set(unset, 100%, 3px, 0);
+      display: block;
+      background-color: $primary-dark-blue;
+    }
+  }
+}
+section:not(.header, .video, .quote, .features),
+footer {
+  padding: 0 135px;
+}
+img {
+  object-fit: cover;
+}

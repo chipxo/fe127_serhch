@@ -1,0 +1,228 @@
+@media (prefers-color-scheme: dark) {
+  // Default
+  body {
+    background: $primary-blue-deep;
+    .bg-img {
+      background: linear-gradient(to top, rgba(22, 25, 38, 1), rgba(255, 255, 255, 0)), url("../media/img/f-screen/f-screen-bg-dark.png");
+      @include bg;
+    }
+  }
+  h1,
+  h2,
+  footer h2,
+  h3,
+  h4,
+  p {
+    color: $primary-white;
+    span {
+      color: $secondary-blue;
+    }
+  }
+  .divider {
+    background-color: $secondary-blue;
+  }
+  .btn {
+    button {
+      color: $secondary-neon-green;
+    }
+    .btn-shadow {
+      background: $secondary-neon-green;
+    }
+    &:hover,
+    &:focus {
+      button {
+        color: $secondary-neon-green-dark;
+      }
+      .btn-shadow {
+        background-color: $secondary-neon-green-dark;
+      }
+    }
+  }
+  header {
+    .header-container {
+      nav {
+        ul {
+          li {
+            a {
+              color: $primary-white;
+              border-bottom: 3px solid transparent;
+              border-left: 0;
+              border-right: 0;
+              border-top: 0;
+              padding-bottom: 5px;
+              &:hover {
+                border-image-slice: 1;
+                border-width: 3px;
+                border-image-source: linear-gradient(90deg, #53f3ce7e, #114238);
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+              }
+            }
+          }
+        }
+      }
+      .burger {
+        span {
+          background-color: $primary-white;
+        }
+      }
+    }
+  }
+
+  // Sections
+  .info {
+    .info-container {
+      .info-wrapper {
+        background-color: $primary-blue-deep;
+      }
+      .info-btn {
+        .btn-shadow {
+          background-color: $secondary-neon-green;
+        }
+        &:hover,
+        &:focus {
+          button {
+            color: $secondary-neon-green-dark;
+          }
+          .btn-shadow {
+            background-color: $secondary-neon-green-dark;
+          }
+        }
+      }
+    }
+  }
+  .features {
+    .features-container {
+      background-color: $primary-blue-deep;
+    }
+    .btn {
+      border: $common-border-pr-grey;
+      &:hover,
+      &:focus {
+        border: $neon-border;
+      }
+    }
+  }
+  .quote {
+    img.light {
+      display: none;
+    }
+    img.dark {
+      display: block;
+      position: absolute;
+    }
+  }
+  .video {
+    .video-screen {
+      border: $common-border-sc-grey;
+      img:not(img.dark) {
+        display: none;
+      }
+      img.dark {
+        display: block;
+        &:nth-of-type(6) {
+          @include set(120px, 100%, auto, 0);
+          inset: 50%;
+          translate: -50% -50%;
+          &:hover,
+          &:focus {
+            cursor: pointer;
+          }
+        }
+        &:nth-of-type(7) {
+          top: 50%;
+          right: 0;
+          translate: -50% -50%;
+        }
+        &:nth-of-type(8) {
+          top: 50%;
+          left: 14px;
+          translate: -50% -50%;
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      border-top: $common-border-pr-grey;
+      border-bottom: $common-border-pr-grey;
+      .footer-form {
+        form {
+          label {
+            input {
+              border-bottom: $common-border-pr-grey;
+            }
+          }
+        }
+        .footer-btn {
+          .btn-shadow {
+            background: $secondary-neon-green;
+          }
+          &:hover,
+          &:focus {
+            button {
+              color: $secondary-neon-green-dark;
+            }
+            .btn-shadow {
+              background-color: $secondary-neon-green-dark;
+            }
+          }
+        }
+      }
+    }
+    .footer-wrapper {
+      > * a {
+        @include text-set($common-font, 14px, normal, $mid-weight, 24px, $primary-white);
+      }
+    }
+  }
+
+  @media (max-width: 882px) {
+    .info {
+      .info-container {
+        .info-wrapper {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 670px) {
+    .video {
+      .video-screen {
+        img:not(.tablet) {
+          position: absolute;
+          &:nth-of-type(6) {
+            inset: 50%;
+            translate: -50% -50%;
+          }
+          &:nth-of-type(7) {
+            top: unset;
+            bottom: 0;
+            right: 50%;
+            translate: 50% -50%;
+          }
+          &:nth-of-type(8) {
+            top: 0;
+            left: 50%;
+            translate: -50% 50%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 590px) {
+    header {
+      .header-container {
+        nav {
+          background: $primary-blue-deep;
+        }
+      }
+    }
+    .header.active {
+      background: $primary-blue-deep;
+    }
+  }
+}

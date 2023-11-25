@@ -1,0 +1,175 @@
+@media (max-width: 590px) {
+  // Default
+  p {
+    font-size: 16px;
+  }
+  header {
+    margin-top: 0;
+    padding: 12px;
+    transition: 0.3s ease;
+    .header-container {
+      nav {
+        @include set(unset, fit-content, 100vh, 0);
+        position: absolute;
+        top: 0;
+        left: -294px;
+        background: $primary-white;
+        transition: 0.3s ease-in-out;
+        ul {
+          @include flex(column, center, flex-start, 20px);
+          padding: 40px 53px 10px 34px;
+          position: sticky;
+          top: 0;
+        }
+      }
+      .burger {
+        @include flex(column, center, center, 5px);
+      }
+    }
+  }
+  section {
+    position: relative;
+    z-index: -1;
+    &:not(.header, .quote, .features) {
+      padding: 0 12px;
+    }
+  }
+  main,
+  footer {
+    transition: 0.3s ease-in-out;
+  }
+
+  // Sections
+  .info {
+    .info-container {
+      @include flex(column, center, center, 20px);
+      .info-block {
+        .info-numbers {
+          @include flex(column, center, center, 10px);
+          .divider {
+            margin: 10px;
+          }
+        }
+      }
+      .info-description {
+        @include flex(column, center, center, 10px);
+        text-align: center;
+      }
+    }
+  }
+  .benefits {
+    .benefits-container {
+      .benefits-wrapper {
+        @include flex(column, center, center, 20px);
+        .benefits-content {
+          padding: 30px 0;
+        }
+      }
+    }
+  }
+  .quote {
+    padding: 24px 12px 40px 12px;
+  }
+  .features {
+    margin-top: 0;
+    .features-container {
+      .features-content {
+        .btn {
+          border: none;
+          button {
+            padding: 0;
+          }
+          .btn-shadow {
+            bottom: -1px;
+            left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .reviews {
+    .reviews-container {
+      .reviews-wrapper {
+        gap: 20px;
+        .reviews-item {
+          padding: 25px 20px;
+        }
+      }
+    }
+  }
+  footer {
+    padding: 0 12px;
+    .footer-container {
+      @include flex(column, center, flex-start, 40px);
+      .footer-form {
+        form {
+          @include flex(column, center, flex-start, 20px);
+          .btn {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+    .footer-wrapper {
+      @include flex(column, center, center, 20px);
+      .footer-item-1 {
+        order: 1;
+      }
+      .footer-item-2,
+      .footer-item-3 {
+        @include flex(row, center, center, 10px);
+        @include set(unset, 100%, auto, 0);
+      }
+      text-align: center;
+    }
+  }
+  .header.active {
+    backdrop-filter: none;
+    background: $primary-white;
+    .header-container {
+      nav {
+        @include set(unset, fit-content, 100vh, 0);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  main,
+  footer {
+    &.blur {
+      filter: blur(5px);
+    }
+  }
+  body.hidden {
+    header.active {
+      backdrop-filter: blur(8px);
+      background: none;
+      .header-container {
+        nav {
+          @include set(unset, fit-content, 100vh, 0);
+          position: absolute;
+          top: 0;
+          left: -294px;
+          background: $primary-white;
+          transition: 0.3s ease-in-out;
+          ul {
+            @include flex(column, center, flex-start, 20px);
+            padding: 40px 53px 10px 34px;
+            position: sticky;
+            top: 0;
+          }
+        }
+        .burger {
+          @include flex(column, center, center, 5px);
+        }
+      }
+    }
+    main,
+    footer {
+      &.blur {
+        filter: none;
+      }
+    }
+  }
+}
