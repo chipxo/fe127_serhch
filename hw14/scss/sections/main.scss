@@ -1,0 +1,77 @@
+main {
+  @include set(1170px, 100%, 0 auto);
+  @include grid(1fr 1fr, 0);
+  .sc-1 {
+    border-right: $border;
+    padding: 4rem 5.8rem;
+    width: fit-content;
+    .photo {
+      position: relative;
+      width: fit-content;
+      .angle {
+        position: absolute;
+        &:nth-child(1) {
+          top: $spacing;
+          right: $spacing;
+        }
+        &:nth-child(2) {
+          top: $spacing;
+          left: $spacing;
+          transform: rotate(-90deg);
+        }
+        &:nth-child(3) {
+          bottom: $spacing;
+          right: $spacing;
+          transform: rotate(90deg);
+        }
+        &:nth-child(4) {
+          bottom: $spacing;
+          left: $spacing;
+          transform: rotate(180deg);
+        }
+      }
+      img.dev-ph {
+        @include set(fit-content, 100%, 0);
+        height: 400px;
+        object-fit: cover;
+      }
+    }
+  }
+  .content {
+    box-sizing: border-box;
+    padding: 0 5.8rem;
+    @include text($font-main, 36px, $weight-max, normal, $mid-gray, capitalize);
+  }
+  .divider {
+    @include rect(100px, 1px, $gold);
+    margin: 30px 0;
+  }
+  h3 {
+    @include text($font-sub, 24px, $weight-light, 36px, $mid-gray, capitalize);
+  }
+  nav {
+    margin: 30px 0 49px 0;
+    ul {
+      gap: 5px;
+    }
+  }
+  p {
+    @include text($font-sub, 14px, $weight-mid, 24px, $dark-gray, none);
+  }
+  .rectangle-wrap {
+    gap: 5px;
+    margin: 20px 0 25px 0;
+    .rectangle {
+      @include rect(10px, 4px, $gold);
+    }
+    .rectangle-big {
+      @include rect(20px, 4px, $gold);
+    }
+  }
+  button {
+    @include text($font-btn, 14px, $weight-mid-more, 14px, $mid-gray, uppercase);
+    padding: 5px 10px;
+    background: $white;
+    border: $border;
+  }
+}

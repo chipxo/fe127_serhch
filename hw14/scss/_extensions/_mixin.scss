@@ -1,0 +1,24 @@
+@mixin text($font-family, $font-size, $font-weight, $line-height, $color, $text-transform) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+  color: $color;
+  @extend %text-set;
+}
+@mixin rect($width, $height, $bc) {
+  width: $width;
+  height: $height;
+  background: $bc;
+}
+@mixin set($max-w, $w, $margin) {
+  max-width: $max-w;
+  width: $w;
+  margin: $margin;
+}
+@mixin grid($col, $gap) {
+  display: grid;
+  grid-template-columns: $col;
+  gap: $gap;
+}
