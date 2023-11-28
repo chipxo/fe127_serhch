@@ -1,0 +1,36 @@
+header {
+  @include grid(142px 1fr 20px, 0, 0);
+  height: 100px;
+  padding: 20px 135px;
+  place-items: center;
+  button {
+    @extend %fl-center;
+    @include set(100px, 100%, 100px, 0);
+    background: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      scale: 1.4;
+    }
+  }
+  nav {
+    @include set(500px, 100%, auto, 0 84px 0 auto);
+    box-sizing: border-box;
+    ul {
+      @include flex(space-around, center);
+      li {
+        @extend %fl-center;
+        @include pos(relative);
+        &:hover {
+          .bd-bot {
+            opacity: 1;
+          }
+        }
+        a {
+          @include text-set($common-font, 14px, normal, $light-weight, normal, 4px, $base-cl-black);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

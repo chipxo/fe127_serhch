@@ -1,0 +1,49 @@
+footer {
+  margin-bottom: 30px;
+  .contacts {
+    @include grid(repeat(2, 1fr), 30px, 0);
+    > * {
+      @include set(570px, 100%, auto, 0 auto);
+    }
+    .cont-it1 {
+      @include flex-col(center, flex-start);
+      a {
+        @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
+        transition: 0.3s ease-in-out;
+        &:nth-of-type(1) {
+          margin-bottom: 15px;
+        }
+        &:hover {
+          scale: 1.1;
+        }
+      }
+    }
+    .cont-it2 {
+      @include flex(flex-end, center);
+      gap: 23px;
+      i {
+        @include set(24px, 24px, 24px, 0);
+        @extend %fl-center;
+        padding: 10px;
+        border: 1px solid $cl-gray-700;
+        color: $cl-gray-700;
+        background-color: $base-cl-white;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          color: $base-cl-white;
+          background: $cl-gray-700;
+          scale: 1.1;
+        }
+      }
+    }
+  }
+  .copr {
+    @extend %fl-center;
+    p {
+      &::before {
+        content: "©";
+        margin-right: 5px;
+      }
+    }
+  }
+}

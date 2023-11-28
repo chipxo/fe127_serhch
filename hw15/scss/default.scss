@@ -1,0 +1,81 @@
+h1 {
+  @include text-set($main-font, 48px, normal, $mid-weight, 64px, 2px, $base-cl-black);
+  @include set(770px, 100%, auto, 0);
+}
+h2 {
+  @include text-set($main-font, 48px, normal, $light-weight, 64px, 2px, $base-cl-black);
+  margin-bottom: 50px;
+}
+h3 {
+  @include text-set($main-font, 28px, normal, $mid-weight, 166%, 3px, $base-cl-black);
+  margin-bottom: 50px;
+}
+h4 {
+  @include text-set($main-font, 24px, normal, $regular-weight, 166%, 2px, $base-cl-black);
+  margin-bottom: 15px;
+}
+h5 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 30px;
+}
+.date-1 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 50px;
+}
+.date-2 {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin: 25px 0;
+  display: inline;
+}
+p {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 1px, $cl-gray-700);
+}
+button {
+  @include set(180px, 100%, auto, 0);
+  @include text-set($common-font, 16px, normal, $bold-weight, 166%, 2px, $base-cl-white);
+  @include fl-center;
+  background-color: $cl-gray-700;
+  margin-top: 50px;
+  aspect-ratio: 16/5;
+  border: none;
+  &:hover {
+    background-color: $cl-dark-gray;
+  }
+}
+a {
+  text-decoration: none;
+  color: $base-cl-black;
+}
+.bd-bot {
+  @include pos(absolute);
+  bottom: -6px;
+  opacity: 0;
+  width: 40px;
+  height: 1px;
+  background-color: $base-cl-black;
+}
+section:not(section.fs_screen) {
+  margin-bottom: 70px;
+  padding: 0 130px;
+}
+footer {
+  padding: 0 130px;
+}
+.sub-heading {
+  @include flex(space-between, center);
+}
+.view {
+  @include text-set($common-font, 16px, normal, $light-weight, 166%, 2px, $cl-gray-500);
+  margin-bottom: 50px;
+}
+.burger {
+  display: none;
+  width: 40px;
+  height: 80px;
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $base-cl-black;
+  }
+}

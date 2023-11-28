@@ -1,0 +1,46 @@
+.latest-posts {
+  .latest-posts-item {
+    @include grid(repeat(3, 1fr), 30px, 25px);
+    grid-template-areas:
+      "wrapper-lp-1 filler wrapper-lp-2"
+      "lp-img-1 lp-img-2 lp-img-3"
+      "wrapper-media-lp-1 wrapper-media-lp-2 wrapper-media-lp-3";
+    .wrapper-lp-1 {
+      grid-area: wrapper-lp-1;
+    }
+    .filler-lp {
+      grid-area: filler;
+    }
+    .wrapper-lp-2 {
+      @include t-al(end);
+      grid-area: wrapper-lp-2;
+    }
+    .lp-img-1 {
+      grid-area: lp-img-1;
+    }
+    .lp-img-2 {
+      grid-area: lp-img-2;
+    }
+    .lp-img-3 {
+      grid-area: lp-img-3;
+    }
+    .wrapper-media-lp-1 {
+      grid-area: wrapper-media-lp-1;
+    }
+    .wrapper-media-lp-2 {
+      grid-area: wrapper-media-lp-2;
+    }
+    .wrapper-media-lp-3 {
+      grid-area: wrapper-media-lp-3;
+    }
+    > * {
+      @include set(370px, 100%, auto, 0 auto);
+      img {
+        &:not(a img) {
+          @include set(370px, 100%, 270px, 0 auto);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

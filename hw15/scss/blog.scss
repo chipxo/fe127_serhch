@@ -1,0 +1,12 @@
+.blog {
+  .blog-item {
+    @include grid(repeat(2, 1fr), 30px, 50px);
+    > * {
+      @include set(570px, 100%, auto, 0 auto);
+      img {
+        @include set(570px, 100%, 470px, 0 auto);
+        object-fit: cover;
+      }
+    }
+  }
+}

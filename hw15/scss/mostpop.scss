@@ -1,0 +1,42 @@
+.most-popular {
+  .mp-item {
+    @include grid(repeat(2, 1fr), 30px, 20px);
+    grid-template-areas:
+      "wrapper-mp-1 wrapper-mp-2"
+      "mp-img-1 mp-img-2"
+      "description-wrapper-1 description-wrapper-2"
+      "btn btn";
+    .wrapper-mp-1 {
+      grid-area: wrapper-mp-1;
+    }
+    .wrapper-mp-2 {
+      @include flex(flex-end, center);
+      grid-area: wrapper-mp-2;
+    }
+    .mp-img-1 {
+      grid-area: mp-img-1;
+    }
+    .mp-img-2 {
+      grid-area: mp-img-2;
+    }
+    .description-wrapper-1 {
+      grid-area: description-wrapper-1;
+    }
+    .description-wrapper-2 {
+      grid-area: description-wrapper-2;
+    }
+    .btn {
+      @extend %fl-center;
+      grid-area: btn;
+    }
+    > * {
+      @include set(570px, 100%, auto, 0 auto);
+      img {
+        &:not(a img) {
+          @include set(570px, 100%, 270px, 0 auto);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

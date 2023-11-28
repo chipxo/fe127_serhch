@@ -1,0 +1,49 @@
+@mixin text-set($f-family, $f-size, $f-style, $f-weight, $line-height, $letter-spacing, $color) {
+  font-family: $f-family;
+  font-size: $f-size;
+  font-style: $f-style;
+  font-weight: $f-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}
+@mixin grid($columns, $col-gap, $row-gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+}
+@mixin set($max-width, $width, $height, $margin) {
+  max-width: $max-width;
+  width: $width;
+  height: $height;
+  margin: $margin;
+}
+@mixin t-al($value) {
+  text-align: $value;
+}
+@mixin pos($value) {
+  position: $value;
+}
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-col($justify, $align) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin fl-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin fl-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
