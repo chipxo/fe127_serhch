@@ -1,0 +1,45 @@
+.video {
+  @include set(1170px, 100%, auto, 0 auto);
+  padding: 50px;
+  .video-screen {
+    @include set(970px, fit-content, auto, 0 auto 50px auto);
+    padding: 31px 70px 31px 30px;
+    position: relative;
+    border: $common-border-pr-grey;
+    border-radius: 32px;
+    .tablet {
+      @include set(970px, 100%, 539px, 0);
+    }
+
+    img:not(.tablet) {
+      position: absolute;
+      &:nth-of-type(2) {
+        @include set(120px, 100%, auto, 0);
+        inset: 50%;
+        translate: -50% -50%;
+        &:hover,
+        &:focus {
+          cursor: pointer;
+        }
+      }
+      &:nth-of-type(3) {
+        top: 50%;
+        right: 0;
+        translate: -50% -50%;
+      }
+      &:nth-of-type(4) {
+        top: 50%;
+        left: 14px;
+        translate: -50% -50%;
+      }
+    }
+    .dark {
+      display: none;
+    }
+  }
+  .video-content {
+    @include set(970px, 100%, auto, 0 auto 50px auto);
+    @include flex(column, flex-start, flex-start, 20px);
+  }
+}
+

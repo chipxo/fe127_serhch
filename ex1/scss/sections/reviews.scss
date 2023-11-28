@@ -1,0 +1,33 @@
+.reviews {
+  margin-top: 165px;
+  .reviews-container {
+    @include set(1170px, 100%, auto, 0 auto);
+    @include flex(column, flex-start, flex-start, 50px);
+    .reviews-heading {
+      @include flex(column, flex-start, flex-start, 20px);
+    }
+    .reviews-wrapper {
+      @include grid(repeat(auto-fit, minmax(300px, 1fr)), 30px, 50px);
+      .reviews-item {
+        @include flex(column, space-between, flex-start, 20px);
+        padding: 30px 40px;
+        background-blend-mode: soft-light;
+        p:not(.author) {
+          @include text-set($common-font, 16px, normal, $mid-weight, 26px, $primary-white);
+        }
+        &:nth-child(1) {
+          background: url("../media/img/reviews/rev-img-1.png"), rgba(25, 28, 41, 0.6);
+          @include bg;
+        }
+        &:nth-child(2) {
+          background: url("../media/img/reviews/rev-img-2.png"), rgba(25, 28, 41, 0.6);
+          @include bg;
+        }
+        &:nth-child(3) {
+          background: url("../media/img/reviews/rev-img-3.png"), rgba(25, 28, 41, 0.6);
+          @include bg;
+        }
+      }
+    }
+  }
+}

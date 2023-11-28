@@ -1,0 +1,13 @@
+@media (max-width: 1440px) {
+  .benefits {
+    .benefits-container {
+      .benefits-wrapper {
+        .benefits-content {
+          @include set(unset, 100%, auto, 0);
+          @include flex(column, center, center, 30px);
+          text-align: center;
+        }
+      }
+    }
+  }
+}

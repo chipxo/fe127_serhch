@@ -1,0 +1,23 @@
+.quote {
+  @include set(1170px, 100%, auto, 120px auto 5rem auto);
+  position: relative;
+  padding: 100px 160px 100px 160px;
+  background-image: url("../media/img/quote/quote-bg.png");
+  @include bg;
+  p:not(.author) {
+    @include text-set($common-font, clamp(24px, 4vw + 0.2rem, 32px), normal, $mid-weight, clamp(40px, 4vw + 1rem, 46px), $primary-white);
+    letter-spacing: 1px;
+    opacity: 1;
+    margin-bottom: 40px;
+  }
+  img {
+    &.img {
+      position: absolute;
+      top: 70px;
+      left: 100px;
+    }
+    &.dark {
+      display: none;
+    }
+  }
+}

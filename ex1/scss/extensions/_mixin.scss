@@ -1,0 +1,32 @@
+@mixin text-set($f-family, $f-size, $f-style, $f-weight, $line-height, $color) {
+  font-family: $f-family;
+  font-size: $f-size;
+  font-style: $f-style;
+  font-weight: $f-weight;
+  line-height: $line-height;
+  color: $color;
+}
+@mixin set($max-width, $width, $height, $margin) {
+  max-width: $max-width;
+  width: $width;
+  height: $height;
+  margin: $margin;
+}
+@mixin grid($col, $col-gap, $row-gap) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-column-gap: $col-gap;
+  grid-row-gap: $row-gap;
+}
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+@mixin bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

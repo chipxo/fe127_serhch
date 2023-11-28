@@ -1,0 +1,83 @@
+@media (max-width: 882px) {
+  // Default
+  header {
+    padding: 24px 40px;
+    .header-container {
+      nav {
+        ul {
+          gap: 11px;
+        }
+      }
+    }
+  }
+  section:not(.header, .quote, .features),
+  footer {
+    padding: 0 40px;
+  }
+
+  // Sections
+  .info {
+    margin: 6rem 0 0 0;
+    .info-container {
+      .info-bg-img {
+        display: none;
+      }
+      .info-wrapper {
+        @include set(unset, 100%, auto, 0);
+        @include flex(column, flex-start, center, 50px);
+        background: none;
+        text-align: center;
+        padding: 0;
+        position: static;
+        .info-block {
+          @include set(300px, 100%, auto, 0);
+          text-align: center;
+        }
+        .info-description {
+          @include flex(column, flex-start, center, 50px);
+          @include set(600px, 100%, auto, 0);
+          p {
+            @include set(600px, 100%, auto, 0);
+          }
+        }
+      }
+    }
+  }
+  .benefits {
+    .benefits-container {
+      .benefits-wrapper {
+        @include flex(column, center, center, 20px);
+        .benefits-content {
+          padding: 40px 0 20px 0;
+        }
+      }
+    }
+  }
+  .quote {
+    padding: 40px;
+    img.img {
+      top: 20px;
+      left: 20px;
+    }
+  }
+  .features {
+    margin-top: -2rem;
+    .features-bg-img {
+      display: none;
+    }
+    .features-container {
+      @include flex(column, center, center, 20px);
+      @include set(800px, 100%, auto, 0 auto);
+      text-align: center;
+      padding: 0 40px 55px 40px;
+    }
+  }
+  .reviews {
+    margin-top: 5rem;
+  }
+  footer {
+    .footer-wrapper {
+      @include grid(repeat(auto-fit, minmax(150px, 1fr)), 20px, 20px);
+    }
+  }
+}

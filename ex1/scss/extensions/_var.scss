@@ -1,0 +1,28 @@
+// Fonts
+$main-font: "Playfair Display";
+$common-font: "Lato";
+
+// Font-weights
+$light-weight: 300;
+$mid-weight: 400;
+$bold-weight: 700;
+
+// Colors
+$primary-white: #ffffff;
+$primary-dark-blue: #262a3f;
+$primary-blue-deep: #161926;
+$primary-medium: #586291;
+$primary-grey: #e4e4e4;
+$secondary-coral: #f1897b;
+$secondary-spring: #85bbb1;
+$secondary-red: #e54f3a;
+$secondary-blue: #689ff2;
+$secondary-neon-green: #53f3cd;
+$secondary-neon-green-dark: #02e0ab;
+$secondary-grey: #515773;
+
+// Borders
+$common-border-pr-grey: 1px solid $primary-grey;
+$red-border: 1px solid $secondary-red;
+$common-border-sc-grey: 1px solid $secondary-grey;
+$neon-border: 1px solid $secondary-neon-green-dark;

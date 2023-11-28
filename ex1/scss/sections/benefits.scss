@@ -1,0 +1,16 @@
+.benefits {
+  margin-top: 165px;
+  .benefits-container {
+    .benefits-wrapper {
+      @include set(1170px, 100%, auto, 0 auto);
+      @include grid(repeat(auto-fit, minmax(570px, 1fr)), 30px, 60px);
+      justify-items: center;
+      align-items: start;
+      .benefits-content {
+        @include flex(column, flex-start, flex-start, 30px);
+        border-top: $common-border-sc-grey;
+        padding: 50px 30px 20px 30px;
+      }
+    }
+  }
+}
