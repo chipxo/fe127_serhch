@@ -53,7 +53,7 @@ const deleteWithName = (userName) => {
   const usersToKeep = Object.entries(users).filter(
     ([key, user]) => user.name !== userName,
   );
-  users = Object.fromEntries(usersToKeep);
+  return (users = Object.fromEntries(usersToKeep));
 };
 
 deleteWithName("Anna");
