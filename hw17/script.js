@@ -2,15 +2,14 @@
 // ключ height зі значенням 3
 // ключ tv зі значенням samsung
 // ключ big зі значенням true
-
-const room = {
+let room = {
   height: 3,
   tv: "samsung",
   big: true,
 };
 
 // 2 Виведіть в alert тип даних параметра big
-console.log(typeof room.big);
+alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -61,7 +60,7 @@ deleteWithName("Anna");
 console.log(users);
 
 //  Отримайте з об'єкта obj значення id у констанду id, не використовуючи вираз obj.id
-const obj = {
+let obj = {
   id: 5,
   token: 12343423,
 };
@@ -123,9 +122,9 @@ class Auto {
   calcTotalTime(dist) {
     let hoursWithoutBreaks = dist / this.averageSpeed;
     let breaks = Math.floor(hoursWithoutBreaks / 4);
-    let totalTime = hoursWithoutBreaks;
+    let totalTime = (hoursWithoutBreaks += breaks);
 
-    return (totalTime += breaks);
+    return totalTime;
   }
 
   //  Підрахунок необхідного палива
