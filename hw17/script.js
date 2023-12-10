@@ -17,11 +17,14 @@ let user = {
   age: 30,
 };
 
-if (Object.keys(user).length !== 0 && user.hasOwnProperty("age")) {
-  console.log("success");
-} else {
-  console.log("failed");
-}
+const checkObj = () => {
+  if (Object.keys(user).length !== 0 && user.hasOwnProperty("age")) {
+    console.log("success");
+  } else {
+    console.log("failed");
+  }
+};
+checkObj();
 
 // 4 Отримайте з цього об'єкту елемент, де name == "Bob" і збережіть це в будь-якій змінній.
 let users = {
@@ -40,23 +43,23 @@ let users = {
 };
 
 const findWithName = (userName) => {
-  return Object.values(users).filter(({ name }) => name === userName);
-};
+  return Object.entries(users).filter(([key, user]) => user.name === userName);
+}; // Перетворює об'єкт на масив, і шукає "name", яке відповідає задданому пізніше
 
-let userNameBob = findWithName("Bob"); // Bob
+let userNameBob = Object.fromEntries(findWithName("Bob"));
 console.log(userNameBob);
 
 // 5 Видаліть із об'єктів (завдання 4) об'єкт з name == "Anna".
-
 const deleteWithName = (userName) => {
-  const usersToKeep = Object.entries(users).filter(
+  let usersToKeep = Object.entries(users).filter(
     ([key, user]) => user.name !== userName,
-  );
-  return (users = Object.fromEntries(usersToKeep));
+  ); // Створює масив з масивами, який не включатиме у себе масив з заданним ім'ям
+
+  users = Object.fromEntries(usersToKeep);
+  return users;
 };
 
 deleteWithName("Anna");
-
 console.log(users);
 
 //  Отримайте з об'єкта obj значення id у констанду id, не використовуючи вираз obj.id
@@ -69,7 +72,6 @@ const objId = Number(Object.values(obj).filter((num) => num === 5));
 console.log(objId);
 
 // 6 Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг паливного баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
-
 class Auto {
   constructor(
     maker,
@@ -97,9 +99,9 @@ class Auto {
     console.log(`Average Speed: ${this.averageSpeed}km/h`);
     console.log(`Fuel Storage Capacity: ${this.fuelStorageCapacity}l`);
     console.log(
-      `Average Fuel Consumption per 100km: ${this.averageFuelConsumptionPer100km}l`,
+      `Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l`,
     );
-    console.log(`Drivers: ${this.drivers.join(", ")}`);
+    console.log(`Drivers: ${this.drivers.join(", ")}.`);
   }
 
   // Додавання ім’я водія у список
@@ -109,7 +111,7 @@ class Auto {
 
   // Перевірка водія на наявність його ім’я у списку
   checkDriver(drName) {
-    const hasDriver = this.drivers.includes(drName);
+    let hasDriver = this.drivers.includes(drName);
 
     if (hasDriver) {
       console.log(`${drName} is on the list.`);
@@ -122,7 +124,7 @@ class Auto {
   calcTotalTime(dist) {
     let hoursWithoutBreaks = dist / this.averageSpeed;
     let breaks = Math.floor(hoursWithoutBreaks / 4);
-    let totalTime = (hoursWithoutBreaks += breaks);
+    let totalTime = hoursWithoutBreaks + breaks;
 
     return totalTime;
   }
@@ -158,9 +160,9 @@ class Auto {
 
 const myCar = new Auto("BMW", "iX", 2017, 70, 200, 30, ["Jack", "Sarah"]);
 
-console.log(myCar.aboutAuto());
+myCar.aboutAuto();
 myCar.addDriver("Bob");
-console.log(myCar.aboutAuto());
+myCar.aboutAuto();
 myCar.checkDriver("Bob");
 myCar.checkDriver("John");
 console.log(myCar.calcTimeAndFuel(1000));
