@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-alert(typeof room.big);
+// alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -19,9 +19,9 @@ let user = {
 
 const checkObj = () => {
   if (Object.keys(user).length !== 0 && user.hasOwnProperty("age")) {
-    console.log("success");
+    return "success";
   } else {
-    console.log("failed");
+    return "failed";
   }
 };
 checkObj();
@@ -43,7 +43,11 @@ let users = {
 };
 
 const findWithName = (userName) => {
-  return Object.entries(users).filter(([key, user]) => user.name === userName);
+  let findObj = Object.entries(users).filter(
+    ([key, user]) => user.name === userName,
+  );
+
+  return findObj;
 }; // Перетворює об'єкт на масив, і шукає "name", яке відповідає задданому пізніше
 
 let userNameBob = Object.fromEntries(findWithName("Bob"));
@@ -52,7 +56,7 @@ console.log(userNameBob);
 // 5 Видаліть із об'єктів (завдання 4) об'єкт з name == "Anna".
 const deleteWithName = (userName) => {
   let usersToKeep = Object.entries(users).filter(
-    ([key, user]) => user.name !== userName,
+    ([key, value]) => value.name !== userName,
   ); // Створює масив з масивами, який не включатиме у себе масив з заданним ім'ям
 
   users = Object.fromEntries(usersToKeep);
@@ -93,15 +97,14 @@ class Auto {
 
   // Метод, який виводить на екран інформацію про автомобіль.
   aboutAuto() {
-    console.log(`Maker: ${this.maker}`);
-    console.log(`Model: ${this.model}`);
-    console.log(`Year of Production: ${this.yearOfProduction} year`);
-    console.log(`Average Speed: ${this.averageSpeed}km/h`);
-    console.log(`Fuel Storage Capacity: ${this.fuelStorageCapacity}l`);
-    console.log(
-      `Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l`,
-    );
-    console.log(`Drivers: ${this.drivers.join(", ")}.`);
+    return `
+    Maker: ${this.maker}, 
+    Model: ${this.model},
+    Year of Production: ${this.yearOfProduction} year,
+    Average Speed: ${this.averageSpeed}km/h,
+    Fuel Storage Capacity: ${this.fuelStorageCapacity}l,
+    Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l,
+    Drivers: ${this.drivers.join(", ")}.`;
   }
 
   // Додавання ім’я водія у список
@@ -114,9 +117,9 @@ class Auto {
     let hasDriver = this.drivers.includes(drName);
 
     if (hasDriver) {
-      console.log(`${drName} is on the list.`);
+      return `${drName} is on the list.`;
     } else {
-      console.log(`${drName} isn't on the list.`);
+      return `${drName} isn't on the list.`;
     }
   }
 
@@ -142,6 +145,12 @@ class Auto {
     let totalTime = this.calcTotalTime(dist);
     let fuelConsumption = this.calcTotalFuel(dist);
 
+    if (totalTime % 1 !== 0 && fuelConsumption % 1 !== 0) {
+      return `You need ${totalTime.toFixed(1)}h and ${fuelConsumption.toFixed(
+        1,
+      )}l of fuel for ${dist}km!`;
+    }
+
     if (totalTime % 1 !== 0) {
       return `You need ${totalTime.toFixed(
         1,
@@ -160,9 +169,13 @@ class Auto {
 
 const myCar = new Auto("BMW", "iX", 2017, 70, 200, 30, ["Jack", "Sarah"]);
 
-myCar.aboutAuto();
+console.log(myCar.aboutAuto());
+
 myCar.addDriver("Bob");
-myCar.aboutAuto();
-myCar.checkDriver("Bob");
-myCar.checkDriver("John");
+
+console.log(myCar.aboutAuto());
+
+console.log(myCar.checkDriver("Bob"));
+console.log(myCar.checkDriver("John"));
+
 console.log(myCar.calcTimeAndFuel(1000));
