@@ -104,7 +104,8 @@ class Auto {
     Average Speed: ${this.averageSpeed}km/h,
     Fuel Storage Capacity: ${this.fuelStorageCapacity}l,
     Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l,
-    Drivers: ${this.drivers.join(", ")}.`;
+    Drivers: ${this.drivers.join(", ")}.
+    `;
   }
 
   // Додавання ім’я водія у список
