@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-// alert(typeof room.big);
+alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -71,11 +71,7 @@ let obj = {
   token: 12343423,
 };
 
-const findIdValue = (ob) => {
-  let { id } = ob;
-
-  return id;
-};
+const findIdValue = ({ id }) => id;
 
 const id = findIdValue(obj);
 
@@ -101,7 +97,7 @@ class Auto {
 
   // Метод, який виводить на екран інформацію про автомобіль.
   aboutAuto() {
-    alert(`
+    return `
     Maker: ${this.maker}, 
     Model: ${this.model},
     Year of Production: ${this.yearOfProduction} year,
@@ -109,7 +105,7 @@ class Auto {
     Fuel Storage Capacity: ${this.fuelStorageCapacity}l,
     Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l,
     Drivers: ${this.drivers.join(", ")}.
-    `);
+    `;
   }
 
   // Додавання ім’я водія у список
@@ -122,9 +118,9 @@ class Auto {
     let hasDriver = this.drivers.includes(drName);
 
     if (hasDriver) {
-      alert(`${drName} is on the list.`);
+      return `${drName} is on the list.`;
     } else {
-      alert(`${drName} is not on the list.`);
+      return `${drName} is not on the list.`;
     }
   }
 
@@ -151,27 +147,19 @@ class Auto {
     let fuelConsumption = this.calcTotalFuel(dist);
 
     if (totalTime % 1 !== 0 && fuelConsumption % 1 !== 0) {
-      alert(
-        `You need ${totalTime.toFixed(1)}h and ${fuelConsumption.toFixed(
-          1,
-        )}l of fuel for ${dist}km!`,
-      );
+      return `You need ${totalTime.toFixed(1)}h and ${fuelConsumption.toFixed(
+        1,
+      )}l of fuel for ${dist}km!`;
     } else if (totalTime % 1 !== 0) {
-      alert(
-        `You need ${totalTime.toFixed(
-          1,
-        )}h and ${fuelConsumption}l of fuel for ${dist}km!`,
-      );
+      return `You need ${totalTime.toFixed(
+        1,
+      )}h and ${fuelConsumption}l of fuel for ${dist}km!`;
     } else if (fuelConsumption % 1 !== 0) {
-      alert(
-        `You need ${totalTime}h and ${fuelConsumption.toFixed(
-          1,
-        )}l of fuel for ${dist}km!`,
-      );
+      return `You need ${totalTime}h and ${fuelConsumption.toFixed(
+        1,
+      )}l of fuel for ${dist}km!`;
     } else {
-      alert(
-        `You need ${totalTime}h and ${fuelConsumption}l of fuel for ${dist}km!`,
-      );
+      return `You need ${totalTime}h and ${fuelConsumption}l of fuel for ${dist}km!`;
     }
   }
 }
@@ -186,13 +174,13 @@ const myCar = new Auto(
   prompt(["Enter your drivers:"]),
 );
 
-myCar.aboutAuto();
+alert(myCar.aboutAuto());
 
 myCar.addDriver(prompt("Add your driver:"));
 
-myCar.aboutAuto();
+alert(myCar.aboutAuto());
 
-myCar.checkDriver(prompt("Check driver:"));
-myCar.checkDriver(prompt("Check driver:"));
+alert(myCar.checkDriver(prompt("Check driver:")));
+alert(myCar.checkDriver(prompt("Check driver:")));
 
-myCar.calcTimeAndFuel(prompt("Enter your distance:"));
+alert(myCar.calcTimeAndFuel(prompt("Enter your distance:")));
