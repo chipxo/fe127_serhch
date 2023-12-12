@@ -99,7 +99,7 @@ class Auto {
     this.averageSpeed = averageSpeed;
     this.fuelStorageCapacity = fuelStorageCapacity;
     this.averageFuelConsumptionPer100km = averageFuelConsumptionPer100km;
-    this.drivers = drivers;
+    this.drivers = [drivers];
   }
 
   // Метод, який виводить на екран інформацію про автомобіль.
@@ -117,11 +117,15 @@ class Auto {
 
   // Додавання ім’я водія у список
   addDriver(drName) {
+    drName = prompt("Add a driver:");
+
     this.drivers.push(drName);
   }
 
   // Перевірка водія на наявність його ім’я у списку
   checkDriver(drName) {
+    drName = prompt("Check a driver:");
+
     let hasDriver = this.drivers.includes(drName);
 
     if (hasDriver) {
@@ -150,6 +154,7 @@ class Auto {
 
   //  Підрахунок необхідного часу та кількості палива для подолання переданої відстані з середньою швидкістю. Через кожні 4 години дороги водієві необхідно робити перерву на 1 годину.
   calcTimeAndFuel(dist) {
+    dist = prompt("Enter your distance");
     let totalTime = this.calcTotalTime(dist);
     let fuelConsumption = this.calcTotalFuel(dist);
 
@@ -175,15 +180,32 @@ class Auto {
   }
 }
 
-const myCar = new Auto("BMW", "iX", 2017, 70, 200, 30, ["Jack", "Sarah"]);
+// const myCar = new Auto(
+//   "BMW",
+//   "iX",
+//   2017,
+//   70,
+//   200,
+//   30,
+//   ["Jack", "Sarah"]
+//   );
+const myCar = new Auto(
+  prompt("Enter your car's mark:"),
+  prompt("Enter your car's model:"),
+  prompt("Enter your car's year manufacturing:"),
+  prompt("Enter your car's average km/h:"),
+  prompt("Enter your car's fuer storage capacity:"),
+  prompt("Enter your car's average fuel consumption per 100km:"),
+  prompt(["Enter your drivers:"]),
+);
 
-console.log(myCar.aboutAuto());
+alert(myCar.aboutAuto());
 
-myCar.addDriver("Bob");
+myCar.addDriver();
 
-console.log(myCar.aboutAuto());
+alert(myCar.aboutAuto());
 
-console.log(myCar.checkDriver("Bob"));
-console.log(myCar.checkDriver("John"));
+alert(myCar.checkDriver());
+alert(myCar.checkDriver());
 
-console.log(myCar.calcTimeAndFuel(1000));
+alert(myCar.calcTimeAndFuel());
