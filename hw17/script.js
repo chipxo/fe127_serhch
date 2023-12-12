@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-// alert(typeof room.big);
+alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -58,7 +58,7 @@ console.log(userNameBob);
 const deleteWithName = (obj, userName) => {
   let usersToKeep = Object.entries(obj).filter(
     ([key, value]) => value.name !== userName,
-  ); 
+  );
 
   users = Object.fromEntries(usersToKeep);
   return users;
@@ -73,14 +73,14 @@ let obj = {
   token: 12343423,
 };
 
-const findId = (findObj) => {
-  let newObj = Object.entries(findObj);
-  let [id] = newObj;
+const findIdValue = (findObj) => {
+  let { id: value } = findObj;
 
-  return id;
+  return value;
 };
 
-console.log(findId(obj));
+const id = findIdValue(obj);
+console.log(id);
 
 // 6 Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг паливного баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
 class Auto {
