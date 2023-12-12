@@ -17,14 +17,14 @@ let user = {
   age: 30,
 };
 
-const checkObj = () => {
-  if (Object.keys(user).length !== 0 && user.hasOwnProperty("age")) {
+const checkObj = (obj) => {
+  if (Object.keys(obj).length !== 0 && obj.hasOwnProperty("age")) {
     return "success";
   } else {
     return "failed";
   }
 };
-checkObj();
+console.log(checkObj(user));
 
 // 4 Отримайте з цього об'єкту елемент, де name == "Bob" і збережіть це в будь-якій змінній.
 let users = {
@@ -42,28 +42,29 @@ let users = {
   },
 };
 
-const findWithName = (userName) => {
-  let findObj = Object.entries(users).filter(
-    ([key, user]) => user.name === userName,
+const findWithName = (obj, userName) => {
+  let findObj = Object.entries(obj).filter(
+    ([key, value]) => value.name === userName,
   );
 
+  findObj = Object.fromEntries(findObj);
   return findObj;
-}; // Перетворює об'єкт на масив, і шукає "name", яке відповідає задданому пізніше
+};
 
-let userNameBob = Object.fromEntries(findWithName("Bob"));
+let userNameBob = findWithName(users, "Bob");
 console.log(userNameBob);
 
 // 5 Видаліть із об'єктів (завдання 4) об'єкт з name == "Anna".
-const deleteWithName = (userName) => {
-  let usersToKeep = Object.entries(users).filter(
+const deleteWithName = (obj, userName) => {
+  let usersToKeep = Object.entries(obj).filter(
     ([key, value]) => value.name !== userName,
-  ); // Створює масив з масивами, який не включатиме у себе масив з заданним ім'ям
+  ); 
 
   users = Object.fromEntries(usersToKeep);
   return users;
 };
 
-deleteWithName("Anna");
+deleteWithName(users, "Anna");
 console.log(users);
 
 //  Отримайте з об'єкта obj значення id у констанду id, не використовуючи вираз obj.id
@@ -72,8 +73,14 @@ let obj = {
   token: 12343423,
 };
 
-const objId = Number(Object.values(obj).filter((num) => num === 5));
-console.log(objId);
+const findId = (findObj) => {
+  let newObj = Object.entries(findObj);
+  let [id] = newObj;
+
+  return id;
+};
+
+console.log(findId(obj));
 
 // 6 Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг паливного баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
 class Auto {
@@ -120,7 +127,7 @@ class Auto {
     if (hasDriver) {
       return `${drName} is on the list.`;
     } else {
-      return `${drName} isn't on the list.`;
+      return `${drName} is not on the list.`;
     }
   }
 
