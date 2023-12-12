@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-alert(typeof room.big);
+// alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -74,9 +74,9 @@ let obj = {
 };
 
 const findIdValue = (findObj) => {
-  let { id: value } = findObj;
+  let { id } = findObj;
 
-  return value;
+  return id;
 };
 
 const id = findIdValue(obj);
