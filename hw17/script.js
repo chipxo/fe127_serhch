@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-alert(typeof room.big);
+// alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -24,7 +24,7 @@ const checkObj = (ob) => {
     return "failed";
   }
 };
-console.log(checkObj(user));
+checkObj(user);
 
 // 4 Отримайте з цього об'єкту елемент, де name == "Bob" і збережіть це в будь-якій змінній.
 let users = {
@@ -52,7 +52,6 @@ const findWithName = (ob, userName) => {
 };
 
 let userNameBob = findWithName(users, "Bob");
-console.log(userNameBob);
 
 // 5 Видаліть із об'єктів (завдання 4) об'єкт з name == "Anna".
 const deleteWithName = (ob, userName) => {
@@ -65,7 +64,6 @@ const deleteWithName = (ob, userName) => {
 };
 
 deleteWithName(users, "Anna");
-console.log(users);
 
 //  Отримайте з об'єкта obj значення id у констанду id, не використовуючи вираз obj.id
 let obj = {
@@ -80,7 +78,6 @@ const findIdValue = (ob) => {
 };
 
 const id = findIdValue(obj);
-console.log(id);
 
 // 6 Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг паливного баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
 class Auto {
@@ -104,7 +101,7 @@ class Auto {
 
   // Метод, який виводить на екран інформацію про автомобіль.
   aboutAuto() {
-    return `
+    alert(`
     Maker: ${this.maker}, 
     Model: ${this.model},
     Year of Production: ${this.yearOfProduction} year,
@@ -112,26 +109,22 @@ class Auto {
     Fuel Storage Capacity: ${this.fuelStorageCapacity}l,
     Average Fuel Consumption/100km: ${this.averageFuelConsumptionPer100km}l,
     Drivers: ${this.drivers.join(", ")}.
-    `;
+    `);
   }
 
   // Додавання ім’я водія у список
   addDriver(drName) {
-    drName = prompt("Add a driver:");
-
     this.drivers.push(drName);
   }
 
   // Перевірка водія на наявність його ім’я у списку
   checkDriver(drName) {
-    drName = prompt("Check a driver:");
-
     let hasDriver = this.drivers.includes(drName);
 
     if (hasDriver) {
-      return `${drName} is on the list.`;
+      alert(`${drName} is on the list.`);
     } else {
-      return `${drName} is not on the list.`;
+      alert(`${drName} is not on the list.`);
     }
   }
 
@@ -154,58 +147,52 @@ class Auto {
 
   //  Підрахунок необхідного часу та кількості палива для подолання переданої відстані з середньою швидкістю. Через кожні 4 години дороги водієві необхідно робити перерву на 1 годину.
   calcTimeAndFuel(dist) {
-    dist = prompt("Enter your distance");
     let totalTime = this.calcTotalTime(dist);
     let fuelConsumption = this.calcTotalFuel(dist);
 
     if (totalTime % 1 !== 0 && fuelConsumption % 1 !== 0) {
-      return `You need ${totalTime.toFixed(1)}h and ${fuelConsumption.toFixed(
-        1,
-      )}l of fuel for ${dist}km!`;
+      alert(
+        `You need ${totalTime.toFixed(1)}h and ${fuelConsumption.toFixed(
+          1,
+        )}l of fuel for ${dist}km!`,
+      );
+    } else if (totalTime % 1 !== 0) {
+      alert(
+        `You need ${totalTime.toFixed(
+          1,
+        )}h and ${fuelConsumption}l of fuel for ${dist}km!`,
+      );
+    } else if (fuelConsumption % 1 !== 0) {
+      alert(
+        `You need ${totalTime}h and ${fuelConsumption.toFixed(
+          1,
+        )}l of fuel for ${dist}km!`,
+      );
+    } else {
+      alert(
+        `You need ${totalTime}h and ${fuelConsumption}l of fuel for ${dist}km!`,
+      );
     }
-
-    if (totalTime % 1 !== 0) {
-      return `You need ${totalTime.toFixed(
-        1,
-      )}h and ${fuelConsumption}l of fuel for ${dist}km!`;
-    }
-
-    if (fuelConsumption % 1 !== 0) {
-      return `You need ${totalTime}h and ${fuelConsumption.toFixed(
-        1,
-      )}l of fuel for ${dist}km!`;
-    }
-
-    return `You need ${totalTime}h and ${fuelConsumption}l of fuel for ${dist}km!`;
   }
 }
 
-// const myCar = new Auto(
-//   "BMW",
-//   "iX",
-//   2017,
-//   70,
-//   200,
-//   30,
-//   ["Jack", "Sarah"]
-//   );
 const myCar = new Auto(
   prompt("Enter your car's mark:"),
   prompt("Enter your car's model:"),
   prompt("Enter your car's year manufacturing:"),
-  prompt("Enter your car's average km/h:"),
+  prompt("Enter your car's average km/h speed:"),
   prompt("Enter your car's fuer storage capacity:"),
   prompt("Enter your car's average fuel consumption per 100km:"),
   prompt(["Enter your drivers:"]),
 );
 
-alert(myCar.aboutAuto());
+myCar.aboutAuto();
 
-myCar.addDriver();
+myCar.addDriver(prompt("Add your driver:"));
 
-alert(myCar.aboutAuto());
+myCar.aboutAuto();
 
-alert(myCar.checkDriver());
-alert(myCar.checkDriver());
+myCar.checkDriver(prompt("Check driver:"));
+myCar.checkDriver(prompt("Check driver:"));
 
-alert(myCar.calcTimeAndFuel());
+myCar.calcTimeAndFuel(prompt("Enter your distance:"));
