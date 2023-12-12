@@ -9,7 +9,7 @@ let room = {
 };
 
 // 2 Виведіть в alert тип даних параметра big
-// alert(typeof room.big);
+alert(typeof room.big);
 
 // 3 Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
 let user = {
@@ -17,8 +17,8 @@ let user = {
   age: 30,
 };
 
-const checkObj = (obj) => {
-  if (Object.keys(obj).length !== 0 && obj.hasOwnProperty("age")) {
+const checkObj = (ob) => {
+  if (Object.keys(ob).length !== 0 && ob.hasOwnProperty("age")) {
     return "success";
   } else {
     return "failed";
@@ -42,8 +42,8 @@ let users = {
   },
 };
 
-const findWithName = (obj, userName) => {
-  let findObj = Object.entries(obj).filter(
+const findWithName = (ob, userName) => {
+  let findObj = Object.entries(ob).filter(
     ([key, value]) => value.name === userName,
   );
 
@@ -55,8 +55,8 @@ let userNameBob = findWithName(users, "Bob");
 console.log(userNameBob);
 
 // 5 Видаліть із об'єктів (завдання 4) об'єкт з name == "Anna".
-const deleteWithName = (obj, userName) => {
-  let usersToKeep = Object.entries(obj).filter(
+const deleteWithName = (ob, userName) => {
+  let usersToKeep = Object.entries(ob).filter(
     ([key, value]) => value.name !== userName,
   );
 
@@ -73,8 +73,8 @@ let obj = {
   token: 12343423,
 };
 
-const findIdValue = (findObj) => {
-  let { id } = findObj;
+const findIdValue = (ob) => {
+  let { id } = ob;
 
   return id;
 };
