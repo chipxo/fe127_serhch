@@ -542,6 +542,8 @@ video {
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 640px) {
@@ -578,6 +580,22 @@ video {
   margin-bottom: 1rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-44 {
+  margin-top: 11rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -586,8 +604,16 @@ video {
   display: grid;
 }
 
-.h-screen {
-  height: 100vh;
+.w-full {
+  width: 100%;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-cols-3 {
@@ -596,10 +622,6 @@ video {
 
 .flex-col {
   flex-direction: column;
-}
-
-.place-items-center {
-  place-items: center;
 }
 
 .items-center {
@@ -722,11 +744,13 @@ li {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.hidden {
-  display: none;
-}
+/* .font-bold {
+  @apply font-bold;
+} */
 
-.btn-delete {
+.btn-delete,
+.btn-increment,
+.btn-decrement {
   position: relative;
   bottom: 0px;
   margin-top: 1rem;
@@ -748,22 +772,20 @@ li {
   transition-duration: 150ms;
 }
 
-.btn-delete:hover {
+.btn-delete:hover,
+.btn-increment:hover,
+.btn-decrement:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
-.btn-delete:active {
+.btn-delete:active,
+.btn-increment:active,
+.btn-decrement:active {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   background-color: transparent;
-}
-
-.li-btn {
-  display: flex;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
 }
 
 .btn-buyMore {
@@ -800,24 +822,9 @@ li {
   background-color: transparent;
 }
 
-.hover\:bg-slate-300:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-slate-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-
-.hover\:px-6:hover {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.focus\:px-6:focus {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .active\:scale-105:active {
