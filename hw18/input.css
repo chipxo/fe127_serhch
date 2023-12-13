@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+  @apply relative rounded-md border border-black bg-slate-200 px-8 pb-4 pt-2 drop-shadow-2xl;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-delete {
+  @apply relative bottom-0 mt-4 rounded-md border border-black bg-white px-8 py-2 text-xl font-semibold transition-all hover:bg-slate-400 active:scale-105 active:bg-transparent;
+}
+
+.li-btn {
+  @apply flex gap-x-2;
+}
+
+.btn-buyMore {
+  @apply relative bottom-0 mt-4 rounded-md border border-black bg-white px-8 py-2 text-xl font-semibold transition-all hover:bg-slate-400 active:scale-105 active:bg-transparent;
+}
