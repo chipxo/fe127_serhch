@@ -17,7 +17,6 @@ const displayList = () => {
     par.textContent = "Your list";
   }
 
-  // Separate the display logic based on the "isBought" property
   shoppingList.forEach((item, index) => {
     const li = document.createElement("li");
 
