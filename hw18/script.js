@@ -123,5 +123,3 @@ const handleEnterKey = (event) => {
 window.addEventListener("keydown", handleEnterKey);
 
 buttonAdd.addEventListener("click", buttonOnClick);
-
-console.log(sortList(shoppingList));
