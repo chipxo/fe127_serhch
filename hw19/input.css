@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+header {
+  @apply lg:grid-cols-header container grid grid-cols-2 gap-x-4 rounded-md p-4 font-mono shadow-xl lg:place-items-center;
+}
+
+header .logo {
+  @apply w-fit rounded-md bg-blue-500 px-6 py-2 text-2xl font-bold uppercase text-white shadow-xl hover:bg-blue-700;
+}
+
+header i.fas {
+  @apply w-fit self-center justify-self-end text-4xl text-blue-500 hover:text-blue-700 lg:hidden;
+}
+
+header nav {
+  @apply grid grid-cols-1 justify-items-center gap-x-4 lg:grid-cols-4;
+}
+
+header nav a {
+  @apply hidden w-fit border-4 border-transparent py-2 text-xl hover:border-transparent hover:border-b-blue-500 lg:block;
+}
+
+header div {
+  @apply hidden grid-cols-2 gap-x-3 lg:grid;
+}
+
+header div .header-btn {
+  @apply w-fit rounded-md bg-blue-500 px-4 py-2 text-lg font-semibold text-white hover:bg-blue-700;
+}
