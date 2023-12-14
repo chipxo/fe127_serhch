@@ -25,10 +25,8 @@ let header = {
   btn: ["Log In", "Log Out"],
 };
 
-// Create header element and append it to the body
 let headerElement = document.createElement("header");
 
-// Add logo
 let logoLink = document.createElement("a");
 logoLink.href = header.logo.url;
 logoLink.textContent = header.logo.text;
@@ -39,7 +37,6 @@ let iconElement = document.createElement("i");
 iconElement.className = header.logo.iconClass;
 headerElement.appendChild(iconElement); //
 
-// Add navigation
 let nav = document.createElement("nav");
 for (let key in header.nav) {
   let navLink = document.createElement("a");
@@ -50,7 +47,6 @@ for (let key in header.nav) {
 }
 headerElement.appendChild(nav);
 
-// Add buttons
 let btnContainer = document.createElement("div");
 header.btn.forEach((btnText) => {
   let btn = document.createElement("button");
