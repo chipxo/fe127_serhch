@@ -38,4 +38,4 @@ const sortList = (arr) => {
   return newShoppingList;
 };
 
-console.log(sortList(newShoppingList));
+sortList(newShoppingList);

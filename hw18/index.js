@@ -1,7 +1,7 @@
 const buttonAdd = document.querySelector("#addItem");
 const addProduct = document.querySelector("#addProduct");
 const addPrice = document.querySelector("#addPrice");
-let par = document.querySelector("#hideMe");
+let heading = document.querySelector("#heading");
 
 let shoppingList = [];
 
@@ -11,10 +11,10 @@ const displayList = () => {
   ul.innerHTML = "";
 
   if (shoppingList.length === 0) {
-    par.textContent = "Make your shopping list";
+    heading.textContent = "Make your shopping list";
     return;
   } else {
-    par.textContent = "Your list";
+    heading.textContent = "Your list";
   }
 
   shoppingList.forEach((item, index) => {
@@ -63,8 +63,6 @@ const buttonOnClick = () => {
   const pricePerOne = parseFloat(addPrice.value);
 
   if (productName && !isNaN(pricePerOne)) {
-    par.textContent = "Your list";
-
     const existingProductIndex = shoppingList.findIndex(
       (item) => item.productName === productName,
     );
