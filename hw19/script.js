@@ -27,27 +27,27 @@ let header = {
 
 let headerElement = document.createElement("header");
 
-let logoLink = document.createElement("a");
-logoLink.href = header.logo.url;
-logoLink.textContent = header.logo.text;
-logoLink.classList.add("logo");
-headerElement.appendChild(logoLink);
+let logo = document.createElement("a");
+logo.href = header.logo.url;
+logo.textContent = header.logo.text;
+logo.classList.add("logo");
+headerElement.appendChild(logo);
 
-let iconElement = document.createElement("i");
-iconElement.className = header.logo.iconClass;
-headerElement.appendChild(iconElement);
+let icon = document.createElement("i");
+icon.className = header.logo.iconClass;
+headerElement.appendChild(icon);
 
 let nav = document.createElement("nav");
 
 let ul = document.createElement("ul");
 
-for (let key in header.nav) {
-  let navItem = document.createElement("li");
+for (let num in header.nav) {
+  let nav = document.createElement("li");
   let navLink = document.createElement("a");
-  navLink.href = header.nav[key].url;
-  navLink.textContent = header.nav[key].text;
-  navItem.appendChild(navLink);
-  ul.appendChild(navItem);
+  navLink.href = header.nav[num].url;
+  navLink.textContent = header.nav[num].text;
+  nav.appendChild(navLink);
+  ul.appendChild(nav);
 }
 
 nav.appendChild(ul);
@@ -55,18 +55,17 @@ headerElement.appendChild(nav);
 
 let btnContainer = document.createElement("div");
 btnContainer.classList.add("header-btn");
-iconElement.addEventListener("click", () => {
-  btnContainer.classList.toggle("header-btn");
-  btnContainer.classList.toggle("nav-btn");
-});
-header.btn.forEach((btnText) => {
-  let btn = document.createElement("button");
-  btn.textContent = btnText;
+
+for (let name of header.btn) {
+  btn = document.createElement("button");
+  btn.textContent = name;
   btn.classList.add("btn");
   btnContainer.appendChild(btn);
-});
+}
 
-iconElement.addEventListener("click", () => {
+icon.addEventListener("click", () => {
+  btnContainer.classList.toggle("header-btn");
+  btnContainer.classList.toggle("nav-btn");
   ul.classList.toggle("nav-link");
 });
 
@@ -77,7 +76,6 @@ const removeClassIfLargeScreen = () => {
     btnContainer.classList.add("header-btn");
   }
 };
-
 removeClassIfLargeScreen();
 
 window.addEventListener("resize", removeClassIfLargeScreen);
