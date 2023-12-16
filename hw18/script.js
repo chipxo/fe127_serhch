@@ -134,9 +134,10 @@ let newShoppingList = [
 const sortList = (arr) => {
   const sortedShoppingList = arr
     .sort((a, b) => b.isBought - a.isBought)
-    .map(({ productName }) => productName);
+    .map(({ productName }) => productName)
+    .join(", ");
 
-  return sortedShoppingList.join(", ");
+  return sortedShoppingList;
 };
 
 alert(sortList(newShoppingList));
