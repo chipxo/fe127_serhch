@@ -12,7 +12,6 @@ const displayList = () => {
 
   if (shoppingList.length === 0) {
     heading.textContent = "Make your shopping list";
-    return;
   } else {
     heading.textContent = "Your list";
   }
