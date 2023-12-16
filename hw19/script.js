@@ -2,8 +2,8 @@ let header = {
   logo: {
     url: "#home",
     text: "logo",
-    iconClass: "fas fa-bars",
   },
+  iconClass: "fas fa-bars",
   nav: {
     1: {
       url: "#home",
@@ -34,7 +34,7 @@ logo.classList.add("logo");
 headerElement.appendChild(logo);
 
 let icon = document.createElement("i");
-icon.className = header.logo.iconClass;
+icon.className = header.iconClass;
 headerElement.appendChild(icon);
 
 let nav = document.createElement("nav");
@@ -69,16 +69,16 @@ icon.addEventListener("click", () => {
   ul.classList.toggle("nav-link");
 });
 
-const removeClassIfLargeScreen = () => {
+const removeClass = () => {
   if (window.innerWidth > 1024) {
     ul.classList.remove("nav-link");
     btnContainer.classList.remove("nav-btn");
     btnContainer.classList.add("header-btn");
   }
 };
-removeClassIfLargeScreen();
+removeClass();
 
-window.addEventListener("resize", removeClassIfLargeScreen);
+window.addEventListener("resize", removeClass);
 
 headerElement.appendChild(btnContainer);
 
