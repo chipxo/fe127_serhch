@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-li {
-  @apply relative rounded-md border border-black bg-slate-200 px-8 pb-4 pt-2 drop-shadow-2xl;
+@layer base {
+  li {
+    @apply relative rounded-md border border-black bg-slate-200 px-8 pb-4 pt-2 drop-shadow-2xl;
+  }
 }
 
-.btn-delete,
-.btn-increment,
-.btn-decrement {
-  @apply relative bottom-0 mt-4 rounded-md border border-black bg-white px-8 py-2 text-xl font-semibold transition-all hover:bg-slate-400 active:scale-105 active:bg-transparent;
+@layer components {
+  .btn-delete,
+  .btn-increment,
+  .btn-decrement {
+    @apply relative bottom-0 mt-4 rounded-md border border-black bg-white px-8 py-2 text-xl font-semibold transition-all hover:bg-slate-400 active:scale-105 active:bg-transparent;
+  }
 }
