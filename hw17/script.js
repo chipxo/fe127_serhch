@@ -45,8 +45,7 @@ const findWithName = (ob, userName) => {
     ([key, value]) => value.name === userName,
   );
 
-  findObj = Object.fromEntries(findObj);
-  return findObj;
+  return Object.fromEntries(findObj);
 };
 
 let userNameBob = findWithName(users, "Bob");
@@ -57,8 +56,7 @@ const deleteWithName = (ob, userName) => {
     ([key, value]) => value.name !== userName,
   );
 
-  users = Object.fromEntries(usersToKeep);
-  return users;
+  return Object.fromEntries(usersToKeep);
 };
 
 deleteWithName(users, "Anna");
