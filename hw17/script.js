@@ -18,11 +18,9 @@ let user = {
 };
 
 const checkObj = (ob) => {
-  if (Object.keys(ob).length !== 0 && ob.hasOwnProperty("age")) {
-    return "success";
-  } else {
-    return "failed";
-  }
+  return Object.keys(ob).length !== 0 && ob.hasOwnProperty("age")
+    ? "success"
+    : "failed";
 };
 checkObj(user);
 
@@ -117,11 +115,9 @@ class Auto {
   checkDriver(drName) {
     let hasDriver = this.drivers.includes(drName);
 
-    if (hasDriver) {
-      return `${drName} is on the list.`;
-    } else {
-      return `${drName} is not on the list.`;
-    }
+    return hasDriver
+      ? `${drName} is on the list.`
+      : `${drName} is not on the list.`;
   }
 
   //  Підрахунок необхідного часу
