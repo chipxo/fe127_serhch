@@ -139,4 +139,4 @@ const sortList = (arr) => {
   return sortedShoppingList.join(", ");
 };
 
-console.log(sortList(newShoppingList));
+alert(sortList(newShoppingList));
