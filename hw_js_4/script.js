@@ -12,9 +12,7 @@ const changeColor = () => {
   const filterColors = colors.filter((color) => color !== currentColor);
 
   let currentColorName = colorsName[clickCount];
-  const filterColorsName = colorsName.filter(
-    (color) => color !== currentColorName,
-  );
+  const filterColorsName = colorsName.filter((color) => color !== currentColorName,);
 
   currentColor.classList.remove(`${colorsName[clickCount]}-dark`);
   currentColor.classList.add(`${colorsName[clickCount]}-bright`);
