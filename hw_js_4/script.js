@@ -9,11 +9,9 @@ const colorsName = ["red", "yellow", "green"];
 
 const changeColor = () => {
   let currentColor = colors[clickCount];
-
-  let currentColorName = colorsName[clickCount];
-
   const filterColors = colors.filter((color) => color !== currentColor);
 
+  let currentColorName = colorsName[clickCount];
   const filterColorsName = colorsName.filter(
     (color) => color !== currentColorName,
   );
@@ -28,9 +26,3 @@ const changeColor = () => {
 changeColor();
 
 btn.addEventListener("click", changeColor);
-
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    changeColor();
-  }
-});

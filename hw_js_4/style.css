@@ -151,9 +151,7 @@ progress {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  /* 1 */
   font: inherit;
-  /* 2 */
 }
 
 summary {
@@ -231,9 +229,7 @@ iframe,
 embed,
 object {
   display: block;
-  /* 1 */
   vertical-align: middle;
-  /* 2 */
 }
 
 img,
@@ -348,14 +344,17 @@ video {
   --tw-backdrop-sepia: ;
 }
 
-.traffic-light {
-  text-align: center;
-}
-.traffic-light .container {
+.container {
   width: fit-content;
-  margin: 5rem auto;
+  margin: 1rem auto;
+}
+
+.traffic_light {
+  text-align: center;
+  margin-top: 5rem;
+}
+.traffic_light .container {
   display: flex;
-  flex-direction: column;
   gap: 3rem;
   border: 4px solid black;
   padding: 2rem;
@@ -363,7 +362,7 @@ video {
   background: rgb(223, 223, 223);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
-.traffic-light .container .light {
+.traffic_light .container .light {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -371,28 +370,25 @@ video {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   background: white;
 }
-.traffic-light .container .red {
+.traffic_light .container .red-bright {
   background: red;
 }
-.traffic-light .container .red-bright {
-  background: red;
-}
-.traffic-light .container .red-dark {
+.traffic_light .container .red-dark {
   background: rgb(114, 1, 1);
 }
-.traffic-light .container .yellow-bright {
+.traffic_light .container .yellow-bright {
   background: yellow;
 }
-.traffic-light .container .yellow-dark {
+.traffic_light .container .yellow-dark {
   background: rgb(126, 126, 0);
 }
-.traffic-light .container .green-bright {
-  background: green;
+.traffic_light .container .green-bright {
+  background: rgb(2, 181, 2);
 }
-.traffic-light .container .green-dark {
+.traffic_light .container .green-dark {
   background: rgb(0, 70, 0);
 }
-.traffic-light .btn button {
+.traffic_light .btn button {
   border: 4px solid black;
   padding: 1rem 2rem;
   font-size: 2rem;
@@ -402,13 +398,32 @@ video {
   background: rgb(223, 223, 223);
   transition: 0.15s ease-in;
 }
-.traffic-light .btn button:hover {
+.traffic_light .btn button:hover {
   background: rgb(145, 145, 145);
   scale: 1.04;
 }
-.traffic-light .btn button:active {
+.traffic_light .btn button:active {
   background: rgb(101, 101, 101);
-  scale: 1.04;
+  scale: 1.1;
+}
+
+.text_area {
+  margin-top: 3rem;
+  text-align: center;
+}
+.text_area .container h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.text_area .container #resizeMe {
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  resize: both;
+}
+.text_area .container #resizeMe:active, .text_area .container #resizeMe:hover, .text_area .container #resizeMe:focus {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 /*# sourceMappingURL=style.css.map */
