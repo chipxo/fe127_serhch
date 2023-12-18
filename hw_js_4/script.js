@@ -13,9 +13,9 @@ const changeColor = () => {
   };
 
   let currentColor = colors[clickCount];
-  let filterCurrentColors = filterItems(colors, currentColor);
-
   let currentColorName = colorsName[clickCount];
+
+  let filterCurrentColors = filterItems(colors, currentColor);
   let filterCurrentColorsName = filterItems(colorsName, currentColorName);
 
   currentColor.classList.remove(`${colorsName[clickCount]}-dark`);
