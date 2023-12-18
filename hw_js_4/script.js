@@ -4,8 +4,8 @@ let green = document.querySelector("#green");
 let btn = document.querySelector("#switchLight");
 let clickCount = 0;
 
-const colors = [red, yellow, green];
-const colorsName = ["red", "yellow", "green"];
+let colors = [red, yellow, green];
+let colorsName = ["red", "yellow", "green"];
 
 const changeColor = () => {
   const filterItems = (arr, curColors) => {
