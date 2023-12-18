@@ -1,7 +1,8 @@
 .idea/
 *.DS_Store
 node_modules/
-.json
-.config.js
-.json
-.css.map
+package-lock.json
+package.json
+postcss.config.js
+tailwind.config.js
+.prettierrc.json
