@@ -26,7 +26,7 @@ const changeColor = () => {
   filterCurrentColors[1].classList.add(`${filterCurrentColorsName[1]}-dark`);
 
   clickCount <= 1 ? clickCount++ : (clickCount = 0);
-
-  btn.addEventListener("click", changeColor);
 };
 changeColor();
+
+btn.addEventListener("click", changeColor);
