@@ -18,7 +18,9 @@ const changeColor = () => {
 
   currentColor.classList.remove(`${colorsName[clickCount]}-dark`);
   currentColor.classList.add(`${colorsName[clickCount]}-bright`);
+  filterColors[0].classList.remove(`${filterColorsName[0]}-bright`);
   filterColors[0].classList.add(`${filterColorsName[0]}-dark`);
+  filterColors[1].classList.remove(`${filterColorsName[1]}-bright`);
   filterColors[1].classList.add(`${filterColorsName[1]}-dark`);
 
   clickCount <= 1 ? clickCount++ : (clickCount = 0);
