@@ -8,7 +8,8 @@ let colors = [red, yellow, green];
 let colorsName = ["red", "yellow", "green"];
 
 const changeColor = () => {
-  const filterItems = (arr, curColors) => arr.filter((color) => color !== curColors);
+  const filterItems = (arr, curColors) =>
+    arr.filter((color) => color !== curColors);
 
   let currentColor = colors[clickCount];
   let currentColorName = colorsName[clickCount];
@@ -18,12 +19,13 @@ const changeColor = () => {
 
   currentColor.classList.remove(`${colorsName[clickCount]}-dark`);
   currentColor.classList.add(`${colorsName[clickCount]}-bright`);
-  filterCurrentColors[0].classList.remove(`${filterCurrentColorsName[0]}-bright`);
-  filterCurrentColors[0].classList.add(`${filterCurrentColorsName[0]}-dark`);
-  filterCurrentColors[1].classList.remove(`${filterCurrentColorsName[1]}-bright`);
-  filterCurrentColors[1].classList.add(`${filterCurrentColorsName[1]}-dark`);
 
-  clickCount <= 1 ? clickCount++ : (clickCount = 0);
+  for (let i = 0; i < filterCurrentColors.length; i++) {
+    filterCurrentColors[i].classList.remove(`${filterCurrentColorsName[i]}-bright`);
+    filterCurrentColors[i].classList.add(`${filterCurrentColorsName[i]}-dark`);
+  }
+
+  clickCount < 2 ? clickCount++ : (clickCount = 0);
 };
 changeColor();
 
