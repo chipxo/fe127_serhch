@@ -8,8 +8,7 @@ let colors = [red, yellow, green];
 let colorsName = ["red", "yellow", "green"];
 
 const changeColor = () => {
-  const filterItems = (arr, curColors) =>
-    arr.filter((color) => color !== curColors);
+  const filterItems = (arr, curColors) => arr.filter((color) => color !== curColors);
 
   let currentColor = colors[clickCount];
   let currentColorName = colorsName[clickCount];
