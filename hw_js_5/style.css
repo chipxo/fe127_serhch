@@ -307,8 +307,7 @@ main section form#myForm div.btn::before, main section form#myForm div.container
   background: black;
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
 }
 
 body {
