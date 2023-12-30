@@ -12,30 +12,38 @@
         <form id="myForm">
           <h2>Sign up</h2>
           <div class="container">
-            <label for="name">Your name:</label>
-            <input
-              type="text"
-              name="userName"
-              id="name"
-              placeholder="Enter your name"
-            />
-            <label for="age">Your age:</label>
-            <input
-              type="number"
-              name="age"
-              id="age"
-              placeholder="Enter your age"
-            />
-            <label for="message">Your message:</label>
-            <textarea
-              name="message"
-              id="message"
-              rows="5"
-              placeholder="Sent us a message"
-            ></textarea>
+            <div class="input-wrapper">
+              <div class="text-input">
+                <label for="name">Your name:</label>
+                <input
+                  type="text"
+                  name="userName"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="text-input">
+                <label for="age">Your age:</label>
+                <input
+                  type="number"
+                  name="age"
+                  id="age"
+                  placeholder="Enter your age"
+                />
+              </div>
+            </div>
+            <div class="textarea-wrapper">
+              <label for="message">Your message:</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Sent us a message"
+              ></textarea>
+            </div>
           </div>
           <div class="btn">
-            <button type="submit" id="submit">Sign up</button>
+            <button type="submit">Sign up</button>
           </div>
         </form>
       </section>

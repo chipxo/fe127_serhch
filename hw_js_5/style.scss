@@ -10,6 +10,12 @@
   place-items: center;
 }
 
+%inputs {
+  display: grid;
+  row-gap: 0.4rem;
+  text-align: start;
+}
+
 %divider {
   &::before {
     content: "";
@@ -43,7 +49,7 @@ main {
 
       h2 {
         font-weight: bold;
-        font-size: 3rem;
+        font-size: 2.4rem;
         padding: 1.5rem 0;
       }
 
@@ -51,11 +57,25 @@ main {
         @extend %grid-center;
         @extend %divider;
         position: relative;
-        padding: 1.5rem 5rem;
+        padding: 1.5rem 3rem;
         row-gap: 1.5rem;
+        div.input-wrapper {
+          display: flex;
+          gap: 1rem;
+          div.text-input {
+            @extend %inputs;
+            text-align: start;
+          }
+        }
+
+        div.textarea-wrapper {
+          @extend %inputs;
+          width: 100%;
+        }
 
         label {
           font-size: 1.1rem;
+          padding-left: 0.5rem;
         }
 
         input,
@@ -64,28 +84,24 @@ main {
           padding: 0.5rem;
           font-family: inherit;
         }
-
-        textarea#message {
-          width: 92%;
-        }
       }
 
       div.btn {
         @extend %divider;
         position: relative;
         padding: 1.5rem 0;
-      }
 
-      button {
-        @extend %border;
-        background: transparent;
-        padding: 0.5rem 1rem;
-        font-family: inherit;
-        font-size: 1.1rem;
+        button {
+          @extend %border;
+          background: transparent;
+          padding: 0.5rem 1rem;
+          font-family: inherit;
+          font-size: 1.1rem;
 
-        &:hover {
-          background: black;
-          color: white;
+          &:hover {
+            background: black;
+            color: white;
+          }
         }
       }
     }

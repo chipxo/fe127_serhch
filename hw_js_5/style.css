@@ -289,7 +289,7 @@ fieldset {
   padding: 0.2em 0;
 }
 
-main section form#myForm button, main section form#myForm div.container input,
+main section form#myForm div.btn button, main section form#myForm div.container input,
 main section form#myForm div.container textarea, main section form#myForm {
   border: 1px solid black;
   border-radius: 0.4rem;
@@ -298,6 +298,12 @@ main section form#myForm div.container textarea, main section form#myForm {
 main section form#myForm div.container, main {
   display: grid;
   place-items: center;
+}
+
+main section form#myForm div.container div.textarea-wrapper, main section form#myForm div.container div.input-wrapper div.text-input {
+  display: grid;
+  row-gap: 0.4rem;
+  text-align: start;
 }
 
 main section form#myForm div.btn::before, main section form#myForm div.container::before {
@@ -329,36 +335,44 @@ main section form#myForm {
 }
 main section form#myForm h2 {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.4rem;
   padding: 1.5rem 0;
 }
 main section form#myForm div.container {
   position: relative;
-  padding: 1.5rem 5rem;
+  padding: 1.5rem 3rem;
   row-gap: 1.5rem;
+}
+main section form#myForm div.container div.input-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+main section form#myForm div.container div.input-wrapper div.text-input {
+  text-align: start;
+}
+main section form#myForm div.container div.textarea-wrapper {
+  width: 100%;
 }
 main section form#myForm div.container label {
   font-size: 1.1rem;
+  padding-left: 0.5rem;
 }
 main section form#myForm div.container input,
 main section form#myForm div.container textarea {
   padding: 0.5rem;
   font-family: inherit;
 }
-main section form#myForm div.container textarea#message {
-  width: 92%;
-}
 main section form#myForm div.btn {
   position: relative;
   padding: 1.5rem 0;
 }
-main section form#myForm button {
+main section form#myForm div.btn button {
   background: transparent;
   padding: 0.5rem 1rem;
   font-family: inherit;
   font-size: 1.1rem;
 }
-main section form#myForm button:hover {
+main section form#myForm div.btn button:hover {
   background: black;
   color: white;
 }

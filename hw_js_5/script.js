@@ -1,11 +1,11 @@
-$("#submit").click(() => {
+$("#myForm").submit((e) => {
+  e.preventDefault();
+
   const name = $("#name").val();
   const age = $("#age").val();
   const message = $("#message").val();
 
-  if (!name || !age || !message) {
-    alert("Fill out the form");
-  } else {
-    alert(`Your name: ${name}\nYour age: ${age}\nMessage: ${message}`);
-  }
+  !name || !age || !message
+    ? alert("Fill out the form")
+    : alert(`Your name: ${name}\nYour age: ${age}\nMessage: ${message}`);
 });
