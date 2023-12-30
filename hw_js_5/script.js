@@ -4,7 +4,7 @@ $("#submit").click(() => {
   const message = $("#message").val();
 
   if (!name || !age || !message) {
-    alert("Please fill out the form completely.");
+    alert("Fill out the form");
   } else {
     alert(`Your name: ${name}\nYour age: ${age}\nMessage: ${message}`);
   }
