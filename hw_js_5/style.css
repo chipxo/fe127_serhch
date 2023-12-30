@@ -334,8 +334,8 @@ main section form#myForm h2 {
 }
 main section form#myForm div.container {
   position: relative;
-  padding: 2rem 5rem;
-  row-gap: 1rem;
+  padding: 1.5rem 5rem;
+  row-gap: 1.5rem;
 }
 main section form#myForm div.container label {
   font-size: 1.1rem;
@@ -343,6 +343,7 @@ main section form#myForm div.container label {
 main section form#myForm div.container input,
 main section form#myForm div.container textarea {
   padding: 0.5rem;
+  font-family: inherit;
 }
 main section form#myForm div.container textarea#message {
   width: 92%;
@@ -354,6 +355,7 @@ main section form#myForm div.btn {
 main section form#myForm button {
   background: transparent;
   padding: 0.5rem 1rem;
+  font-family: inherit;
   font-size: 1.1rem;
 }
 main section form#myForm button:hover {
