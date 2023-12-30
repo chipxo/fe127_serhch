@@ -289,21 +289,38 @@ fieldset {
   padding: 0.2em 0;
 }
 
+main section form#myForm button, main section form#myForm div.container input,
+main section form#myForm div.container textarea, main section form#myForm {
+  border: 1px solid black;
+  border-radius: 0.4rem;
+}
+
+main section form#myForm div.container, main {
+  display: grid;
+  place-items: center;
+}
+
+main section form#myForm div.btn::before, main section form#myForm div.container::before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 main {
-  display: grid;
-  place-items: center;
   height: 100vh;
   width: 100vw;
 }
 main section form#myForm {
   text-align: center;
-  border: 1px solid black;
-  border-radius: 0.2rem;
-  padding: 1.5rem 0;
   max-width: 700px;
   -webkit-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
   -moz-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
@@ -312,25 +329,25 @@ main section form#myForm {
 main section form#myForm h2 {
   font-weight: bold;
   font-size: 3rem;
+  padding: 1.5rem 0;
 }
 main section form#myForm div.container {
-  display: grid;
-  place-items: center;
-  padding: 2rem;
+  position: relative;
+  padding: 2rem 5rem;
   row-gap: 1rem;
 }
 main section form#myForm div.container input,
 main section form#myForm div.container textarea {
-  border: 1px solid black;
-  border-radius: 0.2rem;
   padding: 0.5rem;
 }
 main section form#myForm div.container textarea#message {
   width: 92%;
 }
+main section form#myForm div.btn {
+  position: relative;
+  padding: 1.5rem 0;
+}
 main section form#myForm button {
-  border: 1px solid black;
-  border-radius: 0.2rem;
   background: transparent;
   padding: 0.5rem 1rem;
 }
