@@ -1,0 +1,60 @@
+@import "reset.scss";
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  section {
+    form#myForm {
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 0.2rem;
+      padding: 1.5rem 0;
+      max-width: 700px;
+      -webkit-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
+      -moz-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
+      box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
+
+      h2 {
+        font-weight: bold;
+        font-size: 3rem;
+      }
+
+      div.container {
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        row-gap: 1rem;
+
+        input,
+        textarea {
+          border: 1px solid black;
+          border-radius: 0.2rem;
+          padding: 0.5rem;
+        }
+
+        textarea#message {
+          width: 92%;
+        }
+      }
+
+      button {
+        border: 1px solid black;
+        border-radius: 0.2rem;
+        background: transparent;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          background: black;
+          color: white;
+        }
+      }
+    }
+  }
+}
