@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "className": "grid place-items-center pr-2",
+    "title": "Simple & Modern",
+    "description": "We make the world beautiful every day",
+    "bg": "bg-header"
+  },
+  {
+    "id": 2,
+    "className": "grid place-items-center pr-2",
+    "title": "Modern & Simple",
+    "description": "We make the world beautiful every day",
+    "bg": "bg-news"
+  },
+  {
+    "id": 3,
+    "className": "grid place-items-center pr-2",
+    "title": "Simple & Modern",
+    "description": "We make the world beautiful every day",
+    "bg": "bg-footer"
+  },
+  {
+    "id": 4,
+    "className": "grid place-items-center pr-2",
+    "title": "Modern & Simple",
+    "description": "We make the world beautiful every day",
+    "bg": "bg-news"
+  },
+  {
+    "id": 5,
+    "className": "grid place-items-center pr-2",
+    "title": "Simple & Modern",
+    "description": "We make the world beautiful every day",
+    "bg": "bg-footer"
+  }
+]
