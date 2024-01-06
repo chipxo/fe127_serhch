@@ -23,14 +23,12 @@ const Header = () => {
   return (
     <header
       className={`fixed left-0 top-0 z-[999] w-full bg-cover bg-no-repeat py-3 font-[Source-Sans] transition-all 
-      ${isScrolled ? "bg-header bg-right-top shadow-2xl" : "md:top-4"}`}
+      ${isScrolled ? "bg-header bg-right-top drop-shadow-2xl" : "md:top-4"}`}
     >
-      <div className="container-header lg:grid-cols-header md:grid-cols-header-md md:gap-x-18 container-header grid grid-cols-2 items-center gap-x-5 lg:gap-x-5">
+      <div className="container-header md:gap-x-18 container-header grid grid-cols-2 items-center gap-x-5 md:grid-cols-header-md lg:grid-cols-header lg:gap-x-5">
         <Logo />
         <Burger />
-        {window.innerWidth > 768 ? (
-          <Nav links={links} isBurger={false} />
-        ) : null}
+        {window.innerWidth > 768 && <Nav links={links} isBurger={false} />}
         <SocialBar isHeader={true} />
       </div>
     </header>

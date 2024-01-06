@@ -1,19 +1,11 @@
 import SubTitle from "../../common/SubTitle";
 
-const Slide = ({
-  id,
-  image,
-  title,
-  description,
-  userName,
-  data,
-  userPhoto,
-}) => {
+const Slide = ({ image, title, description, userName, data, userPhoto }) => {
   return (
     <div className="mx-auto mb-12 max-w-[370px] bg-white transition-all">
       <img src={image} alt={title} className="h-44 w-full object-cover" />
       <div className="flex flex-col gap-y-4 px-5 py-5">
-        <h2 className="text-dark-blue text-[18px] font-bold uppercase md:text-[22px]">
+        <h2 className="text-[18px] font-bold uppercase text-dark-blue md:text-[22px]">
           {title}
         </h2>
         <p>{description}</p>
@@ -25,7 +17,9 @@ const Slide = ({
           />
           <div className="grid items-center gap-y-7">
             <SubTitle text={userName} isLong={false} />
-            <p className="text-light-blue font-[Montserrat]">{data}</p>
+            <p id="date" className="font-[Montserrat] text-light-blue">
+              {data}
+            </p>
           </div>
         </div>
       </div>

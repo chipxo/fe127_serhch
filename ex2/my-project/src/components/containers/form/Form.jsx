@@ -48,7 +48,7 @@ const Form = () => {
             type="text"
             placeholder="Your email"
             name="email"
-            className="input input-primary relative w-full rounded-none border-none bg-white transition duration-100 hover:scale-105"
+            className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
             errorClassName="absolute top-12 text-red-600"
           />
 
@@ -56,11 +56,11 @@ const Form = () => {
             type="text"
             placeholder="Your name"
             name="userName"
-            className="input input-primary relative w-full rounded-none border-none bg-white transition duration-100 hover:scale-105"
+            className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
             errorClassName="absolute top-12 text-red-600"
           />
 
-          <div>
+          <div className="md:place-self-end">
             <FormButton disabled={!isValid} />
           </div>
         </form>

@@ -42,7 +42,7 @@ const Gallery = (props) => {
           {img.map((id) => (
             <img
               key={`${id}`}
-              src={`/gallery_img/gallery_${id}.png`}
+              src={`public/gallery_img/gallery_${id}.png`}
               className="hover:cursor-glass w-full transition hover:scale-95 sm:max-w-full"
               alt={`img-${id}`}
               data-fancybox="gallery"
@@ -56,7 +56,7 @@ const Gallery = (props) => {
               {[...imgHidden].map((id) => (
                 <img
                   key={id}
-                  src={`/gallery_img/gallery_${id}.png`}
+                  src={`public/gallery_img/gallery_${id}.png`}
                   className="hover:cursor-glass w-full hover:scale-105 sm:max-w-full"
                   alt={id}
                   data-fancybox="gallery"

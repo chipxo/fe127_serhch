@@ -2,18 +2,18 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {
-      "Source-Sans": "'Source Sans', sans-serif",
-      Montserrat: "'Montserrat', sans-serif",
-      "Open-Sans": "'Open Sans', sans-serif",
-    },
-    colors: {
-      "light-blue": "hsla(205, 100%, 67%, 1)",
-      "mid-purple": "hsla(253, 100%, 68%, 1)",
-      "dark-blue": "hsla(213, 33%, 26%, 1)",
-      "social-border": "hsla(0, 0%, 100%, 0.5)",
-    },
     extend: {
+      fontFamily: {
+        "Source-Sans": "'Source Sans', sans-serif",
+        Montserrat: "'Montserrat', sans-serif",
+        "Open-Sans": "'Open Sans', sans-serif",
+      },
+      colors: {
+        "light-blue": "hsla(205, 100%, 67%, 1)",
+        "mid-purple": "hsla(253, 100%, 68%, 1)",
+        "dark-blue": "hsla(213, 33%, 26%, 1)",
+        "social-border": "hsla(0, 0%, 100%, 0.5)",
+      },
       cursor: {
         glass: "url('/gallery_img/magnif_glass.svg'), zoom-in",
       },
@@ -44,5 +44,5 @@ export default {
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };

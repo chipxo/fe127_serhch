@@ -25,9 +25,9 @@ const Nav = ({ links, isBurger }) => {
         const targetSection = document.getElementById(href.substring(1));
         if (
           targetSection &&
-          scrollPosition >= targetSection.offsetTop - 450 &&
+          scrollPosition >= targetSection.offsetTop - 550 &&
           scrollPosition <
-            targetSection.offsetTop - 450 + targetSection.offsetHeight
+            targetSection.offsetTop - 550 + targetSection.offsetHeight
         ) {
           setActiveLinkId(id);
           isSectionView = true;
@@ -63,7 +63,7 @@ const Nav = ({ links, isBurger }) => {
           >
             <a
               href={href}
-              className={`relative ${activeLinkId === id ? "active" : ""}`}
+              className={`relative ${activeLinkId === id && "active"}`}
             >
               {title}
             </a>
