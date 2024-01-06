@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <form id="myForm">
+          <h2>Sign up</h2>
+          <div class="container">
+            <div class="input-wrapper">
+              <div class="text-input">
+                <label for="name">Your name:</label>
+                <input
+                  type="text"
+                  name="userName"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="text-input">
+                <label for="age">Your age:</label>
+                <input
+                  type="number"
+                  name="age"
+                  id="age"
+                  placeholder="Enter your age"
+                />
+              </div>
+            </div>
+            <div class="textarea-wrapper">
+              <label for="message">Your message:</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Sent us a message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="btn">
+            <button type="submit">Sign up</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
