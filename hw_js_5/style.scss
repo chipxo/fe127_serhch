@@ -25,9 +25,6 @@ main {
     form#myForm {
       @extend %border;
       text-align: center;
-      -webkit-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
-      -moz-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
-      box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
       h2 {
         font-weight: bold;
         font-size: 2.4rem;
