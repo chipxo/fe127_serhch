@@ -4,58 +4,37 @@
   border: 1px solid black;
   border-radius: 0.4rem;
 }
-
 %grid-center {
   display: grid;
   place-items: center;
 }
-
 %inputs {
   display: grid;
   row-gap: 0.4rem;
   text-align: start;
 }
-
-%divider {
-  &::before {
-    content: "";
-    height: 1px;
-    width: 100%;
-    background: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-
 main {
   @extend %grid-center;
   height: 100vh;
   width: 100vw;
-
   section {
     padding: 1rem;
-
     form#myForm {
       @extend %border;
       text-align: center;
       -webkit-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
       -moz-box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
       box-shadow: 29px 25px 125px -42px rgba(0, 0, 0, 0.54);
-
       h2 {
         font-weight: bold;
         font-size: 2.4rem;
         padding: 1.5rem 0;
       }
-
       div.container {
         @extend %grid-center;
-        @extend %divider;
         position: relative;
         padding: 1.5rem 3rem;
         row-gap: 1.5rem;
@@ -67,17 +46,14 @@ main {
             text-align: start;
           }
         }
-
         div.textarea-wrapper {
           @extend %inputs;
           width: 100%;
         }
-
         label {
           font-size: 1.1rem;
           padding-left: 0.5rem;
         }
-
         input,
         textarea {
           @extend %border;
@@ -85,19 +61,15 @@ main {
           font-family: inherit;
         }
       }
-
       div.btn {
-        @extend %divider;
         position: relative;
         padding: 1.5rem 0;
-
         button {
           @extend %border;
           background: transparent;
           padding: 0.5rem 1rem;
           font-family: inherit;
           font-size: 1.1rem;
-
           &:hover {
             background: black;
             color: white;
