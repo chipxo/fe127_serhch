@@ -48,7 +48,7 @@ const Gallery = (props) => {
             </a>
           ))}
           {hiddenImg &&
-            [...imgHidden].map((id) => (
+            imgHidden.map((id) => (
               <a
                 key={id}
                 data-fancybox="gallery"

@@ -24,7 +24,7 @@ export default () => {
       pagination={{ clickable: true }}
     >
       <div className="container">
-        {[...slides].map(({ id, className, title, description, bg }) => (
+        {slides.map(({ id, className, title, description, bg }) => (
           <SwiperSlide key={id} className={className}>
             <Slide title={title} description={description} bg={bg}></Slide>
           </SwiperSlide>
