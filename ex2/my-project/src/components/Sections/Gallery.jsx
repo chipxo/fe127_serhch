@@ -14,8 +14,6 @@ const Gallery = (props) => {
 
   const containerRef = useRef(null);
 
-  const buttonText = hiddenImg ? "less" : "more";
-
   useEffect(() => {
     const container = containerRef.current;
 
@@ -40,24 +38,29 @@ const Gallery = (props) => {
         <div className="md:photos relative z-[888] grid gap-3 ">
           {/* Images */}
           {img.map((id) => (
-            <img
-              key={`${id}`}
-              src={`public/gallery_img/gallery_${id}.png`}
-              className="hover:cursor-glass w-full transition hover:scale-95 sm:max-w-full"
-              alt={`img-${id}`}
+            <a
+              key={id}
               data-fancybox="gallery"
-            />
+              href={`public/gallery_img/gallery_${id}.png`}
+              className="w-full transition hover:scale-95 hover:cursor-glass sm:max-w-full"
+            >
+              <img
+                src={`public/gallery_img/gallery_${id}.png`}
+                alt={`img-${id}`}
+                className="w-full"
+              />
+            </a>
           ))}
         </div>
         <div className="relative">
           {/* Hidden images */}
           {hiddenImg && (
-            <div className="grid-cols-gallery-min relative -top-10 grid gap-3 transition duration-1000">
+            <div className="relative -top-10 grid grid-cols-gallery-min gap-3 transition duration-1000">
               {[...imgHidden].map((id) => (
                 <img
                   key={id}
                   src={`public/gallery_img/gallery_${id}.png`}
-                  className="hover:cursor-glass w-full hover:scale-105 sm:max-w-full"
+                  className="w-full transition hover:scale-105 hover:cursor-glass sm:max-w-full"
                   alt={id}
                   data-fancybox="gallery"
                 />
@@ -66,7 +69,7 @@ const Gallery = (props) => {
           )}
         </div>
         <Button
-          text={`See ${buttonText}`}
+          text={`See ${hiddenImg ? "less" : "more"}`}
           isActive={hiddenImg}
           onClick={() => setHiddenImg(!hiddenImg)}
         />

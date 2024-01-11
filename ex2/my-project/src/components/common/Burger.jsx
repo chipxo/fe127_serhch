@@ -12,13 +12,12 @@ const Burger = () => {
       className="grid place-items-end transition hover:cursor-pointer md:hidden"
       onClick={() => setBurger(!burger)}
     >
-      {/* Nav*/}
-      <Nav links={links} isBurger={burger} />
+      <Nav links={links} isBurger={burger} isHeader={false} />
 
       {/* Burger */}
       <FontAwesomeIcon
         icon={burger ? faX : faBars}
-        className="relative z-[999] justify-self-end text-5xl text-white"
+        className="relative z-[999] h-[48px] w-[48px] justify-self-end text-white"
       />
     </div>
   );

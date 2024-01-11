@@ -10,7 +10,7 @@ import Slide from "./Slide";
 export default () => {
   return (
     <Swiper
-      className="h-[60vh] md:h-screen "
+      className="h-[60vh] md:h-screen"
       modules={[Autoplay, Navigation, Pagination, A11y]}
       direction={"vertical"}
       loop={true}

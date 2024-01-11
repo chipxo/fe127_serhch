@@ -7,9 +7,13 @@ const Input = ({ type, placeholder, name, className, errorClassName }) => {
         type={type}
         placeholder={placeholder}
         name={name}
-        className={className}
+        className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
       />
-      <ErrorMessage name={name} component="div" className={errorClassName} />
+      <ErrorMessage
+        name={name}
+        component="div"
+        className="absolute top-12 text-red-600"
+      />
     </div>
   );
 };

@@ -39,7 +39,7 @@
     grid-template-areas:
       "img1 img1 img2 img3"
       "img1 img1 img4 img5";
-    img {
+    a {
       &:nth-of-type(1) {
         grid-area: img1;
       }
@@ -69,21 +69,6 @@
   }
 }
 
-header {
-  nav {
-    ul {
-      li {
-        a {
-          @apply before:absolute before:-left-4 before:top-[7px] before:hidden before:h-2 before:w-2 before:rounded-full before:border before:content-[""] hover:before:bg-white focus:before:bg-white md:before:inline-block;
-        }
-        a.active {
-          @apply before:bg-white;
-        }
-      }
-    }
-  }
-}
-
 section#aboutUs {
   div.swiper-pagination.swiper-pagination {
     @apply right-[2vw] mt-4 flex flex-col justify-center gap-y-4 md:gap-y-8 xl:right-[5vw] 2xl:right-[10vw];
@@ -91,20 +76,17 @@ section#aboutUs {
 
   span.swiper-pagination-bullet {
     @apply border border-white bg-transparent opacity-100 transition-all;
-    &:hover {
-      @apply scale-150;
-    }
   }
 
   span.swiper-pagination-bullet-active {
-    @apply scale-150 bg-white;
+    @apply bg-white;
   }
 
   div.swiper-button-prev {
     @apply hidden;
   }
   div.swiper-button-next {
-    @apply left-6 right-0 top-[90vh] mx-auto flex rounded-full border border-social-border px-5 text-white transition-all;
+    @apply left-0 right-0 top-[90vh] mx-auto flex rounded-full border border-social-border px-5 text-white transition-all;
     &::after {
       @apply mx-auto rotate-90 text-[10px];
     }
@@ -121,13 +103,10 @@ section#news {
 
   span.swiper-pagination-bullet {
     @apply border border-white bg-transparent opacity-100 transition-all;
-    &:hover {
-      @apply scale-150;
-    }
   }
 
   span.swiper-pagination-bullet-active {
-    @apply scale-150 bg-white;
+    @apply bg-white;
   }
 
   div.swiper-button-prev,
@@ -139,13 +118,5 @@ section#news {
     &:hover {
       @apply border-white;
     }
-  }
-}
-
-footer#footer {
-  form {
-    // input {
-    //   @apply;
-    // }
   }
 }

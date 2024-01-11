@@ -44,21 +44,8 @@ const Form = () => {
           onSubmit={handleSubmit}
           className="grid gap-x-16 gap-y-8 font-[Montserrat] text-black sm:grid-cols-2 md:grid-cols-1"
         >
-          <Input
-            type="text"
-            placeholder="Your email"
-            name="email"
-            className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
-            errorClassName="absolute top-12 text-red-600"
-          />
-
-          <Input
-            type="text"
-            placeholder="Your name"
-            name="userName"
-            className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
-            errorClassName="absolute top-12 text-red-600"
-          />
+          <Input type="text" placeholder="Name" name="userName" />
+          <Input type="text" placeholder="Email" name="email" />
 
           <div className="md:place-self-end">
             <FormButton disabled={!isValid} />
