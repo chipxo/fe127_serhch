@@ -7,7 +7,7 @@ const Input = ({ type, placeholder, name, className, errorClassName }) => {
         type={type}
         placeholder={placeholder}
         name={name}
-        className="relative w-full  rounded-none border-b bg-white p-2 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
+        className="relative w-full  rounded-none border-b bg-white px-2 py-4 transition duration-200 hover:border-b-dark-blue focus:border-b-dark-blue focus:outline-none"
       />
       <ErrorMessage
         name={name}

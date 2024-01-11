@@ -5,7 +5,7 @@ import Button from "../common/CommonButton";
 import SectionsTitle from "../common/SectionsTitle";
 
 const img = [1, 2, 3, 4, 5];
-const imgHidden = [3, 4, 1, 5, 2];
+const imgHidden = [3, 4, 5, 1, 2];
 
 const Gallery = (props) => {
   const [hiddenImg, setHiddenImg] = useState(false);
@@ -29,11 +29,9 @@ const Gallery = (props) => {
   return (
     <section ref={containerRef} id="gallery" className="relative mt-20">
       <div className="container grid gap-y-12 text-center">
-        <div>
-          {/* Title */}
-          <SectionsTitle isBgDark={false} isTitle={true} text={"Gallery"} />
-        </div>
-        <div className="md:photos relative z-[888] grid gap-3 ">
+        {/* Title */}
+        <SectionsTitle isBgDark={false} isTitle={true} text={"Gallery"} />
+        <div className="md:photos relative z-[888] grid gap-3 sm:grid-cols-2">
           {/* Images */}
           {img.map((id) => (
             <a
@@ -45,27 +43,27 @@ const Gallery = (props) => {
               <img
                 src={`public/gallery_img/gallery_${id}.png`}
                 alt={`img-${id}`}
-                className="w-full"
+                className="h-full w-full object-cover"
               />
             </a>
           ))}
-        </div>
-        <div className="relative">
-          {/* Hidden images */}
-          {hiddenImg && (
-            <div className="relative -top-10 grid grid-cols-gallery-min gap-3 transition duration-1000">
-              {[...imgHidden].map((id) => (
+          {hiddenImg &&
+            [...imgHidden].map((id) => (
+              <a
+                key={id}
+                data-fancybox="gallery"
+                href={`public/gallery_img/gallery_${id}.png`}
+                className="w-full transition hover:scale-105 hover:cursor-glass sm:max-w-full"
+              >
                 <img
-                  key={id}
                   src={`public/gallery_img/gallery_${id}.png`}
-                  className="w-full transition hover:scale-105 hover:cursor-glass sm:max-w-full"
-                  alt={id}
-                  data-fancybox="gallery"
+                  alt={`img-${id}`}
+                  className="w-full"
                 />
-              ))}
-            </div>
-          )}
+              </a>
+            ))}
         </div>
+        <div className="relative"></div>
         <Button
           text={`See ${hiddenImg ? "less" : "more"}`}
           isActive={hiddenImg}

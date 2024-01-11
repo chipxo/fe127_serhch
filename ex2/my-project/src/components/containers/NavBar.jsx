@@ -29,9 +29,9 @@ const Nav = ({ links, isBurger, isHeader }) => {
 
         if (
           targetSection &&
-          scrollPosition >= targetSection.offsetTop - 550 &&
+          scrollPosition >= targetSection.offsetTop - 400 &&
           scrollPosition <
-            targetSection.offsetTop - 550 + targetSection.offsetHeight
+            targetSection.offsetTop - 400 + targetSection.offsetHeight
         ) {
           setActiveLinkId(id);
           isSectionView = true;

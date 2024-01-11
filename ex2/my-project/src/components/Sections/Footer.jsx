@@ -22,10 +22,14 @@ const Footer = () => {
 
           {/* Links and Form*/}
           <div className="grid gap-y-6 md:grid-cols-2">
-            <div className="mt-4 grid justify-items-center gap-x-20 gap-y-8 font-[Montserrat] text-[15px] text-black sm:grid-cols-2 sm:justify-items-start md:mt-0 md:grid-cols-1 md:gap-y-4 md:text-[18px]">
+            <div className="mt-4 grid items-center justify-items-center gap-x-20 gap-y-8 font-[Montserrat] text-[15px] text-black sm:grid-cols-2 sm:justify-items-start md:mt-0 md:grid-cols-1 md:gap-y-4 md:text-[18px]">
               {links.map(({ id, icon, text, link }) => (
-                <a key={id} href={link} className="relative pl-6">
-                  <span className="absolute -left-0 top-[1px] mr-4 text-[15px] text-mid-purple sm:top-0 md:top-[2px]">
+                <a
+                  key={id}
+                  href={link}
+                  className="relative -ml-4 h-fit pl-6 sm:ml-0"
+                >
+                  <span className="to absolute -left-0 mr-4 text-[15px] text-mid-purple md:top-[3px]">
                     <FontAwesomeIcon icon={icon} />
                   </span>
                   {text}
