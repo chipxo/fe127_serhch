@@ -63,7 +63,6 @@ const Gallery = (props) => {
               </a>
             ))}
         </div>
-        <div className="relative"></div>
         <Button
           text={`See ${hiddenImg ? "less" : "more"}`}
           isActive={hiddenImg}

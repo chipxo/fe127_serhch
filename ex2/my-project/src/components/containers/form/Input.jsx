@@ -12,7 +12,7 @@ const Input = ({ type, placeholder, name, className, errorClassName }) => {
       <ErrorMessage
         name={name}
         component="div"
-        className="absolute top-12 text-red-600"
+        className="absolute top-16 text-red-600"
       />
     </div>
   );
