@@ -4,8 +4,7 @@ const SectionsTitle = ({ text, isBgDark, isTitle }) => {
   const beforeBg = isBgDark ? "before:bg-white" : "before:bg-dark-blue";
 
   const secTitle = isTitle
-    ? `before:absolute before:-top-5 before:h-[2px] before:w-[80px] before:content-[''] before:inset-x-auto md:before:w-[100px] my-4 text-center md:my-6 transform before:left-1/2 before:-translate-x-1/2 
-    ${beforeBg}`
+    ? `before:absolute before:-top-5 before:h-[2px] before:w-[80px] before:content-[''] before:inset-x-auto md:before:w-[100px] my-4 text-center md:my-6 transform before:left-1/2 before:-translate-x-1/2 ${beforeBg}`
     : "";
 
   return (

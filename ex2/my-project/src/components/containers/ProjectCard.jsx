@@ -24,15 +24,14 @@ const ProjectCard = ({
 
   return (
     <div
-      className={`relative flex flex-col justify-between gap-x-[30px] gap-y-6 lg:gap-x-[70px] 
-      ${cardDirection}`}
+      className={`relative flex flex-col justify-between gap-x-[30px] gap-y-6 lg:gap-x-[70px] ${cardDirection}`}
     >
       <div className="relative">
         {/* Card image */}
         <img src={image} alt={title} className="w-full object-cover" />
         {/* Image background */}
         <div
-          className={`absolute -top-7 -z-[10] hidden h-72 w-[30rem] md:block lg:-top-12 lg:aspect-video lg:h-auto lg:w-[38rem] xl:-top-16 xl:w-[48rem] 2xl:w-[56rem] ${bgColorandPosition} `}
+          className={`absolute -top-7 -z-[10] hidden h-72 w-[30rem] md:block lg:-top-12 lg:aspect-video lg:h-auto lg:w-[38rem] xl:-top-16 xl:w-[48rem] 2xl:w-[56rem] ${bgColorandPosition}`}
         ></div>
       </div>
       <div className="grid items-center justify-items-start gap-y-4">

@@ -1,10 +1,8 @@
-import "animate.css";
+import { Fancybox as NativeFancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { useEffect, useRef, useState } from "react";
 import Button from "../common/CommonButton";
 import SectionsTitle from "../common/SectionsTitle";
-
-import { Fancybox as NativeFancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const img = [1, 2, 3, 4, 5];
 const imgHidden = [3, 4, 1, 5, 2];

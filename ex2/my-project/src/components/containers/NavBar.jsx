@@ -58,8 +58,9 @@ const Nav = ({ links, isBurger, isHeader }) => {
           <li key={id} className="relative transition md:text-xl">
             <a
               href={href}
-              className={`relative ${linkMarker} 
-              ${activeLinkId === id && "before:bg-white"}`}
+              className={`relative ${linkMarker} ${
+                activeLinkId === id ? "before:bg-white" : ""
+              }`}
             >
               {title}
             </a>

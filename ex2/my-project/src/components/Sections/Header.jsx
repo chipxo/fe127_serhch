@@ -26,8 +26,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-[999] w-full bg-cover bg-no-repeat py-3 font-[Source-Sans] transition-all 
-      ${headerPosition}`}
+      className={`fixed left-0 top-0 z-[999] w-full bg-cover bg-no-repeat py-3 font-[Source-Sans] transition-all ${headerPosition}`}
     >
       <div className="container-header md:gap-x-18 container-header grid grid-cols-2 items-center gap-x-5 md:grid-cols-header-md lg:grid-cols-header lg:gap-x-5">
         <Logo />
