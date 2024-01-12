@@ -65,13 +65,13 @@
     sm:max-w-[768px] sm:px-8
     md:max-w-[1024px] lg:max-w-[1280px]
     lg:px-16 xl:max-w-[1536px]
-    xl:px-20 2xl:max-w-[1600px] 2xl:px-24;
+    xl:px-20 2xl:px-24;
   }
 }
 
 section#aboutUs {
   div.swiper-pagination.swiper-pagination {
-    @apply right-[2vw] mt-4 flex flex-col justify-center gap-y-4 md:gap-y-8 xl:right-[5vw] 2xl:right-[10vw];
+    @apply right-[2vw] mt-4 flex flex-col justify-center gap-y-4 md:gap-y-8 xl:right-[5vw];
   }
 
   span.swiper-pagination-bullet {

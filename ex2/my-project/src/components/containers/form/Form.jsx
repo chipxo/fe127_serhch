@@ -47,7 +47,7 @@ const Form = () => {
           <Input type="text" placeholder="Name" name="userName" />
           <Input type="text" placeholder="Email" name="email" />
 
-          <div className="md:place-self-end">
+          <div className="mt-2 sm:mt-8 md:m-0 md:place-self-end">
             <FormButton disabled={!isValid} />
           </div>
         </form>

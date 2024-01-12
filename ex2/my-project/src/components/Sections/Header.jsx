@@ -9,7 +9,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const headerPosition = isScrolled
-    ? "bg-header bg-right-top drop-shadow-2xl"
+    ? "bg-header bg-right-top drop-shadow-2xl duration-200"
     : "md:top-4";
 
   useEffect(() => {
