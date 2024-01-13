@@ -37,11 +37,11 @@ const Gallery = (props) => {
             <a
               key={id}
               data-fancybox="gallery"
-              href={`public/gallery_img/gallery_${id}.png`}
+              href={`/gallery_img/gallery_${id}.png`}
               className="w-full transition hover:scale-95 hover:cursor-glass sm:max-w-full"
             >
               <img
-                src={`public/gallery_img/gallery_${id}.png`}
+                src={`/gallery_img/gallery_${id}.png`}
                 alt={`img-${id}`}
                 className="h-full w-full object-cover"
               />
