@@ -18,7 +18,7 @@ const Footer = () => {
             <SectionsTitle
               isBgDark={false}
               isTitle={true}
-              text={"Get in touch"}
+              text="Get in touch"
             />
 
             {/* Links and Form*/}

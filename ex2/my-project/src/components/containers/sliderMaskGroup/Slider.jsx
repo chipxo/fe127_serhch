@@ -26,7 +26,7 @@ export default () => {
       <div className="container">
         {slides.map(({ id, className, title, description, bg }) => (
           <SwiperSlide key={id} className={className}>
-            <Slide title={title} description={description} bg={bg}></Slide>
+            <Slide title={title} description={description} bg={bg} />
           </SwiperSlide>
         ))}
       </div>

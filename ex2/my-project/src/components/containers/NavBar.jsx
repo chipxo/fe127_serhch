@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Nav = ({ links, isBurger, isHeader }) => {
+const NavBar = ({ links, isBurger, isHeader }) => {
   const [activeLinkId, setActiveLinkId] = useState(
     links.length > 0 ? links[0].id : null,
   );
@@ -46,13 +46,14 @@ const Nav = ({ links, isBurger, isHeader }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [links]);
+  }, []);
 
   return (
     <nav id="nav" className={isHeader ? "hidden md:block" : navStyle}>
       <ul
-        className={`grid pt-[2px] uppercase text-white
-        ${isHeader ? ulHeader : ulBurger}`}
+        className={`grid pt-[2px] uppercase text-white ${
+          isHeader ? ulHeader : ulBurger
+        }`}
       >
         {links.map(({ id, title, href }) => (
           <li key={id} className="relative transition md:text-xl">
@@ -71,4 +72,4 @@ const Nav = ({ links, isBurger, isHeader }) => {
   );
 };
 
-export default Nav;
+export default NavBar;

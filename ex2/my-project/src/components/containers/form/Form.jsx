@@ -44,8 +44,8 @@ const Form = () => {
           onSubmit={handleSubmit}
           className="grid gap-x-16 gap-y-8 font-[Montserrat] text-black sm:grid-cols-2 md:grid-cols-1"
         >
-          <Input type="text" placeholder="Name" name="userName" />
-          <Input type="text" placeholder="Email" name="email" />
+          <Input type="text" name="userName" placeholder="Name" />
+          <Input type="text" name="email" placeholder="Email" />
 
           <div className="mt-2 sm:mt-8 md:m-0 md:place-self-end">
             <FormButton disabled={!isValid} />

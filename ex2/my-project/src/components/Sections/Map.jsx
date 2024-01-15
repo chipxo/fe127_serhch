@@ -1,10 +1,24 @@
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
+import { useEffect, useState } from "react";
 import silverMapStyle from "../data/mapStyle.json";
 
 const center = { lat: 41.12118893425201, lng: -73.43283741633479 };
 const googleMapsApiKey = "AIzaSyBUstuBUHe-HtvTtI1mL57p9dKzsOSzcgo";
 
 const MyMap = () => {
+  const [mapHeight, setMapHeight] = useState("300px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMapHeight(window.innerWidth > 768 ? "700px" : "300px");
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: googleMapsApiKey,
   });
@@ -14,11 +28,14 @@ const MyMap = () => {
   }
 
   return (
-    <div className="mt-40">
+    <section id="map" className="mt-40">
       <GoogleMap
         center={center}
         zoom={15}
-        mapContainerStyle={{ width: "100%", height: "700px" }}
+        mapContainerStyle={{
+          width: "100%",
+          height: mapHeight,
+        }}
         options={{
           zoomControl: false,
           streetViewControl: false,
@@ -34,7 +51,7 @@ const MyMap = () => {
           }}
         />
       </GoogleMap>
-    </div>
+    </section>
   );
 };
 

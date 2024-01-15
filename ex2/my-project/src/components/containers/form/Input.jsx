@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 
-const Input = ({ type, placeholder, name, className, errorClassName }) => {
+const Input = ({ type, placeholder, name }) => {
   return (
     <div className="relative">
       <Field

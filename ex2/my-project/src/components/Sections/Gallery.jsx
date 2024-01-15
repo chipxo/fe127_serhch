@@ -30,7 +30,7 @@ const Gallery = (props) => {
     <section ref={containerRef} id="gallery" className="relative mt-20">
       <div className="container grid gap-y-12 text-center">
         {/* Title */}
-        <SectionsTitle isBgDark={false} isTitle={true} text={"Gallery"} />
+        <SectionsTitle isBgDark={false} isTitle={true} text="Gallery" />
         <div className="md:photos relative z-[888] grid gap-3 sm:grid-cols-2">
           {/* Images */}
           {img.map((id) => (

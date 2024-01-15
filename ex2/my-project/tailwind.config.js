@@ -17,9 +17,6 @@ export default {
       cursor: {
         glass: "url('/gallery_img/magnif_glass.svg'), zoom-in",
       },
-      aspectRatio: {
-        "4/3": "4 / 3",
-      },
       backgroundImage: {
         header: "url('/backgrounds/bg_slider_header.jpg')",
         news: "url('/backgrounds/bg_news.jpg')",
