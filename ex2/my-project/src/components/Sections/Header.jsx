@@ -8,10 +8,6 @@ import links from "../data/navLinks.json";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const headerPosition = isScrolled
-    ? "bg-header bg-right-top drop-shadow-2xl duration-200"
-    : "md:top-4";
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -23,6 +19,10 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const headerPosition = isScrolled
+    ? "bg-header bg-right-top drop-shadow-2xl duration-200"
+    : "md:top-4";
 
   return (
     <header

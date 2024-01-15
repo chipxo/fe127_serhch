@@ -14,6 +14,7 @@ const Footer = () => {
       <div className="mx-auto max-w-[770px] md:p-4">
         <div className="relative grid md:-top-[20rem] md:gap-y-14">
           <div className="bg-white bg-center px-6 py-10 sm:bg-form  md:px-10 md:py-14 lg:px-12">
+          
             {/* Title */}
             <SectionsTitle
               isBgDark={false}
@@ -37,11 +38,13 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+
               {/* Form */}
               <Form />
             </div>
           </div>
 
+          {/* Nav */}
           <nav className="grid place-items-center gap-y-6 py-6 text-white md:grid md:grid-cols-2">
             <div className="grid gap-y-6 md:gap-y-10 md:justify-self-start">
               <Logo href={"#aboutUs"} />
@@ -54,8 +57,6 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-
-        {/* Nav */}
       </div>
     </footer>
   );
