@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
 const NavBar = ({ links, isBurger, isHeader }) => {
-  const [activeLinkId, setActiveLinkId] = useState(
-    links.length > 0 ? links[0].id : null,
-  );
+  const [activeLinkId, setActiveLinkId] = useState(links[0].id);
 
   const showOnClick = isBurger
     ? "duration-500"
@@ -29,9 +27,18 @@ const NavBar = ({ links, isBurger, isHeader }) => {
 
         if (
           targetSection &&
-          scrollPosition >= targetSection.offsetTop - 400 &&
+          targetSection.id === "footer" &&
+          scrollPosition >= targetSection.offsetTop - 600 &&
           scrollPosition <
-            targetSection.offsetTop - 400 + targetSection.offsetHeight
+            targetSection.offsetTop - 600 + targetSection.offsetHeight
+        ) {
+          setActiveLinkId(id);
+          isSectionView = true;
+        } else if (
+          targetSection &&
+          scrollPosition >= targetSection.offsetTop - 300 &&
+          scrollPosition <
+            targetSection.offsetTop - 300 + targetSection.offsetHeight
         ) {
           setActiveLinkId(id);
           isSectionView = true;
@@ -40,13 +47,12 @@ const NavBar = ({ links, isBurger, isHeader }) => {
 
       !isSectionView && setActiveLinkId(null);
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [links]);
 
   return (
     <nav id="nav" className={isHeader ? "hidden md:block" : navStyle}>

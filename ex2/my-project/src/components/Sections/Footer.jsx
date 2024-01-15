@@ -14,7 +14,6 @@ const Footer = () => {
       <div className="mx-auto max-w-[770px] md:p-4">
         <div className="relative grid md:-top-[20rem] md:gap-y-14">
           <div className="bg-white bg-center px-6 py-10 sm:bg-form  md:px-10 md:py-14 lg:px-12">
-          
             {/* Title */}
             <SectionsTitle
               isBgDark={false}
@@ -25,7 +24,6 @@ const Footer = () => {
             {/* Links and Form*/}
             <div className="grid gap-y-6 md:grid-cols-2">
               <div className="mt-4 grid items-center justify-items-center gap-x-20 gap-y-8 font-[Montserrat] text-[15px] text-black sm:grid-cols-2 sm:justify-items-start md:mt-0 md:grid-cols-1 md:gap-y-4 md:text-[18px]">
-
                 {/* Links */}
                 {links.map(({ id, icon, text, link }) => (
                   <a

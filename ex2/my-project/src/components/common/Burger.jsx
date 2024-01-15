@@ -8,10 +8,7 @@ const Burger = () => {
   const [burger, setBurger] = useState(false);
 
   return (
-    <div
-      onClick={() => setBurger(!burger)}
-      className="grid place-items-end md:hidden"
-    >
+    <div onClick={() => setBurger(!burger)} className="grid md:hidden">
       <Nav links={links} isBurger={burger} isHeader={false} />
 
       {/* Burger */}
