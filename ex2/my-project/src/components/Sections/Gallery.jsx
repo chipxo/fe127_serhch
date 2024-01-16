@@ -42,7 +42,7 @@ const Gallery = (props) => {
             >
               <img
                 src={`/gallery_img/gallery_${id}.png`}
-                alt={`img-${id}`}
+                alt={`gallery-image-${id}`}
                 className="h-full w-full object-cover"
               />
             </a>
@@ -59,7 +59,7 @@ const Gallery = (props) => {
               >
                 <img
                   src={`/gallery_img/gallery_${id}.png`}
-                  alt={`img-${id}`}
+                  alt={`gallery-image-${id}`}
                   className="w-full"
                 />
               </a>
