@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Nav */}
           <nav className="grid place-items-center gap-y-6 py-6 text-white md:grid md:grid-cols-2">
             <div className="grid gap-y-6 md:gap-y-10 md:justify-self-start">
-              <Logo href={"#aboutUs"} />
+              <Logo />
               <p className="font-[Montserrat]">
                 Copyrights © 2020 Montichello
               </p>
