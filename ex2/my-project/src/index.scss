@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital@0;1&family=Source+Sans+3&display=swap");
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-[Montserrat];
+  }
+
+  h3 {
+    @apply text-dark-blue;
+  }
+
+  p {
+    @apply font-[Open-Sans];
+
+    &:not(#aboutUs p, #news p#date, #footer p) {
+      @apply text-dark-blue;
+    }
+  }
+
+  .location {
+    @apply font-[Open-Sans] italic;
+  }
+}
+
+@layer components {
+  div.photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-template-areas:
+      "img1 img1 img2 img3"
+      "img1 img1 img4 img5";
+    a {
+      &:nth-of-type(1) {
+        grid-area: img1;
+      }
+      &:nth-of-type(2) {
+        grid-area: img2;
+      }
+      &:nth-of-type(3) {
+        grid-area: img3;
+      }
+      &:nth-of-type(4) {
+        grid-area: img4;
+      }
+      &:nth-of-type(5) {
+        grid-area: img5;
+      }
+    }
+  }
+}
+
+@layer utilities {
+  .container-header {
+    @apply mx-auto w-full px-4
+    sm:max-w-[768px] sm:px-8
+    md:max-w-[1024px] lg:max-w-[1280px]
+    lg:px-16 xl:max-w-[1536px]
+    xl:px-20 2xl:px-24;
+  }
+}
+
+section#aboutUs {
+  div.swiper-pagination.swiper-pagination {
+    @apply right-[2vw] mt-4 flex flex-col justify-center gap-y-4 md:gap-y-8 xl:right-[5vw];
+  }
+
+  span.swiper-pagination-bullet {
+    @apply border border-white bg-transparent opacity-100 transition-all;
+  }
+
+  span.swiper-pagination-bullet-active {
+    @apply bg-white;
+  }
+
+  div.swiper-button-prev {
+    @apply hidden;
+  }
+  div.swiper-button-next {
+    @apply left-0 right-0 top-[90vh] mx-auto flex rounded-full border border-social-border px-5 text-white transition-all;
+    &::after {
+      @apply mx-auto rotate-90 text-[10px];
+    }
+    &:hover {
+      @apply border-white;
+    }
+  }
+}
+
+section#news {
+  div.swiper-pagination.swiper-pagination {
+    @apply mt-10 flex justify-center gap-x-4;
+  }
+
+  span.swiper-pagination-bullet {
+    @apply border border-white bg-transparent opacity-100 transition-all;
+  }
+
+  span.swiper-pagination-bullet-active {
+    @apply bg-white;
+  }
+
+  div.swiper-button-prev,
+  div.swiper-button-next {
+    @apply hidden rounded-full border border-social-border px-5 text-white transition-all md:flex;
+    &::after {
+      @apply text-[10px];
+    }
+    &:hover {
+      @apply border-white;
+    }
+  }
+}

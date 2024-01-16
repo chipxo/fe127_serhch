@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "About us",
+    "href": "#aboutUs"
+  },
+  {
+    "id": "2",
+    "title": "Projects",
+    "href": "#projects"
+  },
+  {
+    "id": "3",
+    "title": "News",
+    "href": "#news"
+  },
+  {
+    "id": "4",
+    "title": "Contact",
+    "href": "#footer"
+  }
+]
