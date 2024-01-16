@@ -55,7 +55,7 @@ const Gallery = (props) => {
                 key={id}
                 data-fancybox="gallery"
                 href={`public/gallery_img/gallery_${id}.png`}
-                className="w-full transition hover:scale-105 hover:cursor-glass sm:max-w-full"
+                className="w-full transition hover:scale-95 hover:cursor-glass sm:max-w-full"
               >
                 <img
                   src={`public/gallery_img/gallery_${id}.png`}

@@ -6,11 +6,11 @@ const center = { lat: 41.12118893425201, lng: -73.43283741633479 };
 const googleMapsApiKey = "AIzaSyBUstuBUHe-HtvTtI1mL57p9dKzsOSzcgo";
 
 const MyMap = () => {
-  const [mapHeight, setMapHeight] = useState("300px");
+  const [mapHeight, setMapHeight] = useState("700px");
 
   useEffect(() => {
     const handleResize = () => {
-      setMapHeight(window.innerWidth > 768 ? "700px" : "300px");
+      setMapHeight(window.innerWidth >= 768 ? "700px" : "400px");
     };
     window.addEventListener("resize", handleResize);
 

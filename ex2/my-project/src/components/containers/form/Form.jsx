@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import FormButton from "../../common/FormButton";
+import FormButton from "./FormButton";
 import Input from "./Input";
 
 const Form = () => {

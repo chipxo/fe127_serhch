@@ -58,9 +58,9 @@ const ProjectCard = ({
           </div>
         </div>
         <Button
-          onClick={() => setDetails(!details)}
           text={`${details ? "less" : "more"} details`}
           isActive={details}
+          onClick={() => setDetails(!details)}
         />
 
         {/* Location */}

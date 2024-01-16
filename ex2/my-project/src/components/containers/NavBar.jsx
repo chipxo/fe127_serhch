@@ -23,7 +23,7 @@ const NavBar = ({ links, isBurger, isHeader }) => {
       let isSectionView = false;
 
       links.forEach(({ id, href }) => {
-        const targetSection = document.getElementById(href.substring(1));
+        const targetSection = document.querySelector(href);
 
         if (
           targetSection &&
@@ -45,7 +45,9 @@ const NavBar = ({ links, isBurger, isHeader }) => {
         }
       });
 
-      !isSectionView && setActiveLinkId(null);
+      if (!isSectionView) {
+        setActiveLinkId(null);
+      }
     };
     window.addEventListener("scroll", handleScroll);
 
