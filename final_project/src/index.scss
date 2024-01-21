@@ -8,3 +8,7 @@
     @apply hidden;
   }
 }
+
+.menu :where(li > details > summary):after {
+  @apply hidden;
+}

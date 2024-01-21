@@ -1,8 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import fakeStoreReducer from "../containers/shop/storeSlice";
+import shoppingCartReducer from "../slices/shopCartSlices/cartSlice";
+import fakeStoreReducer from "../slices/storeSlice/storeSlice";
 
 const rootReducer = combineReducers({
   fakeStore: fakeStoreReducer,
+  cart: shoppingCartReducer,
   // Add other reducers here if you have more slices
 });
 

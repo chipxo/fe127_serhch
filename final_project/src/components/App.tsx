@@ -1,14 +1,20 @@
-import FakeStore from "./containers/shop/FakeStore";
-import NavBar from "./containers/Nav/NavBar";
-import Slider from "./containers/Slider";
+import { Route, Routes } from "react-router-dom";
+import SoloCard from "./containers/cards/SoloCard";
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
+import ShoppingCart from "./pages/ShoppingCart";
+import Shop from "./slices/storeSlice/FakeStore";
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <Slider />
-      <FakeStore />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/product/:prodId" element={<SoloCard />} />
+        <Route path="/shoppingCart" element={<ShoppingCart />} />
+      </Route>
+    </Routes>
   );
 }
 
