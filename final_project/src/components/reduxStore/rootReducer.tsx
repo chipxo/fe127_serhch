@@ -3,8 +3,10 @@ import amountReducer from "../slices/amount/amountSlice";
 import shoppingCartReducer from "../slices/shopCartSlices/cartSlice";
 import productReducer from "../slices/storeSlice/productSlice";
 import fakeStoreReducer from "../slices/storeSlice/storeSlice";
+import themeReducer from "../slices/theme/themeSlice";
 
 const rootReducer = combineReducers({
+  theme: themeReducer,
   fakeStore: fakeStoreReducer,
   cart: shoppingCartReducer,
   amount: amountReducer,

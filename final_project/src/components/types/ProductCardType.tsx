@@ -7,6 +7,7 @@ export type StoreCardProps = {
   rating: number;
   stock: number;
   title: string;
+  onClick?: () => void;
 };
 
 export type Products = {

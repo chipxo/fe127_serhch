@@ -55,7 +55,7 @@ const ShoppingCartItem = () => {
         </button>
       </NavLink>
       <AnimatePresence>
-        {open && amount > 1 ? (
+        {open && amount ? (
           <NavLink to="/shoppingCart">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
