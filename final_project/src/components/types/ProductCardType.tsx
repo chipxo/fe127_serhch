@@ -23,15 +23,17 @@ export type Products = {
   brand?: string;
 };
 
-export type Product = {
-  category: string;
-  description: string;
-  discountPercentage: number;
+type CategotyType = {
   id: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
+  name: string;
+  image: string;
+};
+
+export type ProductType = {
+  id: number;
   title: string;
-  brand?: string;
+  price: number;
+  description: string;
+  category: CategotyType;
+  images: string[];
 };

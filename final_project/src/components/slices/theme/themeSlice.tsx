@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: { theme: string } = { theme: "dracula" };
+const DARK = "dracula";
+const LIGHT = "wireframe";
+
+const initialState: { theme: string } = { theme: DARK };
 
 const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
     changeTheme: (state) => {
-      state.theme = state.theme === "dracula" ? "garden" : "dracula";
+      state.theme = state.theme === DARK ? LIGHT : DARK;
     },
   },
 });

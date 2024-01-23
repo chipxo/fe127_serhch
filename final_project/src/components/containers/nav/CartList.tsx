@@ -11,7 +11,7 @@ import { setAmount } from "../../slices/amount/amountSlice";
 import { StoreCardProps } from "../../types/ProductCardType";
 
 const ShoppingCartItem = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const dispatch = useAppDispatch();
   const { amount } = useSelector((state: RootState) => state.amount);
@@ -62,9 +62,10 @@ const ShoppingCartItem = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               style={{ x: "-50%" }}
-              className="absolute left-1/2 top-14"
+              className="absolute -left-[84%] xl:-left-1/2 top-14"
             >
               <div className="w-full h-8 bg-transparent absolute z-[999] -top-6" />
+              <div className="w-8 h-8 bg-base-100 absolute right-1/3 border-l-4 border-t-4 border-neutral rounded-md -top-[14px] rotate-45 z-50" />
               <div className="bg-base-100 drop-shadow-2xl p-6 w-max grid gap-x-10 border-4 rounded-md border-neutral gap-y-4 cursor-pointer max-h-[40vh] overflow-auto">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
@@ -79,7 +80,7 @@ const ShoppingCartItem = () => {
                         <img
                           src={images[0]}
                           alt={title[0].toUpperCase() + title.slice(1)}
-                          className="w-16 h-16 object-cover rounded-md p-1.5 bg-white"
+                          className="w-16 h-16 object-contain rounded-md"
                         />
                         <div className="">
                           <h2 className="text-lg font-semibold">{title}</h2>
@@ -100,7 +101,7 @@ const ShoppingCartItem = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               style={{ x: "-50%" }}
-              className="absolute left-1/2 top-14"
+              className="absolute left-1/3 top-14"
             >
               <div className="bg-base-100 drop-shadow-2xl py-6 px-12 w-max  border-4 rounded-md border-neutral">
                 <p className="text-lg">No items added</p>

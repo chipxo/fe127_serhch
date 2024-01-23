@@ -19,6 +19,7 @@ const AutoPlay = () => {
 
   type ImageProp = {
     id: number;
+    title: string;
     images: string[];
   };
 
@@ -37,11 +38,12 @@ const AutoPlay = () => {
   return (
     <div className="mt-10 overflow-hidden">
       <Slider {...settings} className="cursor-grab">
-        {products.map(({ id, images }: ImageProp) => (
+        {products.map(({ id, title, images }: ImageProp) => (
           <div className="" key={id}>
             <img
-              src={images[0]}
-              className="h-40 w-screen border bg-white object-contain p-4"
+              src={images[1]}
+              className="h-40 w-screen border-x-2 border-neutral object-cover"
+              alt={title}
             />
           </div>
         ))}

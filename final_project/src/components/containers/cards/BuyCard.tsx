@@ -65,7 +65,7 @@ const BuyCard = ({
 
         <figure className="h-full">
           <img
-            className="rounded-md w-full h-full object-contain bg-white p-3 max-h-[30vh]"
+            className="rounded-md w-full h-full"
             src={images?.[0]}
             alt={title}
           />
@@ -73,9 +73,7 @@ const BuyCard = ({
       </div>
       <div className="text-xl flex flex-col py-4 gap-y-4 justify-between">
         <h2 className="text-4xl font-bold">{title}</h2>
-        <p className="opacity-60 line-through">
-          {Math.round(price + price / discountPercentage) * count}$
-        </p>
+
         <p className="font-semibold">Total: {price * count}$</p>
         <div className="flex gap-x-4">
           <button className="text-3xl font-semibold" onClick={increaseCount}>
