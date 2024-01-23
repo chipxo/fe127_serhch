@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Error } from "../common/loading && error/Error";
-import { Loading } from "../common/loading && error/Loading";
+import { Error, Loading } from "../common/loading && error/LoadingError";
 import BuyCard from "../containers/cards/BuyCard";
 import { fetchProducts } from "../hooks/fetchProducts";
 import { RootState } from "../reduxStore/rootReducer";
@@ -33,30 +32,36 @@ const ShoppingCart = () => {
       {error && <Error error={error} />}
       {!loading &&
         !error &&
-        items.map(
-          ({
-            category,
-            discountPercentage,
-            id,
-            images,
-            price,
-            rating,
-            stock,
-            title,
-          }) => (
-            <BuyCard
-              key={id}
-              discountPercentage={discountPercentage}
-              id={id}
-              images={images}
-              price={price}
-              rating={rating}
-              stock={stock}
-              title={title}
-              category={category}
-            />
-          ),
-        )}
+        items?.map((item) => {
+          if (item) {
+            const {
+              category,
+              discountPercentage,
+              id,
+              images,
+              price,
+              rating,
+              stock,
+              title,
+            } = item;
+
+            return (
+              <BuyCard
+                key={id}
+                discountPercentage={discountPercentage}
+                id={id}
+                images={images}
+                price={price}
+                rating={rating}
+                stock={stock}
+                title={title}
+                category={category}
+              />
+            );
+          }
+
+          return null; // Or handle the case where category is undefined or null
+        })}
     </div>
   );
 };

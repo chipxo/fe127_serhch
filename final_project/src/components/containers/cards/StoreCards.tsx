@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../common/buttons/Button";
 import { cartChecked, cartDelete, cartIcon, cartUser } from "../../icons/Icons";
+import { useAppDispatch } from "../../reduxStore/store";
+import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
 import { StoreCardProps } from "../../types/ProductCardType";
 
 const StoreCard = ({
@@ -14,17 +16,18 @@ const StoreCard = ({
   stock,
   title,
 }: StoreCardProps) => {
-  const [amount, setAmount] = useState(false);
+  const [checked, setChecked] = useState(false);
   const localStorage = window.localStorage;
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const item = localStorage.getItem(`${id}`);
     if (item) {
-      setAmount(true);
+      setChecked(true);
     } else {
-      setAmount(false);
+      setChecked(false);
     }
   }, []);
 
@@ -33,12 +36,14 @@ const StoreCard = ({
   };
 
   const handleAddBtn = (id: number, title: string) => {
-    setAmount(true);
+    dispatch(addAmount());
+    setChecked(true);
     localStorage.setItem(`${id}`, `${title}`);
   };
 
   const handleDelBtn = (id: number) => {
-    setAmount(false);
+    dispatch(decreaseAmount());
+    setChecked(false);
     localStorage.removeItem(`${id}`);
   };
 
@@ -64,7 +69,7 @@ const StoreCard = ({
         <h2 className="card-title gap-8" onClick={() => toSoloCard(id)}>
           <span>
             {title[0].toUpperCase() + title.slice(1)}
-            {amount && cartChecked}
+            {checked && cartChecked}
           </span>
           <div className="badge badge-secondary">{rating}</div>
         </h2>
@@ -74,7 +79,7 @@ const StoreCard = ({
               ${Math.floor(price + price / discountPercentage)}
             </span>
           </div>
-          <div className="badge badge-outline border-secondary p-3">
+          <div className="badge badge-outline border-transparent p-3 text-info text-xl">
             ${price}
           </div>
           <div className="badge badge-outline ml-auto border-accent p-3">
@@ -84,14 +89,16 @@ const StoreCard = ({
         <div className="grid grid-cols-2 gap-x-24 mt-auto">
           <Button
             text={cartIcon}
-            color={"accent"}
+            color={"primary"}
             onClick={() => handleAddBtn(id, title)}
+            disabled={checked}
           />
           <div className="grid">
             <Button
               text={cartDelete}
               color={"secondary"}
               onClick={() => handleDelBtn(id)}
+              disabled={!checked}
             />
           </div>
         </div>

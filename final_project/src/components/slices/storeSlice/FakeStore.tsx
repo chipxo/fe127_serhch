@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Error, Loading } from "../../common/loading && error/LoadingError";
 import StoreCard from "../../containers/cards/StoreCards";
 import { fetchProducts } from "../../hooks/fetchProducts";
 import { RootState } from "../../reduxStore/rootReducer";
@@ -18,16 +19,9 @@ const FakeStore: React.FC = () => {
   return (
     <div className="">
       <div className="container">
-        {loading && (
-          <div className="grid h-screen place-items-center">
-            <span className="loading loading-dots loading-lg scale-125 text-blue-600" />
-          </div>
-        )}
-        <div className="mt-14 grid grid-cols-2 gap-14 xl:grid-cols-3">
-          {error && (
-            <h2>Error: {typeof error === "string" ? error : "Fetch failed"}</h2>
-          )}
-
+        {loading && <Loading />}
+        <div className="mt-14 grid md:grid-cols-2 gap-14 xl:grid-cols-3">
+          {error && <Error error={error} />}
           {!loading &&
             !error &&
             products.map(

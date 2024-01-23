@@ -9,7 +9,7 @@ import { RootState } from "../../reduxStore/rootReducer";
 import { useAppDispatch } from "../../reduxStore/store";
 import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
 
-const SoloCard = () => {
+export const SoloCard = () => {
   const [checked, setChecked] = useState(false);
   const { prodId } = useParams();
   const dispatch = useAppDispatch();
@@ -70,15 +70,15 @@ const SoloCard = () => {
   return (
     <div className="container">
       <div className="grid gap-x-10 grid-cols-2 border border-neutral rounded-md p-4 shadow-2xl bg-base-100">
-        <div className="flex flex-col gap-y-6">
+        <div className="grid gap-y-6 items-start">
           <div className="border border-neutral p-4 rounded-md h-fit">
             <h2 className="card-title text-3xl">
               {title}
-              {checked && cartChecked}
+              {checked && <p>{cartChecked}</p>}
             </h2>
             <p className="text-lg">by {brand}</p>
           </div>
-          <div className="border text-2xl border-neutral p-4 rounded-md flex flex-col justify-between h-full">
+          <div className="border text-2xl border-neutral p-4 rounded-md grid gap-y-6 h-full">
             <p>{description}</p>
             <p>
               Price:
@@ -91,36 +91,34 @@ const SoloCard = () => {
                 {price}$
               </span>
             </p>
+            <p className="flex items-center">
+              ⭐ {rating}
+              <span className="badge badge-outline border-2 border-secondary text-xl p-4 ml-4">
+                {cartUser}
+                {stock}
+              </span>
+            </p>
 
-            <div className="grid gap-y-4">
-              <p className="flex items-center">
-                ⭐ {rating}
-                <span className="badge badge-outline border-2 border-secondary text-xl p-4 ml-4">
-                  {cartUser}
-                  {stock}
-                </span>
-              </p>
-              <div className="grid grid-cols-2 gap-x-4 items-end">
-                <Button
-                  text={cartIcon}
-                  color="primary"
-                  onClick={handleAddBtn}
-                  disabled={checked}
-                />
-                <Button
-                  disabled={!checked}
-                  text={cartDelete}
-                  color="secondary"
-                  onClick={() => handleDelBtn(id)}
-                />
-              </div>
+            <div className="grid grid-cols-2 gap-x-4 items-end">
+              <Button
+                text={cartIcon}
+                color="primary"
+                onClick={handleAddBtn}
+                disabled={checked}
+              />
+              <Button
+                disabled={!checked}
+                text={cartDelete}
+                color="secondary"
+                onClick={() => handleDelBtn(id)}
+              />
             </div>
           </div>
         </div>
         <figure>
           <img
             src={images?.[0]}
-            className="rounded-md max-h-[50vh] w-full h-full object-contain py-4 bg-white"
+            className="rounded-md w-full h-full object-cover py-4 bg-white"
             alt={title}
           />
         </figure>
@@ -128,5 +126,3 @@ const SoloCard = () => {
     </div>
   );
 };
-
-export default SoloCard;

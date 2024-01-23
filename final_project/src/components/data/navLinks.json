@@ -1,0 +1,12 @@
+[
+  {
+    "name": "home",
+    "to": "/",
+    "text": "Home"
+  },
+  {
+    "name": "shop",
+    "to": "/shop",
+    "text": "Shop"
+  }
+]

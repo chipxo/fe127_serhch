@@ -12,3 +12,22 @@
 .menu :where(li > details > summary):after {
   @apply hidden;
 }
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-base-100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}

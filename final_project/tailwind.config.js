@@ -19,7 +19,7 @@ export default {
     },
   },
   daisyui: {
-    themes: ["light", "dark", "dracula", "winter", "valentine", "retro"],
+    themes: ["dracula", "retro", "dark", "light"],
   },
   plugins: [require("daisyui")],
 };
