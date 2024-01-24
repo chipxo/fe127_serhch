@@ -7,6 +7,8 @@ import { RootState } from "../../reduxStore/rootReducer";
 import { useAppDispatch } from "../../reduxStore/store";
 import Filter from "../../containers/nav/Filter";
 import Path from "../../common/Path";
+import { toRightIcon } from "../../icons/Icons";
+import { Link } from "react-router-dom";
 
 const FakeStore: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -20,9 +22,12 @@ const FakeStore: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <section>
+    <section className="mt-20 border-t border-neutral py-10">
       <Filter />
-      <Path>Products</Path>
+      <Path>
+        <Link to="/">Home</Link>
+        {toRightIcon} Products
+      </Path>
       <div className="container relative">
         {loading && <Loading />}
         <div className="grid gap-4 md:grid-cols-4">
@@ -32,7 +37,8 @@ const FakeStore: React.FC = () => {
             products.map(
               ({ id, category, images, price, title }) =>
                 price > 0 &&
-                title !== "New Product" && (
+                title !== "New Product" &&
+                title !== "TestAustomationProduct" && (
                   <div key={id}>
                     <StoreCard
                       id={id}

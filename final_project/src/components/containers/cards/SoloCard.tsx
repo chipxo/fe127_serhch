@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Button from "../../common/buttons/Button";
 import { Error, Loading } from "../../common/loading && error/LoadingError";
 import { fetchProduct } from "../../hooks/fetchProduct";
@@ -66,12 +66,14 @@ const SoloCard = () => {
   const toRight = toRightIcon;
   return (
     <section>
+      <Path>
+        <Link to="/">Home</Link>
+        {toRightIcon}
+        <Link to="/products">Products</Link>
+        {toRightIcon}
+        {title}
+      </Path>
       <div className="container">
-        {/* <Path>
-          Home {toRightIcon} Products {toRightIcon} {category.name}
-          {toRightIcon}{" "}
-          <span className="border-b border-primary pb-1">{title}</span>
-        </Path> */}
         <div className=" grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-2xl">
           <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">
             <p className="badge badge-accent badge-lg p-4 font-semibold">

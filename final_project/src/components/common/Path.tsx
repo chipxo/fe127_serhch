@@ -7,7 +7,7 @@ type PathProps = {
 const Path: React.FC<PathProps> = ({ children }) => {
   return (
     <div className="container relative">
-      <h2 className="absolute -top-9 bg-base-100 text-lg">{children}</h2>
+      <h2 className="absolute -top-24 left-20 text-lg">{children}</h2>
     </div>
   );
 };

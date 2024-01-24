@@ -11,7 +11,7 @@ import { setAmount } from "../../slices/amount/amountSlice";
 import { ProductType } from "../../types/ProductCardType";
 
 const ShoppingCartItem = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const dispatch = useAppDispatch();
   const { amount } = useSelector((state: RootState) => state.amount);
@@ -61,7 +61,7 @@ const ShoppingCartItem = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
-              style={{ x: "-62%" }}
+              style={{ x: "-72%" }}
               className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
               <div className="absolute -top-5 z-[999] h-8 w-full bg-transparent" />

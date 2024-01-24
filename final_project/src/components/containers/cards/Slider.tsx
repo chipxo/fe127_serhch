@@ -36,7 +36,7 @@ const AutoPlay = () => {
   };
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden border-y border-neutral pb-1.5 pt-3 shadow-lg">
       <div className="absolute top-1/2 z-[30] w-full -translate-y-1/2 bg-base-100/80 py-4 text-center backdrop-blur-md">
         <h2 className="text-5xl font-bold text-primary">Sales up to -50%!</h2>
       </div>
@@ -44,7 +44,7 @@ const AutoPlay = () => {
         {products.map(
           ({ id, title, images }: ImageProp) =>
             title !== "New Product" &&
-            !title.includes("Automation") && (
+            title !== "AustomationTestProduct" && (
               <div className="" key={id}>
                 <img
                   src={images[1]}
