@@ -4,10 +4,10 @@ import ShoppingCartItem from "./CartList";
 
 const SecondUl = () => {
   return (
-    <ul className="hidden lg:grid grid-cols-3 items-center w-full gap-x-4">
-      <li>
+    <ul className="hidden w-full grid-cols-3 items-center gap-x-4 lg:grid">
+      {/* <li>
         <Search />
-      </li>
+      </li> */}
       <li>
         <ShoppingCartItem />
       </li>

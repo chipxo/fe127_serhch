@@ -11,5 +11,9 @@ export const Loading: React.FC = () => (
 );
 
 export const Error: React.FC<ErrorProps> = ({ error }) => (
+  <div className="grid h-screen place-items-center">
+    
+
   <h2>Error: {typeof error === "string" ? error : "Fetch failed"}</h2>
+  </div>
 );

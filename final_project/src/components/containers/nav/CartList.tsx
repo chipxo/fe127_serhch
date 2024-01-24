@@ -8,10 +8,10 @@ import { cartIcon } from "../../icons/Icons";
 import { RootState } from "../../reduxStore/rootReducer";
 import { useAppDispatch } from "../../reduxStore/store";
 import { setAmount } from "../../slices/amount/amountSlice";
-import { StoreCardProps } from "../../types/ProductCardType";
+import { ProductType } from "../../types/ProductCardType";
 
 const ShoppingCartItem = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const dispatch = useAppDispatch();
   const { amount } = useSelector((state: RootState) => state.amount);
@@ -26,7 +26,7 @@ const ShoppingCartItem = () => {
       (product) => product.id === parseFloat(itemId),
     );
 
-    return myCards as StoreCardProps;
+    return myCards as ProductType;
   });
 
   useEffect(() => {
@@ -62,28 +62,30 @@ const ShoppingCartItem = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               style={{ x: "-50%" }}
-              className="absolute -left-[84%] xl:-left-1/2 top-14"
+              className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
-              <div className="w-full h-8 bg-transparent absolute z-[999] -top-6" />
-              <div className="w-8 h-8 bg-base-100 absolute right-1/3 border-l-4 border-t-4 border-neutral rounded-md -top-[14px] rotate-45 z-50" />
-              <div className="bg-base-100 drop-shadow-2xl p-6 w-max grid gap-x-10 border-4 rounded-md border-neutral gap-y-4 cursor-pointer max-h-[40vh] overflow-auto">
+              <div className="absolute -top-5 z-[999] h-8 w-full bg-transparent" />
+              <div className="grid max-h-[40vh] w-max cursor-pointer gap-x-10 gap-y-4 overflow-auto rounded-md border-4 border-neutral bg-base-100 p-6">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
                 {items?.map((item) => {
                   if (item && item.id) {
-                    const { id, images, title } = item;
+                    const { id, images, title, price } = item;
                     return (
                       <div
                         key={id}
-                        className="grid grid-cols-[50px_1fr] gap-x-4 items-center"
+                        className="grid grid-cols-[50px_1fr] items-center gap-x-8"
                       >
-                        <img
-                          src={images[0]}
-                          alt={title[0].toUpperCase() + title.slice(1)}
-                          className="w-16 h-16 object-contain rounded-md"
-                        />
+                        <div className="h-16 w-16">
+                          <img
+                            src={images[0]}
+                            alt={title[0].toUpperCase() + title.slice(1)}
+                            className="rounded-sm object-contain"
+                          />
+                        </div>
                         <div className="">
                           <h2 className="text-lg font-semibold">{title}</h2>
+                          <p>{price}$</p>
                         </div>
                       </div>
                     );
@@ -103,7 +105,7 @@ const ShoppingCartItem = () => {
               style={{ x: "-50%" }}
               className="absolute left-1/3 top-14"
             >
-              <div className="bg-base-100 drop-shadow-2xl py-6 px-12 w-max  border-4 rounded-md border-neutral">
+              <div className="w-max rounded-md border-4 border-neutral bg-base-100  px-12 py-6 drop-shadow-2xl">
                 <p className="text-lg">No items added</p>
               </div>
             </motion.div>

@@ -11,14 +11,14 @@ const Link = ({ to, text }: NavType) => {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <NavLink to={to} className=" font-semibold text-lg">
+      <NavLink to={to} className="text-lg font-semibold">
         {text}
 
         <span
           style={{
             transform: open ? "scalex(1)" : "scalex(0)",
           }}
-          className="absolute -bottom-3 -left-3 -right-3 h-2 origin-left rounded-full bg-primary transition-transform duration-300 ease-out"
+          className="absolute -bottom-2 -left-3 -right-3 h-1 origin-left rounded-full bg-secondary transition-transform duration-200 ease-out"
         />
       </NavLink>
     </li>

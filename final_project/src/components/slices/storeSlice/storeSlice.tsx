@@ -1,21 +1,10 @@
 // storeSlice.ts
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchProducts } from "../../hooks/fetchProducts";
-
-type Product = {
-  category: string;
-  description: string;
-  discountPercentage: number;
-  id: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
-  title: string;
-};
+import { ProductType } from "../../types/ProductCardType";
 
 type FakeStoreState = {
-  products: Product[];
+  products: ProductType[];
   loading: boolean;
   error: string | null | {};
 };
@@ -38,7 +27,7 @@ const storeSlice = createSlice({
       })
       .addCase(
         fetchProducts.fulfilled,
-        (state, action: PayloadAction<Product[]>) => {
+        (state, action: PayloadAction<{ products: ProductType[] }>) => {
           state.loading = false;
           state.products = action.payload;
           state.error = null;

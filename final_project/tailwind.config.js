@@ -34,5 +34,5 @@ export default {
       "wireframe",
     ],
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("daisyui")],
 };

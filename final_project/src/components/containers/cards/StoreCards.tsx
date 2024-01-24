@@ -4,9 +4,16 @@ import Button from "../../common/buttons/Button";
 import { cartChecked, cartDelete, cartIcon } from "../../icons/Icons";
 import { useAppDispatch } from "../../reduxStore/store";
 import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
-import { ProductType } from "../../types/ProductCardType";
+import { Card, ProductType } from "../../types/ProductCardType";
 
-const StoreCard = ({ id, title, price, category, images }: ProductType) => {
+const StoreCard = ({
+  id,
+  title,
+  price,
+  category,
+  images,
+  isHome = false,
+}: Card) => {
   const [checked, setChecked] = useState(false);
   const localStorage = window.localStorage;
   const dispatch = useAppDispatch();
@@ -39,46 +46,46 @@ const StoreCard = ({ id, title, price, category, images }: ProductType) => {
   };
 
   return (
-    <div className="card w-full cursor-pointer bg-base-100 shadow-2xl h-full">
+    <div className="flex h-full cursor-pointer flex-col rounded-md bg-base-100 shadow-2xl">
       {/* Image */}
       <figure>
         <img
           onClick={() => toSoloCard(id)}
           src={images?.[0]}
-          className="w-full"
+          className="rounded-t-md"
           alt={title}
         />
       </figure>
-      <div className="card-body">
-        <div className="card-actions">
+      <div className="grid h-full gap-4 p-4">
+        <div>
           {/* Category */}
           <div className="badge badge-outline border-primary p-3">
             {category?.name}
           </div>
           {checked && cartChecked}
+          {/* Title */}
+          <h2 className="mt-4 text-lg" onClick={() => toSoloCard(id)}>
+            {title[0].toUpperCase() + title.slice(1)}
+          </h2>
         </div>
-        {/* Title and Rating*/}
-        <h2 className="card-title gap-8" onClick={() => toSoloCard(id)}>
-          <span>{title[0].toUpperCase() + title.slice(1)}</span>
-        </h2>
-        <div className="card-actions my-2">
-          <div className="text-4xl font-bold">${price}</div>
-        </div>
-        <div className="grid grid-cols-2 gap-x-24 mt-auto">
+        <div
+          className={`grid w-full items-end gap-x-2 ${isHome ? "grid-cols-[1fr_0.5fr_0.3fr]" : "grid-cols-[1fr_0.4fr_0.3fr]"}`}
+        >
+          {/* Price */}
+          <p className="text-3xl font-semibold">${price}</p>
+
+          <Button
+            text={cartDelete}
+            color={"secondary"}
+            onClick={() => handleDelBtn(id)}
+            disabled={!checked}
+          />
           <Button
             text={cartIcon}
             color={"primary"}
             onClick={() => handleAddBtn(id, title)}
             disabled={checked}
           />
-          <div className="grid">
-            <Button
-              text={cartDelete}
-              color={"secondary"}
-              onClick={() => handleDelBtn(id)}
-              disabled={!checked}
-            />
-          </div>
         </div>
       </div>
     </div>

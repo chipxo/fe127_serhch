@@ -1,6 +1,6 @@
 const NoItems = () => {
   return (
-    <div className="grid h-[70vh] place-items-center text-3xl text-neutral">
+    <div className="col-span-4 grid h-[80vh] place-items-center text-3xl text-neutral">
       <p>No products</p>
     </div>
   );

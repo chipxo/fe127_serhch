@@ -9,8 +9,7 @@ import App from "./components/App";
 import store from "./components/reduxStore/store";
 import "./index.scss";
 
-const container = document.getElementById("root");
-const root = createRoot(container!);
+const root = createRoot(document.getElementById("root")!);
 
 root.render(
   <React.StrictMode>

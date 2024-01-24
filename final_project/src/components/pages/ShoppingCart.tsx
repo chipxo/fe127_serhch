@@ -7,7 +7,7 @@ import { fetchProducts } from "../hooks/fetchProducts";
 import { RootState } from "../reduxStore/rootReducer";
 import { useAppDispatch } from "../reduxStore/store";
 import { setAmount } from "../slices/amount/amountSlice";
-import { StoreCardProps } from "../types/ProductCardType";
+import { Card, ProductType } from "../types/ProductCardType";
 
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
@@ -21,15 +21,15 @@ const ShoppingCart = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const prevItems = useRef<StoreCardProps[]>([]);
-  const [cards, setCards] = useState<StoreCardProps[]>([]);
+  const prevItems = useRef<ProductType[]>([]);
+  const [cards, setCards] = useState<ProductType[]>([]);
 
   const items = localStorageKeys.map((itemId) => {
     const myCards = products.find(
       (product) => product.id === parseFloat(itemId),
     );
 
-    return myCards as StoreCardProps;
+    return myCards as Card;
   });
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const ShoppingCart = () => {
   };
 
   // Helper function to check if two arrays are equal
-  function areArraysEqual(arr1: StoreCardProps[], arr2: StoreCardProps[]) {
+  function areArraysEqual(arr1: ProductType[], arr2: ProductType[]) {
     return (
       arr1.length === arr2.length &&
       arr1.every((value, index) => value === arr2[index])
@@ -64,100 +64,35 @@ const ShoppingCart = () => {
   console.log(cards);
 
   return (
-    <div>
+    <div className="container grid grid-cols-4 gap-4">
       {loading && <Loading />}
       {error && <Error error={error} />}
-      {
-        !loading && !error && cards.length > 1 ? (
-          cards
-            ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
-            .map((card) => {
-              if (card) {
-                const {
-                  category,
-                  discountPercentage,
-                  id,
-                  images,
-                  price,
-                  rating,
-                  stock,
-                  title,
-                } = card;
-
-                return (
-                  <BuyCard
-                    key={id}
-                    discountPercentage={discountPercentage}
-                    id={id}
-                    images={images}
-                    price={price}
-                    rating={rating}
-                    stock={stock}
-                    title={title}
-                    category={category}
-                    onClick={() => deleteItem(id)}
-                  />
-                );
-              }
-              return null;
-              // else {
-              //   return (
-              //     <div className="h-[80vh] grid place-items-center text-3xl text-neutral">
-              //       <p>No items added</p>
-              //     </div>
-              //   ); // Or handle the case where category is undefined or null
-              // }
-            })
-        ) : (
-          <NoItems />
-        )
-
-        // else {
-        //   return (
-        //     <div className="h-[80vh] grid place-items-center text-3xl text-neutral">
-        //       <p>No items added</p>
-        //     </div>
-        //   ); // Or handle the case where category is undefined or null
-        // }
-
-        // items?.map((item) => {
-
-        //   if (item) {
-        //     const {
-        //       category,
-        //       discountPercentage,
-        //       id,
-        //       images,
-        //       price,
-        //       rating,
-        //       stock,
-        //       title,
-        //     } = item;
-
-        //     return (
-        //       <BuyCard
-        //         key={id}
-        //         discountPercentage={discountPercentage}
-        //         id={id}
-        //         images={images}
-        //         price={price}
-        //         rating={rating}
-        //         stock={stock}
-        //         title={title}
-        //         category={category}
-        //       />
-        //     );
-        //   }
-        //   return null;
-        //   // else {
-        //   //   return (
-        //   //     <div className="h-[80vh] grid place-items-center text-3xl text-neutral">
-        //   //       <p>No items added</p>
-        //   //     </div>
-        //   //   ); // Or handle the case where category is undefined or null
-        //   // }
-        // })
-      }
+      {!loading && !error && cards.length > 1 ? (
+        cards
+          ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
+          .map((card) => {
+            if (card) {
+              const { category, id, images, price, title } = card;
+              return (
+                <BuyCard
+                  key={id}
+                  id={id}
+                  images={images}
+                  price={price}
+                  title={title}
+                  category={category}
+                  onClick={() => deleteItem(id)}
+                />
+              );
+            }
+            <div className="order">
+              <button>Make an order</button>
+            </div>;
+            return null;
+          })
+      ) : (
+        <NoItems />
+      )}
     </div>
   );
 };

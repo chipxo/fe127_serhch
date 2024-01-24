@@ -1,18 +1,12 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Button from "../../common/buttons/Button";
 import { cartDelete } from "../../icons/Icons";
 import { useAppDispatch } from "../../reduxStore/store";
 import { decreaseAmount } from "../../slices/amount/amountSlice";
-import { StoreCardProps } from "../../types/ProductCardType";
+import { Card } from "../../types/ProductCardType";
 
-const BuyCard = ({
-  discountPercentage,
-  id,
-  images,
-  price,
-  title,
-  onClick,
-}: StoreCardProps) => {
+const BuyCard = ({ id, images, price, title, onClick }: Card) => {
   const [count, setCount] = useState(1);
   const [modal, setModal] = useState(false);
   const dispatch = useAppDispatch();
@@ -29,78 +23,72 @@ const BuyCard = ({
       window.localStorage.removeItem(`${id}`);
     }
   };
-
+  // const handleModal = () => {
+  //   document.querySelector("html")?.setAttribute("class", "overflow-hidden");
+  // };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (/^\d*$/.test(e.target.value)) {
       setCount(Number(e.target.value));
-      setModal(false); // Close the modal if input is valid
+      setModal(false);
     } else {
-      alert("Enter only numbers!");
       setModal(true);
     }
   };
 
   return (
     <div
-      className="bg-base-100 grid grid-cols-[0.6fr_1fr] gap-x-4 lg:gap-x-12 shadow-xl container my-10 p-4 lg:p-8 rounded-md"
+      className={`container my-10 grid gap-y-4 rounded-md bg-base-100 p-5 shadow-md lg:gap-x-4 `}
       key={id}
     >
       <div className="">
-        {modal && (
-          <>
-            {/* Put this part before </body> tag */}
-            <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-            <div className="modal" role="dialog">
-              <div className="modal-box">
-                <h3 className="text-lg font-bold">
-                  Enter only numbers please!
-                </h3>
+        <AnimatePresence>
+          {modal && (
+            <motion.div
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 30 }}
+              exit={{ opacity: 0, y: 0 }}
+              className="absolute bottom-0 left-0 z-[999] h-full w-full cursor-pointer"
+              onClick={() => setModal(false)}
+            >
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-md bg-base-100 p-12 text-2xl shadow-sm">
+                <h2>Write only numbers!</h2>
               </div>
-              <label className="modal-backdrop" htmlFor="my_modal_7">
-                Close
-              </label>
-            </div>
-          </>
-        )}
-
-        <figure className="h-full">
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <figure className="skeleton h-32 w-full">
           <img
-            className="rounded-md w-full h-full"
-            src={images?.[0]}
+            className="h-full w-full rounded-md object-cover"
+            src={images?.[1]}
             alt={title}
           />
         </figure>
       </div>
-      <div className="text-xl flex flex-col py-4 gap-y-4 justify-between">
-        <h2 className="text-4xl font-bold">{title}</h2>
-
-        <p className="font-semibold">Total: {price * count}$</p>
-        <div className="flex gap-x-4">
-          <button className="text-3xl font-semibold" onClick={increaseCount}>
-            +
-          </button>
-
-          <input
-            className="rounded-md bg-transparent text-xl w-1/6 text-center border border-neutral"
-            value={count}
-            onChange={(e) => handleChange(e)}
-          />
-
-          <button
-            disabled={count === 1}
-            className="text-3xl font-semibold disabled:opacity-20"
-            onClick={() => decreaseCount(id)}
-          >
-            -
-          </button>
-          <div className="ml-auto w-1/6">
-            <Button text={cartDelete} color="error" onClick={onClick} />
+      <div className="flex flex-col justify-between gap-y-4">
+        <h2 className="text-xl font-semibold">{title}</h2>
+        <p className="text-lg font-semibold">
+          Total: <span className="text-2xl">{price * count}$</span>
+        </p>
+        <div className="grid grid-cols-[1fr_0.3fr] items-center justify-items-start gap-x-4">
+          <div className="grid grid-cols-[0.3fr_1fr_0.3fr] gap-x-4">
+            <button className="text-3xl font-semibold" onClick={increaseCount}>
+              +
+            </button>
+            <input
+              className="max-w-14 rounded-md border border-neutral bg-transparent p-2.5 text-center text-xl"
+              value={count}
+              onChange={(e) => handleChange(e)}
+            />
+            <button
+              disabled={count === 1}
+              className="text-3xl font-semibold disabled:opacity-20"
+              onClick={() => decreaseCount(id)}
+            >
+              -
+            </button>
           </div>
+          <Button text={cartDelete} color="error" onClick={onClick} />
         </div>
-        {/* <div className="grid grid-cols-2 gap-x-4 items-end">
-          <Button text="+" color="primary" onClick={addItem} />
-          <Button text="-" color="secondary" onClick={() => deleteItem(id)} />
-        </div> */}
       </div>
     </div>
   );
