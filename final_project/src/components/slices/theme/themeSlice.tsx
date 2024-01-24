@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const DARK = "dracula";
-const LIGHT = "wireframe";
+const LIGHT = "retro";
 
 const initialState: { theme: string } = { theme: DARK };
 

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+h2,
+h3,
+button,
+a {
+  @apply font-Merriweather tracking-wider;
+}
+
+p,
+span,
+input {
+  @apply font-Roboto-Condensed;
+}
+
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
   &::before {

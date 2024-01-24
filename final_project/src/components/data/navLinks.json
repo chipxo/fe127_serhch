@@ -1,12 +1,12 @@
 [
   {
-    "name": "home",
+    "name": "Home",
     "to": "/",
     "text": "Home"
   },
   {
-    "name": "shop",
-    "to": "/shop",
-    "text": "Shop"
+    "name": "Products",
+    "to": "/products",
+    "text": "Products"
   }
 ]

@@ -11,7 +11,7 @@ const Link = ({ to, text }: NavType) => {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <NavLink to={to} className="text-lg font-semibold">
+      <NavLink to={to} className="text-lg">
         {text}
 
         <span

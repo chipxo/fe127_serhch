@@ -1,16 +1,21 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../containers/nav/NavBar";
+import { useEffect } from "react";
 
 const Layout = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-[300] shadow-md">
+      <header className="sticky top-0 z-[300] bg-base-100 shadow-md">
         <NavBar />
       </header>
       <main>
         <Outlet />
       </main>
-      <footer className="footer relative bottom-0 bg-base-200 p-10 text-base-content">
+      <footer className="font-Merriweather footer relative bottom-0 bg-base-200 p-10 text-base-content">
         <nav>
           <header className="footer-title">Services</header>
           <a className="link-hover link">Branding</a>

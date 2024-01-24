@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../common/buttons/Button";
 import { cartChecked, cartDelete, cartIcon } from "../../icons/Icons";
 import { useAppDispatch } from "../../reduxStore/store";
 import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
-import { Card, ProductType } from "../../types/ProductCardType";
+import { Card } from "../../types/ProductCardType";
 
-const StoreCard = ({
+const StoreCard: React.FC<Card> = ({
   id,
   title,
   price,
   category,
   images,
   isHome = false,
-}: Card) => {
+}) => {
   const [checked, setChecked] = useState(false);
   const localStorage = window.localStorage;
   const dispatch = useAppDispatch();
@@ -60,7 +60,7 @@ const StoreCard = ({
         <div>
           {/* Category */}
           <div className="badge badge-outline border-primary p-3">
-            {category?.name}
+            <p>{category?.name}</p>
           </div>
           {checked && cartChecked}
           {/* Title */}
@@ -76,13 +76,13 @@ const StoreCard = ({
 
           <Button
             text={cartDelete}
-            color={"secondary"}
+            color={"error"}
             onClick={() => handleDelBtn(id)}
             disabled={!checked}
           />
           <Button
             text={cartIcon}
-            color={"primary"}
+            color={"accent"}
             onClick={() => handleAddBtn(id, title)}
             disabled={checked}
           />

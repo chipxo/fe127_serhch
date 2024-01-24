@@ -13,10 +13,13 @@ import {
 import { RootState } from "../../reduxStore/rootReducer";
 import { useAppDispatch } from "../../reduxStore/store";
 import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
+import Path from "../../common/Path";
 
 const SoloCard = () => {
   const [checked, setChecked] = useState(false);
   const { prodId } = useParams();
+  console.log(useParams());
+
   const dispatch = useAppDispatch();
   const { product, loading, error } = useSelector(
     (state: RootState) => state.soloCard,
@@ -27,6 +30,7 @@ const SoloCard = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (localStorage.getItem(`${prodId}`)) {
       setChecked(true);
     } else {
@@ -59,21 +63,25 @@ const SoloCard = () => {
     product && localStorage.removeItem(`${id}`);
     dispatch(decreaseAmount());
   };
-
+  const toRight = toRightIcon;
   return (
     <section>
       <div className="container">
-        <h2 className="relative -top-7 rounded-md border-neutral bg-base-100 px-10 text-lg font-semibold">
-          Products {toRightIcon} {category.name} {toRightIcon} {title}
-        </h2>
-        <div className=" grid grid-cols-[1fr_0.32fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-2xl">
-          <div className="flex h-full flex-col gap-y-6 text-xl">
+        {/* <Path>
+          Home {toRightIcon} Products {toRightIcon} {category.name}
+          {toRightIcon}{" "}
+          <span className="border-b border-primary pb-1">{title}</span>
+        </Path> */}
+        <div className=" grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-2xl">
+          <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">
             <p className="badge badge-accent badge-lg p-4 font-semibold">
               {category.name}
             </p>
-            <h2 className="mt-8 text-3xl font-semibold">{title}</h2>
+            <h2 className="mt-8 text-3xl font-semibold tracking-wider">
+              {title}
+            </h2>
             {/* {checked && cartChecked} */}
-            <p>{description}</p>
+            <p className="tracking-wide">{description}</p>
             <p className="mt-4">
               Price:
               <br />
@@ -100,7 +108,7 @@ const SoloCard = () => {
             <div className="p-3">
               <img
                 src={images?.[0]}
-                className="cursor-pointer rounded-md"
+                className="h-full w-full cursor-pointer rounded-md object-cover"
                 alt={title}
               />
             </div>
@@ -110,17 +118,17 @@ const SoloCard = () => {
               <img
                 src={images?.[1]}
                 alt=""
-                className="cursor-pointer rounded-md"
+                className="h-full w-full cursor-pointer rounded-md object-cover"
               />
               <img
                 src={images?.[2]}
                 alt=""
-                className="cursor-pointer rounded-md"
+                className="h-full w-full cursor-pointer rounded-md object-cover"
               />
               <img
                 src={images?.[0]}
                 alt=""
-                className="cursor-pointer rounded-md"
+                className="h-full w-full cursor-pointer rounded-md object-cover"
               />
             </div>
           </figure>

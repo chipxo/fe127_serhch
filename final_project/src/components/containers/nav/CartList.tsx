@@ -61,11 +61,11 @@ const ShoppingCartItem = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
-              style={{ x: "-50%" }}
+              style={{ x: "-62%" }}
               className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
               <div className="absolute -top-5 z-[999] h-8 w-full bg-transparent" />
-              <div className="grid max-h-[40vh] w-max cursor-pointer gap-x-10 gap-y-4 overflow-auto rounded-md border-4 border-neutral bg-base-100 p-6">
+              <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border-4 border-neutral bg-base-100 p-4">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
                 {items?.map((item) => {

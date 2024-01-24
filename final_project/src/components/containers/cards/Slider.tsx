@@ -36,19 +36,26 @@ const AutoPlay = () => {
   };
 
   return (
-    <div className="mt-10 overflow-hidden">
+    <section className="relative overflow-hidden">
+      <div className="absolute top-1/2 z-[30] w-full -translate-y-1/2 bg-base-100/80 py-4 text-center backdrop-blur-md">
+        <h2 className="text-5xl font-bold text-primary">Sales up to -50%!</h2>
+      </div>
       <Slider {...settings} className="cursor-grab">
-        {products.map(({ id, title, images }: ImageProp) => (
-          <div className="" key={id}>
-            <img
-              src={images[1]}
-              className="h-40 w-screen border-x-2 border-neutral object-cover"
-              alt={title}
-            />
-          </div>
-        ))}
+        {products.map(
+          ({ id, title, images }: ImageProp) =>
+            title !== "New Product" &&
+            !title.includes("Automation") && (
+              <div className="" key={id}>
+                <img
+                  src={images[1]}
+                  className="h-40 w-screen border-x-2 border-neutral object-cover"
+                  alt={title}
+                />
+              </div>
+            ),
+        )}
       </Slider>
-    </div>
+    </section>
   );
 };
 

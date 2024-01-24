@@ -1,13 +1,10 @@
 import Theme2 from "../../common/ThemeSwapper";
-import Search from "./SearchInput";
 import ShoppingCartItem from "./CartList";
+import Filter from "./Filter";
 
 const SecondUl = () => {
   return (
-    <ul className="hidden w-full grid-cols-3 items-center gap-x-4 lg:grid">
-      {/* <li>
-        <Search />
-      </li> */}
+    <ul className="hidden w-full grid-cols-2 items-center gap-x-4 lg:grid">
       <li>
         <ShoppingCartItem />
       </li>

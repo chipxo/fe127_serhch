@@ -16,6 +16,10 @@ export default {
       gridTemplateColumns: {
         header: "1fr 140px",
       },
+      fontFamily: {
+        Merriweather: ["'Merriweather', 'Roboto Condensed', sans-serif"],
+        "Roboto-Condensed": ["'Roboto Condensed', 'Merriweather', sans-serif"],
+      },
     },
   },
   daisyui: {
