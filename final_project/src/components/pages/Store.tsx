@@ -1,9 +1,9 @@
-import FakeStore from "../slices/storeSlice/FakeStore";
+import Products from "../slices/products/Products.tsx";
 
 const Store = () => {
   return (
     <div>
-      <FakeStore />
+      <Products />
     </div>
   );
 };

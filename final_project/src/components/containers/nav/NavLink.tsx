@@ -7,7 +7,7 @@ const Link = ({ to, text }: NavType) => {
 
   return (
     <li
-      className="relative hidden sm:block"
+      className="relative hidden md:block"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >

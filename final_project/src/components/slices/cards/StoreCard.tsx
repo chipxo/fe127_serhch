@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../common/buttons/Button";
-import { cartChecked, cartDelete, cartIcon } from "../../icons/Icons";
-import { useAppDispatch } from "../../reduxStore/store";
-import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
-import { Card } from "../../types/ProductCardType";
+import Button from "../../common/buttons/Button.tsx";
+import { cartChecked, cartDelete, cartIcon } from "../../icons/Icons.tsx";
+import { useAppDispatch } from "../../reduxStore/store.tsx";
+import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
+import { Card } from "../../types/ProductCardType.tsx";
 
 const StoreCard: React.FC<Card> = ({
   id,
@@ -57,7 +57,7 @@ const StoreCard: React.FC<Card> = ({
         />
       </figure>
       <div className="grid h-full gap-4 p-4">
-        <div>
+        <div className="">
           {/* Category */}
           <div className="badge badge-outline border-primary p-3">
             <p>{category?.name}</p>

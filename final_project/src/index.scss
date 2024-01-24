@@ -48,3 +48,8 @@ input {
 section {
   @apply my-10;
 }
+
+.collapse:not(.collapse-close)
+  > :where(input[type="radio"]:checked ~ .collapse-content) {
+  @apply pb-0;
+}

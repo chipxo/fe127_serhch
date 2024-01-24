@@ -11,9 +11,9 @@ export type ProductType = {
   description?: string;
   category?: CategotyType;
   images: string[];
-  onClick?: () => void;
 };
 
 export type Card = ProductType & {
+  onClick?: () => void;
   isHome?: boolean;
 };

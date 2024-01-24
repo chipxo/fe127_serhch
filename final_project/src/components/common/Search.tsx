@@ -3,7 +3,7 @@ const Search = () => {
     <input
       type="text"
       placeholder="Search"
-      className="input-neutral input input-bordered w-full max-w-xs"
+      className="input-neutral input input-bordered hidden w-full max-w-xs sm:flex"
     />
   );
 };

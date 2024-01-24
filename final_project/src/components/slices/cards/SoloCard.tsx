@@ -1,24 +1,18 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import Button from "../../common/buttons/Button";
-import { Error, Loading } from "../../common/loading && error/LoadingError";
-import { fetchProduct } from "../../hooks/fetchProduct";
-import {
-  cartChecked,
-  cartDelete,
-  cartIcon,
-  toRightIcon,
-} from "../../icons/Icons";
-import { RootState } from "../../reduxStore/rootReducer";
-import { useAppDispatch } from "../../reduxStore/store";
-import { addAmount, decreaseAmount } from "../../slices/amount/amountSlice";
-import Path from "../../common/Path";
+import Button from "../../common/buttons/Button.tsx";
+import { Error, Loading } from "../../common/loading && error/LoadingError.tsx";
+import { fetchProduct } from "../../hooks/fetchProduct.tsx";
+import { cartDelete, cartIcon, toRightIcon } from "../../icons/Icons.tsx";
+import { RootState } from "../../reduxStore/rootReducer.tsx";
+import { useAppDispatch } from "../../reduxStore/store.tsx";
+import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
+import Path from "../../common/Path.tsx";
 
 const SoloCard = () => {
   const [checked, setChecked] = useState(false);
   const { prodId } = useParams();
-  console.log(useParams());
 
   const dispatch = useAppDispatch();
   const { product, loading, error } = useSelector(
@@ -63,16 +57,18 @@ const SoloCard = () => {
     product && localStorage.removeItem(`${id}`);
     dispatch(decreaseAmount());
   };
-  const toRight = toRightIcon;
+
   return (
-    <section>
-      <Path>
-        <Link to="/">Home</Link>
-        {toRightIcon}
-        <Link to="/products">Products</Link>
-        {toRightIcon}
-        {title}
-      </Path>
+    <section className="relative">
+      <div className="absolute left-0 top-16 w-full">
+        <Path>
+          <Link to="/">Home</Link>
+          {toRightIcon}
+          <Link to="/products">Products</Link>
+          {toRightIcon}
+          {title}
+        </Path>
+      </div>
       <div className="container">
         <div className=" grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-2xl">
           <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">

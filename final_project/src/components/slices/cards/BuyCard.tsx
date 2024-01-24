@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import Button from "../../common/buttons/Button";
-import { cartDelete } from "../../icons/Icons";
-import { useAppDispatch } from "../../reduxStore/store";
-import { decreaseAmount } from "../../slices/amount/amountSlice";
-import { Card } from "../../types/ProductCardType";
+import Button from "../../common/buttons/Button.tsx";
+import { cartDelete } from "../../icons/Icons.tsx";
+import { useAppDispatch } from "../../reduxStore/store.tsx";
+import { decreaseAmount } from "../amount/amountSlice.tsx";
+import { Card } from "../../types/ProductCardType.tsx";
 
 const BuyCard = ({ id, images, price, title, onClick }: Card) => {
   const [count, setCount] = useState(1);
@@ -37,7 +37,7 @@ const BuyCard = ({ id, images, price, title, onClick }: Card) => {
 
   return (
     <div
-      className={`container my-10 grid gap-y-4 rounded-md bg-base-100 p-5 shadow-md lg:gap-x-4 `}
+      className={`container my-10 grid h-2/3 gap-y-4 rounded-md border border-neutral bg-base-100 p-5 shadow-md lg:gap-x-4`}
       key={id}
     >
       <div className="">
@@ -46,11 +46,11 @@ const BuyCard = ({ id, images, price, title, onClick }: Card) => {
             <motion.div
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 30 }}
-              exit={{ opacity: 0, y: 0 }}
-              className="absolute bottom-0 left-0 z-[999] h-full w-full cursor-pointer"
+              exit={{ opacity: 0, y: -80 }}
+              className="absolute -top-8 left-0 z-[999] h-screen w-full cursor-pointer bg-base-300/80"
               onClick={() => setModal(false)}
             >
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-md bg-base-100 p-12 text-2xl shadow-sm">
+              <div className="absolute left-1/2 top-12 -translate-x-1/2 rounded-md bg-base-100 p-12 text-2xl shadow-sm">
                 <h2>Write only numbers!</h2>
               </div>
             </motion.div>
@@ -59,7 +59,7 @@ const BuyCard = ({ id, images, price, title, onClick }: Card) => {
         <figure className="skeleton h-32 w-full">
           <img
             className="h-full w-full rounded-md object-cover"
-            src={images?.[1]}
+            src={images?.[0]}
             alt={title}
           />
         </figure>

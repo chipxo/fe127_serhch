@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 type ErrorProps = {
-  error: string | {};
+  error: string | {} | null;
 };
 
 export const Loading: React.FC = () => (
@@ -11,9 +12,14 @@ export const Loading: React.FC = () => (
 );
 
 export const Error: React.FC<ErrorProps> = ({ error }) => (
-  <div className="grid h-screen place-items-center">
-    
-
-  <h2>Error: {typeof error === "string" ? error : "Fetch failed"}</h2>
-  </div>
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="grid h-[70vh] place-items-center"
+  >
+    <h2 className="text-4xl">
+      Error: {typeof error === "string" ? error : `Page was lost :(`}
+    </h2>
+  </motion.div>
 );

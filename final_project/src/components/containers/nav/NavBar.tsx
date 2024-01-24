@@ -8,7 +8,7 @@ import links from "../../data/navLinks.json";
 import { NavType } from "../../types/NavLinkType";
 import Link from "./NavLink";
 import SecondUl from "./AsideBar";
-import Search from "./Search";
+import Search from "../../common/Search.tsx";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +29,7 @@ const NavBar = () => {
   return (
     <AnimatePresence>
       <motion.div className={`container rounded-b-md bg-base-100 py-2`}>
-        <ul className="grid grid-cols-2 place-items-center sm:grid-cols-[0.2fr_1fr_1fr_1fr_0.2fr_0.3fr]">
+        <ul className="grid grid-cols-2 place-items-center sm:grid-cols-[100px_1fr_20px_70px] md:grid-cols-[0.2fr_1fr_1fr_1fr_0.2fr_0.4fr]">
           <NavLink
             to="/"
             className="flex h-14 w-14 items-center justify-self-start object-cover"

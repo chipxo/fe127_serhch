@@ -11,18 +11,18 @@ import { setAmount } from "../../slices/amount/amountSlice";
 import { ProductType } from "../../types/ProductCardType";
 
 const ShoppingCartItem = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const dispatch = useAppDispatch();
   const { amount } = useSelector((state: RootState) => state.amount);
   const { products, loading, error } = useSelector(
-    (state: RootState) => state.fakeStore,
+    (state: RootState) => state.products,
   );
 
   const localStorageKeys = Object.keys(localStorage);
 
   const items = localStorageKeys.map((itemId) => {
-    const myCards = products.find(
+    const myCards = products?.find(
       (product) => product.id === parseFloat(itemId),
     );
 
@@ -45,7 +45,7 @@ const ShoppingCartItem = () => {
       <NavLink to="/shoppingCart">
         <button className="">
           <div className="indicator">
-            <span className="text-xl">{cartIcon}</span>
+            <span className="text-2xl">{cartIcon}</span>
             {amount > 0 && (
               <span className="badge indicator-item badge-primary badge-md">
                 {amount}

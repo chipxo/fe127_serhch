@@ -18,7 +18,9 @@ export const cartChecked = (
 );
 export const searchIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
-export const filterIcon = <FontAwesomeIcon icon={faFilter} />;
+export const filterIcon = (
+  <FontAwesomeIcon icon={faFilter} className="relative z-[999]" />
+);
 export const toRightIcon = (
   <FontAwesomeIcon className="mx-1.5" icon={faCaretRight} />
 );

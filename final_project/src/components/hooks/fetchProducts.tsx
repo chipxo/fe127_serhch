@@ -4,15 +4,21 @@ import { ProductType } from "../types/ProductCardType";
 
 // <Products[], void, { rejectValue: string }>
 
-const fetchProducts = createAsyncThunk("fakeStore/fetchProducts", async () => {
+const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
   try {
-    const response: AxiosResponse<{ products: ProductType[] }> =
-      await axios.get("https://api.escuelajs.co/api/v1/products");
+    const response: AxiosResponse<ProductType[]> = await axios.get(
+      "https://api.escuelajs.co/api/v1/products",
+    );
+    // console.log(response.data);
 
     return response.data;
   } catch (e) {
-    console.log(e);
-    throw new Error("Fetch failed");
+    if (axios.isAxiosError(e)) {
+      console.log(`Axios error: ${e}`);
+    } else {
+      console.log(e);
+      throw new Error("Fetch failed");
+    }
   }
 });
 

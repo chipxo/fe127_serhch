@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
 
-type CategotyType = {
+type CategoryType = {
   id: number;
   name: string;
   image: string;
@@ -12,7 +12,7 @@ export type ProductType = {
   title: string;
   price: number;
   description: string;
-  category: CategotyType;
+  category: CategoryType;
   images: string[];
 };
 
@@ -29,7 +29,7 @@ const initialState: InitialStateType = {
 };
 
 const fetchProduct = createAsyncThunk(
-  "soloCard/fetchProduct",
+  "cards/fetchProduct",
   async (prodId: number) => {
     try {
       const url = `https://api.escuelajs.co/api/v1/products/${prodId}`;

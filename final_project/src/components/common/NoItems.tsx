@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
+
 const NoItems = () => {
   return (
-    <div className="col-span-4 grid h-[80vh] place-items-center text-3xl text-neutral">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="col-span-4 grid h-[80vh] place-items-center text-3xl text-neutral"
+    >
       <p>No products</p>
-    </div>
+    </motion.div>
   );
 };
 
