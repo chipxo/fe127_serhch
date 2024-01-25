@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCategory } from "../../hooks/fetchCategory";
+import { fetchCategory } from "../../../hooks/fetchCategory";
 
 type CategoryProductType = {
   id: number;

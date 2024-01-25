@@ -4,11 +4,11 @@ import NoItems from "../common/NoItems";
 import { Error, Loading } from "../common/loading && error/LoadingError";
 import BuyCard from "../slices/cards/BuyCard.tsx";
 import { fetchProducts } from "../hooks/fetchProducts";
-import { RootState } from "../reduxStore/rootReducer";
-import { useAppDispatch } from "../reduxStore/store";
+import { RootState } from "../redux/rootReducer";
+import { useAppDispatch } from "../redux/store";
 import { setAmount } from "../slices/amount/amountSlice";
 import { AnimatePresence, motion } from "framer-motion";
-import { Card, ProductType } from "../types/ProductCardType";
+import { ProductType } from "../types/ProductCardType";
 
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +30,7 @@ const ShoppingCart = () => {
       (product) => product.id === parseFloat(itemId),
     );
 
-    return myCards as Card;
+    return myCards as ProductType;
   });
 
   const areArraysEqual = (arr1: ProductType[], arr2: ProductType[]) => {
@@ -65,7 +65,7 @@ const ShoppingCart = () => {
 
   return (
     <AnimatePresence>
-      <motion.div className="grid-cols-products container grid min-h-[70vh] gap-4">
+      <motion.div className="container grid min-h-[70vh] grid-cols-products gap-4">
         {loading && <Loading />}
         {error && <Error error={error} />}
         {!loading && !error && cards.length > 1 ? (

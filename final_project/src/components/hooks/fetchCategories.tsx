@@ -1,20 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
 
-export type CategoryProductType = {
+export type CategoryType = {
+  id: number;
   name: string;
-  id: number | string;
   image: string;
 };
+export type Categories = [categories: CategoryType[]];
 
-export const fetchCategory = createAsyncThunk(
-  "productCategory/fetchCategory",
-  async (categoryId: string) => {
+export const fetchCategories = createAsyncThunk(
+  "categories/fetchCategories",
+  async () => {
     try {
-      const response: AxiosResponse<{ data: CategoryProductType } | null> =
-        await axios.get(
-          `https://api.escuelajs.co/api/v1/categories/${categoryId}`,
-        );
+      const response: AxiosResponse<{ data: CategoryType[] } | null> =
+        await axios.get(`https://api.escuelajs.co/api/v1/categories`);
 
       return response.data;
     } catch (e) {

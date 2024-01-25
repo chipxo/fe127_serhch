@@ -1,20 +1,7 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios, { AxiosResponse } from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-type CategoryType = {
-  id: number;
-  name: string;
-  image: string;
-};
-
-export type ProductType = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: CategoryType;
-  images: string[];
-};
+import { ProductType } from "../../types/ProductCardType";
+import { fetchProduct } from "../../hooks/fetchProduct";
 
 type InitialStateType = {
   product: ProductType | null;
@@ -28,24 +15,6 @@ const initialState: InitialStateType = {
   error: null,
 };
 
-const fetchProduct = createAsyncThunk(
-  "cards/fetchProduct",
-  async (prodId: number) => {
-    try {
-      const url = `https://api.escuelajs.co/api/v1/products/${prodId}`;
-      const response: AxiosResponse<ProductType> = await axios.get(url);
-      return response.data;
-    } catch (e) {
-      if (axios.isAxiosError(e)) {
-        console.log(`Axios error: ${e}`);
-        throw new Error("Fetch failed");
-      } else {
-        console.log(`Unknown error: ${e}`);
-      }
-    }
-  },
-);
-
 const soloCardSlice = createSlice({
   name: "soloCard",
   initialState,
@@ -56,21 +25,15 @@ const soloCardSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(
-        fetchProduct.rejected,
-        (state, action: PayloadAction<unknown, string>) => {
-          state.loading = false;
-          state.error = action.payload ?? "fetch failed";
-        },
-      )
-      .addCase(
-        fetchProduct.fulfilled,
-        (state, action: PayloadAction<ProductType | undefined>) => {
-          state.loading = false;
-          state.product = action.payload ?? null;
-          state.error = null;
-        },
-      );
+      .addCase(fetchProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload ?? "fetch failed";
+      })
+      .addCase(fetchProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.product = action.payload ?? null;
+        state.error = null;
+      });
   },
 });
 

@@ -33,12 +33,14 @@ const AutoPlay: React.FC<AutoPlayProps> = ({ products }) => {
   };
 
   return (
-    <section className="relative overflow-hidden border-y border-neutral pb-1.5 pt-3 shadow-lg">
-      <div className="absolute top-1/2 z-[30] w-full -translate-y-1/2 bg-base-100/80 py-6 text-center backdrop-blur-md">
-        <h2 className="text-5xl font-bold text-primary">Sales up to -70%!</h2>
+    <section className="relative overflow-hidden border-neutral pb-1.5 pt-3 md:border-y md:shadow-lg">
+      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md md:absolute md:top-1/2 md:-translate-y-1/2 md:py-6">
+        <h2 className="text-4xl font-bold text-primary md:text-5xl">
+          Sales up to -70%!
+        </h2>
       </div>
       {products && (
-        <Slider {...settings} className="cursor-grab">
+        <Slider {...settings} className="hidden cursor-grab md:block">
           {products.map(
             ({ title, images }: ImageProp) =>
               isValidImage(images[0]) && (

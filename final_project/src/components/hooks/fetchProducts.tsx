@@ -6,12 +6,12 @@ import { ProductType } from "../types/ProductCardType";
 
 const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
   try {
-    const response: AxiosResponse<ProductType[]> = await axios.get(
+    const { data }: AxiosResponse<ProductType[]> = await axios.get(
       "https://api.escuelajs.co/api/v1/products",
     );
     // console.log(response.data);
 
-    return response.data;
+    return data;
   } catch (e) {
     if (axios.isAxiosError(e)) {
       console.log(`Axios error: ${e}`);

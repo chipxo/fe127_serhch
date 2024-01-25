@@ -1,4 +1,4 @@
-type CategotyType = {
+type CategoryType = {
   id: number;
   name: string;
   image: string;
@@ -9,11 +9,6 @@ export type ProductType = {
   title: string;
   price: number;
   description?: string;
-  category?: CategotyType;
+  category: CategoryType;
   images: string[];
-};
-
-export type Card = ProductType & {
-  onClick?: () => void;
-  isHome?: boolean;
 };

@@ -6,7 +6,8 @@ import ShoppingCart from "./pages/ShoppingCart";
 import Shop from "./slices/products/Products.tsx";
 import WebFont from "webfontloader";
 import { useEffect } from "react";
-import ProductsCategory from "./slices/products/ProductsCategory.tsx";
+import ProductsCategory from "./slices/categories/soloCategory/categoryProducts.tsx";
+import CategoryProducts from "./slices/categories/categoryProducts/CategoryProducts.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const App = () => {
         <Route path="/shoppingCart" element={<ShoppingCart />} />
         <Route
           path="/products/categories/:categoryId"
-          element={<ProductsCategory />}
+          element={<CategoryProducts />}
         />
       </Route>
     </Routes>

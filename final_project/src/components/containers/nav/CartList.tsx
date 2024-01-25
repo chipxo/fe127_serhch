@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Error, Loading } from "../../common/loading && error/LoadingError";
 import { fetchProducts } from "../../hooks/fetchProducts";
-import { cartIcon } from "../../icons/Icons";
-import { RootState } from "../../reduxStore/rootReducer";
-import { useAppDispatch } from "../../reduxStore/store";
+import { cartIcon } from "../../common/icons/Icons";
+import { RootState } from "../../redux/rootReducer";
+import { useAppDispatch } from "../../redux/store";
 import { setAmount } from "../../slices/amount/amountSlice";
 import { ProductType } from "../../types/ProductCardType";
 
@@ -38,7 +38,7 @@ const ShoppingCartItem = () => {
 
   return (
     <div
-      className="relative "
+      className="relative hidden sm:block"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >

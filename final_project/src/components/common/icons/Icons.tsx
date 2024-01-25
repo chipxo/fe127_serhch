@@ -1,12 +1,15 @@
 import {
+  faArrowRight,
   faCaretRight,
   faCartShopping,
   faCheck,
   faFilter,
+  faLayerGroup,
   faMagnifyingGlass,
   faTrash,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const cartIcon = <FontAwesomeIcon icon={faCartShopping} />;
@@ -23,4 +26,9 @@ export const filterIcon = (
 );
 export const toRightIcon = (
   <FontAwesomeIcon className="mx-1.5" icon={faCaretRight} />
+);
+// export const catalogIcon = <FontAwesomeIcon icon={faLayerGroup} />;
+export const catalogIcon = <FontAwesomeIcon icon={faMicrosoft} />;
+export const goToRightIcon = (
+  <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
 );

@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../common/buttons/Button.tsx";
-import { cartChecked, cartDelete, cartIcon } from "../../icons/Icons.tsx";
-import { useAppDispatch } from "../../reduxStore/store.tsx";
+import {
+  cartChecked,
+  cartDelete,
+  cartIcon,
+} from "../../common/icons/Icons.tsx";
+import { useAppDispatch } from "../../redux/store.tsx";
 import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
-import { Card } from "../../types/ProductCardType.tsx";
+import { ProductType } from "../../types/ProductCardType.tsx";
 
-const StoreCard: React.FC<Card> = ({
+type StoreCardProps = ProductType & {
+  isHome?: boolean;
+  checked?: boolean;
+};
+
+const StoreCard: React.FC<StoreCardProps> = ({
   id,
   title,
-  price,
-  category,
   images,
+  category,
+  price,
   isHome = false,
 }) => {
   const [checked, setChecked] = useState(false);
@@ -46,49 +55,59 @@ const StoreCard: React.FC<Card> = ({
   };
 
   return (
-    <div className="flex h-full cursor-pointer flex-col rounded-md bg-base-100 shadow-2xl">
-      {/* Image */}
-      <figure>
-        <img
-          onClick={() => toSoloCard(id)}
-          src={images?.[0]}
-          className="rounded-t-md"
-          alt={title}
-        />
-      </figure>
-      <div className="grid h-full gap-4 p-4">
-        <div className="">
+    <>
+      <div className="flex h-full cursor-pointer flex-col rounded-md bg-base-100 shadow-2xl">
+        {/* Image */}
+        <figure>
+          <img
+            onClick={() => toSoloCard(id)}
+            src={images?.[0]}
+            className="rounded-t-md"
+            alt={title}
+          />
+        </figure>
+        <div className="grid h-full p-4">
           {/* Category */}
-          <div className="badge badge-outline border-primary p-3">
-            <p>{category?.name}</p>
-          </div>
-          {checked && cartChecked}
-          {/* Title */}
-          <h2 className="mt-4 text-lg" onClick={() => toSoloCard(id)}>
-            {title[0].toUpperCase() + title.slice(1)}
-          </h2>
-        </div>
-        <div
-          className={`grid w-full items-end gap-x-2 ${isHome ? "grid-cols-[1fr_0.5fr_0.3fr]" : "grid-cols-[1fr_0.4fr_0.3fr]"}`}
-        >
-          {/* Price */}
-          <p className="text-3xl font-semibold">${price}</p>
+          {!isHome && (
+            <div className="badge badge-outline relative border-primary p-3 ">
+              <p>{category?.name}</p>
+              {!isHome && checked && (
+                <div className="absolute -right-7 top-0.5">{cartChecked}</div>
+              )}
+            </div>
+          )}
 
-          <Button
-            text={cartDelete}
-            color={"error"}
-            onClick={() => handleDelBtn(id)}
-            disabled={!checked}
-          />
-          <Button
-            text={cartIcon}
-            color={"accent"}
-            onClick={() => handleAddBtn(id, title)}
-            disabled={checked}
-          />
+          {/* Title */}
+          <div className="mt-2 grid grid-cols-[1fr_0.24fr] items-center gap-x-1">
+            <Link to={`/products/${id}`}>
+              <h2 className="text-md">
+                {title[0].toUpperCase() + title.slice(1)}
+              </h2>
+            </Link>
+            <p className="text-xl">{isHome && `$${price}`}</p>
+          </div>
+          {!isHome && (
+            <div className="mt-2 grid w-full items-end">
+              <p className="text-3xl font-semibold">${price}</p>
+              <div className="mt-4 grid grid-cols-2 gap-x-6">
+                <Button
+                  text={cartDelete}
+                  color={"error"}
+                  onClick={() => handleDelBtn(id)}
+                  disabled={!checked}
+                />
+                <Button
+                  text={cartIcon}
+                  color={"accent"}
+                  onClick={() => handleAddBtn(id, title)}
+                  disabled={checked}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

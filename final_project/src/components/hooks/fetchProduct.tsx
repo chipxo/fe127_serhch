@@ -4,14 +4,13 @@ import { ProductType } from "../types/ProductCardType";
 
 const fetchProduct = createAsyncThunk(
   "cards/fetchProduct",
-  async (prodId: number | string) => {
+  async (prodId: number) => {
     try {
-      const response: AxiosResponse<{ data: ProductType }> = await axios.get(
-        `https://api.escuelajs.co/api/v1/products/${prodId}`,
-      );
-      // console.log(response.data);
+      const url = `https://api.escuelajs.co/api/v1/products/${prodId}`;
 
-      return response.data; // Directly return the response data
+      const { data }: AxiosResponse<ProductType> = await axios.get(url);
+
+      return data;
     } catch (e) {
       if (axios.isAxiosError(e)) {
         console.log(`Axios error: ${e}`);

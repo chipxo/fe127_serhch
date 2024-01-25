@@ -1,10 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Button from "../../common/buttons/Button.tsx";
-import { cartDelete } from "../../icons/Icons.tsx";
-import { useAppDispatch } from "../../reduxStore/store.tsx";
+import { cartDelete } from "../../common/icons/Icons.tsx";
+import { useAppDispatch } from "../../redux/store.tsx";
 import { decreaseAmount } from "../amount/amountSlice.tsx";
-import { Card } from "../../types/ProductCardType.tsx";
+
+interface Card {
+  id: number;
+  images: string[];
+  price: number;
+  title: string;
+  onClick: () => void;
+}
 
 const BuyCard = ({ id, images, price, title, onClick }: Card) => {
   const [count, setCount] = useState(1);

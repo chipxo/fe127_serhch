@@ -1,46 +1,41 @@
-import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../common/Logo";
 import Burger from "../../common/buttons/Burger";
-import links from "../../data/navLinks.json";
-import { NavType } from "../../types/NavLinkType";
-import Link from "./NavLink";
 import SecondUl from "./AsideBar";
 import Search from "../../common/Search.tsx";
+import links from "../../data/filter.json";
+import Catalog from "./Catalog";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/rootReducer.tsx";
+import { useAppDispatch } from "../../redux/store.tsx";
+import { fetchCategories } from "../../hooks/fetchCategories.tsx";
+import { useEffect } from "react";
 
 const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { categories } = useSelector((state: RootState) => state.categories);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    dispatch(fetchCategories());
+  }, [dispatch]);
+  // console.log(categories);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const navPos = isScrolled ? "shadow-xl mt-0" : "mt-2";
   return (
     <AnimatePresence>
-      <motion.div className={`container rounded-b-md bg-base-100 py-2`}>
-        <ul className="grid grid-cols-2 place-items-center sm:grid-cols-[100px_1fr_20px_70px] md:grid-cols-[0.2fr_1fr_1fr_1fr_0.2fr_0.4fr]">
+      <motion.div className="container rounded-b-md bg-base-100 py-2">
+        <ul className="grid grid-cols-[108px_1fr_0.1fr_0.1fr] place-items-center gap-x-4 md:grid-cols-[108px_1fr_0.23fr] lg:grid-cols-[108px_0.4fr_1.5fr_0.3fr]">
           <NavLink
             to="/"
             className="flex h-14 w-14 items-center justify-self-start object-cover"
           >
             <Logo />
           </NavLink>
-          {links.map(({ to, text }: NavType) => (
-            <Link key={nanoid()} to={to} text={text} />
-          ))}
-          <Search />
-          <div className="divider divider-horizontal hidden sm:flex" />
+          <Catalog categories={categories} />
+          <div className="w-full xl:pr-8">
+            <Search />
+          </div>
           <SecondUl />
           <Burger />
         </ul>

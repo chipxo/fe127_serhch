@@ -7,7 +7,7 @@ const SecondUl = () => {
   const { pathname } = useLocation();
   const { categoryId } = useParams();
   return (
-    <ul className="relative hidden w-full grid-cols-2 place-items-center gap-x-4 lg:grid">
+    <ul className="relative w-full grid-cols-2 items-center justify-items-end gap-x-4 border-neutral md:grid md:border-l">
       <li>
         <ShoppingCartItem />
       </li>

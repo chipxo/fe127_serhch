@@ -15,8 +15,9 @@ export default {
       },
       gridTemplateColumns: {
         header: "1fr 140px",
-        home: "repeat(auto-fill, minmax(220px, 1fr))",
+        home: "repeat(auto-fill, minmax(200px, 1fr))",
         products: "repeat(auto-fill, minmax(280px, 1fr))",
+        filterLayout: "repeat(auto-fill, minmax(200px, 1fr))",
       },
       fontFamily: {
         Merriweather: ["'Merriweather', 'Roboto Condensed', sans-serif"],

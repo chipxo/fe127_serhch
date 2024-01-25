@@ -1,6 +1,6 @@
 const Burger = () => {
   return (
-    <div className="lg:hidden grid items-center justify-self-end">
+    <div className="grid items-center justify-self-end md:hidden">
       <label className="swap swap-rotate">
         <input type="checkbox" />
         <svg

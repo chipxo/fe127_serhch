@@ -4,9 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import Button from "../../common/buttons/Button.tsx";
 import { Error, Loading } from "../../common/loading && error/LoadingError.tsx";
 import { fetchProduct } from "../../hooks/fetchProduct.tsx";
-import { cartDelete, cartIcon, toRightIcon } from "../../icons/Icons.tsx";
-import { RootState } from "../../reduxStore/rootReducer.tsx";
-import { useAppDispatch } from "../../reduxStore/store.tsx";
+import {
+  cartDelete,
+  cartIcon,
+  toRightIcon,
+} from "../../common/icons/Icons.tsx";
+import { RootState } from "../../redux/rootReducer.tsx";
+import { useAppDispatch } from "../../redux/store.tsx";
 import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
 import Path from "../../common/Path.tsx";
 
@@ -61,19 +65,19 @@ const SoloCard = () => {
   return (
     <section className="relative">
       <div className="absolute left-0 top-16 w-full">
-        <Path>
+        {/* <Path>
           <Link to="/">Home</Link>
           {toRightIcon}
           <Link to="/products">Products</Link>
           {toRightIcon}
           {title}
-        </Path>
+        </Path> */}
       </div>
       <div className="container">
-        <div className=" grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-2xl">
+        <div className="grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg">
           <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">
             <p className="badge badge-accent badge-lg p-4 font-semibold">
-              {category.name}
+              {category?.name}
             </p>
             <h2 className="mt-8 text-3xl font-semibold tracking-wider">
               {title}
@@ -115,17 +119,17 @@ const SoloCard = () => {
             <div className="grid w-full grid-cols-3 gap-x-3 border-t border-neutral p-3">
               <img
                 src={images?.[1]}
-                alt=""
+                alt={title}
                 className="h-full w-full cursor-pointer rounded-md object-cover"
               />
               <img
                 src={images?.[2]}
-                alt=""
+                alt={title}
                 className="h-full w-full cursor-pointer rounded-md object-cover"
               />
               <img
                 src={images?.[0]}
-                alt=""
+                alt={title}
                 className="h-full w-full cursor-pointer rounded-md object-cover"
               />
             </div>

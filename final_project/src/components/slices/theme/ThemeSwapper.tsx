@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../reduxStore/rootReducer.tsx";
-import { useAppDispatch } from "../../reduxStore/store.tsx";
+import { RootState } from "../../redux/rootReducer.tsx";
+import { useAppDispatch } from "../../redux/store.tsx";
 import { changeTheme } from "./themeSlice.tsx";
 
 const Theme2 = () => {
@@ -21,7 +21,7 @@ const Theme2 = () => {
   };
 
   return (
-    <div className=" grid place-items-center">
+    <div className="hidden place-items-center md:grid">
       <label className="swap swap-rotate">
         <input
           type="checkbox"

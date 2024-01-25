@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { filterIcon } from "../../icons/Icons";
+import { filterIcon } from "../../common/icons/Icons";
 import { useState } from "react";
-import FilterItem from "./FilterItem";
+import FilterItem from "./Catalog";
 
 const Filter = () => {
   const [filter, setFilter] = useState(false);
