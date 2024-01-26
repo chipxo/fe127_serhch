@@ -10,7 +10,7 @@ import { ProductType } from "../types/ProductCardType";
 import { Error, Loading } from "./loading && error/LoadingError";
 
 const Search = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
     [],
   );
@@ -39,6 +39,11 @@ const Search = () => {
     setSearchResults(filteredResults);
   };
 
+  const handleBlur = () => {
+    dispatch(setInputValue(""));
+    setOpen(false);
+  };
+
   return (
     <div className="relative">
       <input
@@ -48,9 +53,13 @@ const Search = () => {
         value={inputValue}
         onChange={(e) => handleChange(e)}
         onFocus={() => setOpen(true)}
-        onBlur={() => setOpen(false)}
+        onBlur={() => handleBlur()}
       />
-      {loading && <Loading />}
+      {loading && (
+        <div className="absolute -bottom-14 right-1/2 -translate-x-[50px]">
+          <Loading />
+        </div>
+      )}
       {error && <Error error={error} />}
       <AnimatePresence>
         {open && (

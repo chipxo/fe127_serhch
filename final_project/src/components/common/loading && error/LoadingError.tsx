@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
 type ErrorProps = {
@@ -6,9 +6,16 @@ type ErrorProps = {
 };
 
 export const Loading: React.FC = () => (
-  <div className="grid h-screen place-items-center">
-    <span className="loading loading-dots loading-lg scale-125 text-info" />
-  </div>
+  <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className=""
+    >
+      <span className="loading loading-dots loading-lg scale-125 text-primary" />
+    </motion.div>
+  </AnimatePresence>
 );
 
 export const Error: React.FC<ErrorProps> = ({ error }) => (

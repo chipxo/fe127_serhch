@@ -11,6 +11,7 @@ import CatalogAside from "../containers/nav/CatalogAside.tsx";
 import { fetchCategories } from "../hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { isValidImage } from "../functions/isValidImage.tsx";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -33,37 +34,55 @@ const Home = () => {
 
   return (
     <>
-      {allProducts && <Slider products={allProducts} />}
-      <section className="border-y border-neutral">
-        <div className="lg:container">
-          {categories && <CatalogAside categories={categories} />}
-          <div className="space-y-10 border-neutral py-10 pl-10 max-lg:container">
-            <h2 className="text-start text-2xl font-semibold md:text-4xl">
-              Best selling products:
-            </h2>
-            {loading && <Loading />}
-            {error && <Error error={error} />}
-            <div className="grid grid-cols-home gap-4">
-              {!loading &&
-                !error &&
-                amountOfProducts?.map(
-                  ({ id, title, images, category, price }) =>
-                    isValidImage(images?.[0]) && (
-                      <StoreCard
-                        key={nanoid()}
-                        id={id}
-                        title={title}
-                        price={price}
-                        images={images}
-                        category={category}
-                        isHome={true}
-                      />
-                    ),
-                )}
+      {loading && (
+        <div className="absolute left-1/2 top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2">
+          <Loading />
+        </div>
+      )}
+      {error && <Error error={error} />}
+      {!loading && !error && allProducts && <Slider products={allProducts} />}
+      <AnimatePresence>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className="border-y border-neutral"
+        >
+          <div className="lg:container">
+            {!loading && !error && categories && (
+              <CatalogAside categories={categories} />
+            )}
+            <div className="space-y-10 border-neutral py-10 pl-10 max-lg:container">
+              <h2 className="text-start text-2xl font-semibold md:text-4xl">
+                Best selling products:
+              </h2>
+              <div className="grid grid-cols-home gap-4">
+                {!loading &&
+                  !error &&
+                  amountOfProducts?.map(
+                    ({ id, title, images, category, price }) =>
+                      isValidImage(images?.[0]) && (
+                        <StoreCard
+                          key={nanoid()}
+                          id={id}
+                          title={title}
+                          price={price}
+                          images={images}
+                          category={category}
+                          isHome={true}
+                        />
+                      ),
+                  )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.section>
+      </AnimatePresence>
     </>
   );
 };

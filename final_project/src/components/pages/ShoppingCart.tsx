@@ -66,7 +66,11 @@ const ShoppingCart = () => {
   return (
     <AnimatePresence>
       <motion.div className="container grid min-h-[70vh] grid-cols-products gap-4">
-        {loading && <Loading />}
+        {loading && (
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Loading />
+          </div>
+        )}
         {error && <Error error={error} />}
         {!loading && !error && cards.length > 1 ? (
           cards

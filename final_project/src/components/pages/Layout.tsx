@@ -9,10 +9,10 @@ const Layout = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-[300] bg-base-100 shadow-md">
+      <header className="sticky top-0 z-[300] max-h-[80px] bg-base-100 shadow-md">
         <NavBar />
       </header>
-      <main className="min-h-[70vh]">
+      <main>
         <Outlet />
       </main>
       <footer className="bg-base-200 p-10 font-Merriweather text-base-content">

@@ -20,6 +20,7 @@ const CategoryProducts = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchCategoryProducts(`${categoryId}`));
   }, [dispatch, categoryId]);
 
@@ -30,7 +31,11 @@ const CategoryProducts = () => {
   return (
     <section>
       <div className="container min-h-[70vh]">
-        {loading && <Loading />}
+        {loading && (
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Loading />
+          </div>
+        )}
         {error && <Error error={error} />}
         {!loading && !error && (
           <>

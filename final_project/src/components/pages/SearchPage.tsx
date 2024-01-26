@@ -13,7 +13,7 @@ type SeartPageProps = {
 const SearchPage: React.FC<SeartPageProps> = ({ searchResults, found }) => {
   return (
     <>
-      {found ? (
+      {searchResults && found ? (
         <div className="grid max-h-[70vh] w-full gap-y-3 overflow-auto rounded-md border border-neutral bg-base-100 p-4">
           {searchResults?.map(({ id, title, images, category }) =>
             isValidImage(images?.[0]) ? (
@@ -29,7 +29,7 @@ const SearchPage: React.FC<SeartPageProps> = ({ searchResults, found }) => {
               </Link>
             ) : (
               <h2 key={nanoid()} className="text-lg">
-                Failed to load products :(
+                Failed to load product :(
               </h2>
             ),
           )}

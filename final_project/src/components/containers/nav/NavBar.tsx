@@ -25,7 +25,7 @@ const NavBar = () => {
   return (
     <AnimatePresence>
       <motion.div className="container rounded-b-md bg-base-100 py-2">
-        <ul className="grid grid-cols-[108px_1fr_0.1fr_0.1fr] place-items-center gap-x-4 md:grid-cols-[108px_1fr_0.23fr] lg:grid-cols-[108px_0.4fr_1.5fr_0.3fr]">
+        <ul className="grid max-h-[80px] grid-cols-[108px_1fr_0.1fr_0.1fr] place-items-center gap-x-4 md:grid-cols-[108px_1fr_0.23fr] lg:grid-cols-[108px_0.4fr_1.5fr_0.3fr]">
           <NavLink
             to="/"
             className="flex h-14 w-14 items-center justify-self-start object-cover"

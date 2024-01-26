@@ -1,8 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { NavType } from "../../types/NavLinkType";
 
-const Link = ({ to, text }: NavType) => {
+type NapProps = {
+  to: string;
+  text: string;
+};
+
+const Link: React.FC<NapProps> = ({ to, text }) => {
   const [open, setOpen] = useState(false);
 
   return (

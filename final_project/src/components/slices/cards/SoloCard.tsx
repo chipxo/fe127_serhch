@@ -25,7 +25,7 @@ const SoloCard = () => {
 
   useEffect(() => {
     dispatch(fetchProduct(Number(prodId)));
-  }, [dispatch]);
+  }, [dispatch, prodId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,12 +36,12 @@ const SoloCard = () => {
     }
   }, []);
 
-  if (!product) {
-    return <p>Product not found</p>;
-  }
-
-  if (loading) {
-    return <Loading />;
+  if (!product || loading) {
+    return (
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <Loading />
+      </div>
+    );
   }
 
   if (error) {
