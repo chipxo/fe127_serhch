@@ -12,7 +12,7 @@ const Layout = () => {
       <header className="sticky top-0 z-[300] bg-base-100 shadow-md">
         <NavBar />
       </header>
-      <main>
+      <main className="min-h-[70vh]">
         <Outlet />
       </main>
       <footer className="bg-base-200 p-10 font-Merriweather text-base-content">

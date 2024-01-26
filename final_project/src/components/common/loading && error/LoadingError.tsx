@@ -16,7 +16,7 @@ export const Error: React.FC<ErrorProps> = ({ error }) => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="grid h-[70vh] place-items-center"
+    className=""
   >
     <h2 className="text-4xl">
       Error: {typeof error === "string" ? error : `Page was lost :(`}
