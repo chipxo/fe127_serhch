@@ -1,16 +1,15 @@
-import { useState } from "react";
-import { catalogIcon, toRightIcon } from "../../common/icons/Icons";
-import links from "../../data/filter.json";
+import React, { useState } from "react";
+import { catalogIcon, toRightIcon } from "../../common/icons.tsx";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion } from "framer-motion";
-import { CategoriesProductType } from "../../types/CategoriesTypes";
+import { CategoriesType } from "../../../types/types";
 
-type FilterProps = {
-  categories: CategoriesProductType[] | null;
+type CatalogProps = {
+  categories: CategoriesType[] | null;
 };
 
-const Catalog = ({ categories }: FilterProps) => {
+const Catalog: React.FC<CatalogProps> = ({ categories }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,13 +33,9 @@ const Catalog = ({ categories }: FilterProps) => {
             <div className="absolute -top-8 z-[999] h-8 w-full bg-transparent" />
             <div className="grid cursor-pointer gap-y-4 rounded-md border-4 border-neutral bg-base-100 p-4">
               <div className="border-b border-neutral lg:border-none">
-                <div className="grid-cols-filterLayout text-md grid gap-x-4 gap-y-4 border-neutral font-Merriweather max-lg:container lg:gap-y-10">
-                  {categories?.map(({ id, name }: CategoriesProductType) => (
-                    <Link
-                      to={`/products/categories/${id}`}
-                      key={nanoid()}
-                      className=""
-                    >
+                <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 border-neutral font-Merriweather max-lg:container lg:gap-y-10">
+                  {categories?.map(({ id, name }) => (
+                    <Link to={`/products/categories/${id}`} key={nanoid()}>
                       {name[0].toUpperCase() + name.slice(1)} {toRightIcon}
                     </Link>
                   ))}
@@ -55,46 +50,3 @@ const Catalog = ({ categories }: FilterProps) => {
 };
 
 export default Catalog;
-
-//  <p className="border-y border-neutral px-10 py-4">
-// {toRightIcon} Clothes
-// </p>
-<div>
-  <h2 className="border-l border-neutral px-4 pb-3 pt-4">Sort by:</h2>
-  <div className="collapse mb-1 rounded-none border border-neutral bg-base-100 p-0">
-    <input type="radio" name="my-accordion-1" />
-    <div className="collapse-title border-b border-neutral text-xl font-medium ">
-      <h2 className="pl-2 font-Roboto-Condensed text-3xl">Categories :</h2>
-    </div>
-    <div className="collapse-content grid p-0 font-Merriweather text-xl">
-      {links.map(({ id, name }) => (
-        <Link
-          to={`/products/categories/${id}`}
-          key={nanoid()}
-          className="border-y border-neutral px-10 py-4"
-        >
-          {toRightIcon} {name[0].toUpperCase() + name.slice(1)}
-        </Link>
-      ))}
-    </div>
-  </div>
-  <div className="collapse rounded-none border border-neutral bg-base-100 p-0">
-    <input type="radio" name="my-accordion-1" />
-    <div className="collapse-title border-y border-neutral text-xl font-medium">
-      <h2 className="pl-2 font-Roboto-Condensed text-3xl">Price :</h2>
-    </div>
-    <div className="collapse-content p-0 font-Merriweather text-2xl">
-      <p className="border-y border-neutral px-10 py-4">Enter values:</p>
-      <div className="grid grid-cols-2 gap-x-10 p-4">
-        <input
-          className="rounded-md border border-neutral bg-base-200 p-4"
-          placeholder="Lowest"
-        />
-        <input
-          className="rounded-md border border-neutral bg-base-200 p-4"
-          placeholder="Highest"
-        />
-      </div>
-    </div>
-  </div>
-</div>;

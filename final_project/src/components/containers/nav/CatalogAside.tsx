@@ -1,20 +1,21 @@
-import { goToRightIcon } from "../../common/icons/Icons";
+import React from "react";
+import { goToRightIcon } from "../../common/icons.tsx";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
-import { CategoriesProductType } from "../../types/CategoriesTypes";
-import { isValidImage } from "../../functions/isValidImage";
+import { CategoriesType } from "../../../types/types";
+import { isValidImage } from "../../../utils/isValidImage";
 
-type FilterProps = {
-  categories: CategoriesProductType[] | null;
+type CatalogAsideProps = {
+  categories: CategoriesType[] | null;
 };
 
-const FilterItemAside = ({ categories }: FilterProps) => {
+const CatalogAside: React.FC<CatalogAsideProps> = ({ categories }) => {
   return (
     <div className="border-b border-neutral lg:hidden">
       <h2 className="mt-4 text-center text-2xl">Categories :</h2>
-      <div className="grid-cols-filterLayout text-md grid gap-x-4 gap-y-4 border-neutral py-8 font-Merriweather max-lg:container lg:gap-y-10 lg:border-b lg:py-14">
+      <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 border-neutral py-8 font-Merriweather max-lg:container lg:gap-y-10 lg:border-b lg:py-14">
         {categories?.map(
-          ({ id, name, image }: CategoriesProductType) =>
+          ({ id, name, image }) =>
             isValidImage(image) && (
               <Link
                 to={`/products/categories/${id}`}
@@ -39,4 +40,4 @@ const FilterItemAside = ({ categories }: FilterProps) => {
   );
 };
 
-export default FilterItemAside;
+export default CatalogAside;

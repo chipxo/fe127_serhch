@@ -1,7 +1,7 @@
-import Theme2 from "../../slices/theme/ThemeSwapper.tsx";
+import Theme2 from "../../../features/theme/ThemeSwapper.tsx";
 import ShoppingCartItem from "./CartList";
 
-const SecondUl = () => {
+const AsideBar = () => {
   return (
     <ul className="w-full grid-cols-2 items-center justify-items-end gap-x-4 border-neutral md:grid md:border-l">
       <li>
@@ -14,4 +14,4 @@ const SecondUl = () => {
   );
 };
 
-export default SecondUl;
+export default AsideBar;

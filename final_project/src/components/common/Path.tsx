@@ -13,5 +13,3 @@ const Path: React.FC<PathProps> = ({ children }) => {
 };
 
 export default Path;
-
-//top-15 absolute

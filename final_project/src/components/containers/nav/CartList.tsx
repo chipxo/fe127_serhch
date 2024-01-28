@@ -2,13 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Error, Loading } from "../../common/loading && error/LoadingError";
-import { fetchProducts } from "../../hooks/fetchProducts";
-import { cartIcon } from "../../common/icons/Icons";
-import { RootState } from "../../redux/rootReducer";
-import { useAppDispatch } from "../../redux/store";
-import { setAmount } from "../../slices/amount/amountSlice";
-import { ProductType } from "../../types/ProductCardType";
+import { Error, Loading } from "../../common/LoadingError.tsx";
+import { fetchProducts } from "../../../hooks/fetchProducts";
+import { cartIcon } from "../../common/icons.tsx";
+import { RootState } from "../../../app/rootReducer.tsx";
+import { useAppDispatch } from "../../../app/store.tsx";
+import { setAmount } from "../../../features/amount/amountSlice";
+import { ProductType } from "../../../types/types";
 
 const ShoppingCartItem = () => {
   const [open, setOpen] = useState(false);

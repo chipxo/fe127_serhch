@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../redux/store";
-import { RootState } from "../redux/rootReducer";
-import { setInputValue } from "../slices/searchBar/searchSlice";
+import { useAppDispatch } from "../../app/store.tsx";
+import { RootState } from "../../app/rootReducer.tsx";
+import { setInputValue } from "../../features/searchBar/searchSlice";
 import Button from "./buttons/Button";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import SearchPage from "../pages/SearchPage";
-import { ProductType } from "../types/ProductCardType";
-import { Error, Loading } from "./loading && error/LoadingError";
+import SearchPage from "../../pages/SearchPage";
+import { ProductType } from "../../types/types";
+import { Error, Loading } from "./LoadingError.tsx";
 
 const Search = () => {
   const [open, setOpen] = useState(false);

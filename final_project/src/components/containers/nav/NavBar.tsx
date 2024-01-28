@@ -4,12 +4,11 @@ import Logo from "../../common/Logo";
 import Burger from "../../common/buttons/Burger";
 import SecondUl from "./AsideBar";
 import Search from "../../common/Search.tsx";
-import links from "../../data/filter.json";
 import Catalog from "./Catalog";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/rootReducer.tsx";
-import { useAppDispatch } from "../../redux/store.tsx";
-import { fetchCategories } from "../../hooks/fetchCategories.tsx";
+import { RootState } from "../../../app/rootReducer.tsx";
+import { useAppDispatch } from "../../../app/store.tsx";
+import { fetchCategories } from "../../../hooks/fetchCategories.tsx";
 import { useEffect } from "react";
 
 const NavBar = () => {
