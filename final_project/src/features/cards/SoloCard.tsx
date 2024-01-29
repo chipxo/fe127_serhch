@@ -60,7 +60,7 @@ const SoloCard = () => {
   return (
     <section className="relative min-h-[70vh]">
       <div className="container">
-        <div className="grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg">
+        <div className="gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg lg:grid lg:grid-cols-[1fr_0.5fr]">
           <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">
             <p className="badge badge-accent badge-lg p-4 font-semibold">
               {category?.name}
@@ -92,7 +92,7 @@ const SoloCard = () => {
               />
             </div>
           </div>
-          <figure className="grid rounded-md border border-neutral">
+          <figure className="flex rounded-md border border-neutral lg:grid">
             <div className="p-3">
               <img
                 src={images?.[0]}
@@ -102,7 +102,7 @@ const SoloCard = () => {
             </div>
 
             {/* <div className="divider my-2 h-[1px] bg-neutral" /> */}
-            <div className="grid w-full grid-cols-3 gap-x-3 border-t border-neutral p-3">
+            <div className="grid h-full w-full gap-3 border-t border-neutral p-3 lg:grid-cols-3">
               <img
                 src={images?.[1]}
                 alt={title}

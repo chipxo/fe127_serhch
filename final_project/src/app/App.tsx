@@ -6,7 +6,7 @@ import ShoppingCart from "../pages/ShoppingCart.tsx";
 import WebFont from "webfontloader";
 import { useEffect } from "react";
 import CategoryProducts from "../features/categories/categoryProducts/CategoryProducts.tsx";
-import FoundProducts from "../features/foundProducts/FoundProducts.tsx";
+import FoundProducts from "../pages/FoundProducts.tsx";
 
 const App = () => {
   useEffect(() => {
