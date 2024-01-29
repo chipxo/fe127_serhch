@@ -16,7 +16,7 @@ export default {
       gridTemplateColumns: {
         header: "1fr 140px",
         home: "repeat(auto-fill, minmax(200px, 1fr))",
-        products: "repeat(auto-fill, minmax(280px, 1fr))",
+        products: "repeat(auto-fill, minmax(300px, 1fr))",
         filterLayout: "repeat(auto-fill, minmax(200px, 1fr))",
       },
       fontFamily: {

@@ -59,7 +59,7 @@ const CategoryProducts = () => {
               ))}
             </div>
           ) : (
-            <NoItems />
+            !loading && !error && <NoItems />
           )}
         </AnimatePresence>
       </div>

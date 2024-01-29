@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "../components/containers/slider/Slider.tsx";
 import CommonCard from "../features/cards/CommonCard.tsx";
 import { useSelector } from "react-redux";
@@ -34,10 +34,11 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(fetchCategories());
+
     const fetchData = async () => {
       try {
         const [_, result2] = await Promise.all([
-          dispatch(fetchAmountOfProducts(10)),
+          dispatch(fetchAmountOfProducts(40)),
           dispatch(fetchAmountOfProducts(30)),
         ]);
 
@@ -69,7 +70,7 @@ const Home = () => {
             stiffness: 260,
             damping: 20,
           }}
-          className="border-y border-neutral"
+          className="min-h-[60vh] border-y border-neutral"
         >
           <div className="lg:container">
             {!loading && !error && categories && (
@@ -82,13 +83,10 @@ const Home = () => {
               <div className="grid grid-cols-home gap-4">
                 {!loading &&
                   !error &&
-                  amountOfProducts?.map(
-                    (
-                      { id, title, images, category, price }: ProductType,
-                      index,
-                    ) =>
+                  allProducts?.map(
+                    ({ id, title, images, category, price }, index) =>
                       index < 10 && (
-                        <MemoizedCommonCard
+                        <CommonCard
                           key={nanoid()}
                           id={id}
                           title={title}
@@ -99,28 +97,25 @@ const Home = () => {
                         />
                       ),
                   )}
-
                 <AnimatePresence>
                   {moreProducts &&
-                    pr?.map(
-                      ({ id, title, images, category, price }: ProductType) => (
-                        <motion.div
-                          key={nanoid()}
-                          initial={{ opacity: 0, y: -20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <MemoizedCommonCard
-                            id={id}
-                            title={title}
-                            price={price}
-                            images={images}
-                            category={category}
-                            isHome
-                          />
-                        </motion.div>
-                      ),
-                    )}
+                    pr?.map(({ id, title, images, category, price }) => (
+                      <motion.div
+                        key={nanoid()}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <CommonCard
+                          id={id}
+                          title={title}
+                          price={price}
+                          images={images}
+                          category={category}
+                          isHome
+                        />
+                      </motion.div>
+                    ))}
                 </AnimatePresence>
               </div>
             </div>
@@ -139,20 +134,3 @@ const Home = () => {
 };
 
 export default Home;
-
-type CardProps = ProductType & {
-  isHome: boolean;
-};
-
-export const MemoizedCommonCard: React.FC<CardProps> = memo(
-  ({ id, title, price, images, category, isHome }) => (
-    <CommonCard
-      id={id}
-      title={title}
-      price={price}
-      images={images}
-      category={category}
-      isHome={isHome}
-    />
-  ),
-);

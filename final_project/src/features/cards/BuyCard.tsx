@@ -44,7 +44,7 @@ const BuyCard: React.FC<BuyCardProps> = ({
   };
 
   return (
-    <div className="container my-10 grid h-2/3 gap-y-4 rounded-md border border-neutral bg-base-100 p-5 shadow-md lg:gap-x-4">
+    <div className="my-10 grid h-full w-full gap-y-4 rounded-md border border-neutral bg-base-100 p-5 shadow-md lg:gap-x-4">
       <div>
         <AnimatePresence>
           {modal && (

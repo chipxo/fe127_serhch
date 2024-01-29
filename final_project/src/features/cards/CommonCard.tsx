@@ -9,7 +9,6 @@ import {
 import { useAppDispatch } from "../../app/store.tsx";
 import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
 import { ProductType } from "../../types/types.tsx";
-import { motion } from "framer-motion";
 
 type StoreCardProps = ProductType & {
   isHome?: boolean;
@@ -57,7 +56,7 @@ const CommonCard: React.FC<StoreCardProps> = ({
 
   return (
     <>
-      <div className="flex h-full cursor-pointer flex-col rounded-md bg-base-100 shadow-2xl">
+      <div className="flex h-full cursor-pointer flex-col overflow-hidden rounded-md bg-base-100 shadow-2xl">
         {/* Image */}
         <figure>
           <img
@@ -81,9 +80,7 @@ const CommonCard: React.FC<StoreCardProps> = ({
           {/* Title */}
           <div className="mt-2 grid grid-cols-[1fr_0.24fr] items-center gap-x-1">
             <Link to={`/products/${id}`}>
-              <h2 className="text-md">
-                {title[0].toUpperCase() + title.slice(1)}
-              </h2>
+              <h2 className="text-md">{title}</h2>
             </Link>
             <p className="text-xl">{isHome && `$${price}`}</p>
           </div>

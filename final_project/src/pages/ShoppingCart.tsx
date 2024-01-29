@@ -65,42 +65,44 @@ const ShoppingCart = () => {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div className="container grid min-h-[70vh] grid-cols-products gap-4">
-        {loading && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Loading />
-          </div>
-        )}
-        {error && <Error error={error} />}
+    <section className="min-h-[70vh]">
+      {loading && (
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Loading />
+        </div>
+      )}
+      {error && <Error error={error} />}
+      <AnimatePresence>
         {!loading && !error && cards.length > 1 ? (
-          cards
-            ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
-            .map((card) => {
-              if (card) {
-                const { category, id, images, price, title } = card;
-                return (
-                  <BuyCard
-                    key={nanoid()}
-                    id={id}
-                    images={images}
-                    price={price}
-                    title={title}
-                    category={category}
-                    onClick={() => deleteItem(id)}
-                  />
-                );
-              }
-              <div className="order">
-                <button>Make an order</button>
-              </div>;
-              return null;
-            })
+          <motion.div className="container grid grid-cols-products place-items-center gap-4">
+            {cards
+              ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
+              .map((card) => {
+                if (card) {
+                  const { category, id, images, price, title } = card;
+                  return (
+                    <BuyCard
+                      key={nanoid()}
+                      id={id}
+                      images={images}
+                      price={price}
+                      title={title}
+                      category={category}
+                      onClick={() => deleteItem(id)}
+                    />
+                  );
+                }
+                <div className="order">
+                  <button>Make an order</button>
+                </div>;
+                return null;
+              })}
+          </motion.div>
         ) : (
-          <NoItems />
+          !loading && !error && <NoItems />
         )}
-      </motion.div>
-    </AnimatePresence>
+      </AnimatePresence>
+    </section>
   );
 };
 

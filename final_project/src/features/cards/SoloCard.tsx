@@ -58,7 +58,7 @@ const SoloCard = () => {
   };
 
   return (
-    <section className="relative">
+    <section className="relative min-h-[70vh]">
       <div className="container">
         <div className="grid grid-cols-[1fr_0.5fr] gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg">
           <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">

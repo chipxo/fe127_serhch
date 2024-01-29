@@ -3,19 +3,18 @@ import { useAppDispatch } from "../../app/store.tsx";
 import { RootState } from "../../app/rootReducer.tsx";
 import { setInputValue } from "../../features/searchBar/searchSlice";
 import Button from "./buttons/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SearchPage from "../../pages/SearchPage";
 import { ProductType } from "../../types/types";
 import { Error, Loading } from "./LoadingError.tsx";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
     [],
   );
-
-  const [found, setFound] = useState(false);
 
   const dispatch = useAppDispatch();
   const { products, loading, error } = useSelector(
@@ -25,9 +24,32 @@ const Search = () => {
     (state: RootState) => state.searchProducts,
   );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value.toLowerCase();
-    dispatch(setInputValue(e.target.value));
+  const [found, setFound] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        setOpen(false);
+        navigate("/searchResults");
+
+        const inputElement = document.activeElement as HTMLElement;
+        inputElement?.blur();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleChange = (value: string) => {
+    dispatch(setInputValue(value));
+    setOpen(true);
+
+    const input = value.toLowerCase();
 
     const filteredResults = products?.filter(
       ({ title, category }) =>
@@ -39,21 +61,16 @@ const Search = () => {
     setSearchResults(filteredResults);
   };
 
-  const handleBlur = () => {
-    dispatch(setInputValue(""));
-    setOpen(false);
-  };
-
   return (
     <div className="relative">
       <input
         type="text"
         placeholder="Search..."
-        className="input-neutral input input-bordered w-full"
+        className="input-neutral input input-bordered relative z-[10] w-full"
         value={inputValue}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChange(e.target.value)}
         onFocus={() => setOpen(true)}
-        onBlur={() => handleBlur()}
+        onBlur={() => setOpen(false)}
       />
       {loading && (
         <div className="absolute -bottom-14 right-1/2 -translate-x-[50px]">
@@ -66,28 +83,35 @@ const Search = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.1 }}
             animate={{ opacity: 1, scale: 0.8 }}
-            exit={{ opacity: 0, scale: 0.1 }}
-            className="absolute right-0 top-0"
+            exit={{ opacity: 0 }}
+            className="absolute right-0 top-0 z-[12]"
           >
-            <Button
-              text="search"
-              color={"primary"}
-              onClick={() => setOpen(false)}
-            />
+            <Link to="/searchResults">
+              <Button text="search" color={"primary"} />
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {open && inputValue.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 0 }}
-            style={{ x: "-50%" }}
-            className="absolute left-1/2 top-14 z-[200] w-[70vw]"
-          >
-            <SearchPage searchResults={searchResults} found={found} />
-          </motion.div>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 h-screen w-screen bg-black/40"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              style={{ x: "-50%" }}
+              className="absolute left-1/2 top-14 z-[200] w-full"
+            >
+              <SearchPage searchResults={searchResults} found={found} />
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </div>
