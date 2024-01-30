@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Theme2 from "../../../features/theme/ThemeSwapper.tsx";
 import ShoppingCartItem from "./CartList";
 import { cartUser } from "../../common/icons.tsx";
-import User from "./User.tsx";
+import User from "../signInForm/User.tsx";
 
 const AsideBar = () => {
   return (

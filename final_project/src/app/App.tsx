@@ -8,9 +8,17 @@ import { useEffect } from "react";
 import CategoryProducts from "../features/categories/categoryProducts/CategoryProducts.tsx";
 import FoundProducts from "../pages/FoundProducts.tsx";
 import SignIn from "../pages/SignIn.tsx";
+import { useSelector } from "react-redux";
+import { RootState } from "./rootReducer.tsx";
+import { setSignedIn } from "../features/registration/registerSlice.tsx";
+import { useAppDispatch } from "./store.tsx";
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
+    if (localStorage.getItem("signedIn")) dispatch(setSignedIn(true));
+
     WebFont.load({
       google: {
         families: ["Merriweather", "Roboto Condensed"],
