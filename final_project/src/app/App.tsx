@@ -9,6 +9,7 @@ import CategoryProducts from "../features/categories/categoryProducts/CategoryPr
 import FoundProducts from "../pages/FoundProducts.tsx";
 import { setSignedIn } from "../features/registration/registerSlice.tsx";
 import { useAppDispatch } from "./store.tsx";
+import Page404 from "../pages/Page404.tsx";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -34,6 +35,7 @@ const App = () => {
           path="/products/categories/:categoryId"
           element={<CategoryProducts />}
         />
+        <Route path="*" element={<Page404 />} />
       </Route>
     </Routes>
   );

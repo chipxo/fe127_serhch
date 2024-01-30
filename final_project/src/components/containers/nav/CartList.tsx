@@ -48,7 +48,7 @@ const ShoppingCartItem = () => {
       <NavLink to="/shoppingCart">
         <button className="">
           <div className="indicator">
-            <span className="text-2xl">{cartIcon}</span>
+            <span className="text-xl">{cartIcon}</span>
             {amount > 0 && (
               <span className="badge indicator-item badge-primary badge-md">
                 {amount}

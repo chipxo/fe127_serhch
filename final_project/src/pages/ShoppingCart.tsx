@@ -6,17 +6,19 @@ import BuyCard from "../features/cards/BuyCard.tsx";
 import { fetchProducts } from "../hooks/fetchProducts.tsx";
 import { RootState } from "../app/rootReducer.tsx";
 import { useAppDispatch } from "../app/store.tsx";
-import { setAmount } from "../features/amount/amountSlice.tsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { decreaseAmount, setAmount } from "../features/amount/amountSlice.tsx";
 import { ProductType } from "../types/types.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
+
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products,
   );
+
   const { amount } = useSelector((state: RootState) => state.amount);
+
   const localStorageKeys = Object.keys(localStorage);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ const ShoppingCart = () => {
   }, [dispatch]);
 
   const prevItems = useRef<ProductType[]>([]);
+
   const [cards, setCards] = useState<ProductType[]>([]);
 
   const items = localStorageKeys.map((itemId) => {
@@ -54,7 +57,7 @@ const ShoppingCart = () => {
     const localStorageItem = items.find((item) => item && item.id === id);
 
     if (localStorageItem) {
-      dispatch(setAmount(amount - 1));
+      dispatch(decreaseAmount());
 
       window.localStorage.removeItem(`${id}`);
 
@@ -66,6 +69,17 @@ const ShoppingCart = () => {
     }
   };
 
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    // Calculate the total price whenever the cards change
+    const newTotalPrice = cards.reduce(
+      (sum, card) => sum + (card?.price || 0),
+      0,
+    );
+    setTotalPrice(newTotalPrice);
+  }, [cards]);
+
   return (
     <section className="min-h-[70vh]">
       {loading && (
@@ -74,36 +88,35 @@ const ShoppingCart = () => {
         </div>
       )}
       {error && <Error error={error} />}
-      <AnimatePresence>
-        {!loading && !error && amount > 0 ? (
-          <motion.div className="container grid grid-cols-products place-items-center gap-4">
-            {cards
-              ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
-              .map((card) => {
-                if (card) {
-                  const { category, id, images, price, title } = card;
-                  return (
-                    <BuyCard
-                      key={nanoid()}
-                      id={id}
-                      images={images}
-                      price={price}
-                      title={title}
-                      category={category}
-                      onClick={() => deleteItem(id)}
-                    />
-                  );
-                }
-                <div className="order">
-                  <button>Make an order</button>
-                </div>;
-                return null;
-              })}
-          </motion.div>
-        ) : (
-          !loading && !error && <NoItems />
-        )}
-      </AnimatePresence>
+
+      {!loading && !error && amount > 0 ? (
+        <div className="container">
+          <div className="grid grid-cols-products place-items-center gap-4">
+            {cards.map((card) => {
+              if (card) {
+                const { category, id, images, price, title } = card;
+
+                return (
+                  <BuyCard
+                    key={nanoid()}
+                    id={id}
+                    images={images}
+                    price={price}
+                    title={title}
+                    category={category}
+                    onClick={() => deleteItem(id)}
+                  />
+                );
+              }
+
+              return null;
+            })}
+          </div>
+          <h2 className="mt-6 text-3xl">Total: {totalPrice}$</h2>
+        </div>
+      ) : (
+        !loading && !error && <NoItems />
+      )}
     </section>
   );
 };

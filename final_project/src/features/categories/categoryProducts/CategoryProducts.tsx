@@ -8,7 +8,6 @@ import { fetchCategoryProducts } from "../../../hooks/fetchCategoryProducts.tsx"
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import NoItems from "../../../components/common/NoItems.tsx";
-import { AnimatePresence, motion } from "framer-motion";
 
 const CategoryProducts = () => {
   const dispatch = useAppDispatch();
@@ -24,11 +23,6 @@ const CategoryProducts = () => {
     dispatch(fetchCategoryProducts(`${categoryId}`));
   }, [dispatch, categoryId]);
 
-  // const allImagesBroken = !products?.some(({ images }) =>
-  //   isValidImage(images?.[0]),
-  // );
-  // console.log(products);
-
   return (
     <section>
       <div className="container min-h-[70vh]">
@@ -37,31 +31,25 @@ const CategoryProducts = () => {
             <Loading />
           </div>
         )}
-        <AnimatePresence>
-          {error && <Error error={error} />}
-          {!loading && !error && products && products.length > 0 ? (
-            <div className="grid grid-cols-home gap-4">
-              {products?.map(({ id, title, images, category, price }) => (
-                <motion.div
-                  key={nanoid()}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <CommonCard
-                    id={id}
-                    title={title}
-                    price={price}
-                    images={images}
-                    category={category}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            !loading && !error && <NoItems />
-          )}
-        </AnimatePresence>
+
+        {error && <Error error={error} />}
+
+        {!loading && !error && products && products.length > 0 ? (
+          <div className="grid grid-cols-home gap-4">
+            {products?.map(({ id, title, images, category, price }) => (
+              <CommonCard
+                key={nanoid()}
+                id={id}
+                title={title}
+                price={price}
+                images={images}
+                category={category}
+              />
+            ))}
+          </div>
+        ) : (
+          !loading && !error && <NoItems />
+        )}
       </div>
     </section>
   );

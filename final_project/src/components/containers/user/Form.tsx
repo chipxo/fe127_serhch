@@ -14,10 +14,10 @@ import {
 import { showForm } from "../../../features/registration/registerSlice";
 
 const signUpSchema = z.object({
-  name: z.string().min(2, { message: "Name is required" }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z
     .string()
-    .min(8, { message: "Email is required" })
+    .min(4, { message: "Email must be at least 4 characters" })
     .email({ message: "Must be a valid email" }),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
@@ -47,7 +47,9 @@ const Form = () => {
     email,
     password,
   }) => {
-    const userExist = localStorage.getItem(`user-${email}`);
+    const userDataString = localStorage.getItem(`user-${email}`);
+    const userExist = userDataString ? JSON.parse(userDataString) : null;
+
     setTimeout(() => {
       if (!alreadyRegistered) {
         if (userExist) {
@@ -58,9 +60,10 @@ const Form = () => {
             JSON.stringify({ name, email, password }),
           );
           dispatch(showForm(false));
+          document.body.style.overflow = "";
         }
       } else {
-        if (userExist) {
+        if (userExist && userExist.password === password) {
           localStorage.setItem("userData", JSON.stringify({ name, email }));
 
           localStorage.setItem("signedIn", JSON.stringify("true"));
@@ -68,7 +71,9 @@ const Form = () => {
           dispatch(setSignedIn(true));
 
           dispatch(showForm(false));
-          console.log("you signed in");
+          document.body.style.overflow = "";
+        } else if (userExist && userExist.password !== password) {
+          alert("wrong password, try again");
         } else {
           alert(`user doesnt exist, try again`);
         }

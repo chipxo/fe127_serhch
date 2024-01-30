@@ -10,6 +10,7 @@ import {
   showUserPanel,
 } from "../../../features/registration/registerSlice";
 import UserPannel from "./UserPanel";
+import { useEffect } from "react";
 
 const User = () => {
   const dispatch = useAppDispatch();
@@ -21,16 +22,17 @@ const User = () => {
   } = useSelector((state: RootState) => state.register);
 
   const handleUserClick = () => {
+    document.body?.setAttribute("class", "overflow-hidden pr-[14px]");
+
     if (signedIn) {
       dispatch(showUserPanel(true));
     } else {
-      document.body.style.overflow = "hidden";
       dispatch(showForm(true));
     }
   };
 
   const handleCloseForm = () => {
-    document.body.style.overflow = "";
+    document.body?.removeAttribute("class");
     dispatch(showForm(false));
   };
 

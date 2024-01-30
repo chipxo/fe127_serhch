@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { closeIcon, goToRightIcon } from "../../common/icons";
 import {
   setSignedIn,
@@ -8,13 +8,15 @@ import {
 import { useAppDispatch } from "../../../app/store";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/rootReducer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../common/buttons/Button";
 import { Link } from "react-router-dom";
 
 const UserPannel = () => {
   const dispatch = useAppDispatch();
   const { userData } = useSelector((state: RootState) => state.register);
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");
@@ -27,6 +29,8 @@ const UserPannel = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem("signedIn");
+    document.body?.removeAttribute("class");
+    dispatch(showUserPanel(false));
     dispatch(setSignedIn(false));
   };
 
@@ -34,7 +38,13 @@ const UserPannel = () => {
     localStorage.removeItem("userData");
     localStorage.removeItem(`user-${userData?.email}`);
     localStorage.removeItem("signedIn");
+    dispatch(showUserPanel(false));
     dispatch(setSignedIn(false));
+  };
+
+  const handleClosePanel = () => {
+    document.body?.removeAttribute("class");
+    dispatch(showUserPanel(false));
   };
 
   return (
@@ -54,18 +64,50 @@ const UserPannel = () => {
         <div className="flex justify-between">
           <div className="w-fit space-y-8">
             <h2 className="mb-4 text-xl">Hi, {userData?.name}</h2>
-            <Link to="/favouriteItems">Favourite Items {goToRightIcon}</Link>
+            <Link
+              onClick={() => dispatch(showUserPanel(false))}
+              to="/favouriteItems"
+            >
+              Favourite Items {goToRightIcon}
+            </Link>
             <div className="grid grid-cols-2 gap-x-12">
               <Button text="Sign out" color="primary" onClick={handleSignOut} />
               <Button
                 text="Delete account"
                 color="error"
-                onClick={handleDeleteAcc}
+                onClick={() => setOpen(!open)}
               />
+              <AnimatePresence>
+                {open && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className="col-span-2 mt-5 text-center text-lg"
+                  >
+                    <h2>Are you sure?</h2>
+                    <div className="mt-4 grid grid-cols-2 gap-x-16">
+                      <button
+                        className="rounded-md border border-neutral transition-colors hover:border-white"
+                        onClick={handleDeleteAcc}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        className="rounded-md border border-neutral transition-colors hover:border-white"
+                        onClick={() => setOpen(!open)}
+                      >
+                        No
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
           <div
-            onClick={() => dispatch(showUserPanel(false))}
+            onClick={handleClosePanel}
             className="relative -top-1 w-fit cursor-pointer text-2xl"
           >
             {closeIcon}

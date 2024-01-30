@@ -87,7 +87,7 @@ const SoloCard = () => {
               <Button
                 onClick={() => handleDelBtn(id)}
                 text={cartDelete}
-                color="secondary"
+                color="error"
                 disabled={!checked}
               />
             </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Slider from "../components/containers/slider/Slider.tsx";
+import Carousel from "../components/containers/slider/Slider.tsx";
 import CommonCard from "../features/cards/CommonCard.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/rootReducer.tsx";
@@ -10,7 +10,7 @@ import { fetchProducts } from "../hooks/fetchProducts.tsx";
 import CatalogAside from "../components/containers/nav/CatalogAside.tsx";
 import { fetchCategories } from "../hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion as m } from "framer-motion";
 import Button from "../components/common/buttons/Button.tsx";
 import { ProductType } from "../types/types.tsx";
 
@@ -58,77 +58,70 @@ const Home = () => {
           <Loading />
         </div>
       )}
+
       {error && <Error error={error} />}
-      {!loading && !error && allProducts && <Slider products={allProducts} />}
-      <AnimatePresence>
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-          }}
-          className="min-h-[60vh] border-y border-neutral"
-        >
-          <div className="lg:container">
-            {!loading && !error && categories && (
-              <CatalogAside categories={categories} />
-            )}
-            <div className="space-y-10 border-neutral py-10 pl-10 max-lg:container">
-              <h2 className="text-start text-2xl font-semibold md:text-4xl">
-                Best selling products:
-              </h2>
-              <div className="grid grid-cols-home gap-4">
-                {!loading &&
-                  !error &&
-                  allProducts?.map(
-                    ({ id, title, images, category, price }, index) =>
-                      index < 10 && (
-                        <CommonCard
-                          key={nanoid()}
-                          id={id}
-                          title={title}
-                          price={price}
-                          images={images}
-                          category={category}
-                          isHome
-                        />
-                      ),
-                  )}
-                <AnimatePresence>
-                  {moreProducts &&
-                    pr?.map(({ id, title, images, category, price }) => (
-                      <motion.div
+
+      {!loading && !error && allProducts && <Carousel products={allProducts} />}
+
+      <div className="min-h-[60vh] border-y border-neutral">
+        <div className="lg:container">
+          {!loading && !error && categories && (
+            <CatalogAside categories={categories} />
+          )}
+
+          <div className="space-y-10 border-neutral py-10 pl-10 max-lg:container">
+            <h2 className="text-start text-xl md:text-2xl md:font-semibold">
+              Best selling products:
+            </h2>
+            <div className="grid grid-cols-home gap-4">
+              {!loading &&
+                !error &&
+                allProducts?.map(
+                  ({ id, title, images, category, price }, index) =>
+                    index > 10 &&
+                    index < 20 && (
+                      <CommonCard
                         key={nanoid()}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        <CommonCard
-                          id={id}
-                          title={title}
-                          price={price}
-                          images={images}
-                          category={category}
-                          isHome
-                        />
-                      </motion.div>
-                    ))}
-                </AnimatePresence>
-              </div>
+                        id={id}
+                        title={title}
+                        price={price}
+                        images={images}
+                        category={category}
+                        isHome
+                      />
+                    ),
+                )}
+              {moreProducts &&
+                pr?.map(({ id, title, images, category, price }) => (
+                  <m.div
+                    key={nanoid()}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <CommonCard
+                      id={id}
+                      title={title}
+                      price={price}
+                      images={images}
+                      category={category}
+                      isHome
+                    />
+                  </m.div>
+                ))}
             </div>
           </div>
-          <div className="mb-8 grid place-items-center">
+        </div>
+        <div className="mb-8 grid place-items-center">
+          {!moreProducts && (
             <Button
-              text={`Show ${moreProducts ? "less" : "more"}`}
-              color="primary"
-              onClick={() => setMoreProducts(!moreProducts)}
+              text="Show more"
+              color="secondary"
+              onClick={() => setMoreProducts(true)}
             />
-          </div>
-        </motion.section>
-      </AnimatePresence>
+          )}
+        </div>
+      </div>
     </>
   );
 };
