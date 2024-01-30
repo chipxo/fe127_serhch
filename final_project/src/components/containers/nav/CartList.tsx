@@ -31,9 +31,12 @@ const ShoppingCartItem = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-    const localStorageLength = window.localStorage.length;
 
-    dispatch(setAmount(localStorageLength > 1 ? localStorageLength - 1 : 0));
+    const allKeys = Object.keys(localStorage);
+
+    const numberKeys = allKeys.filter((key) => !isNaN(Number(key)));
+
+    dispatch(setAmount(numberKeys.length));
   }, [dispatch]);
 
   return (

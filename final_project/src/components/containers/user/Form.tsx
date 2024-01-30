@@ -2,7 +2,7 @@ import { twJoin } from "tailwind-merge";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { showPasswordIcon } from "../../common/icons";
 import { useAppDispatch } from "../../../app/store";
 import { useSelector } from "react-redux";
@@ -27,7 +27,7 @@ type TSignUpSchema = z.infer<typeof signUpSchema>;
 const Form = () => {
   const dispatch = useAppDispatch();
 
-  const { alreadyRegistered, signedIn } = useSelector(
+  const { alreadyRegistered } = useSelector(
     (state: RootState) => state.register,
   );
 
@@ -48,29 +48,34 @@ const Form = () => {
     password,
   }) => {
     const userExist = localStorage.getItem(`user-${email}`);
-
-    if (!alreadyRegistered) {
-      if (userExist) {
-        alert(`User already exist`);
+    setTimeout(() => {
+      if (!alreadyRegistered) {
+        if (userExist) {
+          alert(`User already exist`);
+        } else {
+          localStorage.setItem(
+            `user-${email}`,
+            JSON.stringify({ name, email, password }),
+          );
+          dispatch(showForm(false));
+        }
       } else {
-        localStorage.setItem(
-          `user-${email}`,
-          JSON.stringify({ name, email, password }),
-        );
-        dispatch(showForm());
-      }
-    } else {
-      if (userExist) {
-        localStorage.setItem("signedIn", JSON.stringify("true"));
-        dispatch(setSignedIn(true));
-        dispatch(showForm());
-        alert("you signed in");
-      } else {
-        alert(`user doesnt exist, try again`);
-      }
-    }
+        if (userExist) {
+          localStorage.setItem("userData", JSON.stringify({ name, email }));
 
-    reset();
+          localStorage.setItem("signedIn", JSON.stringify("true"));
+
+          dispatch(setSignedIn(true));
+
+          dispatch(showForm(false));
+          console.log("you signed in");
+        } else {
+          alert(`user doesnt exist, try again`);
+        }
+      }
+
+      reset();
+    }, 1000);
   };
 
   return (
