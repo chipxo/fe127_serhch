@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "../../types/types.tsx";
 import { fetchProduct } from "../../hooks/fetchProduct.tsx";
 
 type CardsState = {
-  product: ProductType | null;
+  product: ProductType | undefined;
   loading: boolean;
   error: string | null | {};
 };
 
 const initialState: CardsState = {
-  product: null,
+  product: undefined,
   loading: false,
   error: null,
 };
@@ -24,15 +24,21 @@ const productSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchProduct.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = null;
-        state.product = action.payload as ProductType;
-      })
-      .addCase(fetchProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload ?? "Fetch failed";
-      });
+      .addCase(
+        fetchProduct.fulfilled,
+        (state, action: PayloadAction<ProductType | undefined>) => {
+          state.loading = false;
+          state.error = null;
+          state.product = action.payload;
+        },
+      )
+      .addCase(
+        fetchProduct.rejected,
+        (state, action: PayloadAction<unknown, string>) => {
+          state.loading = false;
+          state.error = action.payload ?? "Fetch failed";
+        },
+      );
   },
 });
 

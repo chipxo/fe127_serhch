@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchCategories } from "../../hooks/fetchCategories.tsx";
 import { CategoriesType } from "../../types/types.tsx";
 
@@ -24,15 +24,21 @@ const categoriesSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
-        state.loading = false;
-        state.categories = action.payload as CategoriesType[];
-        state.error = null;
-      })
-      .addCase(fetchCategories.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload ?? "Fetch failed";
-      });
+      .addCase(
+        fetchCategories.fulfilled,
+        (state, action: PayloadAction<CategoriesType[] | undefined>) => {
+          state.loading = false;
+          state.categories = action.payload as CategoriesType[];
+          state.error = null;
+        },
+      )
+      .addCase(
+        fetchCategories.rejected,
+        (state, action: PayloadAction<unknown, string>) => {
+          state.loading = false;
+          state.error = action.payload ?? "fetch failed";
+        },
+      );
   },
 });
 

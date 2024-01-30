@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { ProductType } from "../../types/types.tsx";
 import { fetchProduct } from "../../hooks/fetchProduct.tsx";
 
 type InitialStateType = {
-  product: ProductType | null;
+  product: ProductType | undefined;
   loading: boolean;
   error: string | {} | null;
 };
 
 const initialState: InitialStateType = {
-  product: null,
+  product: undefined,
   loading: false,
   error: null,
 };
@@ -25,15 +25,21 @@ const soloCardSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload ?? "fetch failed";
-      })
-      .addCase(fetchProduct.fulfilled, (state, action) => {
-        state.loading = false;
-        state.product = action.payload ?? null;
-        state.error = null;
-      });
+      .addCase(
+        fetchProduct.rejected,
+        (state, action: PayloadAction<unknown, string>) => {
+          state.loading = false;
+          state.error = action.payload ?? "fetch failed";
+        },
+      )
+      .addCase(
+        fetchProduct.fulfilled,
+        (state, action: PayloadAction<ProductType | undefined>) => {
+          state.loading = false;
+          state.product = action.payload;
+          state.error = null;
+        },
+      );
   },
 });
 
