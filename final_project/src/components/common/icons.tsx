@@ -3,16 +3,18 @@ import {
   faCaretRight,
   faCartShopping,
   faCheck,
+  faEye,
   faFilter,
   faMagnifyingGlass,
   faTrash,
   faUser,
+  faX,
 } from "@fortawesome/free-solid-svg-icons";
-import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const cartIcon = <FontAwesomeIcon icon={faCartShopping} />;
-export const cartUser = <FontAwesomeIcon className="mr-2" icon={faUser} />;
+export const cartUser = <FontAwesomeIcon className="text-2xl" icon={faUser} />;
 export const cartDelete = <FontAwesomeIcon icon={faTrash} />;
 export const cartChecked = (
   <FontAwesomeIcon icon={faCheck} className="ml-2 text-lg text-info" />
@@ -31,3 +33,7 @@ export const catalogIcon = <FontAwesomeIcon icon={faMicrosoft} />;
 export const goToRightIcon = (
   <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
 );
+export const googleIcon = <FontAwesomeIcon icon={faGoogle} />;
+export const closeIcon = <FontAwesomeIcon icon={faX} />;
+
+export const showPasswordIcon = <FontAwesomeIcon icon={faEye} />;

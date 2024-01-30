@@ -7,6 +7,7 @@ import WebFont from "webfontloader";
 import { useEffect } from "react";
 import CategoryProducts from "../features/categories/categoryProducts/CategoryProducts.tsx";
 import FoundProducts from "../pages/FoundProducts.tsx";
+import SignIn from "../pages/SignIn.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="signIn" element={<SignIn />} />
         <Route path="/searchResults" element={<FoundProducts />} />
         <Route path="/products/:prodId" element={<SoloCard />} />
         <Route path="/shoppingCart" element={<ShoppingCart />} />
