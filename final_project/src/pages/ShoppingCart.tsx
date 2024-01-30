@@ -42,6 +42,8 @@ const ShoppingCart = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     if (!areArraysEqual(prevItems.current, items)) {
       setCards(items);
       prevItems.current = items;
@@ -73,7 +75,7 @@ const ShoppingCart = () => {
       )}
       {error && <Error error={error} />}
       <AnimatePresence>
-        {!loading && !error && cards.length > 1 ? (
+        {!loading && !error && amount > 0 ? (
           <motion.div className="container grid grid-cols-products place-items-center gap-4">
             {cards
               ?.filter((card) => localStorageKeys.includes(`${card?.id}`))
