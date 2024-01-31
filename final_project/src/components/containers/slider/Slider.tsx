@@ -23,12 +23,12 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
   };
 
   return (
-    <section className="relative overflow-hidden border-neutral pb-1.5 pt-3 md:border-y md:shadow-lg">
-      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md md:absolute md:top-1/2 md:-translate-y-1/2 md:py-6">
+    <section className="relative overflow-hidden border-neutral py-3 md:border-y md:shadow-lg">
+      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md">
         <SliderHeader />
       </div>
       {products && (
-        <Slider {...settings} className="hidden md:block">
+        <Slider {...settings}>
           {products.map(
             ({ title, images }) =>
               isValidImage(images[0]) && (

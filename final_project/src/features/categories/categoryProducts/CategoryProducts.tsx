@@ -25,7 +25,7 @@ const CategoryProducts = () => {
 
   return (
     <section>
-      <div className="container min-h-[70vh]">
+      <div className="container min-h-[70vh] py-10">
         {loading && (
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <Loading />

@@ -25,19 +25,21 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/searchResults" element={<FoundProducts />} />
-        <Route path="/products/:prodId" element={<SoloCard />} />
-        <Route path="/shoppingCart" element={<ShoppingCart />} />
-        <Route
-          path="/products/categories/:categoryId"
-          element={<CategoryProducts />}
-        />
-        <Route path="*" element={<Page404 />} />
-      </Route>
-    </Routes>
+    <div className="bg-neutral/10">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/searchResults" element={<FoundProducts />} />
+          <Route path="/products/:prodId" element={<SoloCard />} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route
+            path="/products/categories/:categoryId"
+            element={<CategoryProducts />}
+          />
+          <Route path="*" element={<Page404 />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 

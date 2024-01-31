@@ -8,9 +8,12 @@ import { cartDelete, cartIcon } from "../../components/common/icons.tsx";
 import { RootState } from "../../app/rootReducer.tsx";
 import { useAppDispatch } from "../../app/store.tsx";
 import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
+import { log } from "console";
 
 const SoloCard = () => {
   const [checked, setChecked] = useState(false);
+  const [imgs, setImgs] = useState(true);
+
   const { prodId } = useParams();
 
   const dispatch = useAppDispatch();
@@ -24,11 +27,22 @@ const SoloCard = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const handleResize = () => {
+      window.innerWidth <= 1024 ? setImgs(false) : setImgs(true);
+    };
+
+    window.addEventListener("resize", handleResize);
+
     if (localStorage.getItem(`${prodId}`)) {
       setChecked(true);
     } else {
       setChecked(false);
     }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   if (!product || loading) {
@@ -59,21 +73,21 @@ const SoloCard = () => {
 
   return (
     <section className="relative min-h-[70vh]">
-      <div className="container">
-        <div className="gap-x-10 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg lg:grid lg:grid-cols-[1fr_0.5fr]">
-          <div className="text-md flex h-full flex-col gap-y-6 md:text-lg lg:text-xl">
-            <p className="badge badge-accent badge-lg p-4 font-semibold">
+      <div className="container py-10">
+        <div className="flex flex-col-reverse gap-x-10 gap-y-4 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg lg:grid lg:grid-cols-[1fr_0.5fr]">
+          <div className="text-md flex h-full flex-col gap-y-4 md:text-lg lg:gap-y-6 lg:text-xl">
+            <p className="badge badge-accent font-semibold lg:badge-lg lg:p-4">
               {category?.name}
             </p>
-            <h2 className="mt-8 text-3xl font-semibold tracking-wider">
+            <h2 className="text-xl font-semibold tracking-wider lg:mt-8 lg:text-3xl">
               {title}
             </h2>
             {/* {checked && cartChecked} */}
-            <p className="tracking-wide">{description}</p>
+            <p className="text-md tracking-wide">{description}</p>
             <p className="mt-4">
               Price:
               <br />
-              <span className="text-5xl font-semibold text-accent">
+              <span className="text-2xl font-semibold text-accent lg:text-5xl">
                 {price}$
               </span>
             </p>
@@ -93,7 +107,7 @@ const SoloCard = () => {
             </div>
           </div>
           <figure className="flex rounded-md border border-neutral lg:grid">
-            <div className="p-3">
+            <div className="h-full p-3">
               <img
                 src={images?.[0]}
                 className="h-full w-full cursor-pointer rounded-md object-cover"
@@ -102,23 +116,25 @@ const SoloCard = () => {
             </div>
 
             {/* <div className="divider my-2 h-[1px] bg-neutral" /> */}
-            <div className="grid h-full w-full gap-3 border-t border-neutral p-3 lg:grid-cols-3">
-              <img
-                src={images?.[1]}
-                alt={title}
-                className="h-full w-full cursor-pointer rounded-md object-cover"
-              />
-              <img
-                src={images?.[2]}
-                alt={title}
-                className="h-full w-full cursor-pointer rounded-md object-cover"
-              />
-              <img
-                src={images?.[0]}
-                alt={title}
-                className="h-full w-full cursor-pointer rounded-md object-cover"
-              />
-            </div>
+            {imgs && (
+              <div className="grid gap-3 border-t border-neutral p-3 lg:grid-cols-3">
+                <img
+                  src={images?.[1]}
+                  alt={title}
+                  className="h-full w-full cursor-pointer rounded-md object-cover"
+                />
+                <img
+                  src={images?.[2]}
+                  alt={title}
+                  className="h-full w-full cursor-pointer rounded-md object-cover"
+                />
+                <img
+                  src={images?.[0]}
+                  alt={title}
+                  className="h-full w-full cursor-pointer rounded-md object-cover"
+                />
+              </div>
+            )}
           </figure>
         </div>
       </div>

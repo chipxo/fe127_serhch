@@ -21,7 +21,7 @@ const Theme2 = () => {
   };
 
   return (
-    <div className="hidden place-items-center md:grid">
+    <div className="grid place-items-center">
       <label className="swap swap-rotate">
         <input
           type="checkbox"

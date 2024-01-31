@@ -5,10 +5,11 @@ import { setInputValue } from "@/features/searchBar/searchSlice";
 import Button from "@/components/common/buttons/Button.tsx";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
-import SearchPage from "@/pages/SearchPage";
+import SearchPage from "./SearchPage";
 import { ProductType } from "@/types/types";
 import { Error, Loading } from "@/components/common/LoadingError.tsx";
 import { Link, useNavigate } from "react-router-dom";
+import { mSetting } from "@/utils/motionSettings";
 
 const Search = () => {
   const dispatch = useAppDispatch();
@@ -48,8 +49,9 @@ const Search = () => {
   }, []);
 
   const handleChange = (value: string) => {
-    dispatch(setInputValue(value));
     setOpen(true);
+
+    dispatch(setInputValue(value));
 
     const input = value.toLowerCase();
 
@@ -83,10 +85,8 @@ const Search = () => {
       <AnimatePresence>
         {open && (
           <m.div
-            initial={{ opacity: 0, scale: 0.1 }}
-            animate={{ opacity: 1, scale: 0.8 }}
-            exit={{ opacity: 0 }}
-            className="absolute right-0 top-0 z-[12]"
+            {...mSetting}
+            className="absolute right-0 top-0 z-[12] scale-75"
           >
             <Link to="/searchResults">
               <Button text="search" color={"primary"} />
@@ -98,16 +98,12 @@ const Search = () => {
         {open && (
           <>
             <m.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              {...mSetting}
               className="fixed inset-0 h-screen w-screen bg-black/40"
               onClick={() => setOpen(false)}
             />
             <m.div
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
+              {...mSetting}
               style={{ x: "-50%" }}
               className="absolute left-1/2 top-14 z-[200] w-full"
             >

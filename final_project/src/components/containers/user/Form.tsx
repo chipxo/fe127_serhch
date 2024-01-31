@@ -3,7 +3,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { closeIcon, showPasswordIcon } from "@/components/common/icons";
+import {
+  closeIcon,
+  googleIcon,
+  showPasswordIcon,
+} from "@/components/common/icons";
 import { useAppDispatch } from "@/app/store";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer";
@@ -13,8 +17,9 @@ import {
 } from "@/features/registration/registerSlice";
 import { showForm } from "@/features/registration/registerSlice";
 import { motion as m } from "framer-motion";
-import { Link } from "react-router-dom";
 import { setAlertText, showAlert } from "@/features/alert/alertSlice";
+import Button from "@/components/common/buttons/Button";
+import { mSetting } from "@/utils/motionSettings";
 
 const signUpSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -56,6 +61,9 @@ const Form = () => {
     setTimeout(() => {
       if (alreadyRegistered) {
         if (userExist && userExist.password === password) {
+          // if user exists and pass the right password, it makes him signed in, close the form and give the access
+          // to user panel
+
           localStorage.setItem("userData", JSON.stringify({ name, email }));
           localStorage.setItem("signedIn", JSON.stringify("true"));
 
@@ -66,17 +74,25 @@ const Form = () => {
           dispatch(setAlertText("You successfully signed in!"));
           dispatch(showAlert(true));
         } else if (userExist && userExist.password !== password) {
+          //if user pass wrong password = alert wrong password and reset the form
+
           dispatch(setAlertText("Wrong password, try again!"));
           dispatch(showAlert(true));
         } else {
+          //if user pass wrong email
+
           dispatch(setAlertText("User doesnt exist, try again!"));
           dispatch(showAlert(true));
         }
       } else {
         if (userExist) {
+          //if user try to registrate with existing email
+
           dispatch(setAlertText("User already exist, try again!"));
           dispatch(showAlert(true));
         } else {
+          //if user successfully registrated
+
           localStorage.setItem(
             `user-${email}`,
             JSON.stringify({ name, email, password }),
@@ -88,9 +104,8 @@ const Form = () => {
           dispatch(showAlert(true));
         }
       }
+      reset();
     }, 1000);
-
-    reset();
   };
 
   const handleCloseForm = () => {
@@ -101,13 +116,12 @@ const Form = () => {
   return (
     <>
       <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[200] grid items-center bg-black/75 px-[14vw]"
+        {...mSetting}
+        className="fixed inset-0 z-[200] grid items-center bg-black/40 px-4 sm:px-[14vw]"
       >
         <div className="rounded-md bg-base-300">
-          <div className="relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-12 border-b border-neutral px-6 py-4">
+          <div className="relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-12 border-b border-neutral px-6 py-2">
+            {/* Buttons for switch between Sign in and Register */}
             <button
               onClick={() => {
                 reset();
@@ -126,20 +140,22 @@ const Form = () => {
                 dispatch(setRegistered(false));
               }}
               className={twJoin(
-                "w-fit rounded-md border border-neutral px-4 py-1",
+                "mr-6 w-fit rounded-md border border-neutral px-4 py-1",
                 !alreadyRegistered && "scale-110 bg-black/30",
               )}
             >
               Register
             </button>
+
+            {/* Close the form */}
             <div
               onClick={handleCloseForm}
-              className="absolute right-4 top-4 cursor-pointer rounded-lg border border-neutral px-3 py-1"
+              className="absolute right-4 top-2 cursor-pointer rounded-lg border-neutral py-1 md:border md:px-3"
             >
               {closeIcon}
             </div>
           </div>
-          <div className="grid grid-cols-[1fr_0.8fr]">
+          <div className="grid md:grid-cols-[1fr_0.8fr]">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-y-14 border-b border-neutral px-6 py-8">
                 <label htmlFor="name" className="relative">
@@ -192,6 +208,8 @@ const Form = () => {
                       errors.password ? "border-red-600" : "border-neutral",
                     )}
                   />
+
+                  {/* Icon to show/hide password  */}
                   <span
                     onClick={() => setShowPassword(!showPassword)}
                     className={twJoin(
@@ -208,24 +226,24 @@ const Form = () => {
                 </label>
               </div>
               <div className="grid gap-4 px-6 py-4 text-sm">
-                <button className="btn btn-outline btn-secondary rounded-md border border-neutral p-3 text-center">
-                  {alreadyRegistered ? "Sign in" : "Register"}
-                </button>
+                {/* Submitting button */}
+                <Button
+                  text={alreadyRegistered ? "Sign in" : "Register"}
+                  color="secondary"
+                />
               </div>
             </form>
-            <div className="relative grid place-items-center border-l border-neutral">
-              <span className="absolute -left-2 top-1/2 -translate-y-1/2 bg-base-300 py-3">
+            <div className="relative grid place-items-center border-neutral max-md:border-t max-md:py-3 md:border-l">
+              {/* Another way to sign in */}
+              <span className="absolute -left-2 top-1/2 -translate-y-1/2 bg-base-300 py-3 max-md:hidden">
                 or
               </span>
-              <div className="grid gap-4">
-                <h2 className="text-2xl">Sign in with</h2>
-                <Link
-                  to=""
-                  className="rounded-md border border-neutral px-4 py-1 text-center text-info"
-                >
-                  {/* {googleIcon} */}
-                  Google
-                </Link>
+              <div className="grid place-items-center gap-4">
+                <div className="flex items-center gap-x-4 justify-self-start">
+                  <h2 className="md:text-2xl">Sign in with</h2>
+                  <Button text={googleIcon} color="secondary" />
+                </div>
+                {/*  */}
               </div>
             </div>
           </div>

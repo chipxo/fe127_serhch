@@ -5,6 +5,7 @@ import { cartDelete } from "@/components/common/icons.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
 import { decreaseAmount } from "../amount/amountSlice.tsx";
 import { ProductType } from "@/types/types.tsx";
+import { mSetting } from "@/utils/motionSettings.tsx";
 
 type BuyCardProps = ProductType & {
   onClick: () => void;
@@ -39,6 +40,7 @@ const BuyCard: React.FC<BuyCardProps> = ({
       setCount(Number(value));
       setModal(false);
     } else {
+      document.body.setAttribute("class", "overflow-hidden");
       setModal(true);
     }
   };
@@ -49,15 +51,19 @@ const BuyCard: React.FC<BuyCardProps> = ({
         <AnimatePresence>
           {modal && (
             <m.div
-              initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 30 }}
-              exit={{ opacity: 0, y: -80 }}
-              className="absolute -top-8 left-0 z-[999] h-screen w-full cursor-pointer bg-base-300/80"
+              {...mSetting}
+              className="fixed inset-0 z-[999] cursor-pointer bg-black/40"
               onClick={() => setModal(false)}
             >
-              <div className="absolute left-1/2 top-12 -translate-x-1/2 rounded-md bg-base-100 p-12 text-2xl shadow-sm">
-                <h2>Write only numbers!</h2>
-              </div>
+              <m.h2
+                initial={{ y: -30 }}
+                animate={{ y: 0 }}
+                exit={{ y: -100 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="mx-auto mt-10 w-fit rounded-md bg-base-300 px-10 py-3"
+              >
+                Write only numbers!
+              </m.h2>
             </m.div>
           )}
         </AnimatePresence>

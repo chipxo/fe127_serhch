@@ -9,6 +9,11 @@ a {
   @apply font-Merriweather tracking-wider;
 }
 
+h2,
+h3 {
+  @apply text-lg;
+}
+
 p,
 span,
 input {
@@ -46,7 +51,7 @@ input {
 }
 
 section {
-  @apply my-3 sm:my-5 md:my-10;
+  @apply my-3 bg-base-100 shadow-xl sm:my-5 md:my-10;
 }
 
 .collapse:not(.collapse-close)

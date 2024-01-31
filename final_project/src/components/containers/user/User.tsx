@@ -26,18 +26,13 @@ const User = () => {
 
   return (
     <>
-      <div onClick={handleUserClick} className="cursor-pointer">
+      <div onClick={handleUserClick} className="relative z-[50] cursor-pointer">
         {cartUser}
       </div>
       <div className="fixed left-1/2 top-20 z-[999] -translate-x-1/2">
         <AlertModal />
       </div>
       <AnimatePresence>
-        {/* {showAlert && (
-          <div className="absolute left-1/2 top-20 -translate-x-1/2">
-            <AlertModal title="You succsessfully signed in!" description="" />
-          </div>
-        )} */}
         {openUserPanel && signedIn ? <UserPannel /> : openForm && <Form />}
       </AnimatePresence>
     </>

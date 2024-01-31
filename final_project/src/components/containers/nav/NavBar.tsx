@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 import Logo from "@/components/common/Logo";
-import Burger from "@/components/common/buttons/Burger";
+import Burger from "../burger/Burger.tsx";
 import SecondUl from "./AsideBar";
-import Search from "./Search.tsx";
-import Catalog from "./Catalog";
+import Search from "../../../features/searchBar/Search.tsx";
+import Catalog from "./CategoriesNav.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { useEffect } from "react";
+import BurgerBar from "../burger/BurgerBar.tsx";
 
 const NavBar = () => {
   const { categories } = useSelector((state: RootState) => state.categories);
@@ -20,7 +21,7 @@ const NavBar = () => {
   }, [dispatch]);
 
   return (
-    <div className="container rounded-b-md bg-base-100 py-2">
+    <nav className="container rounded-b-md bg-base-100 py-2">
       <ul className="grid max-h-[80px] grid-cols-[108px_1fr_0.1fr] place-items-center gap-x-4 sm:grid-cols-[108px_1fr_0.1fr_0.1fr] md:grid-cols-[108px_1fr_0.28fr] lg:grid-cols-[108px_0.22fr_1fr_0.28fr]">
         <NavLink
           to="/"
@@ -33,9 +34,9 @@ const NavBar = () => {
           <Search />
         </div>
         <SecondUl />
-        <Burger />
+        <BurgerBar />
       </ul>
-    </div>
+    </nav>
   );
 };
 

@@ -8,13 +8,25 @@ import {
 import { useAppDispatch } from "@/app/store";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/common/buttons/Button";
 import { Link } from "react-router-dom";
+import Form from "./Form";
+import BtnRegisSign from "./buttons/BtnRegisSign";
+import PanelTitle from "./PanelTitle";
+import { mSetting } from "@/utils/motionSettings";
+import ThemeSwapper from "@/features/theme/ThemeSwapper";
+import ShoppingCartItem from "../nav/CartList";
 
-const UserPannel = () => {
+type UserPanelProps = {
+  isBurger?: boolean;
+};
+
+const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
   const dispatch = useAppDispatch();
-  const { userData } = useSelector((state: RootState) => state.register);
+  const { userData, openForm, signedIn } = useSelector(
+    (state: RootState) => state.register,
+  );
 
   const [open, setOpen] = useState(false);
 
@@ -49,70 +61,94 @@ const UserPannel = () => {
 
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 right-0 top-0 z-[99] grid bg-black/50"
+      {...mSetting}
+      className="fixed inset-0 right-0 top-0 z-[99] grid bg-black/40"
     >
       <m.div
-        initial={{ x: 200 }}
-        animate={{ x: 0 }}
-        exit={{ x: 200 }}
-        transition={{ ease: "easeOut", duration: 0.3 }}
-        className="w-[30vw] justify-self-end border-l border-neutral bg-base-300 p-4"
+        initial={{ opacity: 0, x: 300 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 300 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="relative justify-self-end border-l border-neutral bg-base-300 p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
       >
-        <div className="flex justify-between">
-          <div className="w-fit space-y-8">
-            <h2 className="mb-4 text-xl">Hi, {userData?.name}</h2>
+        <nav className="top-4 max-sm:mb-4 max-sm:border-b max-sm:border-neutral max-sm:pb-4 sm:absolute md:left-8 md:top-6">
+          <ul className="grid cursor-pointer place-items-center gap-x-4 text-xl max-sm:grid-cols-3 sm:max-md:grid-cols-2">
+            <li onClick={handleClosePanel} className="scale-125">
+              {closeIcon}
+            </li>
+            <li className="md:hidden">
+              <ThemeSwapper />
+            </li>
+            <li className="scale-105 sm:hidden">
+              <ShoppingCartItem isBurger />
+            </li>
+          </ul>
+        </nav>
+        {signedIn && (
+          <div className="grid w-full gap-y-4 text-end">
+            <PanelTitle />
             <Link
               onClick={() => dispatch(showUserPanel(false))}
               to="/favouriteItems"
+              className="text-sm"
             >
-              Favourite Items {goToRightIcon}
+              Favourite {goToRightIcon}
             </Link>
-            <div className="grid grid-cols-2 gap-x-12">
-              <Button text="Sign out" color="primary" onClick={handleSignOut} />
+            <div className="grid w-full gap-x-3 border-t border-neutral pt-6 max-sm:gap-y-3 sm:grid-cols-2 md:gap-x-6 lg:gap-x-12">
+              <Button text="Sign out" onClick={handleSignOut} custom={false} />
               <Button
                 text="Delete account"
-                color="error"
                 onClick={() => setOpen(!open)}
+                custom={false}
               />
               <AnimatePresence>
                 {open && (
                   <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    {...mSetting}
                     className="col-span-2 mt-5 text-center text-lg"
                   >
                     <h2>Are you sure?</h2>
                     <div className="mt-4 grid grid-cols-2 gap-x-16">
-                      <button
-                        className="rounded-md border border-neutral transition-colors hover:border-white"
+                      <Button
+                        color="error"
+                        text="Yes"
                         onClick={handleDeleteAcc}
-                      >
-                        Yes
-                      </button>
-                      <button
-                        className="rounded-md border border-neutral transition-colors hover:border-white"
+                      />
+                      <Button
+                        color="success"
+                        text="No"
                         onClick={() => setOpen(!open)}
-                      >
-                        No
-                      </button>
+                      />
                     </div>
                   </m.div>
                 )}
               </AnimatePresence>
             </div>
           </div>
-          <div
-            onClick={handleClosePanel}
-            className="relative -top-1 w-fit cursor-pointer text-2xl"
-          >
-            {closeIcon}
-          </div>
-        </div>
+        )}
+        {isBurger && (
+          <>
+            {!signedIn && (
+              <div className="space-y-4">
+                <h2 className="max-sm:text-md ml-6 text-end sm:ml-10">
+                  Sign in or register to acces private cabinet
+                </h2>
+                <div className="grid gap-x-6 gap-y-1 border-t border-neutral pt-4 sm:grid-cols-[1fr_0.1fr_1fr]">
+                  <BtnRegisSign text="Sign in" signIn />
+                  <h2 className="place-self-center max-sm:text-sm">or</h2>
+                  <BtnRegisSign text="Register" />
+                </div>
+              </div>
+            )}
+            <AnimatePresence>
+              {openForm && (
+                <div>
+                  <Form />
+                </div>
+              )}
+            </AnimatePresence>
+          </>
+        )}
       </m.div>
     </m.div>
   );

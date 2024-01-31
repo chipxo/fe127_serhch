@@ -8,6 +8,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { Loading, Error } from "@/components/common/LoadingError";
 import NoItems from "@/components/common/NoItems";
 import { motion as m } from "framer-motion";
+import { mSetting } from "@/utils/motionSettings";
 
 const FoundProducts = () => {
   const { products, loading, error } = useSelector(
@@ -44,7 +45,7 @@ const FoundProducts = () => {
       )}
       {error && <Error error={error} />}
       {filteredPr && inputValue.length > 0 && filteredPr?.length > 0 ? (
-        <div className="container">
+        <div className="container py-6">
           {inputValue.length > 0 && (
             <h2 className="mb-10 text-3xl font-semibold">
               Results for: "{inputValue}"
@@ -53,20 +54,9 @@ const FoundProducts = () => {
           <div className="grid grid-cols-home gap-4">
             {!loading &&
               !error &&
-              filteredPr?.map(({ id, title, images, category, price }) => (
-                <m.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  key={nanoid()}
-                >
-                  <CommonCard
-                    id={id}
-                    title={title}
-                    price={price}
-                    images={images}
-                    category={category}
-                  />
+              filteredPr?.map((product) => (
+                <m.div {...mSetting} key={nanoid()}>
+                  <CommonCard {...product} />
                 </m.div>
               ))}
           </div>

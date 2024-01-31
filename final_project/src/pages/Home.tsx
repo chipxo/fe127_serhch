@@ -7,7 +7,7 @@ import { useAppDispatch } from "@/app/store.tsx";
 import { Error, Loading } from "@/components/common/LoadingError.tsx";
 import { fetchAmountOfProducts } from "@/hooks/fetchAmountOfProducts.tsx";
 import { fetchProducts } from "@/hooks/fetchProducts.tsx";
-import CatalogAside from "@/components/containers/nav/CatalogAside.tsx";
+import CatalogAside from "@/components/containers/nav/CategoriesHome";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { motion as m } from "framer-motion";
@@ -63,7 +63,7 @@ const Home = () => {
 
       {!loading && !error && allProducts && <Carousel products={allProducts} />}
 
-      <div className="min-h-[60vh] border-y border-neutral">
+      <div className="min-h-[60vh] border-y border-neutral bg-base-100">
         <div className="lg:container">
           {!loading && !error && categories && (
             <CatalogAside categories={categories} />
@@ -76,37 +76,18 @@ const Home = () => {
             <div className="grid grid-cols-home gap-4">
               {!loading &&
                 !error &&
-                allProducts?.map(
-                  ({ id, title, images, category, price }, index) =>
-                    index > 10 &&
-                    index < 20 && (
-                      <CommonCard
-                        key={nanoid()}
-                        id={id}
-                        title={title}
-                        price={price}
-                        images={images}
-                        category={category}
-                        isHome
-                      />
-                    ),
-                )}
+                allProducts?.map((product, index) => (
+                  <CommonCard key={nanoid()} {...product} isHome />
+                ))}
               {moreProducts &&
-                pr?.map(({ id, title, images, category, price }) => (
+                pr?.map((product) => (
                   <m.div
                     key={nanoid()}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                   >
-                    <CommonCard
-                      id={id}
-                      title={title}
-                      price={price}
-                      images={images}
-                      category={category}
-                      isHome
-                    />
+                    <CommonCard {...product} isHome />
                   </m.div>
                 ))}
             </div>

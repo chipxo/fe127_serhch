@@ -90,21 +90,15 @@ const ShoppingCart = () => {
       {error && <Error error={error} />}
 
       {!loading && !error && amount > 0 ? (
-        <div className="container">
+        <div className="container py-4">
           <div className="grid grid-cols-products place-items-center gap-4">
             {cards.map((card) => {
               if (card) {
-                const { category, id, images, price, title } = card;
-
                 return (
                   <BuyCard
+                    {...card}
                     key={nanoid()}
-                    id={id}
-                    images={images}
-                    price={price}
-                    title={title}
-                    category={category}
-                    onClick={() => deleteItem(id)}
+                    onClick={() => deleteItem(card.id)}
                   />
                 );
               }
@@ -112,7 +106,7 @@ const ShoppingCart = () => {
               return null;
             })}
           </div>
-          <h2 className="mt-6 text-3xl">Total: {totalPrice}$</h2>
+          {/* <h2 className="mt-6 text-3xl">Total: {totalPrice}$</h2> */}
         </div>
       ) : (
         !loading && !error && <NoItems />

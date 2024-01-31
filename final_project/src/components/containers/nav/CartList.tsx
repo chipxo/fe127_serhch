@@ -1,5 +1,5 @@
 import { AnimatePresence, motion as m } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Error, Loading } from "@/components/common/LoadingError";
@@ -9,8 +9,15 @@ import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
 import { setAmount } from "@/features/amount/amountSlice";
 import { ProductType } from "@/types/types";
+import { mFLoatMenu } from "@/utils/motionSettings";
 
-const ShoppingCartItem = () => {
+type ShoppingCartItemProps = {
+  isBurger?: boolean;
+};
+
+const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
+  isBurger = false,
+}) => {
   const [open, setOpen] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -41,7 +48,7 @@ const ShoppingCartItem = () => {
 
   return (
     <div
-      className="relative hidden sm:block"
+      className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
@@ -58,16 +65,14 @@ const ShoppingCartItem = () => {
         </button>
       </NavLink>
       <AnimatePresence>
-        {open && amount ? (
+        {open && !isBurger && amount ? (
           <NavLink to="/shoppingCart">
             <m.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
+              {...mFLoatMenu}
               style={{ x: "-72%" }}
               className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
-              <div className="absolute -top-5 z-[999] h-8 w-full bg-transparent" />
+              <div className="absolute top-5 z-[999] h-8 w-full bg-transparent" />
               <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border-4 border-neutral bg-base-100 p-4">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
@@ -82,7 +87,7 @@ const ShoppingCartItem = () => {
                         <div className="h-16 w-16">
                           <img
                             src={images[0]}
-                            alt={title[0].toUpperCase() + title.slice(1)}
+                            alt={title}
                             className="rounded-sm object-contain"
                           />
                         </div>
@@ -100,14 +105,14 @@ const ShoppingCartItem = () => {
             </m.div>
           </NavLink>
         ) : (
-          open && (
+          open &&
+          !isBurger && (
             <m.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
+              {...mFLoatMenu}
               style={{ x: "-50%" }}
               className="absolute left-1/3 top-14"
             >
+              <div className="absolute -top-8 z-[999] h-8 w-full bg-transparent" />
               <div className="w-max rounded-md border-4 border-neutral bg-base-100  px-12 py-6 drop-shadow-2xl">
                 <p className="text-lg">No items added</p>
               </div>

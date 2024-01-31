@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { CategoriesType } from "@/types/types";
+import { mFLoatMenu } from "@/utils/motionSettings";
 
 type CatalogProps = {
   categories: CategoriesType[] | null;
@@ -19,14 +20,12 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
       onMouseLeave={() => setOpen(false)}
     >
       <h2 className="flex items-center gap-x-3 text-lg">
-        <span className="text-2xl">{catalogIcon}</span> Catalog
+        <span className="rotate-45 text-2xl">{catalogIcon}</span> Catalog
       </h2>
       <AnimatePresence>
         {open && (
           <m.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
+            {...mFLoatMenu}
             style={{ x: "-50%" }}
             className="absolute left-1/2 top-12"
           >
@@ -36,7 +35,7 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
                 <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 border-neutral font-Merriweather max-lg:container lg:gap-y-10">
                   {categories?.map(({ id, name }) => (
                     <Link to={`/products/categories/${id}`} key={nanoid()}>
-                      {name[0].toUpperCase() + name.slice(1)} {toRightIcon}
+                      {name} {toRightIcon}
                     </Link>
                   ))}
                 </div>

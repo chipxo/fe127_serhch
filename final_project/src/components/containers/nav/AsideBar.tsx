@@ -5,7 +5,7 @@ import User from "../user/User.tsx";
 const AsideBar = () => {
   return (
     <ul className="hidden w-full items-center justify-items-center gap-x-4 border-neutral sm:grid md:grid-cols-3 xl:border-l">
-      <li>
+      <li className="hidden sm:block">
         <ShoppingCartItem />
       </li>
       <li className="hidden md:block">
