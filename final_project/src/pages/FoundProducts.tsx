@@ -7,7 +7,7 @@ import CommonCard from "../features/cards/CommonCard";
 import { nanoid } from "@reduxjs/toolkit";
 import { Loading, Error } from "../components/common/LoadingError";
 import NoItems from "../components/common/NoItems";
-import { motion } from "framer-motion";
+import { motion as m } from "framer-motion";
 
 const FoundProducts = () => {
   const { products, loading, error } = useSelector(
@@ -54,7 +54,7 @@ const FoundProducts = () => {
             {!loading &&
               !error &&
               filteredPr?.map(({ id, title, images, category, price }) => (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ const FoundProducts = () => {
                     images={images}
                     category={category}
                   />
-                </motion.div>
+                </m.div>
               ))}
           </div>
         </div>

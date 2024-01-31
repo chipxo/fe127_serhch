@@ -4,7 +4,7 @@ import { RootState } from "../../app/rootReducer.tsx";
 import { setInputValue } from "../../features/searchBar/searchSlice";
 import Button from "./buttons/Button";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import SearchPage from "../../pages/SearchPage";
 import { ProductType } from "../../types/types";
 import { Error, Loading } from "./LoadingError.tsx";
@@ -80,7 +80,7 @@ const Search = () => {
       {error && <Error error={error} />}
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.1 }}
             animate={{ opacity: 1, scale: 0.8 }}
             exit={{ opacity: 0 }}
@@ -89,20 +89,20 @@ const Search = () => {
             <Link to="/searchResults">
               <Button text="search" color={"primary"} />
             </Link>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
       <AnimatePresence>
         {open && (
           <>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 h-screen w-screen bg-black/40"
               onClick={() => setOpen(false)}
             />
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 40 }}
@@ -110,7 +110,7 @@ const Search = () => {
               className="absolute left-1/2 top-14 z-[200] w-full"
             >
               <SearchPage searchResults={searchResults} found={found} />
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

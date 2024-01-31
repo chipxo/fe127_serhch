@@ -9,6 +9,7 @@ import categoriesReducer from "../features/categories/categoriesSlice.tsx";
 import categoryProductsReducer from "../features/categories/categoryProducts/categoryProductsSlice.tsx";
 import searchProductsReducer from "../features/searchBar/searchSlice.tsx";
 import registerReducer from "../features/registration/registerSlice.tsx";
+import alertReducer from "../features/alert/alertSlice.tsx";
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   categoryProducts: categoryProductsReducer,
   searchProducts: searchProductsReducer,
   register: registerReducer,
+  alert: alertReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

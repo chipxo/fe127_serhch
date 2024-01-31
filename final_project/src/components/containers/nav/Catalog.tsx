@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { catalogIcon, toRightIcon } from "../../common/icons.tsx";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { CategoriesType } from "../../../types/types";
 
 type CatalogProps = {
@@ -23,7 +23,7 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
       </h2>
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
@@ -42,7 +42,7 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

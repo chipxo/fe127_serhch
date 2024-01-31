@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { closeIcon, goToRightIcon } from "../../common/icons";
 import {
   setSignedIn,
@@ -48,13 +48,13 @@ const UserPannel = () => {
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 right-0 top-0 z-[99] grid bg-black/50"
     >
-      <motion.div
+      <m.div
         initial={{ x: 200 }}
         animate={{ x: 0 }}
         exit={{ x: 200 }}
@@ -79,7 +79,7 @@ const UserPannel = () => {
               />
               <AnimatePresence>
                 {open && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -101,7 +101,7 @@ const UserPannel = () => {
                         No
                       </button>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -113,8 +113,8 @@ const UserPannel = () => {
             {closeIcon}
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 };
 

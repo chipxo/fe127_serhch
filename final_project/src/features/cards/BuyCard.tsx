@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useState } from "react";
 import Button from "../../components/common/buttons/Button.tsx";
 import { cartDelete } from "../../components/common/icons.tsx";
@@ -48,7 +48,7 @@ const BuyCard: React.FC<BuyCardProps> = ({
       <div>
         <AnimatePresence>
           {modal && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 30 }}
               exit={{ opacity: 0, y: -80 }}
@@ -58,7 +58,7 @@ const BuyCard: React.FC<BuyCardProps> = ({
               <div className="absolute left-1/2 top-12 -translate-x-1/2 rounded-md bg-base-100 p-12 text-2xl shadow-sm">
                 <h2>Write only numbers!</h2>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
         <figure className="skeleton h-32 w-full">

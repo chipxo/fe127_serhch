@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import React from "react";
 
 type ErrorProps = {
@@ -7,19 +7,19 @@ type ErrorProps = {
 
 export const Loading: React.FC = () => (
   <AnimatePresence>
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className=""
     >
       <span className="loading loading-dots loading-lg scale-125 text-primary" />
-    </motion.div>
+    </m.div>
   </AnimatePresence>
 );
 
 export const Error: React.FC<ErrorProps> = ({ error }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
@@ -28,5 +28,5 @@ export const Error: React.FC<ErrorProps> = ({ error }) => (
     <h2 className="text-4xl">
       Error: {typeof error === "string" ? error : `Page was lost :(`}
     </h2>
-  </motion.div>
+  </m.div>
 );

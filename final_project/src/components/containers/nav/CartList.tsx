@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -60,7 +60,7 @@ const ShoppingCartItem = () => {
       <AnimatePresence>
         {open && amount ? (
           <NavLink to="/shoppingCart">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
@@ -97,11 +97,11 @@ const ShoppingCartItem = () => {
                   return null;
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </NavLink>
         ) : (
           open && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
@@ -111,7 +111,7 @@ const ShoppingCartItem = () => {
               <div className="w-max rounded-md border-4 border-neutral bg-base-100  px-12 py-6 drop-shadow-2xl">
                 <p className="text-lg">No items added</p>
               </div>
-            </motion.div>
+            </m.div>
           )
         )}
       </AnimatePresence>

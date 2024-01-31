@@ -8,18 +8,16 @@ type UserData = {
 type InitialState = {
   alreadyRegistered: boolean;
   signedIn: boolean;
-  showForm: boolean;
-  showUserPanel: boolean;
+  openForm: boolean;
+  openUserPanel: boolean;
   userData: UserData | null;
 };
 
-const signedIn = localStorage.getItem("signedIn") === "true" || false;
-
 const initialState: InitialState = {
   alreadyRegistered: true,
-  signedIn: signedIn,
-  showForm: false,
-  showUserPanel: false,
+  signedIn: false,
+  openForm: false,
+  openUserPanel: false,
   userData: null,
 };
 
@@ -27,17 +25,17 @@ const registerSlice = createSlice({
   name: "register",
   initialState,
   reducers: {
-    switchForm: (state) => {
-      state.alreadyRegistered = !state.alreadyRegistered;
+    setRegistered: (state, action: PayloadAction<boolean>) => {
+      state.alreadyRegistered = action.payload;
     },
     setSignedIn: (state, action: PayloadAction<boolean>) => {
       state.signedIn = action.payload;
     },
     showForm: (state, action: PayloadAction<boolean>) => {
-      state.showForm = action.payload;
+      state.openForm = action.payload;
     },
     showUserPanel: (state, action: PayloadAction<boolean>) => {
-      state.showUserPanel = action.payload;
+      state.openUserPanel = action.payload;
     },
     setUserData: (state, action: PayloadAction<UserData>) => {
       state.userData = action.payload;
@@ -45,7 +43,12 @@ const registerSlice = createSlice({
   },
 });
 
-export const { switchForm, setSignedIn, showForm, showUserPanel, setUserData } =
-  registerSlice.actions;
+export const {
+  setRegistered,
+  setSignedIn,
+  showForm,
+  showUserPanel,
+  setUserData,
+} = registerSlice.actions;
 
 export default registerSlice.reducer;
