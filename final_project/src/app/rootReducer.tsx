@@ -1,15 +1,15 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import amountReducer from "../features/amount/amountSlice.tsx";
-import soloCardReducer from "../features/cards/soloCardSlice.tsx";
-import productReducer from "../features/products/productSlice.tsx";
-import productsReducer from "../features/products/productsSlice.tsx";
-import themeReducer from "../features/theme/themeSlice.tsx";
-import amountOfProductsSliceReducer from "../features/products/amountProdSlice.tsx";
-import categoriesReducer from "../features/categories/categoriesSlice.tsx";
-import categoryProductsReducer from "../features/categories/categoryProducts/categoryProductsSlice.tsx";
-import searchProductsReducer from "../features/searchBar/searchSlice.tsx";
-import registerReducer from "../features/registration/registerSlice.tsx";
-import alertReducer from "../features/alert/alertSlice.tsx";
+import amountReducer from "@/features/amount/amountSlice.tsx";
+import soloCardReducer from "@/features/cards/soloCardSlice.tsx";
+import productReducer from "@/features/products/productSlice.tsx";
+import productsReducer from "@/features/products/productsSlice.tsx";
+import themeReducer from "@/features/theme/themeSlice.tsx";
+import amountOfProductsSliceReducer from "@/features/products/amountProdSlice.tsx";
+import categoriesReducer from "@/features/categories/categoriesSlice.tsx";
+import categoryProductsReducer from "@/features/categories/categoryProducts/categoryProductsSlice.tsx";
+import searchProductsReducer from "@/features/searchBar/searchSlice.tsx";
+import registerReducer from "@/features/registration/registerSlice.tsx";
+import alertReducer from "@/features/alert/alertSlice.tsx";
 
 const rootReducer = combineReducers({
   theme: themeReducer,

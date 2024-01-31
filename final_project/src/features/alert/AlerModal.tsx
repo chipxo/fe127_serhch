@@ -25,7 +25,7 @@ const AlertModal = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -66 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="rounded-lg bg-base-300 px-12 py-2"
+            className="rounded-lg bg-base-300 px-12 py-4"
           >
             <h2 className="text-xl">{text}</h2>
           </m.div>

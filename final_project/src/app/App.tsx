@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import SoloCard from "../features/cards/SoloCard.tsx";
-import Home from "../pages/Home.tsx";
-import Layout from "../pages/Layout.tsx";
-import ShoppingCart from "../pages/ShoppingCart.tsx";
+import SoloCard from "@/features/cards/SoloCard.tsx";
+import Home from "@/pages/Home.tsx";
+import Layout from "@/pages/Layout.tsx";
+import ShoppingCart from "@/pages/ShoppingCart.tsx";
 import WebFont from "webfontloader";
 import { useEffect } from "react";
-import CategoryProducts from "../features/categories/categoryProducts/CategoryProducts.tsx";
-import FoundProducts from "../pages/FoundProducts.tsx";
-import { setSignedIn } from "../features/registration/registerSlice.tsx";
-import { useAppDispatch } from "./store.tsx";
-import Page404 from "../pages/Page404.tsx";
+import CategoryProducts from "@/features/categories/categoryProducts/CategoryProducts.tsx";
+import FoundProducts from "@/pages/FoundProducts.tsx";
+import { setSignedIn } from "@/features/registration/registerSlice.tsx";
+import { useAppDispatch } from "./store";
+import Page404 from "@/pages/Page404.tsx";
 
 const App = () => {
   const dispatch = useAppDispatch();

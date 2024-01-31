@@ -1,27 +1,29 @@
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../app/store.tsx";
-import { RootState } from "../../app/rootReducer.tsx";
-import { setInputValue } from "../../features/searchBar/searchSlice";
-import Button from "./buttons/Button";
+import { useAppDispatch } from "@/app/store.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
+import { setInputValue } from "@/features/searchBar/searchSlice";
+import Button from "@/components/common/buttons/Button.tsx";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
-import SearchPage from "../../pages/SearchPage";
-import { ProductType } from "../../types/types";
-import { Error, Loading } from "./LoadingError.tsx";
+import SearchPage from "@/pages/SearchPage";
+import { ProductType } from "@/types/types";
+import { Error, Loading } from "@/components/common/LoadingError.tsx";
 import { Link, useNavigate } from "react-router-dom";
 
 const Search = () => {
-  const [open, setOpen] = useState(false);
-  const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
-    [],
-  );
-
   const dispatch = useAppDispatch();
+
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products,
   );
+
   const { inputValue } = useSelector(
     (state: RootState) => state.searchProducts,
+  );
+
+  const [open, setOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
+    [],
   );
 
   const [found, setFound] = useState(false);

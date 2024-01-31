@@ -1,9 +1,9 @@
 import React from "react";
-import { goToRightIcon } from "../../common/icons.tsx";
+import { goToRightIcon } from "@/components/common/icons";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
-import { CategoriesType } from "../../../types/types";
-import { isValidImage } from "../../../utils/isValidImage";
+import { CategoriesType } from "@/types/types";
+import { isValidImage } from "@/utils/isValidImage";
 
 type CatalogAsideProps = {
   categories: CategoriesType[] | null;

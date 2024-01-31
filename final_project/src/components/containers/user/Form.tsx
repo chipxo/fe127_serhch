@@ -2,16 +2,16 @@ import { twJoin } from "tailwind-merge";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { closeIcon, showPasswordIcon } from "../../common/icons";
-import { useAppDispatch } from "../../../app/store";
+import { useState } from "react";
+import { closeIcon, showPasswordIcon } from "@/components/common/icons";
+import { useAppDispatch } from "@/app/store";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/rootReducer";
+import { RootState } from "@/app/rootReducer";
 import {
   setRegistered,
   setSignedIn,
-} from "../../../features/registration/registerSlice";
-import { showForm } from "../../../features/registration/registerSlice";
+} from "@/features/registration/registerSlice";
+import { showForm } from "@/features/registration/registerSlice";
 import { motion as m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { setAlertText, showAlert } from "@/features/alert/alertSlice";
@@ -54,22 +54,7 @@ const Form = () => {
     const userExist = userDataString ? JSON.parse(userDataString) : null;
 
     setTimeout(() => {
-      if (!alreadyRegistered) {
-        if (userExist) {
-          dispatch(setAlertText("User already exist, try again!"));
-          dispatch(showAlert(true));
-        } else {
-          localStorage.setItem(
-            `user-${email}`,
-            JSON.stringify({ name, email, password }),
-          );
-
-          dispatch(showForm(false));
-
-          setAlertText("You successfully registered!");
-          dispatch(showAlert(true));
-        }
-      } else {
+      if (alreadyRegistered) {
         if (userExist && userExist.password === password) {
           localStorage.setItem("userData", JSON.stringify({ name, email }));
           localStorage.setItem("signedIn", JSON.stringify("true"));
@@ -84,6 +69,21 @@ const Form = () => {
           dispatch(setAlertText("Wrong password, try again!"));
           dispatch(showAlert(true));
         } else {
+          dispatch(setAlertText("User doesnt exist, try again!"));
+          dispatch(showAlert(true));
+        }
+      } else {
+        if (userExist) {
+          dispatch(setAlertText("User already exist, try again!"));
+          dispatch(showAlert(true));
+        } else {
+          localStorage.setItem(
+            `user-${email}`,
+            JSON.stringify({ name, email, password }),
+          );
+
+          dispatch(showForm(false));
+
           dispatch(setAlertText("You successfully registered!"));
           dispatch(showAlert(true));
         }
@@ -107,21 +107,27 @@ const Form = () => {
         className="fixed inset-0 z-[200] grid items-center bg-black/75 px-[14vw]"
       >
         <div className="rounded-md bg-base-300">
-          <div className="relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-8 border-b border-neutral p-4">
+          <div className="relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-12 border-b border-neutral px-6 py-4">
             <button
-              onClick={() => dispatch(setRegistered(true))}
+              onClick={() => {
+                reset();
+                dispatch(setRegistered(true));
+              }}
               className={twJoin(
                 "w-fit rounded-md border border-neutral px-4 py-1",
-                alreadyRegistered && "bg-black/30",
+                alreadyRegistered && "scale-110 bg-black/30",
               )}
             >
               Sign in
             </button>
             <button
-              onClick={() => dispatch(setRegistered(false))}
+              onClick={() => {
+                reset();
+                dispatch(setRegistered(false));
+              }}
               className={twJoin(
                 "w-fit rounded-md border border-neutral px-4 py-1",
-                !alreadyRegistered && "bg-black/30",
+                !alreadyRegistered && "scale-110 bg-black/30",
               )}
             >
               Register
@@ -189,8 +195,9 @@ const Form = () => {
                   <span
                     onClick={() => setShowPassword(!showPassword)}
                     className={twJoin(
-                      "absolute right-2 top-2.5",
-                      !showPassword && "opacity-35",
+                      "absolute right-2 top-2.5 cursor-pointer",
+                      !showPassword &&
+                        "opacity-30 before:absolute before:top-[10px] before:h-[2px] before:w-5 before:-rotate-45 before:bg-base-300",
                     )}
                   >
                     {showPasswordIcon}

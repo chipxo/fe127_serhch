@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
-import { ProductType } from "../types/types.tsx";
+import { ProductType } from "@/types/types.tsx";
 const fetchAmountOfProducts = createAsyncThunk(
   "amountOfProducts/fetchAmountOfProducts",
   async (amount: number = 0) => {

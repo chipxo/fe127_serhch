@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../app/store.tsx";
-import { RootState } from "../../../app/rootReducer.tsx";
-import { Loading, Error } from "../../../components/common/LoadingError.tsx";
-import CommonCard from "../../cards/CommonCard.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
+import { Loading, Error } from "@/components/common/LoadingError.tsx";
+import CommonCard from "@/features/cards/CommonCard";
 import { useEffect } from "react";
-import { fetchCategoryProducts } from "../../../hooks/fetchCategoryProducts.tsx";
+import { fetchCategoryProducts } from "@/hooks/fetchCategoryProducts.tsx";
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
-import NoItems from "../../../components/common/NoItems.tsx";
+import NoItems from "@/components/common/NoItems.tsx";
 
 const CategoryProducts = () => {
   const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/containers/nav/NavBar.tsx";
+import NavBar from "@/components/containers/nav/NavBar.tsx";
 import { useEffect } from "react";
-import Footer from "../components/containers/footer/Footer.tsx";
+import Footer from "@/components/containers/footer/Footer.tsx";
 
 const Layout = () => {
   useEffect(() => {

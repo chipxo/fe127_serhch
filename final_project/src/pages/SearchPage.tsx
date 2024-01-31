@@ -1,9 +1,9 @@
 import React from "react";
-import { ProductType } from "../types/types.tsx";
+import { ProductType } from "@/types/types.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RootState } from "../app/rootReducer.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
 
 type SearchPageProps = {
   searchResults: ProductType[] | undefined;

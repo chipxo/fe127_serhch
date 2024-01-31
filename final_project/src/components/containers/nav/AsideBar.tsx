@@ -1,4 +1,4 @@
-import Theme2 from "../../../features/theme/ThemeSwapper.tsx";
+import Theme2 from "@/features/theme/ThemeSwapper.tsx";
 import ShoppingCartItem from "./CartList";
 import User from "../user/User.tsx";
 

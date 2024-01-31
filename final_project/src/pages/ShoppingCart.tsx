@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import NoItems from "../components/common/NoItems.tsx";
-import { Error, Loading } from "../components/common/LoadingError.tsx";
-import BuyCard from "../features/cards/BuyCard.tsx";
-import { fetchProducts } from "../hooks/fetchProducts.tsx";
-import { RootState } from "../app/rootReducer.tsx";
-import { useAppDispatch } from "../app/store.tsx";
-import { decreaseAmount, setAmount } from "../features/amount/amountSlice.tsx";
-import { ProductType } from "../types/types.tsx";
+import NoItems from "@/components/common/NoItems.tsx";
+import { Error, Loading } from "@/components/common/LoadingError.tsx";
+import BuyCard from "@/features/cards/BuyCard.tsx";
+import { fetchProducts } from "@/hooks/fetchProducts.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import { decreaseAmount, setAmount } from "@/features/amount/amountSlice.tsx";
+import { ProductType } from "@/types/types.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 
 const ShoppingCart = () => {

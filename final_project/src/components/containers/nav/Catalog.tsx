@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { catalogIcon, toRightIcon } from "../../common/icons.tsx";
+import { catalogIcon, toRightIcon } from "@/components/common/icons";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion as m } from "framer-motion";
-import { CategoriesType } from "../../../types/types";
+import { CategoriesType } from "@/types/types";
 
 type CatalogProps = {
   categories: CategoriesType[] | null;

@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../app/rootReducer";
-import { useAppDispatch } from "../app/store";
+import { RootState } from "@/app/rootReducer";
+import { useAppDispatch } from "@/app/store";
 import { useEffect, useState } from "react";
-import { ProductType } from "../types/types";
-import CommonCard from "../features/cards/CommonCard";
+import { ProductType } from "@/types/types";
+import CommonCard from "@/features/cards/CommonCard";
 import { nanoid } from "@reduxjs/toolkit";
-import { Loading, Error } from "../components/common/LoadingError";
-import NoItems from "../components/common/NoItems";
+import { Loading, Error } from "@/components/common/LoadingError";
+import NoItems from "@/components/common/NoItems";
 import { motion as m } from "framer-motion";
 
 const FoundProducts = () => {

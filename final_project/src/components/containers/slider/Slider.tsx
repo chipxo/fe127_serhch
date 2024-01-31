@@ -2,10 +2,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import React from "react";
-import { ProductType } from "../../../types/types";
+import { ProductType } from "@/types/types";
 import { nanoid } from "@reduxjs/toolkit";
 import SliderHeader from "./SliderHeader";
-import { isValidImage } from "../../../utils/isValidImage";
+import { isValidImage } from "@/utils/isValidImage";
 
 type CarouselProps = {
   products: ProductType[];

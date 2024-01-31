@@ -1,4 +1,4 @@
-import img_404 from "../assets/img_404.png";
+import img_404 from "@/assets/img_404.png";
 
 const Page404 = () => {
   return (

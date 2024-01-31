@@ -1,15 +1,15 @@
 import { AnimatePresence, motion as m } from "framer-motion";
-import { closeIcon, goToRightIcon } from "../../common/icons";
+import { closeIcon, goToRightIcon } from "@/components/common/icons";
 import {
   setSignedIn,
   setUserData,
   showUserPanel,
-} from "../../../features/registration/registerSlice";
-import { useAppDispatch } from "../../../app/store";
+} from "@/features/registration/registerSlice";
+import { useAppDispatch } from "@/app/store";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/rootReducer";
+import { RootState } from "@/app/rootReducer";
 import { useEffect, useState } from "react";
-import Button from "../../common/buttons/Button";
+import Button from "@/components/common/buttons/Button";
 import { Link } from "react-router-dom";
 
 const UserPannel = () => {

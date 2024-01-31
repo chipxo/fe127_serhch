@@ -1,10 +1,10 @@
 import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useState } from "react";
-import Button from "../../components/common/buttons/Button.tsx";
-import { cartDelete } from "../../components/common/icons.tsx";
-import { useAppDispatch } from "../../app/store.tsx";
+import Button from "@/components/common/buttons/Button.tsx";
+import { cartDelete } from "@/components/common/icons.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
 import { decreaseAmount } from "../amount/amountSlice.tsx";
-import { ProductType } from "../../types/types.tsx";
+import { ProductType } from "@/types/types.tsx";
 
 type BuyCardProps = ProductType & {
   onClick: () => void;

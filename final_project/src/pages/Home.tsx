@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import Carousel from "../components/containers/slider/Slider.tsx";
-import CommonCard from "../features/cards/CommonCard.tsx";
+import Carousel from "@/components/containers/slider/Slider.tsx";
+import CommonCard from "@/features/cards/CommonCard.tsx";
 import { useSelector } from "react-redux";
-import { RootState } from "../app/rootReducer.tsx";
-import { useAppDispatch } from "../app/store.tsx";
-import { Error, Loading } from "../components/common/LoadingError.tsx";
-import { fetchAmountOfProducts } from "../hooks/fetchAmountOfProducts.tsx";
-import { fetchProducts } from "../hooks/fetchProducts.tsx";
-import CatalogAside from "../components/containers/nav/CatalogAside.tsx";
-import { fetchCategories } from "../hooks/fetchCategories.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import { Error, Loading } from "@/components/common/LoadingError.tsx";
+import { fetchAmountOfProducts } from "@/hooks/fetchAmountOfProducts.tsx";
+import { fetchProducts } from "@/hooks/fetchProducts.tsx";
+import CatalogAside from "@/components/containers/nav/CatalogAside.tsx";
+import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { motion as m } from "framer-motion";
-import Button from "../components/common/buttons/Button.tsx";
-import { ProductType } from "../types/types.tsx";
+import Button from "@/components/common/buttons/Button.tsx";
+import { ProductType } from "@/types/types.tsx";
 
 const Home = () => {
   const [moreProducts, setMoreProducts] = useState(false);

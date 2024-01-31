@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "../../hooks/fetchProducts.tsx";
-import { ProductType } from "../../types/types.tsx";
+import { fetchProducts } from "@/hooks/fetchProducts.tsx";
+import { ProductType } from "@/types/types.tsx";
 
 type ProductsStateType = {
   products: ProductType[] | undefined;

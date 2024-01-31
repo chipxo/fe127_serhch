@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../../common/Logo";
-import Burger from "../../common/buttons/Burger";
+import Logo from "@/components/common/Logo";
+import Burger from "@/components/common/buttons/Burger";
 import SecondUl from "./AsideBar";
-import Search from "../../common/Search.tsx";
+import Search from "./Search.tsx";
 import Catalog from "./Catalog";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/rootReducer.tsx";
-import { useAppDispatch } from "../../../app/store.tsx";
-import { fetchCategories } from "../../../hooks/fetchCategories.tsx";
+import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { useEffect } from "react";
 
 const NavBar = () => {
