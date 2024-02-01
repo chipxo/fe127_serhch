@@ -10,6 +10,8 @@ import { useAppDispatch } from "@/app/store.tsx";
 import { setAmount } from "@/features/amount/amountSlice";
 import { ProductType } from "@/types/types";
 import { mFLoatMenu } from "@/utils/motionSettings";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 type ShoppingCartItemProps = {
   isBurger?: boolean;
@@ -53,16 +55,17 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
       onMouseLeave={() => setOpen(false)}
     >
       <NavLink to="/shoppingCart">
-        <button className="">
-          <div className="indicator">
-            <span className="text-xl">{cartIcon}</span>
-            {amount > 0 && (
-              <span className="badge indicator-item badge-primary badge-md">
-                {amount}
-              </span>
-            )}
-          </div>
-        </button>
+        <Button className="relative" variant="ghost">
+          <span className="text-xl">{cartIcon}</span>
+          {amount > 0 && (
+            <Badge
+              className="absolute scale-90 -right-1 -top-1"
+              variant="default"
+            >
+              {amount}
+            </Badge>
+          )}
+        </Button>
       </NavLink>
       <AnimatePresence>
         {open && !isBurger && amount ? (
@@ -73,7 +76,7 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
               className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
               <div className="absolute top-5 z-[999] h-8 w-full bg-transparent" />
-              <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border-4 border-neutral bg-base-100 p-4">
+              <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border p-4">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
                 {items?.map((item) => {

@@ -1,5 +1,6 @@
 import { RootState } from "@/app/rootReducer";
 import { useAppDispatch } from "@/app/store";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { showAlert } from "@/features/alert/alertSlice";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { useEffect } from "react";
@@ -25,9 +26,11 @@ const AlertModal = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -66 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="rounded-lg bg-base-300 px-12 py-4"
+            className="bg-background"
           >
-            <h2 className="text-xl">{text}</h2>
+            <Alert>
+              <AlertTitle>{text}</AlertTitle>
+            </Alert>
           </m.div>
         )}
       </AnimatePresence>

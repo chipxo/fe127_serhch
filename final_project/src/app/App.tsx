@@ -10,6 +10,8 @@ import FoundProducts from "@/pages/FoundProducts.tsx";
 import { setSignedIn } from "@/features/registration/registerSlice.tsx";
 import { useAppDispatch } from "./store";
 import Page404 from "@/pages/Page404.tsx";
+import { ThemeProvider } from "@/features/theme/theme-provider";
+import ShdcnCard from "@/features/cards/ShdcnCard";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -25,12 +27,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-neutral/10">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/searchResults" element={<FoundProducts />} />
-          <Route path="/products/:prodId" element={<SoloCard />} />
+          <Route path="/products/:prodId" element={<ShdcnCard />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route
             path="/products/categories/:categoryId"
@@ -39,7 +41,7 @@ const App = () => {
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 };
 

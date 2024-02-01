@@ -9,7 +9,6 @@ import { useAppDispatch } from "@/app/store";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer";
 import React, { useEffect, useState } from "react";
-import Button from "@/components/common/buttons/Button";
 import { Link } from "react-router-dom";
 import Form from "./Form";
 import BtnRegisSign from "./buttons/BtnRegisSign";
@@ -17,6 +16,9 @@ import PanelTitle from "./PanelTitle";
 import { mSetting } from "@/utils/motionSettings";
 import ThemeSwapper from "@/features/theme/ThemeSwapper";
 import ShoppingCartItem from "../nav/CartList";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/features/theme/mode-toggle";
+import Logo from "@/components/common/Logo";
 
 type UserPanelProps = {
   isBurger?: boolean;
@@ -43,7 +45,10 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
     localStorage.removeItem("signedIn");
     document.body?.removeAttribute("class");
     dispatch(showUserPanel(false));
-    dispatch(setSignedIn(false));
+
+    setTimeout(() => {
+      dispatch(setSignedIn(false));
+    }, 800);
   };
 
   const handleDeleteAcc = () => {
@@ -69,20 +74,23 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 300 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="relative justify-self-end border-l border-neutral bg-base-300 p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
+        className="relative justify-self-end border-l bg-background p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw] space-y-4"
       >
-        <nav className="top-4 max-sm:mb-4 max-sm:border-b max-sm:border-neutral max-sm:pb-4 sm:absolute md:left-8 md:top-6">
-          <ul className="grid cursor-pointer place-items-center gap-x-4 text-xl max-sm:grid-cols-3 sm:max-md:grid-cols-2">
+        <nav className="top-4 grid grid-cols-[1fr_0.4fr] max-sm:mb-4 max-sm:border-b max-sm:pb-4 md:left-8 md:top-6 border-b pb-4">
+          <ul className="grid cursor-pointer place-items-center gap-x-4 text-xl max-sm:grid-cols-3 sm:max-md:grid-cols-2 justify-self-start">
             <li onClick={handleClosePanel} className="scale-125">
               {closeIcon}
             </li>
-            <li className="md:hidden">
-              <ThemeSwapper />
+            <li className="md:hidden scale-110">
+              <ModeToggle />
             </li>
             <li className="scale-105 sm:hidden">
               <ShoppingCartItem isBurger />
             </li>
           </ul>
+          <div className="justify-self-end pr-4">
+            <Logo />
+          </div>
         </nav>
         {signedIn && (
           <div className="grid w-full gap-y-4 text-end">
@@ -94,13 +102,14 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
             >
               Favourite {goToRightIcon}
             </Link>
-            <div className="grid w-full gap-x-3 border-t border-neutral pt-6 max-sm:gap-y-3 sm:grid-cols-2 md:gap-x-6 lg:gap-x-12">
-              <Button text="Sign out" onClick={handleSignOut} custom={false} />
-              <Button
-                text="Delete account"
-                onClick={() => setOpen(!open)}
-                custom={false}
-              />
+            <div className="grid w-full gap-x-3 border-t pt-6 max-sm:gap-y-3 sm:grid-cols-2 md:gap-x-6 lg:gap-x-12">
+              <Button onClick={handleSignOut} variant="default">
+                Sign out
+              </Button>
+              <Button onClick={() => setOpen(!open)} variant="default">
+                Delete account
+              </Button>
+
               <AnimatePresence>
                 {open && (
                   <m.div
@@ -109,16 +118,12 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
                   >
                     <h2>Are you sure?</h2>
                     <div className="mt-4 grid grid-cols-2 gap-x-16">
-                      <Button
-                        color="error"
-                        text="Yes"
-                        onClick={handleDeleteAcc}
-                      />
-                      <Button
-                        color="success"
-                        text="No"
-                        onClick={() => setOpen(!open)}
-                      />
+                      <Button onClick={handleDeleteAcc} variant="default">
+                        Yes
+                      </Button>
+                      <Button onClick={() => setOpen(!open)} variant="default">
+                        No
+                      </Button>
                     </div>
                   </m.div>
                 )}
@@ -130,7 +135,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
           <>
             {!signedIn && (
               <div className="space-y-4">
-                <h2 className="max-sm:text-md ml-6 text-end sm:ml-10">
+                <h2 className="max-sm:text-md ml-6 text-end">
                   Sign in or register to acces private cabinet
                 </h2>
                 <div className="grid gap-x-6 gap-y-1 border-t border-neutral pt-4 sm:grid-cols-[1fr_0.1fr_1fr]">

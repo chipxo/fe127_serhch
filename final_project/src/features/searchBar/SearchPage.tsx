@@ -18,7 +18,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ searchResults, found }) => {
   return (
     <>
       {searchResults && (
-        <div className="grid max-h-[50vh] w-full gap-y-3 overflow-auto rounded-md border border-neutral bg-base-100 p-4">
+        <div className="grid max-h-[50vh] w-full gap-y-3 overflow-auto rounded-md border bg-background p-4">
           {found && inputValue.length > 0 ? (
             searchResults?.map(({ id, title, images, category }) => (
               <Link to={`/products/${id}`} key={nanoid()}>

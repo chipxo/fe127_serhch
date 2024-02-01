@@ -1,11 +1,11 @@
 import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useState } from "react";
-import Button from "@/components/common/buttons/Button.tsx";
 import { cartDelete } from "@/components/common/icons.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
 import { decreaseAmount } from "../amount/amountSlice.tsx";
 import { ProductType } from "@/types/types.tsx";
 import { mSetting } from "@/utils/motionSettings.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 type BuyCardProps = ProductType & {
   onClick: () => void;
@@ -98,7 +98,7 @@ const BuyCard: React.FC<BuyCardProps> = ({
               -
             </button>
           </div>
-          <Button text={cartDelete} color="error" onClick={onClick} />
+          <Button onClick={onClick}>{cartDelete}</Button>
         </div>
       </div>
     </div>

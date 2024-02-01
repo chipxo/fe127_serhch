@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Button from "../../components/common/buttons/Button.tsx";
+import Button from "../../components/common/buttons/CommonButton.tsx";
 import { Error, Loading } from "../../components/common/LoadingError.tsx";
 import { fetchProduct } from "../../hooks/fetchProduct.tsx";
 import { cartDelete, cartIcon } from "../../components/common/icons.tsx";

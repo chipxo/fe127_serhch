@@ -7,6 +7,7 @@ import { useAppDispatch } from "@/app/store";
 import { showForm, showUserPanel } from "@/features/registration/registerSlice";
 import UserPannel from "./UserPanel";
 import AlertModal from "@/features/alert/AlerModal";
+import { Button } from "@/components/ui/button";
 
 const User = () => {
   const dispatch = useAppDispatch();
@@ -26,9 +27,13 @@ const User = () => {
 
   return (
     <>
-      <div onClick={handleUserClick} className="relative z-[50] cursor-pointer">
+      <Button
+        variant="ghost"
+        onClick={handleUserClick}
+        className="relative z-[50] cursor-pointer"
+      >
         {cartUser}
-      </div>
+      </Button>
       <div className="fixed left-1/2 top-20 z-[999] -translate-x-1/2">
         <AlertModal />
       </div>

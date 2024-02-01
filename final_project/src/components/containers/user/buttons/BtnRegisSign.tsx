@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/app/store";
-import Button from "@/components/common/buttons/Button";
+import { Button } from "@/components/ui/button";
 import {
   setRegistered,
   showForm,
@@ -16,12 +16,19 @@ const BtnRegisSign: React.FC<BtnProps> = ({ signIn = false, text }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
-    dispatch(setRegistered(signIn));
     dispatch(showUserPanel(false));
     dispatch(showForm(true));
+
+    setTimeout(() => {
+      dispatch(setRegistered(signIn));
+    }, 3000);
   };
 
-  return <Button text={text} onClick={handleClick} custom={false} />;
+  return (
+    <Button onClick={handleClick} variant="outline">
+      {text}
+    </Button>
+  );
 };
 
 export default BtnRegisSign;

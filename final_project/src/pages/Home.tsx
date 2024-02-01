@@ -10,14 +10,14 @@ import { fetchProducts } from "@/hooks/fetchProducts.tsx";
 import CatalogAside from "@/components/containers/nav/CategoriesHome";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
-import { motion as m } from "framer-motion";
-import Button from "@/components/common/buttons/Button.tsx";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { ProductType } from "@/types/types.tsx";
+import { Button } from "@/components/ui/button";
+import { log } from "console";
+import { isValidImage } from "@/utils/isValidImage";
+import { mSetting } from "@/utils/motionSettings";
 
 const Home = () => {
-  const [moreProducts, setMoreProducts] = useState(false);
-  const [pr, setPr] = useState<ProductType[]>([]);
-
   const dispatch = useAppDispatch();
   const {
     products: amountOfProducts,
@@ -35,21 +35,11 @@ const Home = () => {
     dispatch(fetchProducts());
     dispatch(fetchCategories());
 
-    const fetchData = async () => {
-      try {
-        const [_, result2] = await Promise.all([
-          dispatch(fetchAmountOfProducts(40)),
-          dispatch(fetchAmountOfProducts(30)),
-        ]);
-
-        setPr((result2.payload as ProductType[]) || []);
-      } catch (e) {
-        console.error(`Error while fetching data: ${e}`);
-      }
-    };
-
-    fetchData();
+    dispatch(fetchAmountOfProducts(0));
+    dispatch(fetchAmountOfProducts(10));
   }, [dispatch]);
+
+  const [am, setAm] = useState(10);
 
   return (
     <>
@@ -74,32 +64,26 @@ const Home = () => {
               Best selling products:
             </h2>
             <div className="grid grid-cols-home gap-4">
-              {!loading &&
-                !error &&
-                allProducts?.map((product, index) => (
-                  <CommonCard key={nanoid()} {...product} isHome />
-                ))}
-              {moreProducts &&
-                pr?.map((product) => (
-                  <m.div
-                    key={nanoid()}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <CommonCard {...product} isHome />
-                  </m.div>
-                ))}
+              <AnimatePresence>
+                {!loading &&
+                  !error &&
+                  amountOfProducts?.map(
+                    (product, i) =>
+                      i < am && (
+                        <m.div key={nanoid()}>
+                          <CommonCard {...product} isHome />
+                        </m.div>
+                      ),
+                  )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
         <div className="mb-8 grid place-items-center">
-          {!moreProducts && (
-            <Button
-              text="Show more"
-              color="secondary"
-              onClick={() => setMoreProducts(true)}
-            />
+          {am < 20 && (
+            <Button variant="default" onClick={() => setAm((a) => a + 10)}>
+              Show more
+            </Button>
           )}
         </div>
       </div>
@@ -108,3 +92,18 @@ const Home = () => {
 };
 
 export default Home;
+
+// const fetchData = async () => {
+//   try {
+//     const [_, result2] = await Promise.all([
+//       dispatch(fetchAmountOfProducts(10)),
+//       dispatch(fetchAmountOfProducts(10)),
+//     ]);
+
+//     setPr((result2.payload as ProductType[]) || []);
+//   } catch (e) {
+//     console.error(`Error while fetching data: ${e}`);
+//   }
+// };
+
+// fetchData();

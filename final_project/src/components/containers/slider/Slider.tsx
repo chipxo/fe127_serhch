@@ -24,7 +24,7 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
 
   return (
     <section className="relative overflow-hidden border-neutral py-3 md:border-y md:shadow-lg">
-      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md">
+      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md absolute top-12">
         <SliderHeader />
       </div>
       {products && (

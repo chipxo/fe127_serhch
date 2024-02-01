@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/app/store.tsx";
 import { RootState } from "@/app/rootReducer.tsx";
 import { setInputValue } from "@/features/searchBar/searchSlice";
-import Button from "@/components/common/buttons/Button.tsx";
+
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
 import SearchPage from "./SearchPage";
@@ -10,6 +10,8 @@ import { ProductType } from "@/types/types";
 import { Error, Loading } from "@/components/common/LoadingError.tsx";
 import { Link, useNavigate } from "react-router-dom";
 import { mSetting } from "@/utils/motionSettings";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Search = () => {
   const dispatch = useAppDispatch();
@@ -67,10 +69,10 @@ const Search = () => {
 
   return (
     <div className="relative">
-      <input
+      <Input
         type="text"
         placeholder="Search..."
-        className="input-neutral input input-bordered relative z-[10] w-full"
+        className="relative z-[50] w-full focus:bg-background"
         value={inputValue}
         onChange={(e) => handleChange(e.target.value)}
         onFocus={() => setOpen(true)}
@@ -86,10 +88,10 @@ const Search = () => {
         {open && (
           <m.div
             {...mSetting}
-            className="absolute right-0 top-0 z-[12] scale-75"
+            className="absolute right-0 top-0 z-[100] scale-75"
           >
             <Link to="/searchResults">
-              <Button text="search" color={"primary"} />
+              <Button variant="default">Search</Button>
             </Link>
           </m.div>
         )}
@@ -105,7 +107,7 @@ const Search = () => {
             <m.div
               {...mSetting}
               style={{ x: "-50%" }}
-              className="absolute left-1/2 top-14 z-[200] w-full"
+              className="absolute left-1/2 top-11 z-[200] w-full"
             >
               <SearchPage searchResults={searchResults} found={found} />
             </m.div>
