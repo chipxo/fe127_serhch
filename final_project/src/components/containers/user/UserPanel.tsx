@@ -14,8 +14,6 @@ import Form from "./Form";
 import BtnRegisSign from "./buttons/BtnRegisSign";
 import PanelTitle from "./PanelTitle";
 import { mSetting } from "@/utils/motionSettings";
-import ThemeSwapper from "@/features/theme/ThemeSwapper";
-import ShoppingCartItem from "../nav/CartList";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/features/theme/mode-toggle";
 import Logo from "@/components/common/Logo";
@@ -74,18 +72,15 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 300 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="relative justify-self-end border-l bg-background p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw] space-y-4"
+        className="relative space-y-4 justify-self-end border-l bg-background p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
       >
-        <nav className="top-4 grid grid-cols-[1fr_0.4fr] max-sm:mb-4 max-sm:border-b max-sm:pb-4 md:left-8 md:top-6 border-b pb-4">
-          <ul className="grid cursor-pointer place-items-center gap-x-4 text-xl max-sm:grid-cols-3 sm:max-md:grid-cols-2 justify-self-start">
+        <nav className="top-4 grid grid-cols-[1fr_0.4fr] border-b pb-4 max-sm:mb-4 max-sm:border-b max-sm:pb-4 md:left-8 md:top-6">
+          <ul className="grid cursor-pointer place-items-center gap-x-4 justify-self-start text-xl max-md:grid-cols-2">
             <li onClick={handleClosePanel} className="scale-125">
               {closeIcon}
             </li>
-            <li className="md:hidden scale-110">
+            <li className="scale-110 md:hidden">
               <ModeToggle />
-            </li>
-            <li className="scale-105 sm:hidden">
-              <ShoppingCartItem isBurger />
             </li>
           </ul>
           <div className="justify-self-end pr-4">
@@ -103,10 +98,10 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
               Favourite {goToRightIcon}
             </Link>
             <div className="grid w-full gap-x-3 border-t pt-6 max-sm:gap-y-3 sm:grid-cols-2 md:gap-x-6 lg:gap-x-12">
-              <Button onClick={handleSignOut} variant="default">
+              <Button onClick={handleSignOut} variant="outline">
                 Sign out
               </Button>
-              <Button onClick={() => setOpen(!open)} variant="default">
+              <Button onClick={() => setOpen(!open)} variant="destructive">
                 Delete account
               </Button>
 
@@ -118,10 +113,10 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
                   >
                     <h2>Are you sure?</h2>
                     <div className="mt-4 grid grid-cols-2 gap-x-16">
-                      <Button onClick={handleDeleteAcc} variant="default">
+                      <Button onClick={handleDeleteAcc} variant="destructive">
                         Yes
                       </Button>
-                      <Button onClick={() => setOpen(!open)} variant="default">
+                      <Button onClick={() => setOpen(!open)} variant="outline">
                         No
                       </Button>
                     </div>
@@ -138,7 +133,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
                 <h2 className="max-sm:text-md ml-6 text-end">
                   Sign in or register to acces private cabinet
                 </h2>
-                <div className="grid gap-x-6 gap-y-1 border-t border-neutral pt-4 sm:grid-cols-[1fr_0.1fr_1fr]">
+                <div className="border-neutral grid gap-x-6 gap-y-1 border-t pt-4 sm:grid-cols-[1fr_0.1fr_1fr]">
                   <BtnRegisSign text="Sign in" signIn />
                   <h2 className="place-self-center max-sm:text-sm">or</h2>
                   <BtnRegisSign text="Register" />

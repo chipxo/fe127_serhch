@@ -59,7 +59,7 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
           <span className="text-xl">{cartIcon}</span>
           {amount > 0 && (
             <Badge
-              className="absolute scale-90 -right-1 -top-1"
+              className="absolute -right-1 -top-1 scale-90"
               variant="default"
             >
               {amount}
@@ -73,9 +73,9 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
             <m.div
               {...mFLoatMenu}
               style={{ x: "-72%" }}
-              className="absolute -left-[84%] top-12 xl:-left-1/2"
+              className="absolute -left-[84%] top-12 bg-background xl:-left-1/2"
             >
-              <div className="absolute top-5 z-[999] h-8 w-full bg-transparent" />
+              <div className="absolute top-5 h-8 w-full bg-transparent" />
               <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border p-4">
                 {loading && <Loading />}
                 {error && <Error error={error} />}
@@ -116,7 +116,7 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
               className="absolute left-1/3 top-14"
             >
               <div className="absolute -top-8 z-[999] h-8 w-full bg-transparent" />
-              <div className="w-max rounded-md border-4 border-neutral bg-base-100  px-12 py-6 drop-shadow-2xl">
+              <div className="w-max rounded-md border bg-background px-12 py-6 drop-shadow-2xl">
                 <p className="text-lg">No items added</p>
               </div>
             </m.div>

@@ -74,15 +74,14 @@ const SoloCard = () => {
   return (
     <section className="relative min-h-[70vh]">
       <div className="container py-10">
-        <div className="flex flex-col-reverse gap-x-10 gap-y-4 rounded-md border border-neutral bg-base-100 px-10 py-6 shadow-lg lg:grid lg:grid-cols-[1fr_0.5fr]">
+        <div className="border-neutral bg-base-100 flex flex-col-reverse gap-x-10 gap-y-4 rounded-md border px-10 py-6 shadow-lg lg:grid lg:grid-cols-[1fr_0.5fr]">
           <div className="text-md flex h-full flex-col gap-y-4 md:text-lg lg:gap-y-6 lg:text-xl">
-            <p className="badge badge-accent font-semibold lg:badge-lg lg:p-4">
+            <p className="badge badge-accent lg:badge-lg font-semibold lg:p-4">
               {category?.name}
             </p>
             <h2 className="text-xl font-semibold tracking-wider lg:mt-8 lg:text-3xl">
               {title}
             </h2>
-            {/* {checked && cartChecked} */}
             <p className="text-md tracking-wide">{description}</p>
             <p className="mt-4">
               Price:
@@ -106,7 +105,7 @@ const SoloCard = () => {
               />
             </div>
           </div>
-          <figure className="flex rounded-md border border-neutral lg:grid">
+          <figure className="border-neutral flex rounded-md border lg:grid">
             <div className="h-full p-3">
               <img
                 src={images?.[0]}
@@ -114,10 +113,8 @@ const SoloCard = () => {
                 alt={title}
               />
             </div>
-
-            {/* <div className="divider my-2 h-[1px] bg-neutral" /> */}
             {imgs && (
-              <div className="grid gap-3 border-t border-neutral p-3 lg:grid-cols-3">
+              <div className="border-neutral grid gap-3 border-t p-3 lg:grid-cols-3">
                 <img
                   src={images?.[1]}
                   alt={title}

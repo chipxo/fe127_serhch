@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Carousel from "@/components/containers/slider/Slider.tsx";
+// import Carousel from "@/components/containers/slider/Slider.tsx";
 import CommonCard from "@/features/cards/CommonCard.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
@@ -11,11 +11,10 @@ import CatalogAside from "@/components/containers/nav/CategoriesHome";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion as m } from "framer-motion";
-import { ProductType } from "@/types/types.tsx";
 import { Button } from "@/components/ui/button";
-import { log } from "console";
+import Carousel from "@/components/containers/slider/Slider";
+import ComCard from "@/features/cards/ComCard";
 import { isValidImage } from "@/utils/isValidImage";
-import { mSetting } from "@/utils/motionSettings";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -40,7 +39,6 @@ const Home = () => {
   }, [dispatch]);
 
   const [am, setAm] = useState(10);
-
   return (
     <>
       {loading && (
@@ -53,13 +51,13 @@ const Home = () => {
 
       {!loading && !error && allProducts && <Carousel products={allProducts} />}
 
-      <div className="min-h-[60vh] border-y border-neutral bg-base-100">
+      <div className="border-neutral bg-base-100 min-h-[60vh] border-y">
         <div className="lg:container">
           {!loading && !error && categories && (
             <CatalogAside categories={categories} />
           )}
 
-          <div className="space-y-10 border-neutral py-10 pl-10 max-lg:container">
+          <div className="border-neutral space-y-10 py-10 pl-10 max-lg:container">
             <h2 className="text-start text-xl md:text-2xl md:font-semibold">
               Best selling products:
             </h2>
@@ -69,9 +67,10 @@ const Home = () => {
                   !error &&
                   amountOfProducts?.map(
                     (product, i) =>
-                      i < am && (
-                        <m.div key={nanoid()}>
-                          <CommonCard {...product} isHome />
+                      i < am &&
+                      isValidImage(product.images[0]) && (
+                        <m.div key={nanoid()} className="h-full w-full">
+                          <ComCard {...product} isHome />
                         </m.div>
                       ),
                   )}

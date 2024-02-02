@@ -24,7 +24,7 @@ const Search = () => {
     (state: RootState) => state.searchProducts,
   );
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
     [],
   );
@@ -72,7 +72,7 @@ const Search = () => {
       <Input
         type="text"
         placeholder="Search..."
-        className="relative z-[50] w-full focus:bg-background"
+        className="relative z-[200] w-full focus:bg-background"
         value={inputValue}
         onChange={(e) => handleChange(e.target.value)}
         onFocus={() => setOpen(true)}
@@ -88,7 +88,7 @@ const Search = () => {
         {open && (
           <m.div
             {...mSetting}
-            className="absolute right-0 top-0 z-[100] scale-75"
+            className="absolute right-0 top-0 z-[200] scale-75"
           >
             <Link to="/searchResults">
               <Button variant="default">Search</Button>
@@ -101,7 +101,7 @@ const Search = () => {
           <>
             <m.div
               {...mSetting}
-              className="fixed inset-0 h-screen w-screen bg-black/40"
+              className="fixed inset-0 z-[99] h-screen w-screen bg-black/40"
               onClick={() => setOpen(false)}
             />
             <m.div

@@ -9,6 +9,8 @@ import {
 import { useAppDispatch } from "../../app/store.tsx";
 import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
 import { ProductType } from "../../types/types.tsx";
+import { isValidImage } from "@/utils/isValidImage.tsx";
+import { Skeleton } from "@/components/ui/skeleton.tsx";
 
 type StoreCardProps = ProductType & {
   isHome?: boolean;
@@ -56,17 +58,25 @@ const CommonCard: React.FC<StoreCardProps> = ({
 
   return (
     <>
-      <div className="flex h-full cursor-pointer flex-col overflow-hidden rounded-md bg-base-100 shadow-2xl">
+      <div className="bg-base-100 flex h-full cursor-pointer flex-col overflow-hidden rounded-md shadow-2xl">
         {/* Image */}
-        <figure>
+        {isValidImage(images?.[0]) ? (
           <img
             onClick={() => toSoloCard(id)}
             src={images?.[0]}
-            className="rounded-t-md"
+            className="h-fit rounded-t-md"
             alt={title}
           />
-        </figure>
-        <div className="grid h-full p-4">
+        ) : (
+          // <img
+          //   onClick={() => toSoloCard(id)}
+          //   src={images?.[0]}
+          //   className="h-full rounded-t-md"
+          //   alt={title}
+          // />
+          <Skeleton className="h-full w-full rounded-b-none bg-destructive-foreground" />
+        )}
+        <div className="grid p-4">
           {/* Category */}
           {!isHome && (
             <div className="badge badge-outline relative border-primary p-3 ">

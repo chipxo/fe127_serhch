@@ -8,6 +8,8 @@ import { fetchCategoryProducts } from "@/hooks/fetchCategoryProducts.tsx";
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import NoItems from "@/components/common/NoItems.tsx";
+import ComCard from "@/features/cards/ComCard";
+import { isValidImage } from "@/utils/isValidImage";
 
 const CategoryProducts = () => {
   const dispatch = useAppDispatch();
@@ -36,16 +38,12 @@ const CategoryProducts = () => {
 
         {!loading && !error && products && products.length > 0 ? (
           <div className="grid grid-cols-home gap-4">
-            {products?.map(({ id, title, images, category, price }) => (
-              <CommonCard
-                key={nanoid()}
-                id={id}
-                title={title}
-                price={price}
-                images={images}
-                category={category}
-              />
-            ))}
+            {products?.map(
+              (product) =>
+                isValidImage(product.images[0]) && (
+                  <ComCard key={nanoid()} {...product} />
+                ),
+            )}
           </div>
         ) : (
           !loading && !error && <NoItems />

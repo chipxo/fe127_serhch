@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import SoloCard from "@/features/cards/SoloCard.tsx";
 import Home from "@/pages/Home.tsx";
 import Layout from "@/pages/Layout.tsx";
 import ShoppingCart from "@/pages/ShoppingCart.tsx";
@@ -11,7 +10,7 @@ import { setSignedIn } from "@/features/registration/registerSlice.tsx";
 import { useAppDispatch } from "./store";
 import Page404 from "@/pages/Page404.tsx";
 import { ThemeProvider } from "@/features/theme/theme-provider";
-import ShdcnCard from "@/features/cards/ShdcnCard";
+import SingleCard from "@/features/cards/SingleCard";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -32,7 +31,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/searchResults" element={<FoundProducts />} />
-          <Route path="/products/:prodId" element={<ShdcnCard />} />
+          <Route path="/products/:prodId" element={<SingleCard />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route
             path="/products/categories/:categoryId"

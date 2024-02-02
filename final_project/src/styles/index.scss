@@ -107,7 +107,7 @@ input {
 }
 
 section {
-  @apply sm:my-5 md:my-10 my-3 shadow-xl bg-background; //bg-base-100
+  @apply my-3 bg-background shadow-xl sm:my-5 md:my-10; //bg-base-100
 }
 
 .collapse:not(.collapse-close)

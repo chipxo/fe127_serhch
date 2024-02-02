@@ -8,10 +8,11 @@ import { showForm, showUserPanel } from "@/features/registration/registerSlice";
 import UserPannel from "./UserPanel";
 import AlertModal from "@/features/alert/AlerModal";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const User = () => {
   const dispatch = useAppDispatch();
-  const { signedIn, openForm, openUserPanel } = useSelector(
+  const { signedIn, openForm, userData, openUserPanel } = useSelector(
     (state: RootState) => state.register,
   );
 
@@ -27,13 +28,22 @@ const User = () => {
 
   return (
     <>
-      <Button
-        variant="ghost"
-        onClick={handleUserClick}
-        className="relative z-[50] cursor-pointer"
-      >
-        {cartUser}
-      </Button>
+      {signedIn ? (
+        <Avatar onClick={handleUserClick} className="cursor-pointer">
+          <AvatarFallback className="text-lg">
+            {userData?.name.slice(0, 1)}
+          </AvatarFallback>
+        </Avatar>
+      ) : (
+        <Button
+          variant="ghost"
+          onClick={handleUserClick}
+          className="relative z-[50] cursor-pointer"
+        >
+          {cartUser}
+        </Button>
+      )}
+
       <div className="fixed left-1/2 top-20 z-[999] -translate-x-1/2">
         <AlertModal />
       </div>

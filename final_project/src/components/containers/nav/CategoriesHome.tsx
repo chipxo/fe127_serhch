@@ -6,6 +6,7 @@ import { CategoriesType } from "@/types/types";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { twJoin } from "tailwind-merge";
 import { mCategories, mSetting } from "@/utils/motionSettings";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type CategoriesHomeProps = {
   categories: CategoriesType[] | null;
@@ -15,7 +16,7 @@ const CategoriesHome: React.FC<CategoriesHomeProps> = ({ categories }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-neutral lg:hidden">
+    <div className="border-neutral border-b lg:hidden">
       <h2
         onClick={() => setOpen(!open)}
         className="relative mx-auto w-fit cursor-pointer py-4 text-center text-2xl"
@@ -32,7 +33,7 @@ const CategoriesHome: React.FC<CategoriesHomeProps> = ({ categories }) => {
       </h2>
       <AnimatePresence>
         {open && (
-          <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 border-neutral pb-8 font-Merriweather max-lg:container lg:gap-y-10 lg:border-b lg:pb-14">
+          <div className="text-md border-neutral grid grid-cols-filterLayout gap-x-4 gap-y-4 pb-8 font-Merriweather max-lg:container lg:gap-y-10 lg:border-b lg:pb-14">
             {categories?.map(({ id, name, image }) => (
               <Link
                 to={`/products/categories/${id}`}
@@ -43,11 +44,10 @@ const CategoriesHome: React.FC<CategoriesHomeProps> = ({ categories }) => {
                   {...mCategories}
                   className="grid grid-cols-[60px_1fr] items-center gap-x-2"
                 >
-                  <img
-                    src={image}
-                    alt={name}
-                    className="h-12 w-12 rounded-full"
-                  />
+                  <Avatar>
+                    <AvatarImage src={image} />
+                    <AvatarFallback>{name.slice(0, 1)}</AvatarFallback>
+                  </Avatar>
                   <p>
                     {name} {goToRightIcon}
                   </p>
