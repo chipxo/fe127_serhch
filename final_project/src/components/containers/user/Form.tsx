@@ -122,8 +122,8 @@ const Form = () => {
         {...mSetting}
         className="fixed inset-0 z-[200] grid items-center bg-black/40 px-4"
       >
-        <div className="relative left-1/2 -translate-x-1/2 rounded-md bg-background max-md:container md:max-w-[68vw] xl:max-w-[45vw]">
-          <div className="border-neutral relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-12 border-b px-6 py-2">
+        <div className="relative left-1/2 -translate-x-1/2 rounded-md border border-primary bg-background max-md:container md:max-w-[68vw] xl:max-w-[45vw]">
+          <div className="relative grid grid-cols-[1fr_0.8fr] justify-items-center gap-x-12 border-b border-primary px-6 py-2">
             {/* Buttons for switch between Sign in and Register */}
             <Button
               onClick={() => {
@@ -155,7 +155,7 @@ const Form = () => {
           </div>
           <div className="grid md:grid-cols-[1fr_0.8fr]">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="border-neutral grid gap-y-14 border-b px-6 py-8">
+              <div className="grid gap-y-14 border-b border-primary px-6 py-8">
                 <label htmlFor="name" className="relative">
                   <span className="absolute -top-6 text-sm opacity-60">
                     Name
@@ -228,7 +228,7 @@ const Form = () => {
                 <Button>{alreadyRegistered ? "Sign in" : "Register"}</Button>
               </div>
             </form>
-            <div className="border-neutral relative grid place-items-center max-md:border-t max-md:py-3 md:border-l">
+            <div className="relative grid place-items-center border-primary max-md:border-t max-md:py-3 md:border-l">
               {/* Another way to sign in */}
               <span className="absolute -left-2 top-1/2 -translate-y-1/2 bg-background py-3 max-md:hidden">
                 or

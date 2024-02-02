@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
-// import Carousel from "@/components/containers/slider/Slider.tsx";
-import CommonCard from "@/features/cards/CommonCard.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
-import { Error, Loading } from "@/components/common/LoadingError.tsx";
+import ErrorMessage from "@/components/common/ErrorMessage";
 import { fetchAmountOfProducts } from "@/hooks/fetchAmountOfProducts.tsx";
 import { fetchProducts } from "@/hooks/fetchProducts.tsx";
-import CatalogAside from "@/components/containers/nav/CategoriesHome";
+import CategoriesHome from "@/components/containers/nav/CategoriesHome";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Carousel from "@/components/containers/slider/Slider";
-import ComCard from "@/features/cards/ComCard";
+import CommonCard from "@/features/cards/commonCard/CommonCard";
 import { isValidImage } from "@/utils/isValidImage";
+import HomeLoading from "./HomeLoading";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -36,28 +35,21 @@ const Home = () => {
 
     dispatch(fetchAmountOfProducts(0));
     dispatch(fetchAmountOfProducts(10));
-  }, [dispatch]);
+  }, []);
 
   const [am, setAm] = useState(10);
   return (
     <>
-      {loading && (
-        <div className="absolute left-1/2 top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2">
-          <Loading />
-        </div>
-      )}
-
-      {error && <Error error={error} />}
-
+      {loading && <HomeLoading />}
+      {error && <ErrorMessage error={error} />}
       {!loading && !error && allProducts && <Carousel products={allProducts} />}
 
-      <div className="border-neutral bg-base-100 min-h-[60vh] border-y">
-        <div className="lg:container">
+      <section>
+        <div className="container">
           {!loading && !error && categories && (
-            <CatalogAside categories={categories} />
+            <CategoriesHome categories={categories} />
           )}
-
-          <div className="border-neutral space-y-10 py-10 pl-10 max-lg:container">
+          <div className="border-neutral space-y-10 py-10 max-lg:container">
             <h2 className="text-start text-xl md:text-2xl md:font-semibold">
               Best selling products:
             </h2>
@@ -67,42 +59,26 @@ const Home = () => {
                   !error &&
                   amountOfProducts?.map(
                     (product, i) =>
-                      i < am &&
-                      isValidImage(product.images[0]) && (
+                      i < am && (
                         <m.div key={nanoid()} className="h-full w-full">
-                          <ComCard {...product} isHome />
+                          <CommonCard {...product} isHome />
                         </m.div>
                       ),
                   )}
               </AnimatePresence>
             </div>
           </div>
-        </div>
-        <div className="mb-8 grid place-items-center">
           {am < 20 && (
-            <Button variant="default" onClick={() => setAm((a) => a + 10)}>
-              Show more
-            </Button>
+            <div className="mx-auto w-fit">
+              <Button variant="default" onClick={() => setAm((a) => a + 10)}>
+                Show more
+              </Button>
+            </div>
           )}
         </div>
-      </div>
+      </section>
     </>
   );
 };
 
 export default Home;
-
-// const fetchData = async () => {
-//   try {
-//     const [_, result2] = await Promise.all([
-//       dispatch(fetchAmountOfProducts(10)),
-//       dispatch(fetchAmountOfProducts(10)),
-//     ]);
-
-//     setPr((result2.payload as ProductType[]) || []);
-//   } catch (e) {
-//     console.error(`Error while fetching data: ${e}`);
-//   }
-// };
-
-// fetchData();

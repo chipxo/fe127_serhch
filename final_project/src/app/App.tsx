@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "@/pages/Home.tsx";
+import Home from "@/pages/Home/Home.tsx";
 import Layout from "@/pages/Layout.tsx";
 import ShoppingCart from "@/pages/ShoppingCart.tsx";
 import WebFont from "webfontloader";
@@ -10,7 +10,7 @@ import { setSignedIn } from "@/features/registration/registerSlice.tsx";
 import { useAppDispatch } from "./store";
 import Page404 from "@/pages/Page404.tsx";
 import { ThemeProvider } from "@/features/theme/theme-provider";
-import SingleCard from "@/features/cards/SingleCard";
+import SingleCard from "@/features/cards/singleCard/SingleCard";
 
 const App = () => {
   const dispatch = useAppDispatch();

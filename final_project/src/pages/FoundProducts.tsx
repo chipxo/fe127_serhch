@@ -4,11 +4,11 @@ import { useAppDispatch } from "@/app/store";
 import { useEffect, useState } from "react";
 import { ProductType } from "@/types/types";
 import { nanoid } from "@reduxjs/toolkit";
-import { Loading, Error } from "@/components/common/LoadingError";
+import ErrorMessage from "@/components/common/ErrorMessage";
 import NoItems from "@/components/common/NoItems";
 import { motion as m } from "framer-motion";
 import { mSetting } from "@/utils/motionSettings";
-import ComCard from "@/features/cards/ComCard";
+import CommonCard from "@/features/cards/commonCard/CommonCard";
 import { isValidImage } from "@/utils/isValidImage";
 
 const FoundProducts = () => {
@@ -39,12 +39,12 @@ const FoundProducts = () => {
 
   return (
     <section className="min-h-[70vh] border-y">
-      {loading && (
+      {/* {loading && (
         <div className="absolute left-1/2 top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2">
           <Loading />
         </div>
-      )}
-      {error && <Error error={error} />}
+      )} */}
+      {error && <ErrorMessage error={error} />}
       {filteredPr && inputValue.length > 0 && filteredPr?.length > 0 ? (
         <div className="container py-6 md:py-12">
           {inputValue.length > 0 && (
@@ -59,7 +59,7 @@ const FoundProducts = () => {
                 (product) =>
                   isValidImage(product.images[0]) && (
                     <m.div {...mSetting} key={nanoid()}>
-                      <ComCard {...product} />
+                      <CommonCard {...product} />
                     </m.div>
                   ),
               )}

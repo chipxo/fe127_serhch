@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
 import SearchPage from "./SearchPage";
 import { ProductType } from "@/types/types";
-import { Error, Loading } from "@/components/common/LoadingError.tsx";
+import ErrorMessage from "@/components/common/ErrorMessage";
 import { Link, useNavigate } from "react-router-dom";
 import { mSetting } from "@/utils/motionSettings";
 import { Input } from "@/components/ui/input";
@@ -24,7 +24,7 @@ const Search = () => {
     (state: RootState) => state.searchProducts,
   );
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<ProductType[] | undefined>(
     [],
   );
@@ -72,18 +72,18 @@ const Search = () => {
       <Input
         type="text"
         placeholder="Search..."
-        className="relative z-[200] w-full focus:bg-background"
+        className="relative z-[200] w-full bg-background"
         value={inputValue}
         onChange={(e) => handleChange(e.target.value)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
       />
-      {loading && (
+      {/* {loading && (
         <div className="absolute -bottom-14 right-1/2 -translate-x-[50px]">
           <Loading />
         </div>
-      )}
-      {error && <Error error={error} />}
+      )} */}
+      {error && <ErrorMessage error={error} />}
       <AnimatePresence>
         {open && (
           <m.div

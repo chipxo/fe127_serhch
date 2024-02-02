@@ -9,6 +9,7 @@ import UserPannel from "./UserPanel";
 import AlertModal from "@/features/alert/AlerModal";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useEffect, useState } from "react";
 
 const User = () => {
   const dispatch = useAppDispatch();
@@ -26,13 +27,17 @@ const User = () => {
     }
   };
 
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    setName(userData?.name.slice(0, 1) as string);
+  }, [signedIn]);
+
   return (
     <>
       {signedIn ? (
         <Avatar onClick={handleUserClick} className="cursor-pointer">
-          <AvatarFallback className="text-lg">
-            {userData?.name.slice(0, 1)}
-          </AvatarFallback>
+          <AvatarFallback className="bg-destructive">{name}</AvatarFallback>
         </Avatar>
       ) : (
         <Button

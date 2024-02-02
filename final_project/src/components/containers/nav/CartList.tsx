@@ -2,14 +2,14 @@ import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Error, Loading } from "@/components/common/LoadingError";
+import ErrorMessage from "@/components/common/ErrorMessage";
 import { fetchProducts } from "@/hooks/fetchProducts";
 import { cartIcon } from "@/components/common/icons.tsx";
 import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
 import { setAmount } from "@/features/amount/amountSlice";
 import { ProductType } from "@/types/types";
-import { mFLoatMenu } from "@/utils/motionSettings";
+import { mFLoatMenu, mSetting } from "@/utils/motionSettings";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -57,14 +57,15 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
       <NavLink to="/shoppingCart">
         <Button className="relative" variant="ghost">
           <span className="text-xl">{cartIcon}</span>
-          {amount > 0 && (
-            <Badge
-              className="absolute -right-1 -top-1 scale-90"
-              variant="default"
-            >
-              {amount}
-            </Badge>
-          )}
+          <AnimatePresence>
+            {amount > 0 && (
+              <m.div {...mSetting}>
+                <Badge className="absolute -top-1 right-0" variant="default">
+                  {amount}
+                </Badge>
+              </m.div>
+            )}
+          </AnimatePresence>
         </Button>
       </NavLink>
       <AnimatePresence>
@@ -73,12 +74,12 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
             <m.div
               {...mFLoatMenu}
               style={{ x: "-72%" }}
-              className="absolute -left-[84%] top-12 bg-background xl:-left-1/2"
+              className="absolute -left-[84%] top-12 xl:-left-1/2"
             >
-              <div className="absolute top-5 h-8 w-full bg-transparent" />
-              <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border p-4">
-                {loading && <Loading />}
-                {error && <Error error={error} />}
+              <div className="absolute -top-5 h-8 w-full bg-transparent" />
+              <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border bg-background p-4 ">
+                {/* {loading && <Loading />} */}
+                {error && <ErrorMessage error={error} />}
                 {items?.map((item) => {
                   if (item && item.id) {
                     const { id, images, title, price } = item;
@@ -113,9 +114,9 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
             <m.div
               {...mFLoatMenu}
               style={{ x: "-50%" }}
-              className="absolute left-1/3 top-14"
+              className="absolute left-1/3 top-11"
             >
-              <div className="absolute -top-8 z-[999] h-8 w-full bg-transparent" />
+              <div className="absolute -top-6 z-[999] h-8 w-full bg-transparent" />
               <div className="w-max rounded-md border bg-background px-12 py-6 drop-shadow-2xl">
                 <p className="text-lg">No items added</p>
               </div>

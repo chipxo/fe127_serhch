@@ -11,22 +11,23 @@ import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Error, Loading } from "../../components/common/LoadingError.tsx";
-import { fetchProduct } from "../../hooks/fetchProduct.tsx";
+import ErrorMessage from "../../../components/common/ErrorMessage";
+import { fetchProduct } from "../../../hooks/fetchProduct.tsx";
 import {
   cartDelete,
   cartIcon,
   closeIcon,
-} from "../../components/common/icons.tsx";
-import { RootState } from "../../app/rootReducer.tsx";
-import { useAppDispatch } from "../../app/store.tsx";
-import { addAmount, decreaseAmount } from "../amount/amountSlice.tsx";
+} from "../../../components/common/icons.tsx";
+import { RootState } from "../../../app/rootReducer.tsx";
+import { useAppDispatch } from "../../../app/store.tsx";
+import { addAmount, decreaseAmount } from "../../amount/amountSlice.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { isValidImage } from "@/utils/isValidImage.tsx";
 import { AnimatePresence, motion as m } from "framer-motion";
 import Gallery from "@/components/containers/gallery/Gallery.tsx";
 import { mSetting } from "@/utils/motionSettings.tsx";
 import { nanoid } from "@reduxjs/toolkit";
+import SingleCardSkeleton from "./SingleCardSkeleton.tsx";
 
 const SingleCard = () => {
   const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ const SingleCard = () => {
 
   useEffect(() => {
     dispatch(fetchProduct(Number(prodId)));
-  }, [dispatch, prodId]);
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,14 +56,14 @@ const SingleCard = () => {
 
   if (!product || loading) {
     return (
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <Loading />
-      </div>
+      <section>
+        <SingleCardSkeleton />
+      </section>
     );
   }
 
   if (error) {
-    return <Error error={error} />;
+    return <ErrorMessage error={error} />;
   }
 
   const { id, title, price, description, category, images } = product;
@@ -84,6 +85,7 @@ const SingleCard = () => {
       <AnimatePresence>
         {open && (
           <>
+            {/* Gallery */}
             <m.div {...mSetting}>
               <Button
                 variant="ghost"
@@ -97,8 +99,8 @@ const SingleCard = () => {
           </>
         )}
       </AnimatePresence>
-      <section className="min-h-[80vh] border-y">
-        <div className="container py-16">
+      <section>
+        <div className="container">
           <Card className="grid md:grid-cols-[0.4fr_1fr] xl:grid-cols-[0.25fr_1fr]">
             <CardHeader className="grid place-items-center md:pr-0">
               <div className="hidden h-full gap-2 rounded-md lg:grid">
@@ -120,17 +122,16 @@ const SingleCard = () => {
                   ))}
                 </div>
               </div>
-
               <img
                 onClick={() => setOpen(true)}
-                className="h-full w-full rounded-md object-cover lg:hidden"
+                className="h-full w-full cursor-pointer rounded-md object-cover lg:hidden"
                 src={images?.[0]}
                 alt={title}
               />
             </CardHeader>
             <div className="grid">
               <CardHeader>
-                <Badge variant="destructive" className="mb-3 w-fit">
+                <Badge variant="secondary" className="mb-3 w-fit">
                   {category.name}
                 </Badge>
                 <CardTitle>{title}</CardTitle>

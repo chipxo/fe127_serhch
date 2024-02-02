@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Burger from "./Burger";
-import { AnimatePresence, motion as m } from "framer-motion";
-import { closeIcon } from "@/components/common/icons";
+import { AnimatePresence } from "framer-motion";
 import { useAppDispatch } from "@/app/store";
 import { RootState } from "@/app/rootReducer";
 import { useSelector } from "react-redux";
@@ -13,9 +12,7 @@ import UserPannel from "../user/UserPanel";
 
 const BurgerBar = () => {
   const dispatch = useAppDispatch();
-  const { signedIn, openUserPanel } = useSelector(
-    (state: RootState) => state.register,
-  );
+  const { openUserPanel } = useSelector((state: RootState) => state.register);
 
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");

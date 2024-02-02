@@ -11,7 +11,7 @@ import { ProductType } from "@/types/types";
 import { isValidImage } from "@/utils/isValidImage";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { addAmount, decreaseAmount } from "../amount/amountSlice";
+import { addAmount, decreaseAmount } from "../../amount/amountSlice";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cartDelete, cartIcon } from "@/components/common/icons";
@@ -21,7 +21,7 @@ type CardProps = ProductType & {
   checked?: boolean;
 };
 
-const ComCard: React.FC<CardProps> = ({
+const CommonCard: React.FC<CardProps> = ({
   id,
   title,
   images,
@@ -54,7 +54,7 @@ const ComCard: React.FC<CardProps> = ({
   };
 
   return (
-    <Card className="h-full">
+    <Card className="flex h-full w-full flex-col">
       {/* Image */}
       <Link to={`/products/${id}`} className="h-min">
         <img
@@ -80,7 +80,7 @@ const ComCard: React.FC<CardProps> = ({
         )}
       </CardHeader>
       {!isHome && (
-        <>
+        <div className="flex flex-grow flex-col justify-between">
           <CardContent className="text-2xl">
             <p>${price}</p>
           </CardContent>
@@ -100,10 +100,10 @@ const ComCard: React.FC<CardProps> = ({
               {cartIcon}
             </Button>
           </CardFooter>
-        </>
+        </div>
       )}
     </Card>
   );
 };
 
-export default ComCard;
+export default CommonCard;

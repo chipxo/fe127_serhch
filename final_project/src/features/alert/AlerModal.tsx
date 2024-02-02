@@ -26,7 +26,6 @@ const AlertModal = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -66 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-background"
           >
             <Alert>
               <AlertTitle>{text}</AlertTitle>

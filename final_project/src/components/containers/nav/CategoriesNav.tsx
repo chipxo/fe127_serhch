@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { catalogIcon, toRightIcon } from "@/components/common/icons";
+import { toRightIcon } from "@/components/common/icons";
 import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { CategoriesType } from "@/types/types";
 import { mFLoatMenu } from "@/utils/motionSettings";
+import { Button } from "@/components/ui/button";
 
-type CatalogProps = {
+type CategoriesProps = {
   categories: CategoriesType[] | null;
 };
 
-const Catalog: React.FC<CatalogProps> = ({ categories }) => {
+const CategoriesNav: React.FC<CategoriesProps> = ({ categories }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -19,27 +20,26 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <h2 className="flex items-center gap-x-3 text-lg">
-        <span className="rotate-45 text-2xl">{catalogIcon}</span> Catalog
+      <h2 className="flex cursor-pointer items-center gap-x-3 text-lg">
+        Categories
       </h2>
       <AnimatePresence>
         {open && (
           <m.div
             {...mFLoatMenu}
             style={{ x: "-50%" }}
-            className="absolute left-1/2 top-12 bg-background max-h-[60vh] overflow-auto border rounded-md"
+            className="absolute left-1/2 top-10  rounded-md border bg-background"
           >
-            <div className="absolute -top-8 z-[999] h-8 w-full bg-transparent" />
-            <div className="grid cursor-pointer gap-y-4 rounded-md bg-base-100 p-4">
+            <div className="absolute -top-6 z-[9999] h-8 w-full bg-transparent" />
+            <div className="grid max-h-[60vh] cursor-pointer gap-y-4 overflow-auto rounded-md p-4">
               <div className="border-b lg:border-none">
-                <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 font-Merriweather max-lg:container lg:gap-y-10">
+                <div className="text-md grid grid-cols-filterLayout gap-x-4 gap-y-4 font-Merriweather max-lg:container lg:gap-y-4">
                   {categories?.map(({ id, name }) => (
-                    <Link
-                      to={`/products/categories/${id}`}
-                      key={nanoid()}
-                      className="border-b pb-2"
-                    >
-                      {name} {toRightIcon}
+                    <Link to={`/products/categories/${id}`} key={nanoid()}>
+                      <Button variant="ghost">
+                        {name}
+                        <span className="ml-2 mt-0.5">{toRightIcon}</span>
+                      </Button>
                     </Link>
                   ))}
                 </div>
@@ -52,4 +52,4 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
   );
 };
 
-export default Catalog;
+export default CategoriesNav;

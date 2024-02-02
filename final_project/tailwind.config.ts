@@ -78,13 +78,19 @@ module.exports = {
       },
       gridTemplateColumns: {
         header: "1fr 140px",
-        home: "repeat(auto-fill, minmax(200px, 1fr))",
+        home: "repeat(auto-fill, minmax(250px, 1fr))",
         products: "repeat(auto-fill, minmax(250px, 1fr))",
         filterLayout: "repeat(auto-fill, minmax(200px, 1fr))",
       },
       fontFamily: {
         Merriweather: ["'Merriweather', 'Roboto Condensed', sans-serif"],
         "Roboto-Condensed": ["'Roboto Condensed', 'Merriweather', sans-serif"],
+      },
+      backgroundImage: {
+        "header-bg": "url('@/assets/headerBg.svg')",
+        "user-panel": "url('@/assets/userPanelBg.svg')",
+        "animated-bg": "url('@/assets/animatedBg.svg')",
+        "footer-bg": "url('@/assets/footerBg.svg')",
       },
     },
   },

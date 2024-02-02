@@ -11,7 +11,7 @@ const Layout = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-[40] max-h-[80px] bg-background shadow-md">
+      <header className="bg-header-bg sticky top-0 z-[40] max-h-[80px] bg-background bg-cover bg-center bg-no-repeat shadow-md">
         <NavBar />
       </header>
       <main>

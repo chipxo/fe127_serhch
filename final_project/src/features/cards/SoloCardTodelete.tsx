@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Button from "../../components/common/buttons/CommonButton.tsx";
-import { Error, Loading } from "../../components/common/LoadingError.tsx";
+import { Error, Loading } from "../../components/common/ErrorMessage.tsx";
 import { fetchProduct } from "../../hooks/fetchProduct.tsx";
 import { cartDelete, cartIcon } from "../../components/common/icons.tsx";
 import { RootState } from "../../app/rootReducer.tsx";

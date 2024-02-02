@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/app/store.tsx";
 import { RootState } from "@/app/rootReducer.tsx";
-import { Loading, Error } from "@/components/common/LoadingError.tsx";
-import CommonCard from "@/features/cards/CommonCard";
+import ErrorMessage from "@/components/common/ErrorMessage.tsx";
 import { useEffect } from "react";
 import { fetchCategoryProducts } from "@/hooks/fetchCategoryProducts.tsx";
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import NoItems from "@/components/common/NoItems.tsx";
-import ComCard from "@/features/cards/ComCard";
+import CommonCard from "@/features/cards/commonCard/CommonCard";
+
 import { isValidImage } from "@/utils/isValidImage";
+import CardSkeleton from "@/features/cards/commonCard/CardSkeleton";
 
 const CategoryProducts = () => {
   const dispatch = useAppDispatch();
@@ -28,26 +29,16 @@ const CategoryProducts = () => {
   return (
     <section>
       <div className="container min-h-[70vh] py-10">
-        {loading && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Loading />
-          </div>
-        )}
+        {error && <ErrorMessage error={error} />}
 
-        {error && <Error error={error} />}
-
-        {!loading && !error && products && products.length > 0 ? (
-          <div className="grid grid-cols-home gap-4">
-            {products?.map(
-              (product) =>
-                isValidImage(product.images[0]) && (
-                  <ComCard key={nanoid()} {...product} />
-                ),
-            )}
-          </div>
-        ) : (
-          !loading && !error && <NoItems />
-        )}
+        <div className="grid grid-cols-home gap-4">
+          {loading && <CardSkeleton />}
+          {!loading && !error && products && products.length > 0
+            ? products.map((product) => (
+                <CommonCard key={nanoid()} {...product} />
+              ))
+            : !loading && !error && <NoItems />}
+        </div>
       </div>
     </section>
   );

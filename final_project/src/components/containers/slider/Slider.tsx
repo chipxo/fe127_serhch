@@ -23,8 +23,8 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
   };
 
   return (
-    <section className="relative overflow-hidden border-neutral py-3 md:border-y md:shadow-lg">
-      <div className="z-[30] w-full bg-base-100/80 text-center backdrop-blur-md absolute top-12">
+    <div className="bg-animated-bg relative my-6 overflow-hidden border-y bg-cover bg-no-repeat py-4 md:my-12 md:shadow-lg">
+      <div className="absolute top-16 z-[30] w-full text-center backdrop-blur-md">
         <SliderHeader />
       </div>
       {products && (
@@ -32,10 +32,10 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
           {products.map(
             ({ title, images }) =>
               isValidImage(images[0]) && (
-                <div key={nanoid()}>
+                <div key={nanoid()} className="px-1.5">
                   <img
                     src={images[1]}
-                    className="h-40 w-screen rounded-md border-x-4 border-base-100 object-cover"
+                    className="h-fit max-h-44 w-full rounded-md object-cover"
                     alt={title}
                   />
                 </div>
@@ -43,7 +43,7 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
           )}
         </Slider>
       )}
-    </section>
+    </div>
   );
 };
 

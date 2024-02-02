@@ -17,6 +17,8 @@ import { mSetting } from "@/utils/motionSettings";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/features/theme/mode-toggle";
 import Logo from "@/components/common/Logo";
+import bgImage from "@/assets/userPanelBg.svg";
+import panelBg from "./panelBg";
 
 type UserPanelProps = {
   isBurger?: boolean;
@@ -65,43 +67,38 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
   return (
     <m.div
       {...mSetting}
-      className="fixed inset-0 right-0 top-0 z-[99] grid bg-black/40"
+      className="fixed inset-0 right-0 top-0 z-[999] grid bg-black/40"
     >
       <m.div
         initial={{ opacity: 0, x: 300 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 300 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="relative space-y-4 justify-self-end border-l bg-background p-4 max-sm:w-[56vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
+        className="bg-user-panel relative space-y-4 justify-self-end border-l bg-background bg-cover bg-center bg-no-repeat p-4 max-sm:w-[72vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
       >
         <nav className="top-4 grid grid-cols-[1fr_0.4fr] border-b pb-4 max-sm:mb-4 max-sm:border-b max-sm:pb-4 md:left-8 md:top-6">
           <ul className="grid cursor-pointer place-items-center gap-x-4 justify-self-start text-xl max-md:grid-cols-2">
-            <li onClick={handleClosePanel} className="scale-125">
-              {closeIcon}
+            <li onClick={handleClosePanel}>
+              <Button variant="ghost" className="text-xl">
+                {closeIcon}
+              </Button>
             </li>
             <li className="scale-110 md:hidden">
               <ModeToggle />
             </li>
           </ul>
-          <div className="justify-self-end pr-4">
+          <div className="hidden justify-self-end pr-4 sm:block">
             <Logo />
           </div>
         </nav>
         {signedIn && (
           <div className="grid w-full gap-y-4 text-end">
             <PanelTitle />
-            <Link
-              onClick={() => dispatch(showUserPanel(false))}
-              to="/favouriteItems"
-              className="text-sm"
-            >
-              Favourite {goToRightIcon}
-            </Link>
             <div className="grid w-full gap-x-3 border-t pt-6 max-sm:gap-y-3 sm:grid-cols-2 md:gap-x-6 lg:gap-x-12">
               <Button onClick={handleSignOut} variant="outline">
                 Sign out
               </Button>
-              <Button onClick={() => setOpen(!open)} variant="destructive">
+              <Button onClick={() => setOpen(!open)} variant="default">
                 Delete account
               </Button>
 
@@ -113,7 +110,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
                   >
                     <h2>Are you sure?</h2>
                     <div className="mt-4 grid grid-cols-2 gap-x-16">
-                      <Button onClick={handleDeleteAcc} variant="destructive">
+                      <Button onClick={handleDeleteAcc} variant="default">
                         Yes
                       </Button>
                       <Button onClick={() => setOpen(!open)} variant="outline">

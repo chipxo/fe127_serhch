@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import NoItems from "@/components/common/NoItems.tsx";
-import { Error, Loading } from "@/components/common/LoadingError.tsx";
+import ErrorMessage from "@/components/common/ErrorMessage.tsx";
 import BuyCard from "@/features/cards/BuyCard.tsx";
 import { fetchProducts } from "@/hooks/fetchProducts.tsx";
 import { RootState } from "@/app/rootReducer.tsx";
@@ -82,12 +82,12 @@ const ShoppingCart = () => {
 
   return (
     <section className="min-h-[70vh]">
-      {loading && (
+      {/* {loading && (
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Loading />
         </div>
-      )}
-      {error && <Error error={error} />}
+      )} */}
+      {error && <ErrorMessage error={error} />}
 
       {!loading && !error && amount > 0 ? (
         <div className="container py-4">

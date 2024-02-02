@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "@/components/common/Logo";
 import SecondUl from "./AsideBar";
 import Search from "../../../features/searchBar/Search.tsx";
-import Catalog from "./CategoriesNav.tsx";
+import CategoriesNav from "./CategoriesNav.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
@@ -20,7 +20,7 @@ const NavBar = () => {
   }, [dispatch]);
 
   return (
-    <nav className="bg-base-100 container rounded-b-md py-2">
+    <nav className="container rounded-b-md py-2">
       <ul className="grid max-h-[80px] grid-cols-[108px_1fr_0.1fr_0.1fr] place-items-center gap-x-4 sm:grid-cols-[108px_1fr_0.1fr_0.1fr] md:grid-cols-[108px_1fr_0.28fr] lg:grid-cols-[108px_0.22fr_1fr_0.28fr]">
         <NavLink
           to="/"
@@ -28,7 +28,7 @@ const NavBar = () => {
         >
           <Logo />
         </NavLink>
-        <Catalog categories={categories} />
+        <CategoriesNav categories={categories} />
         <div className="w-full">
           <Search />
         </div>
