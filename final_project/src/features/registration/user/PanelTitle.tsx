@@ -1,4 +1,4 @@
-import { RootState } from "@/app/rootReducer";
+import { RootState } from "@/app/rootReducer.tsx";
 import { useSelector } from "react-redux";
 
 const PanelTitle = () => {

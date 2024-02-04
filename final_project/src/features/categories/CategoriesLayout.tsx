@@ -1,29 +1,27 @@
-import React, { useState } from "react";
-import { goToRightIcon, toRightIcon } from "@/components/common/icons";
-import { Link } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
-import { CategoriesType } from "@/types/types";
-import { AnimatePresence, motion as m } from "framer-motion";
-import { twJoin } from "tailwind-merge";
-import { mCategories, mSetting } from "@/utils/motionSettings";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { RootState } from "@/app/rootReducer.tsx";
+import { toRightIcon } from "@/components/common/icons.tsx";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/accordion.tsx";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar.tsx";
+import { nanoid } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-type CategoriesHomeProps = {
-  categories: CategoriesType[] | null;
-};
+const CategoriesLayout = () => {
+  const { categories } = useSelector((state: RootState) => state.categories);
 
-const CategoriesHome: React.FC<CategoriesHomeProps> = ({ categories }) => {
   return (
-    <div className="pl-4 lg:hidden">
+    <div className="lg:hidden">
       <Accordion type="single" collapsible>
-        <AccordionItem value="item-1" className="border-none">
+        <AccordionItem value="item-1">
           <AccordionTrigger>
             <h2>Categories</h2>
           </AccordionTrigger>
@@ -48,4 +46,4 @@ const CategoriesHome: React.FC<CategoriesHomeProps> = ({ categories }) => {
   );
 };
 
-export default CategoriesHome;
+export default CategoriesLayout;

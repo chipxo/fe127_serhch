@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import { toRightIcon } from "@/components/common/icons";
-import { Link } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
-import { AnimatePresence, motion as m } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { CategoriesType } from "@/types/types";
 import { mFLoatMenu } from "@/utils/motionSettings";
-import { Button } from "@/components/ui/button";
+import { nanoid } from "@reduxjs/toolkit";
+import { AnimatePresence, motion as m } from "framer-motion";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 type CategoriesProps = {
   categories: CategoriesType[] | null;

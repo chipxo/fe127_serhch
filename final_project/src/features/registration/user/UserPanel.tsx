@@ -1,24 +1,21 @@
-import { AnimatePresence, motion as m } from "framer-motion";
-import { closeIcon, goToRightIcon } from "@/components/common/icons";
+import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import Logo from "@/components/common/Logo.tsx";
+import { closeIcon } from "@/components/common/icons.tsx";
+import { Button } from "@/components/ui/button.tsx";
 import {
   setSignedIn,
   setUserData,
   showUserPanel,
-} from "@/features/registration/registerSlice";
-import { useAppDispatch } from "@/app/store";
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/rootReducer";
+} from "@/features/registration/registerSlice.tsx";
+import { ModeToggle } from "@/features/theme/mode-toggle.tsx";
+import { mOpacity } from "@/utils/motionSettings.tsx";
+import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Form from "./Form";
-import BtnRegisSign from "./buttons/BtnRegisSign";
-import PanelTitle from "./PanelTitle";
-import { mSetting } from "@/utils/motionSettings";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/features/theme/mode-toggle";
-import Logo from "@/components/common/Logo";
-import bgImage from "@/assets/userPanelBg.svg";
-import panelBg from "./panelBg";
+import { useSelector } from "react-redux";
+import Form from "./Form.tsx";
+import PanelTitle from "./PanelTitle.tsx";
+import BtnRegisSign from "./buttons/BtnRegisSign.tsx";
 
 type UserPanelProps = {
   isBurger?: boolean;
@@ -56,7 +53,10 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
     localStorage.removeItem(`user-${userData?.email}`);
     localStorage.removeItem("signedIn");
     dispatch(showUserPanel(false));
-    dispatch(setSignedIn(false));
+
+    setTimeout(() => {
+      dispatch(setSignedIn(false));
+    }, 800);
   };
 
   const handleClosePanel = () => {
@@ -66,7 +66,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
 
   return (
     <m.div
-      {...mSetting}
+      {...mOpacity}
       className="fixed inset-0 right-0 top-0 z-[999] grid bg-black/40"
     >
       <m.div
@@ -74,7 +74,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 300 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="bg-user-panel relative space-y-4 justify-self-end border-l bg-background bg-cover bg-center bg-no-repeat p-4 max-sm:w-[72vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
+        className="relative space-y-4 justify-self-end border-l bg-background bg-user-panel bg-cover bg-center bg-no-repeat p-4 max-sm:w-[72vw] md:w-[40vw] md:p-6 lg:w-[34vw]"
       >
         <nav className="top-4 grid grid-cols-[1fr_0.4fr] border-b pb-4 max-sm:mb-4 max-sm:border-b max-sm:pb-4 md:left-8 md:top-6">
           <ul className="grid cursor-pointer place-items-center gap-x-4 justify-self-start text-xl max-md:grid-cols-2">
@@ -105,7 +105,7 @@ const UserPannel: React.FC<UserPanelProps> = ({ isBurger = false }) => {
               <AnimatePresence>
                 {open && (
                   <m.div
-                    {...mSetting}
+                    {...mOpacity}
                     className="col-span-2 mt-5 text-center text-lg"
                   >
                     <h2>Are you sure?</h2>

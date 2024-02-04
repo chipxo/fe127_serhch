@@ -1,23 +1,29 @@
-import { motion as m } from "framer-motion";
+import { closeIcon } from "@/components/common/icons";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
-import { mSetting } from "@/utils/motionSettings.tsx";
-import React, { useEffect, useState } from "react";
-import { ProductType } from "@/types/types";
 import { isValidImage } from "@/utils/isValidImage";
-import { Button } from "@/components/ui/button";
-import { closeIcon } from "@/components/common/icons";
-import { nanoid } from "@reduxjs/toolkit";
+import { mOpacity } from "@/utils/motionSettings.tsx";
+import { motion as m } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
-type GalleryProps = Pick<ProductType, "images" | "title">;
+type GalleryProps = {
+  images: string[];
+  title: string;
+  handleCloseGallery: () => void;
+};
 
-const Gallery: React.FC<GalleryProps> = ({ images, title }) => {
+const Gallery: React.FC<GalleryProps> = ({
+  images,
+  title,
+  handleCloseGallery,
+}) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -35,21 +41,19 @@ const Gallery: React.FC<GalleryProps> = ({ images, title }) => {
 
   return (
     <m.div
-      {...mSetting}
+      {...mOpacity}
       className="fixed inset-0 z-[999] grid place-items-center bg-black/85"
     >
       <div className="relative sm:max-w-[70vw] xl:max-w-[50vw]">
+        <Button
+          variant="ghost"
+          className="absolute -top-14 right-4 z-[9999] cursor-pointer text-white sm:-right-14 sm:-top-10"
+          onClick={handleCloseGallery}
+        >
+          {closeIcon}
+        </Button>
         <Carousel setApi={setApi}>
           <CarouselContent>
-            {/* {images?.map((src) => (
-              <CarouselItem key={nanoid()}>
-                <img
-                  className="mx-auto aspect-square w-2/3 rounded-md"
-                  src={src}
-                  alt={title}
-                />
-              </CarouselItem>
-            ))} */}
             <CarouselItem>
               <img
                 className="mx-auto aspect-square w-2/3 rounded-md"

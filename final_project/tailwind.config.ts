@@ -79,7 +79,7 @@ module.exports = {
       gridTemplateColumns: {
         header: "1fr 140px",
         home: "repeat(auto-fill, minmax(250px, 1fr))",
-        products: "repeat(auto-fill, minmax(250px, 1fr))",
+        products: "repeat(auto-fill, minmax(200px, 1fr))",
         filterLayout: "repeat(auto-fill, minmax(200px, 1fr))",
       },
       fontFamily: {

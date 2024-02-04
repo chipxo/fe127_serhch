@@ -1,6 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchProducts } from "@/hooks/fetchProducts.tsx";
 import { ProductType } from "@/types/types.tsx";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type ProductsStateType = {
   products: ProductType[] | undefined;
@@ -17,7 +17,11 @@ const initialState: ProductsStateType = {
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setProducts: (state, action: PayloadAction<ProductType[]>) => {
+      state.products = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -41,5 +45,7 @@ const productsSlice = createSlice({
       );
   },
 });
+
+export const { setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;

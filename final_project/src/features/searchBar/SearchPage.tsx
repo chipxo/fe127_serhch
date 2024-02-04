@@ -1,10 +1,10 @@
-import React from "react";
-import { ProductType } from "@/types/types.tsx";
-import { nanoid } from "@reduxjs/toolkit";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ProductType } from "@/types/types.tsx";
+import { nanoid } from "@reduxjs/toolkit";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 type SearchPageProps = {
   searchResults: ProductType[] | undefined;

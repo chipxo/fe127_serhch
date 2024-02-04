@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-footer-bg grid place-items-center gap-y-4 bg-background bg-cover bg-center p-10 text-center">
+    <footer className="grid place-items-center gap-y-4 bg-background bg-footer-bg bg-cover bg-center p-10 text-center">
       <div>
         <h2 className="mb-4 text-2xl font-bold md:text-4xl">Vivo.</h2>
         <p className="md:text-lg"> Providing reliable clothes since 2022</p>
@@ -41,33 +41,6 @@ const Footer = () => {
               </a>
             </li>
           ))}
-          {/* <li>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-white"
-            >
-              {instagramIcon}
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.twitter.com"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-white"
-            >
-              {twitterIcon}
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.tiktok.com"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-white"
-            >
-              {tikTokIcon}
-            </a>
-          </li> */}
         </ul>
       </nav>
     </footer>

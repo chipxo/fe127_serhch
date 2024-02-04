@@ -1,24 +1,22 @@
-import { useSelector } from "react-redux";
-import { useAppDispatch } from "@/app/store.tsx";
 import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
 import { setInputValue } from "@/features/searchBar/searchSlice";
+import { useSelector } from "react-redux";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion as m } from "framer-motion";
-import SearchPage from "./SearchPage";
-import { ProductType } from "@/types/types";
 import ErrorMessage from "@/components/common/ErrorMessage";
-import { Link, useNavigate } from "react-router-dom";
-import { mSetting } from "@/utils/motionSettings";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ProductType } from "@/types/types";
+import { mOpacity } from "@/utils/motionSettings";
+import { AnimatePresence, motion as m } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import SearchPage from "./SearchPage";
 
 const Search = () => {
   const dispatch = useAppDispatch();
 
-  const { products, loading, error } = useSelector(
-    (state: RootState) => state.products,
-  );
+  const { products, error } = useSelector((state: RootState) => state.products);
 
   const { inputValue } = useSelector(
     (state: RootState) => state.searchProducts,
@@ -35,12 +33,11 @@ const Search = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
+      const inputElement = document.activeElement as HTMLElement;
+      if (e.key === "Enter" && inputElement.getAttribute("name") === "search") {
         setOpen(false);
         navigate("/searchResults");
-
-        const inputElement = document.activeElement as HTMLElement;
-        inputElement?.blur();
+        inputElement.blur();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -71,6 +68,7 @@ const Search = () => {
     <div className="relative">
       <Input
         type="text"
+        name="search"
         placeholder="Search..."
         className="relative z-[200] w-full bg-background"
         value={inputValue}
@@ -78,16 +76,11 @@ const Search = () => {
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
       />
-      {/* {loading && (
-        <div className="absolute -bottom-14 right-1/2 -translate-x-[50px]">
-          <Loading />
-        </div>
-      )} */}
       {error && <ErrorMessage error={error} />}
       <AnimatePresence>
         {open && (
           <m.div
-            {...mSetting}
+            {...mOpacity}
             className="absolute right-0 top-0 z-[200] scale-75"
           >
             <Link to="/searchResults">
@@ -100,12 +93,12 @@ const Search = () => {
         {open && (
           <>
             <m.div
-              {...mSetting}
+              {...mOpacity}
               className="fixed inset-0 z-[99] h-screen w-screen bg-black/40"
               onClick={() => setOpen(false)}
             />
             <m.div
-              {...mSetting}
+              {...mOpacity}
               style={{ x: "-50%" }}
               className="absolute left-1/2 top-11 z-[200] w-full"
             >

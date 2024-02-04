@@ -15,6 +15,7 @@ const amountSlice = createSlice({
     setAmount: (state, action: PayloadAction<number>) => {
       state.amount = action.payload;
     },
+
     addAmount: (state) => {
       state.amount++;
     },

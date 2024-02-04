@@ -1,10 +1,10 @@
-import ShoppingCartItem from "./CartList";
-import User from "../user/User.tsx";
+import User from "@/features/registration/user/User.tsx";
 import { ModeToggle } from "@/features/theme/mode-toggle.tsx";
+import ShoppingCartItem from "./CartList";
 
 const AsideBar = () => {
   return (
-    <ul className="border-neutral grid w-full items-center justify-items-center gap-x-3 md:grid-cols-3 xl:border-l">
+    <ul className="border-neutral grid w-full items-center justify-items-center gap-x-3 md:grid-cols-3 xl:border-l xl:pl-4">
       <li className="">
         <ShoppingCartItem />
       </li>

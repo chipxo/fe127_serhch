@@ -1,17 +1,18 @@
+import { RootState } from "@/app/rootReducer.tsx";
+import { useAppDispatch } from "@/app/store.tsx";
+import ErrorMessage from "@/components/common/ErrorMessage";
+import { cartIcon } from "@/components/common/icons.tsx";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { setAmount } from "@/features/amount/amountSlice";
+import { fetchProducts } from "@/hooks/fetchProducts";
+import { ProductType } from "@/types/types";
+import { mFLoatMenu, mOpacity } from "@/utils/motionSettings";
 import { AnimatePresence, motion as m } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import ErrorMessage from "@/components/common/ErrorMessage";
-import { fetchProducts } from "@/hooks/fetchProducts";
-import { cartIcon } from "@/components/common/icons.tsx";
-import { RootState } from "@/app/rootReducer.tsx";
-import { useAppDispatch } from "@/app/store.tsx";
-import { setAmount } from "@/features/amount/amountSlice";
-import { ProductType } from "@/types/types";
-import { mFLoatMenu, mSetting } from "@/utils/motionSettings";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 type ShoppingCartItemProps = {
   isBurger?: boolean;
@@ -59,7 +60,7 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
           <span className="text-xl">{cartIcon}</span>
           <AnimatePresence>
             {amount > 0 && (
-              <m.div {...mSetting}>
+              <m.div {...mOpacity}>
                 <Badge className="absolute -top-1 right-0" variant="default">
                   {amount}
                 </Badge>
@@ -78,7 +79,15 @@ const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({
             >
               <div className="absolute -top-5 h-8 w-full bg-transparent" />
               <div className="grid max-h-[44vh] w-max cursor-pointer gap-y-4 overflow-auto rounded-md border bg-background p-4 ">
-                {/* {loading && <Loading />} */}
+                {loading && (
+                  <div className="flex gap-4">
+                    <Skeleton className="w-20 mr-2 aspect-square bg-white" />
+                    <div className="w-full space-y-2">
+                      <Skeleton className="h-6 bg-white" />
+                      <Skeleton className="w-5 h-4 bg-white" />
+                    </div>
+                  </div>
+                )}
                 {error && <ErrorMessage error={error} />}
                 {items?.map((item) => {
                   if (item && item.id) {

@@ -6,11 +6,13 @@ const HomeLoading = () => {
   return (
     <section className="space-y-12">
       <SliderSkeleton />
-      <div className="border-t pt-4">
-        <Skeleton className="mx-auto h-6 w-40 bg-accent" />
+      <div className="container border-t pt-4">
+        <Skeleton className="ml-4 h-6 w-40 bg-accent" />
       </div>
       <div className="container grid grid-cols-home gap-2">
-        <CardSkeleton isHome />
+        {"qwertyuiop".split("").map((char) => (
+          <CardSkeleton key={char} isHome />
+        ))}
       </div>
     </section>
   );

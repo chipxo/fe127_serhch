@@ -1,8 +1,7 @@
-import { Outlet } from "react-router-dom";
+import Footer from "@/components/containers/footer/Footer.tsx";
 import NavBar from "@/components/containers/nav/NavBar.tsx";
 import { useEffect } from "react";
-import Footer from "@/components/containers/footer/Footer.tsx";
-import { ModeToggle } from "@/features/theme/mode-toggle";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   useEffect(() => {

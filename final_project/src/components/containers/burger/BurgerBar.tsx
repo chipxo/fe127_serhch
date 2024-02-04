@@ -1,18 +1,21 @@
-import { useEffect } from "react";
-import Burger from "./Burger";
-import { AnimatePresence } from "framer-motion";
-import { useAppDispatch } from "@/app/store";
 import { RootState } from "@/app/rootReducer";
-import { useSelector } from "react-redux";
+import { useAppDispatch } from "@/app/store";
 import {
   setUserData,
   showUserPanel,
 } from "@/features/registration/registerSlice";
-import UserPannel from "../user/UserPanel";
+import Form from "@/features/registration/user/Form";
+import UserPannel from "@/features/registration/user/UserPanel";
+import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import Burger from "./Burger";
 
 const BurgerBar = () => {
   const dispatch = useAppDispatch();
-  const { openUserPanel } = useSelector((state: RootState) => state.register);
+  const { openUserPanel, openForm } = useSelector(
+    (state: RootState) => state.register,
+  );
 
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");
@@ -24,14 +27,15 @@ const BurgerBar = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <div onClick={() => dispatch(showUserPanel(true))}>
         <Burger />
       </div>
       <AnimatePresence>
         {openUserPanel && <UserPannel isBurger />}
       </AnimatePresence>
-    </div>
+      <AnimatePresence>{openForm && <Form />}</AnimatePresence>
+    </>
   );
 };
 

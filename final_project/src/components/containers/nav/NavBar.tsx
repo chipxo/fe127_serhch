@@ -1,14 +1,14 @@
-import { NavLink } from "react-router-dom";
-import Logo from "@/components/common/Logo";
-import SecondUl from "./AsideBar";
-import Search from "../../../features/searchBar/Search.tsx";
-import CategoriesNav from "./CategoriesNav.tsx";
-import { useSelector } from "react-redux";
 import { RootState } from "@/app/rootReducer.tsx";
 import { useAppDispatch } from "@/app/store.tsx";
+import Logo from "@/components/common/Logo";
+import Search from "@/features/searchBar/Search.tsx";
 import { fetchCategories } from "@/hooks/fetchCategories.tsx";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import BurgerBar from "../burger/BurgerBar.tsx";
+import SecondUl from "./AsideBar";
+import CategoriesNav from "./CategoriesNav.tsx";
 
 const NavBar = () => {
   const { categories } = useSelector((state: RootState) => state.categories);
@@ -29,7 +29,7 @@ const NavBar = () => {
           <Logo />
         </NavLink>
         <CategoriesNav categories={categories} />
-        <div className="w-full">
+        <div className="w-full xl:pr-4">
           <Search />
         </div>
         <SecondUl />

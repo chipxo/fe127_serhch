@@ -1,10 +1,10 @@
-import { useAppDispatch } from "@/app/store";
-import { Button } from "@/components/ui/button";
+import { useAppDispatch } from "@/app/store.tsx";
+import { Button } from "@/components/ui/button.tsx";
 import {
   setRegistered,
   showForm,
   showUserPanel,
-} from "@/features/registration/registerSlice";
+} from "@/features/registration/registerSlice.tsx";
 import React from "react";
 
 type BtnProps = {

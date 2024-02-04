@@ -1,4 +1,7 @@
 import { useAppDispatch } from "@/app/store";
+import { cartDelete, cartIcon } from "@/components/common/icons";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,13 +11,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ProductType } from "@/types/types";
-import { isValidImage } from "@/utils/isValidImage";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addAmount, decreaseAmount } from "../../amount/amountSlice";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { cartDelete, cartIcon } from "@/components/common/icons";
 
 type CardProps = ProductType & {
   isHome?: boolean;

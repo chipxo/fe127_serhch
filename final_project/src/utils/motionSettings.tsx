@@ -1,4 +1,4 @@
-export const mSetting = {
+export const mOpacity = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
