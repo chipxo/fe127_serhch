@@ -1,0 +1,36 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
+  
+  <defs>
+    <linearGradient id='gradient' x1='80%' y1='20%' x2='5%' y2='5%'>
+      <stop offset='0%' stop-color='#ad1637'/> 
+      <stop offset='100%' stop-color='#be193d'/> 
+      
+    </linearGradient>
+    
+  </defs>
+  
+  <style>
+    
+    .background {
+      
+      fill: url(#gradient);
+      animation: transition 2s ease infinite alternate;
+      
+    }
+    
+    @keyframes transition {
+      
+      from {transform:translateX(-300%) }
+      
+     
+      
+    }
+    
+  </style>
+  
+  <g class='background'>
+    <rect width='1000' height='1000'/>
+  </g>
+  
+  
+</svg>
